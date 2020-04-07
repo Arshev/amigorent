@@ -1,0 +1,75 @@
+<%= render 'shared/header' %>
+<div class="content">
+    <div class="wrapper">
+        <%= render 'shared/bread'%>
+        <div class="bl_zakaz">
+            <div class="pol1">
+                <div class="zg">Выбранный автомобиль</div>
+                <input type="text" value="" placeholder="Выберите автомобиль" name="">
+                <div class="cha1">
+                    <div class="zg">Имя<span>*</span></div>
+                    <input type="text" value="" placeholder="Имя" name="">
+                </div>
+                <div class="cha1">
+                    <div class="zg">Фамилия<span>*</span></div>
+                    <input type="text" value="" placeholder="Фамилия" name="">
+                </div>
+                <div class="clear"></div>
+                <div class="cha1">
+                    <div class="zg">Дата и время начала аренды<span>*</span></div>
+                    <input type="text" value="" placeholder="Дата и время начала аренды" name="">
+                </div>
+                <div class="cha1">
+                    <div class="zg">Дата окончания<span>*</span></div>
+                    <input type="text" value="" placeholder="Дата и время окончания аренды" name="">
+                </div>
+                <div class="clear"></div>
+                <div class="cha1">
+                    <div class="zg">Место получения авто<span>*</span></div>
+                    <input type="text" value="" placeholder="Офис бесплатно" name="">
+                </div>
+                <div class="cha1">
+                    <div class="zg">Место возврата авто<span>*</span></div>
+                    <input type="text" value="" placeholder="Офис бесплатно" name="">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="pol2">
+                <div class="zg">Стоимость</div>
+                <p>Название</p>
+                <p>Цена (за сутки)</p>
+                <p>Всего суток</p>
+                <p class="itogo">Итого</p>
+                <p>Залог</p>
+                <a href="#" class="otpr">Отправить заявку</a>
+            </div>
+            <div class="clear"></div>
+            <div class="dopoln">
+                <div class="zg2">Дополнительные опции</div>
+                <label>
+                    <input type="checkbox" value="" name="">
+                    Детское кресло
+                </label>
+                <label>
+                    <input type="checkbox" value="" name="">
+                    Навигатор
+                </label>
+                <div class="zg2">Подтвердите согласие<span>*</span></div>
+                <label>
+                    <input type="checkbox" value="" name="">
+                    Даю согласие на обработку персональных данных, согласно 152-ФЗ
+                </label>
+            </div>
+            <div class="nizz">
+                <p>Цены на доставку указаны в рабочее время, возможность и цены доставки в нерабочее время уточняйте у наших менеджеров.</p>
+                <p>Выдача и прием автомобиля в офисе в нерабочее время с 19-00 до 9-00 составляет 400 руб.</p>
+                <p>Прием автомобиля в городе в выходные и праздничные дни в рабочее время - 300 руб.</p>
+                <p>Выдача и прием автомобиля по городу в нерабочее время с 19-00 до 9-00 составляет 500 руб.</p>
+                <p>Выдача и прием автомобиля в аэропорту в нерабочее время с 19-00 до 9-00 составляет 700 руб.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<%= render 'shared/footer', cached: true %>
