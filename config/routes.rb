@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   resources :terms, only: [:index]
   resources :faqs, only: [:index]
   resources :abouts, only: [:index]
+  resources :services, only: [:index]
+  resources :deliveries, only: [:index]
+  resources :articles, only: [:index]
 end

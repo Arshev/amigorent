@@ -217,7 +217,7 @@ a {
 }
 .header .menu_top li a {
     display: block;
-    font-size: 18px;
+    font-size: 17px;
     text-decoration: none;
     line-height: 26px;
     text-transform: uppercase;
@@ -889,17 +889,20 @@ a {
     max-width: 100%;
 }
 .content {
+    // padding: 91px 0 60px;
     padding: 91px 0 60px;
 }
 .content .bread {
+    background-color: #f6f5f5;
     font-weight: 300;
     color: #d67e2a;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 30px;
 }
 .content .bread a {
     text-decoration: none;
     color: #a9a9a9;
+    padding-left: 10px;
 }
 .content .bread a:hover {
     text-decoration: underline;
@@ -909,7 +912,8 @@ a {
     font-family: 'Georgia', sans-serif;
     font-size: 36px;
     line-height: 42px;
-    margin: 32px 0 34px;
+    margin: 15px 0 34px;
+    // margin: 32px 0 34px;
 }
 .content .bl_faq {}
 .content .bl_faq .fq {
@@ -2717,7 +2721,7 @@ a {
         top: 0!important;
     }
     .content {
-        padding: 30px 0;
+        padding: 10px 0;
     }
     .content .bread {
         font-size: 15px;

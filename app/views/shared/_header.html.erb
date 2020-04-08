@@ -119,8 +119,25 @@
           <li class="<%= active_class?(faqs_path) %>">
             <%= link_to "Вопросы", faqs_path %>
           </li>
-          <li class="<%= active_class?(abouts_path) %>">
-            <%= link_to "О нас", abouts_path %>
+          <li>
+            <a>
+              Прочее
+              <span>&#9660;</span>
+            </a>
+              <ul>
+                <li class="<%= active_class?(abouts_path) %>">
+                  <%= link_to "О нас", abouts_path %>
+                </li>
+                <li class="<%= active_class?(services_path) %>">
+                  <%= link_to "Доп услуги", services_path %>
+                </li>
+                <li class="<%= active_class?(deliveries_path) %>">
+                  <%= link_to "Доставка", deliveries_path %>
+                </li>
+                <li class="<%= active_class?(articles_path) %>">
+                  <%= link_to "Новости и акции", articles_path %>
+                </li>
+              </ul>
           </li>
       </ul>
       <div class="clear"></div>
