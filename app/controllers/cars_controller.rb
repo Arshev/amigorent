@@ -73,11 +73,7 @@ class CarsController < ApplicationController
       !@car.active && !@car.price_1.blank? && !@car.price_2.blank? && !@car.price_3.blank? && !@car.price_4.blank? && !@car.price_5.blank? && !@car.price_hour.blank? && !@car.price_main.blank? && !@car.car_name.blank? && @car.images.attached?
     end
 
-    def set_images
-      @photos = @car.images
-    end
-
     def car_params
-      params.require(:car).permit(:car_name, :year, :color, :transmission, :is_air, :engine_capacity, :is_electropackage, :car_class, :car_type, :price_1, :price_2, :price_3, :price_4, :price_5, :old_price_1, :old_price_2, :old_price_3, :old_price_4, :old_price_5, :price_hour, :price_main, :deposit, :description, :fuel, :number_doors, :active, :sort, :show_on_main, images: [])
+      params.require(:car).permit(:car_name, :year, :color, :transmission, :is_air, :engine_capacity, :is_electropackage, :car_class, :car_type, :price_1, :price_2, :price_3, :price_4, :price_5, :old_price_1, :old_price_2, :old_price_3, :old_price_4, :old_price_5, :price_hour, :price_main, :deposit, :description, :fuel, :number_doors, :active, :sort, :show_on_main, :main_image, images: [])
     end
 end

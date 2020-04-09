@@ -1,15 +1,18 @@
 <div class="content">
-  <!-- Small boxes (Stat box) -->
   <div class="row">
     <% @cars.each do |car| %>
       <div class="col-lg-6 m-b-3">
         <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
               <div class="user-img pull-left">
                 <%= link_to car_path(car) do %>
-                  <%= image_tag car.cover_photo(:thumb) %>
+                  <% if car.main_image.attached? %>
+                    <%= image_tag car.main_image.variant(resize: "100x100") %>
+                  <% else %>
+                    <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 100px; height: 100px;" %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -20,7 +23,7 @@
                   <%= link_to ' Изменить', edit_car_admin_path(action: "edit_car", id: car), class: "btn btn-sm btn-secondary" %>
                   <%= link_to ' Добавить фото', upload_photos_admin_path(action: "upload_photos", id: car), class: "btn btn-sm btn-dark" %>
                 </p>
-                <% is_ready = !car.price_1.blank? && !car.price_2.blank? && !car.price_3.blank? && !car.price_4.blank? && !car.price_main.blank? && !car.car_name.blank? && !car.photos.blank?  %>
+                <% is_ready = !car.price_1.blank? && !car.price_2.blank? && !car.price_3.blank? && !car.price_4.blank? && !car.price_main.blank? && !car.car_name.blank? && car.images.attached?  %>
                 <% is_active = car.active %>
                 <% if !car.active %>
                   <%= form_for car do |f| %>

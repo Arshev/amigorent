@@ -1506,7 +1506,7 @@ ul.list-inline li {
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > .user-img {
 	margin-right: 10px;
-	width: 70px;
+	width: 100px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
 	color: #000;
