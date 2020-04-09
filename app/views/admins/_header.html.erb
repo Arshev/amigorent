@@ -1,0 +1,35 @@
+<body class="skin-blue sidebar-mini">
+<div class="wrapper boxed-wrapper">
+  <header class="main-header">
+    <!-- Logo -->
+    <%= link_to admin_path, class: "logo blue-bg" do %>
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><%= image_tag "dist/img/logo-n-blue.png" %></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><%= image_tag "dist/img/logo-blue.png" %></span>
+    <% end %>
+    <!-- Header Navbar -->
+    <nav class="navbar blue-bg navbar-static-top">
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+        <!-- SMS Balance -->
+          <% balance = MainsmsApi::Balance.new %>
+          <li style="padding: 23px 20px 22px 20px;">Баланс смс: <%= balance.check.balance %> руб</li>
+          <!-- User Account  -->
+          <li class="dropdown user user-menu p-ph-res"> 
+            <%= link_to edit_user_registration_path, class:"dropdown-toggle" do %>
+              <%= image_tag "dist/img/img1.jpg", class:"user-image", alt:"User Image" %> 
+              <span class="hidden-xs">
+                <%= current_user.name %> <%= current_user.lastname %>
+              </span>
+            <% end %>
+          </li>
+          <li class="dropdown user user-menu p-ph-res">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              Выход
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>

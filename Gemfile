@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # My gems
 
 gem 'devise', '>= 4.7.1'
+gem 'image_processing', '~> 1.2'
+gem 'mainsms_api', '~> 0.0.9'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

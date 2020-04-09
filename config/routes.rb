@@ -4,6 +4,18 @@ Rails.application.routes.draw do
 
   resources :cars, except: [:edit]
 
+  resource :admin, except: [:edit, :new, :create] do
+    member do
+      get 'cars'
+      get 'new_car'
+      get 'upload_photos'
+      get 'edit_car'
+      get 'text_main'
+      get 'text_other'
+      get 'text_metatags'
+    end
+  end
+
   resources :reviews, only: [:create, :index, :destroy, :approve] do
     member do
       post '/approve' => "reviews#approve"
