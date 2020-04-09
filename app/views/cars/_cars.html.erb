@@ -1,34 +1,51 @@
-<div class="avto">
-    <a href="#" class="bl_img">
-      <%= image_tag "a1.jpg", alt: "", title: "" %>
-    </a>
-    <a href="#" class="zg">Chevrolet Spark Promo</a>
-    <div class="price">от <b>700</b> руб/сутки</div>
-    <a href="#" class="more">Подробнее</a>
-    <div class="hara">
-        <p>
-          <%= image_tag "h1.png", alt: "", title: "" %>
-          Автомат
-        </p>
-        <p>
-          <%= image_tag "h2.png", alt: "", title: "" %>
-          Бензин
-        </p>
-        <p>
-          <%= image_tag "h3.png", alt: "", title: "" %>
-          2012г.
-        </p>
-        <p>
-          <%= image_tag "h4.png", alt: "", title: "" %>
-          Хэтчбэк
-        </p>
-        <p>
-          <%= image_tag "h5.png", alt: "", title: "" %>
-          1,0
-        </p>
-        <p>
-          <%= image_tag "h6.png", alt: "", title: "" %>
-          Есть
-        </p>
+<% @cars.each do |car| %>
+  <% if car.active %>
+    <div class="avto">
+        <a href="#" class="bl_img">
+          <%= image_tag car.main_image.variant(resize_to_fit: [484, nil]), alt: "#{car.car_name}", title: "#{car.car_name}" %>
+        </a>
+        <%= link_to car_path(car), class: "zg" do %>
+          <%= car.car_name %>
+        <% end %>
+        <div class="price">
+          от <b><%= car.price_main %></b> руб/сутки
+        </div>
+        <%= link_to car_path(car), class: "more" do %>
+          Подробнее
+        <% end %>
+        <div class="hara">
+            <p>
+              <% if car.transmission == 'Механика'%>
+                <%= image_tag "transmission.png", style: "width: 20px;", alt: "", title: "" %>
+                Механика
+              <% else %>
+                <%= image_tag "transmission.png", style: "width: 20px;", alt: "", title: "" %>
+                Автомат
+              <% end %>
+            </p>
+            <p>
+              <%= image_tag "fuel.png", style: "width: 20px;", alt: "", title: "" %>
+              <%= car.fuel %>
+            </p>
+            <p>
+              <%= image_tag "year.png", style: "width: 20px;", alt: "", title: "" %>
+              <%= car.year %> г.
+            </p>
+            <p>
+              <%= image_tag "car_type.png", style: "width: 20px;", alt: "", title: "" %>
+              <%= car.car_type %>
+            </p>
+            <p>
+              <%= image_tag "capacity.png", style: "width: 20px;", alt: "", title: "" %>
+              <%= car.engine_capacity %> л.
+            </p>
+            <p>
+              <% if car.is_air %>
+                <%= image_tag "snow.png", style: "width: 20px;", alt: "", title: "" %>
+                Есть
+              <% end %>
+            </p>
+        </div>
     </div>
-</div>
+  <% end %>
+<% end %>
