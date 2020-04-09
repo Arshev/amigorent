@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
-  resources :cars, except: [:edit]
+  resources :cars, except: [:edit] do
+    member do
+      delete :remove_attachment
+    end
+  end
 
   resource :admin, except: [:edit, :new, :create] do
     member do

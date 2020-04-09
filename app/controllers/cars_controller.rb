@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, except: [:index, :new, :create]
+  before_action :set_car, except: [:index, :new, :create, :remove_attachment]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :update, :destroy]
 
@@ -42,6 +42,12 @@ class CarsController < ApplicationController
   end
 
   def images_upload
+  end
+
+  def remove_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge_later
+    redirect_back(fallback_location: upload_photos_admin_path)
   end
 
   def amenities
