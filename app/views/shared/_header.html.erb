@@ -77,29 +77,15 @@
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
-      <ul class="menu_top">
+      <div class="sticky">
+        <ul class="menu_top fixed">
           <li>
               <%= link_to "Главная", root_path %>
           </li>
           <li class="<%= active_class?(cars_path) %>">
               <%= link_to cars_path do %>
                 Автомобили
-                <!--<span>&#9660;</span> -->
               <% end %>
-              <!-- <ul>
-                  <li>
-                      <a href="#">Легковые</a>
-                  </li>
-                  <li>
-                      <a href="#">Грузовые</a>
-                  </li>
-                  <li>
-                      <a href="#">Легковые</a>
-                  </li>
-                  <li>
-                      <a href="#">Грузовые</a>
-                  </li>
-              </ul> -->
           </li>
           <li class="<%= active_class?(prices_path) %>">
             <%= link_to "Цены", prices_path %>
@@ -139,7 +125,11 @@
                 </li>
               </ul>
           </li>
-      </ul>
+        </ul>
+      </div>
+      
+      
+      
       <div class="clear"></div>
   </div>
 </div>

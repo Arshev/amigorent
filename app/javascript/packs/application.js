@@ -7,4 +7,3 @@ import "../stylesheets/application"
 
 global.toastr = require("toastr")
 
-
