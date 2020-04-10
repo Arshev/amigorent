@@ -4,15 +4,20 @@
         <%= render 'shared/bread'%>
         <div class="bl_avto">
             <div class="pol1">
-                <h1>Chevrolet Spark Promo</h1>
-                <div class="bir">Эконом</div>
-                <div class="bl_full">
+                <h1><%= @car.car_name %></h1>
+                <div class="bir"><%= @car.car_class %></div>
+                <div class="bl_full" style="margin-top: 100px;">
                     <div class="badge">
                         <img src="images/badge.png" alt="" />
                     </div>
-                    <img src="images/full.jpg" alt="" />
+                    <div class="fotorama" data-nav="thumbs" data-thumbwidth="100" data-thumbheight="100">
+                        <% @car.images.each do |image| %>
+                            <%= image_tag image, alt: @car.car_name, title: @car.car_name %>
+                        <% end %>
+                    </div>
+                    <%# image_tag @car.main_image.variant(resize_to_limit: [1024, nil]), alt: "#{@car.car_name}", title: "#{@car.car_name}" %>
                 </div>
-                <div class="bl_imgs">
+                <!--<div class="bl_imgs">
                     <a href="#">
                         <img src="images/full.jpg" alt="" />
                     </a>
@@ -32,7 +37,7 @@
                         <img src="images/full.jpg" alt="" />
                     </a>
                     <div class="clear"></div>
-                </div>
+                </div> -->
             </div>
             <div class="pol2">
                 <div class="zg">Спецификация:</div>
