@@ -7,107 +7,148 @@
                 <h1><%= @car.car_name %></h1>
                 <div class="bir"><%= @car.car_class %></div>
                 <div class="bl_full" style="margin-top: 100px;">
-                    <div class="badge">
-                        <img src="images/badge.png" alt="" />
-                    </div>
+                    <% if @car.old_price_1 %>
+                        <div class="badge">
+                            <%= image_tag "badge.png", alt: "", title: "" %>
+                        </div>
+                    <% end %>
                     <div class="fotorama" data-nav="thumbs" data-thumbwidth="100" data-thumbheight="100">
+                        <%= image_tag @car.main_image, alt: @car.car_name, title: @car.car_name %>
                         <% @car.images.each do |image| %>
                             <%= image_tag image, alt: @car.car_name, title: @car.car_name %>
                         <% end %>
                     </div>
-                    <%# image_tag @car.main_image.variant(resize_to_limit: [1024, nil]), alt: "#{@car.car_name}", title: "#{@car.car_name}" %>
                 </div>
-                <!--<div class="bl_imgs">
-                    <a href="#">
-                        <img src="images/full.jpg" alt="" />
-                    </a>
-                    <a href="#">
-                        <img src="images/full.jpg" alt="" />
-                    </a>
-                    <a href="#">
-                        <img src="images/full.jpg" alt="" />
-                    </a>
-                    <a href="#">
-                        <img src="images/full.jpg" alt="" />
-                    </a>
-                    <a href="#">
-                        <img src="images/full.jpg" alt="" />
-                    </a>
-                    <a href="#">
-                        <img src="images/full.jpg" alt="" />
-                    </a>
-                    <div class="clear"></div>
-                </div> -->
             </div>
             <div class="pol2">
                 <div class="zg">Спецификация:</div>
                 <div class="rating">
                     Рейтинг модели:
-                    <img src="images/ra1.png" alt="" />
-                    <img src="images/ra1.png" alt="" />
-                    <img src="images/ra1.png" alt="" />
-                    <img src="images/ra1.png" alt="" />
-                    <img src="images/ra0.png" alt="" />
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra0.png", alt: "", title: "" %>
                 </div>
                 <p>
-                    <img src="images/i1.png" alt="" />
+                    <%= image_tag "i1.png", alt: "", title: "" %>
                     Коробка передач:
-                    <span>Автомат</span>
+                    <span><%= @car.transmission %></span>
                 </p>
                 <p>
-                    <img src="images/i2.png" alt="" />
+                    <%= image_tag "i2.png", alt: "", title: "" %>
                     Цвет кузова:
-                    <span>Черный</span>
+                    <span><%= @car.color %></span>
                 </p>
                 <p>
-                    <img src="images/i3.png" alt="" />
+                    <%= image_tag "i3.png", alt: "", title: "" %>
                     Вид топлива:
-                    <span>Бензин</span>
+                    <span><%= @car.fuel %></span>
                 </p>
                 <p>
-                    <img src="images/i4.png" alt="" />
+                    <%= image_tag "i4.png", alt: "", title: "" %>
                     Год выпуска:
-                    <span>2013</span>
+                    <span><%= @car.year %></span>
                 </p>
                 <p>
-                    <img src="images/i5.png" alt="" />
+                    <%= image_tag "i5.png", alt: "", title: "" %>
                     Объем двигателя:
-                    <span>1,0л</span>
+                    <span><%= @car.engine_capacity %>л</span>
                 </p>
                 <p>
-                    <img src="images/i6.png" alt="" />
+                    <%= image_tag "i6.png", alt: "", title: "" %>
                     Тип кузова:
-                    <span>Хэтчбэк</span>
+                    <span><%= @car.car_type %></span>
                 </p>
                 <p>
-                    <img src="images/i7.png" alt="" />
+                    <%= image_tag "i7.png", alt: "", title: "" %>
                     Количество дверей:
-                    <span>5</span>
+                    <span><%= @car.number_doors %></span>
                 </p>
                 <p>
-                    <img src="images/i8.png" alt="" />
+                    <%= image_tag "i8.png", alt: "", title: "" %>
                     Кондиционер:
-                    <span>Есть</span>
+                    <% if @car.is_air %>
+                        <span>Есть</span>
+                    <% else %>
+                        <span>Нет</span>
+                    <% end %>
                 </p>
                 <p>
-                    <img src="images/i9.png" alt="" />
+                    <%= image_tag "i9.png", alt: "", title: "" %>
                     Электропакет:
-                    <span>Есть</span>
+                    <% if @car.is_electropackage %>
+                        <span>Есть</span>
+                    <% else %>
+                        <span>Нет</span>
+                    <% end %>
                 </p>
-                <div class="price">от <b>700</b> руб/сутки</div>
+                <div class="price">от <b><%= @car.price_main %></b> руб/сутки</div>
+                <%# link_to "Забронировать", new_booking_path(car_id: @car.id), class:"bron" %>
                 <a href="#" class="bron">Забронировать</a>
             </div>
             <div class="clear"></div>
             <div class="bl_perekl">
                 <a href="#" class="active" data-per="pere1">Описание</a>
                 <a href="#" data-per="pere2">Цены</a>
+                <a href="#" data-per="pere3">ТТХ</a>
             </div>
             <div class="perek active" id="pere1">
-                <p>Машина доступна в широком цветовом ассортименте: салатовый, красный, белый, черный. Шевроле Спарк - это 5-дверный хэтчбек, самый популярный в прокате автомобиль эконом класса с автоматической коробкой передач. Яркий современный дизайн, просторный салон, экономичность и невысокая стоимость аренды делают его самым удачным выбором для поездок двух-трёх человек с небольшим количеством багажа. Небольшие размеры делают его очень удобным для эксплуатации в городских условиях. Мотор объемом 1л. позволит существенно экономить на топливе, при этом его вполне достаточно для спокойной и ненапряженной езды. В салоне все сделано для вашего удобства: полочки, подстаканники, полезные мелочи, все под рукой. Все машины данной модели оборудованы USB-входом и AUX в штатной комплектации. На некоторых авто есть подогрев сидений. Необходимый электропакет тоже присутствует. Выбирая автомобиль для аренды обращайтесь только в надежные и проверенные фирмы с высоким рейтингом, проверенные временем. Автопрокат Амиго уже более 10 лет предоставляет услуги проката на территории Калининградской области и в других регионах России.</p>
+                <p><%= @car.description %></p>
                 <div class="clear"></div>
             </div>
             <div class="perek" id="pere2">
-                <p>Тут будут цены.</p>
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <h3>Цены на аренду</h3>
+                    </thead>
+                    <tbody>
+                        <tr class="prices-single-car-header">
+                            <td class="prices-table-header">до 3 суток</td>
+                            <td class="prices-table-header">4-7 суток</td>
+                            <td class="prices-table-header">8-14 суток</td>
+                            <td class="prices-table-header">15-30 суток</td>
+                            <td class="prices-table-header">> 30 суток</td>
+                            <td class="prices-table-header">Залог</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <%= @car.price_1 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_2 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_3 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_4 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_5 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.deposit %> рублей
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clear"></div>
+            </div>
+            <div class="perek" id="pere3">
+                <p>Тут будут ТТХ.</p>
                 <div class="clear"></div>
             </div>
             <div class="bl_ostav">
@@ -120,24 +161,24 @@
                     <textarea placeholder="Ваш отзыв"></textarea>
                     <div class="rating">
                         <p class="num1">
-                            <img src="images/ra0.png" alt="" />
-                            <img src="images/ra1.png" alt="" />
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
                         </p>
                         <p class="num2">
-                            <img src="images/ra0.png" alt="" />
-                            <img src="images/ra1.png" alt="" />
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
                         </p>
                         <p class="num3">
-                            <img src="images/ra0.png" alt="" />
-                            <img src="images/ra1.png" alt="" />
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
                         </p>
                         <p class="num4">
-                            <img src="images/ra0.png" alt="" />
-                            <img src="images/ra1.png" alt="" />
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
                         </p>
                         <p class="num5">
-                            <img src="images/ra0.png" alt="" />
-                            <img src="images/ra1.png" alt="" />
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
                         </p>
                     </div>
                     <input type="submit" value="Отправить отзыв" name="">
@@ -150,11 +191,11 @@
                     <div class="data">29.02.2020</div>
                     <div class="fio">Иванов Иван</div>
                     <div class="rating">
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra05.png" alt="" />
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                 </div>
@@ -162,11 +203,11 @@
                     <div class="data">29.02.2020</div>
                     <div class="fio">Иванов Иван</div>
                     <div class="rating">
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra05.png" alt="" />
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                 </div>
@@ -174,11 +215,11 @@
                     <div class="data">29.02.2020</div>
                     <div class="fio">Иванов Иван</div>
                     <div class="rating">
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra1.png" alt="" />
-                        <img src="images/ra05.png" alt="" />
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                 </div>
