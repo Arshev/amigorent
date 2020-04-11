@@ -7,3 +7,6 @@ import "../stylesheets/application"
 
 global.toastr = require("toastr")
 
+
+require("trix")
+require("@rails/actiontext")
