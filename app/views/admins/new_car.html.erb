@@ -205,7 +205,7 @@
                 </div>
                 <div class="col-md-12 form-group">
                   <label>Описание</label>
-                  <%= f.text_area :description, rows: 10, placeholder: "Описание авто", class: "form-control" %>
+                  <%= f.rich_text_area :description, rows: 10, placeholder: "Описание авто", class: "form-control", required: true %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
