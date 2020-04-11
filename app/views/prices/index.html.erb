@@ -20,318 +20,323 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td colspan="9">Эконом</td>
+                  <% @count = 0 %>
+                  <tr>
+                      <td colspan="9">Эконом</td>
+                  </tr>
+                  <% @cars.where("car_class = 'Эконом' and active = 'true'").each do |car| %>
+                    <% @count += 1 %>
+                    <tr class=<%= bg_active(@count) %>>
+                      <td>
+                          <div class="avto">
+                              <div class="zz"><%= car.car_name %></div>
+                              <%= link_to car_path(car), class: "bl_img" do %>
+                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                              <% end %>
+                              <div class="hara">
+                                  <% if car.transmission == 'Механика'%>
+                                      <%= image_tag "transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% else %>
+                                      <%= image_tag "auto-transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% end %>
+                                  <% if car.car_type == "Хэтчбек" %>
+                                      <%= image_tag ('hatchback.png'), alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек", style: "height: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Седан" %>
+                                      <%= image_tag ('sedan.png'), alt: "Седан", title: "Тип кузова авто Седан", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Универсал" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Универсал", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Минивен" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Минивен", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Кроссовер" %>
+                                      <%= image_tag ('crossover.png'), alt: "Кросовер", title: "Тип кузова авто Кросовер", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Купе" %>
+                                      <%= image_tag ('coupe.png'), alt: "Купе", title: "Тип кузова авто Купе", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.is_air %>
+                                    <%= image_tag ('air-conditioner.png'), alt: "Кондиционер", title: "В автомобиле есть кондиционер", style:"z-index:2;width: 25px;" %>
+                                  <% end %>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <%= car.price_1 %>
+                        <% if car.old_price_1 %>
+                          <div class="old"><%= car.old_price_1 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_2 %>
+                        <% if car.old_price_2 %>
+                          <div class="old"><%= car.old_price_2 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_3 %>
+                        <% if car.old_price_3 %>
+                          <div class="old"><%= car.old_price_3 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_4 %>
+                        <% if car.old_price_4 %>
+                          <div class="old"><%= car.old_price_4 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_5 %>
+                        <% if car.old_price_5 %>
+                          <div class="old"><%= car.old_price_5 %></div>
+                        <% end %>
+                      </td>
+                      <td><%= car.price_hour %></td>
+                      <td><%= car.deposit %></td>
+                      <td>
+                          <a href="#" class="zakaz">Заказать</a>
+                      </td>
                     </tr>
-                    <tr class="bg1">
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
+                  <% end %>
+                  <tr>
+                      <td colspan="9">Средний</td>
+                  </tr>
+                  <% @cars.where("car_class = 'Средний' and active = 'true'").each do |car| %>
+                    <% @count += 1 %>
+                    <tr class=<%= bg_active(@count) %>>
+                      <td>
+                          <div class="avto">
+                              <div class="zz"><%= car.car_name %></div>
+                              <%= link_to car_path(car), class: "bl_img" do %>
+                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                              <% end %>
+                              <div class="hara">
+                                  <% if car.transmission == 'Механика'%>
+                                      <%= image_tag "transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% else %>
+                                      <%= image_tag "auto-transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% end %>
+                                  <% if car.car_type == "Хэтчбек" %>
+                                      <%= image_tag ('hatchback.png'), alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек", style: "height: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Седан" %>
+                                      <%= image_tag ('sedan.png'), alt: "Седан", title: "Тип кузова авто Седан", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Универсал" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Универсал", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Минивен" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Минивен", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Кроссовер" %>
+                                      <%= image_tag ('crossover.png'), alt: "Кросовер", title: "Тип кузова авто Кросовер", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Купе" %>
+                                      <%= image_tag ('coupe.png'), alt: "Купе", title: "Тип кузова авто Купе", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.is_air %>
+                                    <%= image_tag ('air-conditioner.png'), alt: "Кондиционер", title: "В автомобиле есть кондиционер", style:"z-index:2;width: 25px;" %>
+                                  <% end %>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <%= car.price_1 %>
+                        <% if car.old_price_1 %>
+                          <div class="old"><%= car.old_price_1 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_2 %>
+                        <% if car.old_price_2 %>
+                          <div class="old"><%= car.old_price_2 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_3 %>
+                        <% if car.old_price_3 %>
+                          <div class="old"><%= car.old_price_3 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_4 %>
+                        <% if car.old_price_4 %>
+                          <div class="old"><%= car.old_price_4 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_5 %>
+                        <% if car.old_price_5 %>
+                          <div class="old"><%= car.old_price_5 %></div>
+                        <% end %>
+                      </td>
+                      <td><%= car.price_hour %></td>
+                      <td><%= car.deposit %></td>
+                      <td>
+                          <a href="#" class="zakaz">Заказать</a>
+                      </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
+                  <% end %>
+                  <tr>
+                      <td colspan="9">Бизнес</td>
+                  </tr>
+                  <% @cars.where("car_class = 'Бизнес' and active = 'true'").each do |car| %>
+                    <% @count += 1 %>
+                    <tr class=<%= bg_active(@count) %>>
+                      <td>
+                          <div class="avto">
+                              <div class="zz"><%= car.car_name %></div>
+                              <%= link_to car_path(car), class: "bl_img" do %>
+                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                              <% end %>
+                              <div class="hara">
+                                  <% if car.transmission == 'Механика'%>
+                                      <%= image_tag "transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% else %>
+                                      <%= image_tag "auto-transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% end %>
+                                  <% if car.car_type == "Хэтчбек" %>
+                                      <%= image_tag ('hatchback.png'), alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек", style: "height: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Седан" %>
+                                      <%= image_tag ('sedan.png'), alt: "Седан", title: "Тип кузова авто Седан", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Универсал" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Универсал", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Минивен" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Минивен", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Кроссовер" %>
+                                      <%= image_tag ('crossover.png'), alt: "Кросовер", title: "Тип кузова авто Кросовер", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Купе" %>
+                                      <%= image_tag ('coupe.png'), alt: "Купе", title: "Тип кузова авто Купе", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.is_air %>
+                                    <%= image_tag ('air-conditioner.png'), alt: "Кондиционер", title: "В автомобиле есть кондиционер", style:"z-index:2;width: 25px;" %>
+                                  <% end %>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <%= car.price_1 %>
+                        <% if car.old_price_1 %>
+                          <div class="old"><%= car.old_price_1 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_2 %>
+                        <% if car.old_price_2 %>
+                          <div class="old"><%= car.old_price_2 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_3 %>
+                        <% if car.old_price_3 %>
+                          <div class="old"><%= car.old_price_3 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_4 %>
+                        <% if car.old_price_4 %>
+                          <div class="old"><%= car.old_price_4 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_5 %>
+                        <% if car.old_price_5 %>
+                          <div class="old"><%= car.old_price_5 %></div>
+                        <% end %>
+                      </td>
+                      <td><%= car.price_hour %></td>
+                      <td><%= car.deposit %></td>
+                      <td>
+                          <a href="#" class="zakaz">Заказать</a>
+                      </td>
                     </tr>
-                    <tr class="bg1">
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
+                  <% end %>
+                  <tr>
+                      <td colspan="9">Многоместный и коммерческий транспорт</td>
+                  </tr>
+                  <% @cars.where("car_class = 'Коммерческий' and active = 'true'").each do |car| %>
+                    <% @count += 1 %>
+                    <tr class=<%= bg_active(@count) %>>
+                      <td>
+                          <div class="avto">
+                              <div class="zz"><%= car.car_name %></div>
+                              <%= link_to car_path(car), class: "bl_img" do %>
+                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                              <% end %>
+                              <div class="hara">
+                                  <% if car.transmission == 'Механика'%>
+                                      <%= image_tag "transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% else %>
+                                      <%= image_tag "auto-transmission.png", style: "width: 24px;", alt: "", title: "" %>
+                                  <% end %>
+                                  <% if car.car_type == "Хэтчбек" %>
+                                      <%= image_tag ('hatchback.png'), alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек", style: "height: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Седан" %>
+                                      <%= image_tag ('sedan.png'), alt: "Седан", title: "Тип кузова авто Седан", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Универсал" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Универсал", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Минивен" %>
+                                      <%= image_tag ('universal.png'), alt: "Универсал", title: "Тип кузова авто Минивен", style: "width: 60px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Кроссовер" %>
+                                      <%= image_tag ('crossover.png'), alt: "Кросовер", title: "Тип кузова авто Кросовер", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.car_type == "Купе" %>
+                                      <%= image_tag ('coupe.png'), alt: "Купе", title: "Тип кузова авто Купе", style: "width: 50px;" %>
+                                  <% end %>
+                                  <% if car.is_air %>
+                                    <%= image_tag ('air-conditioner.png'), alt: "Кондиционер", title: "В автомобиле есть кондиционер", style:"z-index:2;width: 25px;" %>
+                                  <% end %>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <%= car.price_1 %>
+                        <% if car.old_price_1 %>
+                          <div class="old"><%= car.old_price_1 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_2 %>
+                        <% if car.old_price_2 %>
+                          <div class="old"><%= car.old_price_2 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_3 %>
+                        <% if car.old_price_3 %>
+                          <div class="old"><%= car.old_price_3 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_4 %>
+                        <% if car.old_price_4 %>
+                          <div class="old"><%= car.old_price_4 %></div>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= car.price_5 %>
+                        <% if car.old_price_5 %>
+                          <div class="old"><%= car.old_price_5 %></div>
+                        <% end %>
+                      </td>
+                      <td><%= car.price_hour %></td>
+                      <td><%= car.deposit %></td>
+                      <td>
+                          <a href="#" class="zakaz">Заказать</a>
+                      </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="9">Средний</td>
-                    </tr>
-                    <tr class="bg1">
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990 <div class="old">1100</div></td>
-                        <td>950 <div class="old">1100</div></td>
-                        <td>900 <div class="old">1100</div></td>
-                        <td>850 <div class="old">1100</div></td>
-                        <td>800 <div class="old">1100</div></td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr class="bg1">
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="9">Бизнес</td>
-                    </tr>
-                    <tr class="bg1">
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="9">Коммерческий</td>
-                    </tr>
-                    <tr class="bg1">
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="avto">
-                                <div class="zz">Chevrolet Spark Promo</div>
-                                <div class="bl_img">
-                                  <%= image_tag "che.jpg", alt: "", title: "" %>
-                                </div>
-                                <div class="hara">
-                                  <%= image_tag "ha1.png", alt: "", title: "" %>
-                                  <%= image_tag "ha2.png", alt: "", title: "" %>
-                                  <%= image_tag "ha3.png", alt: "", title: "" %>
-                                </div>
-                            </div>
-                        </td>
-                        <td>990</td>
-                        <td>950</td>
-                        <td>900</td>
-                        <td>850</td>
-                        <td>800</td>
-                        <td>150</td>
-                        <td>3000</td>
-                        <td>
-                            <a href="#" class="zakaz">Заказать</a>
-                        </td>
-                    </tr>
+                  <% end %>
                 </tbody>
             </table>
             <p class="niz">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>

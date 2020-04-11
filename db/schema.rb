@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_120515) do
+ActiveRecord::Schema.define(version: 2020_04_11_115626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,17 +46,17 @@ ActiveRecord::Schema.define(version: 2020_04_08_120515) do
     t.boolean "is_electropackage", default: false
     t.string "car_class"
     t.string "car_type"
-    t.integer "price_1", default: 0
-    t.integer "price_2", default: 0
-    t.integer "price_3", default: 0
-    t.integer "price_4", default: 0
-    t.integer "price_5", default: 0
+    t.integer "price_1"
+    t.integer "price_2"
+    t.integer "price_3"
+    t.integer "price_4"
+    t.integer "price_5"
     t.integer "old_price_1"
     t.integer "old_price_2"
     t.integer "old_price_3"
     t.integer "old_price_4"
     t.integer "old_price_5"
-    t.integer "price_hour", default: 0
+    t.integer "price_hour"
     t.string "price_main"
     t.string "fuel"
     t.integer "number_doors"

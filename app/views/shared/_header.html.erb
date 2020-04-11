@@ -77,59 +77,54 @@
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
-      <div class="sticky">
-        <ul class="menu_top fixed">
-          <li>
-              <%= link_to "Главная", root_path %>
-          </li>
-          <li class="<%= active_class?(cars_path) %>">
-              <%= link_to cars_path do %>
-                Автомобили
-              <% end %>
-          </li>
-          <li class="<%= active_class?(prices_path) %>">
-            <%= link_to "Цены", prices_path %>
-          </li>
-          <li class="<%= active_class?(contacts_path) %>">
-            <%= link_to "Контакты", contacts_path %>
-          </li>
-          <li class="<%= active_class?(new_booking_path) %>">
-            <%= link_to "Заказать", new_booking_path %>
-          </li>
-          <li class="<%= active_class?(reviews_path) %>">
-            <%= link_to "Отзывы", reviews_path %>
-          </li>
-          <li class="<%= active_class?(terms_path) %>">
-            <%= link_to "Условия", terms_path %>
-          </li>
-          <li class="<%= active_class?(faqs_path) %>">
-            <%= link_to "Вопросы", faqs_path %>
-          </li>
-          <li>
-            <a>
-              Прочее
-              <span>&#9660;</span>
-            </a>
-              <ul>
-                <li class="<%= active_class?(abouts_path) %>">
-                  <%= link_to "О нас", abouts_path %>
-                </li>
-                <li class="<%= active_class?(services_path) %>">
-                  <%= link_to "Доп услуги", services_path %>
-                </li>
-                <li class="<%= active_class?(deliveries_path) %>">
-                  <%= link_to "Доставка", deliveries_path %>
-                </li>
-                <li class="<%= active_class?(articles_path) %>">
-                  <%= link_to "Новости и акции", articles_path %>
-                </li>
-              </ul>
-          </li>
-        </ul>
-      </div>
-      
-      
-      
+      <ul class="menu_top">
+        <li>
+            <%= link_to "Главная", root_path %>
+        </li>
+        <li class="<%= active_class?(cars_path) %>">
+            <%= link_to cars_path do %>
+              Автомобили
+            <% end %>
+        </li>
+        <li class="<%= active_class?(prices_path) %>">
+          <%= link_to "Цены", prices_path %>
+        </li>
+        <li class="<%= active_class?(contacts_path) %>">
+          <%= link_to "Контакты", contacts_path %>
+        </li>
+        <li class="<%= active_class?(new_booking_path) %>">
+          <%= link_to "Заказать", new_booking_path %>
+        </li>
+        <li class="<%= active_class?(reviews_path) %>">
+          <%= link_to "Отзывы", reviews_path %>
+        </li>
+        <li class="<%= active_class?(terms_path) %>">
+          <%= link_to "Условия", terms_path %>
+        </li>
+        <li class="<%= active_class?(faqs_path) %>">
+          <%= link_to "Вопросы", faqs_path %>
+        </li>
+        <li>
+          <a>
+            Прочее
+            <span>&#9660;</span>
+          </a>
+            <ul>
+              <li class="<%= active_class?(abouts_path) %>">
+                <%= link_to "О нас", abouts_path %>
+              </li>
+              <li class="<%= active_class?(services_path) %>">
+                <%= link_to "Доп услуги", services_path %>
+              </li>
+              <li class="<%= active_class?(deliveries_path) %>">
+                <%= link_to "Доставка", deliveries_path %>
+              </li>
+              <li class="<%= active_class?(articles_path) %>">
+                <%= link_to "Новости и акции", articles_path %>
+              </li>
+            </ul>
+        </li>
+      </ul>
       <div class="clear"></div>
   </div>
 </div>
