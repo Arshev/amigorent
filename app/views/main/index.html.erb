@@ -12,7 +12,7 @@
     <div class="wrapper">
         <div class="zag">Быстрая заявка</div>
         <div class="podzag">Если вам срочно нужен автомобиль заполните эту форму!</div>
-        <div class="perekl">
+        <%# <div class="perekl">
             <label>
                 <input type="checkbox" value="" name="">
                 <span>Седан</span>
@@ -42,8 +42,42 @@
             <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" value="" placeholder="Дата окончания" class="inp4" name="" />
             <input type="submit" value="Отправить заявку" name="">
             <div class="clear"></div>
-        </form>
-        <div class="clear"></div>
+        </form> %>
+        <div class="perekl">
+            <label>
+                <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
+                <span>Седан</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_hatch]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_hatch]" id="quick_booking_is_hatch">
+                <span>Хэтчбэк</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_cross]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_cross]" id="quick_booking_is_cross">
+                <span>Кроссовер</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_minivan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_minivan]" id="quick_booking_is_minivan">
+                <span>Минивен</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_universal]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_universal]" id="quick_booking_is_universal">
+                <span>Универсал</span>
+            </label>
+        </div>
+        <%= form_for @quick_booking do |f| %>
+          <%= f.text_field :name, placeholder: "Ваше имя", class: "inp1" %>
+          <%= f.text_field :phone, placeholder: "Ваш телефон", class: "inp2" %>
+          <%= f.text_field :email, placeholder: "Ваш E-mail", class: "inp3" %>
+          <%= f.text_field :start_date, placeholder: "Дата начала", class: "inp4" %>
+          <%= f.text_field :end_date, placeholder: "Дата окончания", class: "inp4" %>
+
+            <%# <input type="text" form="new_quick_booking" onfocus="(this.type='date')" onblur="(this.type='text')" value="" placeholder="Дата начала" class="inp4" name="" />
+            <input type="text" form="new_quick_booking" onfocus="(this.type='date')" onblur="(this.type='text')" value="" placeholder="Дата окончания" class="inp4" name="" /> %>
+            <%= f.submit "Отправить заявку" %>
+            <div class="clear"></div>
+          <% end %>
+          <div class="clear"></div>
     </div>
 </div>
 <div class="block3">
