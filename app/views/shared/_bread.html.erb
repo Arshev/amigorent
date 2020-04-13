@@ -1,7 +1,7 @@
 <div class="bread">
   <% if current_page?(controller: 'cars', action: 'index')%>
     <a href="/">Главная /</a> Автомобили
-  <% elsif current_page?(controller: 'cars', action: 'show')%>
+  <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
     <a href="/">Главная /</a><%= link_to "Автомобили", cars_path %> / <%= @car.car_name%>
   <% elsif current_page?(controller: 'prices', action: 'index')%>
     <a href="/">Главная /</a> Цены

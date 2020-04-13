@@ -4,7 +4,7 @@
         <h1 class="text1">Прокат автомобилей в Калининграде</h1>
         <div class="text2">С нами ты всегда у руля!</div>
         <div class="text3"><a href="tel:+7 (921) 710-16-15">+7 (921) 710-16-15</a></div>
-        <a href="#" class="zakaz">Заказать звонок</a>
+        <%= link_to "Цены на аренду", prices_path, class: "zakaz" %>
         <div class="clear"></div>
     </div>
 </div>
@@ -332,4 +332,10 @@
         <div class="clear"></div>
     </div>
 </div>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1>Hello, I am a modal!</h1>
+        </div>
+    </div>
 <%= render 'shared/footer', cached: true %>
