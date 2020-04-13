@@ -2,7 +2,7 @@
   <% if car.active %>
     <div class="avto">
       <%= link_to car_path(car), class: "bl_img" do %>
-          <%= image_tag car.main_image.variant(resize_to_fit: [484, nil]), alt: "#{car.car_name}", title: "#{car.car_name}" %>
+          <%= image_tag car.main_image.variant(resize_to_fill: [487, 278]), alt: "#{car.car_name}", title: "#{car.car_name}" %>
       <% end %>
       <%= link_to car_path(car), class: "zg" do %>
         <%= car.car_name %>
