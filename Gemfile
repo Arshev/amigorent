@@ -35,6 +35,7 @@ gem 'image_processing', '~> 1.2'
 gem 'mainsms_api', '~> 0.0.9'
 gem 'mailgun-ruby', '~>1.2.0'
 gem 'sucker_punch', '~>2.1.2'
+gem 'telegram-bot-ruby', '~>0.12.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
