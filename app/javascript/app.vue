@@ -28,30 +28,67 @@
       </div>
       <div class="clear"></div>
       <div class="cha1">
-          <div class="zg">Дата и время начала аренды<span>*</span></div>
-          <input type="text" value="" placeholder="Дата и время начала аренды" name="">
+          <div class="zg">Email<span>*</span></div>
+          <span style="color: tomato;" v-if="!$v.emailClient.email"> - неправильный Email</span>
+          <input v-model.trim.lazy="$v.emailClient.$model" placeholder="Введите email" v-bind:class="{ 'error-input': emailError }" >
       </div>
       <div class="cha1">
-          <div class="zg">Дата окончания<span>*</span></div>
-          <input type="text" value="" placeholder="Дата и время окончания аренды" name="">
+          <div class="zg">Телефон<span>*</span></div>
+          <span style="color: tomato;" v-if="!$v.phoneClient.minLength"> - неправильный телефон</span>
+          <input v-model.trim.lazy="$v.phoneClient.$model" type="tel" placeholder="Введите телефон" class="form-control" v-bind:class="{ 'error-input': phoneError }">
+      </div>
+      <div class="clear"></div>
+      <div class="cha1">
+          <div class="zg">Дата и время начала аренды<span>*</span></div>
+          {{dateStart}}
+          <date-picker
+            v-model="dateStart"
+            :disabled-date="notBeforeToday"
+            value-type="format"
+            format="DD-MM-YYYY H:mm"
+            type="datetime"
+            placeholder="Выберите дату и время"
+          ></date-picker>
+      </div>
+      <div class="cha1">
+          <div class="zg">Окончание аренды<span>*</span></div>
+          {{dateEnd}}
+          <date-picker
+            v-model="dateEnd"
+            :disabled-date="notBeforeToday"
+            value-type="format"
+            format="DD-MM-YYYY H:mm"
+            type="datetime"
+            placeholder="Выберите дату и время"
+          ></date-picker>
       </div>
       <div class="clear"></div>
       <div class="cha1">
           <div class="zg">Место получения авто<span>*</span></div>
-          <input type="text" value="" placeholder="Офис бесплатно" name="">
+          <select v-model="locationStart" class="select_booking_form" >
+            <option value="Офис">Офис (бесплатно)</option>
+            <option v-for="location in locations" :key="location.index" >{{ location }}</option>
+          </select>
       </div>
       <div class="cha1">
           <div class="zg">Место возврата авто<span>*</span></div>
-          <input type="text" value="" placeholder="Офис бесплатно" name="">
+          <select v-model="locationEnd" class="select_booking_form" >
+            <option value="Офис">Офис (бесплатно)</option>
+            <option v-for="location in locations" :key="location.index" >{{ location }}</option>
+          </select>
       </div>
       <div class="clear"></div>
     </div>
-    <div class="pol2">
+    <div class="pol2 sticky">
         <div class="zg">Стоимость</div>
         <p>Название: <span class="booking_info">{{ carName }}</span></p>
-        <p>Цена (за сутки)</p>
-        <p>Всего суток</p>
-        <p class="itogo">Итого</p>
+        <p>Цена (за сутки): <span class="booking_info"  v-if="price != null ">{{ price }} <small>руб</small></span></p>
+        <p>Всего суток: <span class="booking_info" >{{ days }}</span></p>
+        <p v-if="(additional_hours * price_hour) > 0 && this.additional_hours * this.price_hour < this.price" >Дополнительные часы <span class="booking_info">{{ additional_hours * price_hour }} <small>руб</small></span></p>
+        <p v-if="(locationStartPrice + locationEndPrice) > 0" >Доставка <span class="booking_info">{{ locationStartPrice + locationEndPrice }} <small>руб</small></span></p>
+        <p v-if="(babyChairPrice + navigatorPrice) > 0">Дополнительные опции <span class="booking_info">{{ babyChairPrice + navigatorPrice }} руб</span></p>
+        <p>Залог: <span class="booking_info" v-if="deposit > 0">{{ deposit }} <small>руб</small></span></p>
+        <p class="itogo">Итого: <span class="booking_info" v-if="price != null ">{{ total }} <small>руб</small></span></p>
         <p>Залог</p>
         <a href="#" class="otpr">Отправить заявку</a>
     </div>
@@ -88,6 +125,12 @@ import moment from 'moment'
     moment.locale('ru')
 
 flatpickr.localize(Russian);
+
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
 
 export default {
   // props: ["allCarsFromView"],
@@ -228,6 +271,9 @@ export default {
     });
   },
   methods: {
+    notBeforeToday(date) {
+      return date < today;
+    },
     sendBooking () {
       
       if (this.carName === '') {
@@ -367,16 +413,16 @@ export default {
       this.personDataError = false
     },
     dateEnd () {
-      let start_date = moment(this.dateStart, "MM-DD-YYYY H:mm")
-      let end_date = moment(this.dateEnd, "MM-DD-YYYY H:mm")
-      
+      let start_date = moment(this.dateStart, "DD-MM-YYYY H:mm")
+      let end_date = moment(this.dateEnd, "DD-MM-YYYY H:mm")
       let hours = moment.duration(end_date.diff(start_date)).asHours()
+        console.log(hours)
       
-      let start_date_days = moment(this.dateStart, "MM-DD-YYYY")
-      let end_date_days = moment(this.dateEnd, "MM-DD-YYYY")
+      let start_date_days = moment(this.dateStart, "DD-MM-YYYY")
+      let end_date_days = moment(this.dateEnd, "DD-MM-YYYY")
       this.additional_hours = 0
       if (hours > (moment.duration(end_date_days.diff(start_date_days)).asDays() * 24)) {
-          this.hours = hours
+        this.hours = hours
           let additionalHours = (hours % 24)
           this.additional_hours = Math.trunc(additionalHours)
       }
@@ -630,11 +676,15 @@ export default {
   },
   components: { 
       flatPickr,
-      modal
+      modal,
+      DatePicker
   }
 };
 </script>
 
 <style>
-
+  .mx-datepicker {
+    display: block;
+    width: 100%;
+  }
 </style>

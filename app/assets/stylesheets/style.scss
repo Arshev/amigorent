@@ -532,6 +532,7 @@ a {
 }
 .select_booking_form {
     display: block;
+    color: #33354d;
     width: 100%;
     box-sizing: border-box;
     outline: none;
@@ -2360,10 +2361,20 @@ a {
 #menu_tg2 {
     display: none;
 }
-
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0; /* required */
+}
 
 
 @media (max-width: 1200px) {
+    .select_booking_form {
+        height: 40px;
+        font-size: 13px;
+        padding: 0 15px;
+        color: #33354d;
+    }
     .wrapper {
         width: 768px;
     }
@@ -3267,6 +3278,9 @@ a {
 }
 
 @media (max-width: 767px) {
+    .sticky {
+        
+    }
     .wrapper {
         width: 480px;
     }
@@ -3460,9 +3474,15 @@ a {
         min-width: 44px;
         box-sizing: border-box;
     }
+    .sticky {
+        
+    }
 }
 
 @media (max-width: 479px) {
+    .sticky {
+        
+    }
     .wrapper {
         width: 310px;
     }
@@ -3727,8 +3747,4 @@ a {
 }
 
 .lipkaya thead th  { position: sticky; top: 0;}
-.sticky {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0; /* required */
-}
+
