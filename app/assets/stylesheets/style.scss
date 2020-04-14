@@ -530,6 +530,19 @@ a {
 .block4 .spis_avto .avto .zg:hover {
     text-decoration: underline;
 }
+.select_booking_form {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    background: #fff;
+    box-shadow: 0 0 8px -4px #000;
+    height: 70px;
+    padding: 0 31px;
+    font-size: 15px;
+    border-radius: 35px;
+}
 .block4 .spis_avto .avto .price {
     color: #636364;
     font-weight: 300;
@@ -1638,6 +1651,16 @@ a {
     font-weight: 700;
     font-size: 20px;
     margin: 55px 0 22px;
+}
+.booking_info {
+    color: #d67e2a;
+    float: right;
+    font-weight: 700;
+}
+.error-input {
+    background-color: #fce4e4;
+    border: 1px solid #cc0033;
+    outline: none;
 }
 .content .bl_zakaz .pol2 .otpr {
     display: block;

@@ -14,6 +14,5 @@ toastr.options = {
   "positionClass": "toast-top-full-width"
 }
 
-
 require("trix")
 require("@rails/actiontext")

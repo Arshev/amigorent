@@ -7,6 +7,13 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
+  namespace :api do
+    namespace :v1 do
+      resources :cars, only: [:index, :show]
+      resources :booking, only: [:create]
+    end
+  end
+
   resources :cars, except: [:edit] do
     member do
       delete :remove_attachment
