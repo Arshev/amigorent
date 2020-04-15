@@ -26,6 +26,10 @@
       <%= javascript_pack_tag 'vue-app' %>
       <%= stylesheet_pack_tag 'vue-app' %>
     <% end %>
+    <% if request.path.include?('/reviews') %>
+      <%= javascript_pack_tag 'rateyo', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag 'jquery.rateyo.min', 'data-turbolinks-track': 'reload' %>
+    <% end %>
 
 <% else %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
