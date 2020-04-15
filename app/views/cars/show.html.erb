@@ -84,8 +84,7 @@
                     <% end %>
                 </p>
                 <div class="price">от <b><%= @car.price_main %></b> руб/сутки</div>
-                <%# link_to "Забронировать", new_booking_path(car_id: @car.id), class:"bron" %>
-                <a href="#" class="bron">Забронировать</a>
+                <%= link_to "Забронировать", new_booking_path(car_id: @car.id), class:"bron" %>
             </div>
             <div class="clear"></div>
             <div class="bl_perekl">
