@@ -2367,6 +2367,18 @@ a {
     top: 0; /* required */
 }
 
+li.errors {
+    color: tomato;
+    font-weight: bold;
+    list-style-type: none;
+    margin-top: 5px;
+}
+.error-input {
+    background-color: #fce4e4;
+    border: 1px solid #cc0033;
+    outline: none;
+}
+
 
 @media (max-width: 1200px) {
     .select_booking_form {

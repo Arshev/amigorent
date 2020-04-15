@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_092832) do
     t.string "lastname"
     t.string "middlename"
     t.string "phone"
+    t.string "days"
+    t.string "price"
     t.string "email"
     t.integer "total"
     t.bigint "user_id"

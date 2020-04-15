@@ -13,6 +13,8 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.string :lastname
       t.string :middlename
       t.string :phone
+      t.string :days
+      t.string :price
       t.string :email
       t.integer :total
       t.references :user, foreign_key: true

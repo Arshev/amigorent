@@ -40,7 +40,6 @@
       <div class="clear"></div>
       <div class="cha1">
           <div class="zg">Дата и время начала аренды<span>*</span></div>
-          {{dateStart}}
           <date-picker
             v-model="dateStart"
             :disabled-date="notBeforeToday"
@@ -52,7 +51,6 @@
       </div>
       <div class="cha1">
           <div class="zg">Окончание аренды<span>*</span></div>
-          {{dateEnd}}
           <date-picker
             v-model="dateEnd"
             :disabled-date="notBeforeToday"
@@ -87,47 +85,48 @@
         <p v-if="(additional_hours * price_hour) > 0 && this.additional_hours * this.price_hour < this.price" >Дополнительные часы <span class="booking_info">{{ additional_hours * price_hour }} <small>руб</small></span></p>
         <p v-if="(locationStartPrice + locationEndPrice) > 0" >Доставка <span class="booking_info">{{ locationStartPrice + locationEndPrice }} <small>руб</small></span></p>
         <p v-if="(babyChairPrice + navigatorPrice) > 0">Дополнительные опции <span class="booking_info">{{ babyChairPrice + navigatorPrice }} руб</span></p>
-        <p>Залог: <span class="booking_info" v-if="deposit > 0">{{ deposit }} <small>руб</small></span></p>
         <p class="itogo">Итого: <span class="booking_info" v-if="price != null ">{{ total }} <small>руб</small></span></p>
-        <p>Залог</p>
-        <a href="#" class="otpr">Отправить заявку</a>
+        <p>Залог: <span class="booking_info" v-if="deposit > 0">{{ deposit }} <small>руб</small></span></p>
+        <a href="" onclick="return false;" @click="sendBooking()" class="otpr">Отправить заявку</a>
+        <ul id="errors">
+          <li v-for="error in errors" :key="error.index" class="errors">{{ error }}</li>
+        </ul>
     </div>
     <div class="clear"></div>
     <div class="dopoln">
         <div class="zg2">Дополнительные опции</div>
         <label>
-            <input type="checkbox" value="" name="">
+            <input type="checkbox" id="checkbox" value=true v-model="babyChair">
             Детское кресло
         </label>
         <label>
-            <input type="checkbox" value="" name="">
+            <input type="checkbox" id="checkbox" value=true v-model="navigator">
             Навигатор
         </label>
         <div class="zg2">Подтвердите согласие<span>*</span></div>
         <label>
-            <input type="checkbox" value="" name="">
-            Даю согласие на обработку персональных данных, согласно 152-ФЗ
+            <input type="checkbox" id="checkbox" value="true" v-model="personData">
+            Даю согласие на обработку персональных данных, согласно <a href="https://base.garant.ru/12148567/" rel="nofollow">152-ФЗ</a>
         </label>
     </div>
+    <modal
+      v-show="isModalVisible"
+      @close="closeModal"
+    />
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import flatPickr from 'vue-flatpickr-component'
-import { Russian } from "flatpickr/dist/l10n/ru"
-import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
+import axios from "axios"
 import { required, minLength, maxLength, email, phone } from 'vuelidate/lib/validators'
-// import {TheMask} from 'vue-the-mask'
-import modal from './packs/components/modal.vue';
+import modal from './packs/components/modal.vue'
 import moment from 'moment'
     import 'moment/locale/ru'
     moment.locale('ru')
 
-flatpickr.localize(Russian);
-
-import DatePicker from 'vue2-datepicker';
-import 'vue2-datepicker/index.css';
+import DatePicker from 'vue2-datepicker'
+import 'vue2-datepicker/index.css'
+import 'vue2-datepicker/locale/ru'
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
@@ -158,37 +157,11 @@ export default {
       emailClient: '',
       phoneClient: '',
       dateStart: null,
-      configStart: {
-          altFormat: 'j M H:i',
-          enableTime: true,
-          altInput: true,
-          dateFormat: 'm-d-Y H:i',
-          minDate: "today",
-          time_24hr: true,
-          disableMobile: "true",
-          plugins: [new ConfirmDatePlugin({confirmText: 'Ok'})],
-          onChange: function(dateObj,selectedDates, dateStr, instance) {
-            this.dateStart = dateObj[0]
-          }  
-        },
       dateEnd: null,
       additional_hours: 0,
       hours: 0,
       personData: false,
       errors: [],
-      configEnd: {
-          altFormat: 'j M H:i',
-          enableTime: true,
-          altInput: true,
-          dateFormat: 'm-d-Y H:i',
-          minDate: "today",
-          time_24hr: true,
-          disableMobile: "true",
-          plugins: [new ConfirmDatePlugin({confirmText: 'Ok'})],
-          onChange: function(dateObj,selectedDates, dateStr, instance) {
-            this.dateEnd = dateObj[0]
-          }
-        },
       locations: [
         'Аэропорт', 
         'Светлогорск', 
@@ -313,7 +286,7 @@ export default {
         // this.personDataError = true
       }
 
-      if (this.carError === false && this.nameError === false && this.lastnameError === false && this.emailError === false && this.phoneError === false && this.dateStartError === false && this.dateEndError === false && this.days != 'Минимум 2-е суток' && this.personDataError === false) {
+      if (true) {
         
         var self=this;
         // this.file = this.$refs.file.files[0];
@@ -321,10 +294,10 @@ export default {
         let formData = new FormData();
 
         
-        formData.append('booking[picture]', this.file);
-        if (this.file2 != '') {
-          formData.append('booking[prava]', this.file2);
-        }
+        // formData.append('booking[picture]', this.file);
+        // if (this.file2 != '') {
+        //   formData.append('booking[prava]', this.file2);
+        // }
         
 
         formData.append('booking[start_date]', this.dateStart);
@@ -342,7 +315,9 @@ export default {
         formData.append('booking[price]', this.price);
         formData.append('booking[total]', this.total);
 
-        axios.post('https://amigorent.ru/api/v1/booking.json',
+        // axios.post('https://amigorent.ru/api/v1/booking.json',
+        axios.post('http://localhost:3000/api/v1/booking.json'
+        ,
           formData,
                 {
                 headers: {
@@ -351,7 +326,6 @@ export default {
               }
         )
         .then(function (response) {
-
           self.dateStart = null
           self.dateEnd = null
           self.locationStart = 'Офис'
@@ -416,7 +390,6 @@ export default {
       let start_date = moment(this.dateStart, "DD-MM-YYYY H:mm")
       let end_date = moment(this.dateEnd, "DD-MM-YYYY H:mm")
       let hours = moment.duration(end_date.diff(start_date)).asHours()
-        console.log(hours)
       
       let start_date_days = moment(this.dateStart, "DD-MM-YYYY")
       let end_date_days = moment(this.dateEnd, "DD-MM-YYYY")
@@ -426,8 +399,7 @@ export default {
           let additionalHours = (hours % 24)
           this.additional_hours = Math.trunc(additionalHours)
       }
-      let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
-      //let diff =  Math.floor(( Date.parse(this.dateEnd) - Date.parse(this.dateStart) ) / 86400000)
+      let diff = moment.duration(end_date_days.diff(start_date_days)).asDays()
 
       if (!isNaN(diff)) {
         if (diff >= 2) {
@@ -674,8 +646,7 @@ export default {
   computed: {
         
   },
-  components: { 
-      flatPickr,
+  components: {
       modal,
       DatePicker
   }
