@@ -204,42 +204,12 @@
     <div class="wrapper">
         <div class="zag">Отзывы</div>
         <div class="spis_otz">
-            <div class="otz">
-                <div class="fio">Наталья Д.</div>
-                <div class="rating">
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra0.png", alt: "", title: "" %>
-                </div>
-                <p>Перед отправлением в Калининград 05.02.2020 , пересмотрела несколько компаний отзывы были реальными, только на Амиго и когда ещё и апартаменты были на ул. А.Невского, нам было просто комфортно дойти пешком в офис и оформить авто. Само оформление заняло 5 мин. , все грамотно и быстро прошла консул...</p>
-            </div>
-            <div class="otz">
-                <div class="fio">Валерий Чернов</div>
-                <div class="rating">
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra0.png", alt: "", title: "" %>
-                </div>
-                <p>Ребят из компании АМИГО знаю давно,очень порядочные и серьезные ребята, никогда не подведут. Для своих друзей арендовал у них машину. Друзья остались довольны и машиной и общением с ребятами. Будете выбирать автопрокат в Калининграде, сначала обратитесь в АМИГО, нормальные машины, хорошие цены, ...</p>
-            </div>
-            <div class="otz">
-                <div class="fio">Виктория</div>
-                <div class="rating">
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra0.png", alt: "", title: "" %>
-                </div>
-                <p>На прошлой неделе прилетали в Калининград по делам и отдохнуть. Как же без машины? По отзывам на сайте нашла Амиго. Во-первых у них гибкие цены, в зависимости от количества дней с ними можно договориться о приемлемой стоимости аренды. Во-вторых они не дорого доставили и забрали авто из аэропорта....</p>
-            </div>
+            <%= render "reviews/reviews_on_main"%>
             <div class="clear"></div>
         </div>
-        <a href="#" class="all">Посмотреть все отзывы</a>
+        <%= link_to reviews_path, class:"all" do %>
+          Посмотреть все отзывы
+        <% end %>
         <div class="clear"></div>
     </div>
 </div>

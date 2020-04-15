@@ -1,0 +1,14 @@
+<% @reviews.each do |review| %>
+  <div class="otz">
+    <div class="fio"><%= review.name%></div>
+    <div class="rating">
+      <% review.star.to_i.times do  %>
+        <%= image_tag "ra1.png", alt: "", title: "" %>
+      <% end %>
+      <% review.blank_stars.to_i.times do  %>
+        <%= image_tag "ra0.png", alt: "", title: "" %>
+      <% end %>
+    </div>
+    <p><%= truncate review.text, length: 300 %></p>
+  </div>
+<% end %>
