@@ -10,12 +10,13 @@ class ReviewsController < ApplicationController
         redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
       end
     else
-      redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
+      redirect_back(fallback_location: request.referer, alert: "Вы не прошли проверку на ботов!")
     end
   end
 
   def index
-    @reviews = Review.all
+    # @reviews = Review.all
+    @reviews = Review.paginate(page: params[:page])
   end
 
   def destroy
