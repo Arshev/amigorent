@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_161818) do
+ActiveRecord::Schema.define(version: 2020_04_16_165043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,17 @@ ActiveRecord::Schema.define(version: 2020_04_16_161818) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
   create_table "quick_bookings", force: :cascade do |t|
     t.string "start_date"
     t.string "end_date"
@@ -131,6 +142,62 @@ ActiveRecord::Schema.define(version: 2020_04_16_161818) do
     t.string "email"
     t.boolean "active"
     t.float "star", default: 1.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "texts", force: :cascade do |t|
+    t.text "main_up_text", default: "Дорогой друг, добро пожаловать в автопрокат <b>Амиго!</b>"
+    t.text "main_h1_text", default: "empty"
+    t.text "main_quick_booking_text", default: "empty"
+    t.text "main_substances_text", default: "empty"
+    t.text "main_car_list_text", default: "empty"
+    t.text "main_services_text", default: "empty"
+    t.text "main_mission_text", default: "empty"
+    t.text "main_edge_text", default: "empty"
+    t.text "footer_text", default: "empty"
+    t.text "prices_text", default: "empty"
+    t.text "prices_bottom_text", default: "empty"
+    t.text "contacts_text", default: "empty"
+    t.text "bookings_bottom_text", default: "empty"
+    t.text "reviews_text", default: "empty"
+    t.text "terms_text", default: "empty"
+    t.text "faqs_text", default: "empty"
+    t.text "about_text", default: "empty"
+    t.text "home_title", default: "empty"
+    t.text "home_description", default: "empty"
+    t.text "cars_title", default: "empty"
+    t.text "cars_description", default: "empty"
+    t.text "prices_title", default: "empty"
+    t.text "prices_description", default: "empty"
+    t.text "contacts_title", default: "empty"
+    t.text "contacts_description", default: "empty"
+    t.text "bookings_title", default: "empty"
+    t.text "bookings_description", default: "empty"
+    t.text "reviews_title", default: "empty"
+    t.text "reviews_description", default: "empty"
+    t.text "terms_title", default: "empty"
+    t.text "terms_description", default: "empty"
+    t.text "faqs_title", default: "empty"
+    t.text "faqs_description", default: "empty"
+    t.text "abouts_title", default: "empty"
+    t.text "abouts_description", default: "empty"
+    t.text "dop_table_worktime", default: "empty"
+    t.text "dop_table_endtime", default: "empty"
+    t.text "dop_table_city_price_worktime", default: "empty"
+    t.text "dop_table_city_price_endtime", default: "empty"
+    t.text "dop_table_aero_price_worktime", default: "empty"
+    t.text "dop_table_aero_price_endtime", default: "empty"
+    t.text "dop_table_svetlogorsk_price_worktime", default: "empty"
+    t.text "dop_table_svetlogorsk_price_endtime", default: "empty"
+    t.text "dop_table_zelenogradsk_price_worktime", default: "empty"
+    t.text "dop_table_zelenogradsk_price_endtime", default: "empty"
+    t.text "dop_table_kosa_price_worktime", default: "empty"
+    t.text "dop_table_kosa_price_endtime", default: "empty"
+    t.text "dop_table_kreslo_dayprice", default: "empty"
+    t.text "dop_table_kreslo_allprice", default: "empty"
+    t.text "dop_table_navigator_dayprice", default: "empty"
+    t.text "dop_table_downtext", default: "empty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
 
   devise_scope :user do  
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
       delete :remove_attachment
     end
   end
+
+  resource :text
 
   resource :admin, except: [:edit, :new, :create] do
     member do

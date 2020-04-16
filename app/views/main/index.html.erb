@@ -1,7 +1,7 @@
 <%= render 'shared/header' %>
 <div class="block1">
     <div class="wrapper">
-        <h1 class="text1">Прокат автомобилей в Калининграде</h1>
+        <h1 class="text1"><%= @main_h1_text.html_safe %></h1>
         <div class="text2">С нами ты всегда у руля!</div>
         <div class="text3"><a href="tel:+7 (921) 710-16-15">+7 (921) 710-16-15</a></div>
         <%= link_to "Цены на аренду", prices_path, class: "zakaz" %>
@@ -11,7 +11,7 @@
 <div class="block2">
     <div class="wrapper">
         <div class="zag">Быстрая заявка</div>
-        <div class="podzag">Если вам срочно нужен автомобиль заполните эту форму!</div>
+        <div class="podzag"><%= @main_quick_booking_text.html_safe %></div>
         <div class="perekl">
             <label>
                 <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
@@ -40,13 +40,10 @@
           <%= f.text_field :email, placeholder: "Ваш E-mail", class: "inp3" %>
           <%= f.text_field :start_date, placeholder: "Дата начала", class: "inp4" %>
           <%= f.text_field :end_date, placeholder: "Дата окончания", class: "inp4" %>
-
-            <%# <input type="text" form="new_quick_booking" onfocus="(this.type='date')" onblur="(this.type='text')" value="" placeholder="Дата начала" class="inp4" name="" />
-            <input type="text" form="new_quick_booking" onfocus="(this.type='date')" onblur="(this.type='text')" value="" placeholder="Дата окончания" class="inp4" name="" /> %>
-            <%= f.submit "Отправить заявку" %>
-            <div class="clear"></div>
-          <% end %>
+          <%= f.submit "Отправить заявку" %>
           <div class="clear"></div>
+        <% end %>
+        <div class="clear"></div>
     </div>
 </div>
 <div class="block3">
@@ -219,7 +216,7 @@
         <div class="podzag">Автопрокат Амиго предоставляет услуги по прокату авто и аренде автомобилей различных классов без водителя <br />и с водителем в Калининграде и области. Мы осуществляем доставку машины прямо к клиенту.</div>
         <div class="col1">
             <div class="zg">Наша Миссия</div>
-            <div class="podp">Построение бизнеса нового поколения, основанного на принципе: <br />«К клиенту — с душой!» Стать прокатом автомобилей мирового уровня, лучшим в России. Миссия компании Амиго — развитие рынка доступной, удобной и качественной аренды автомобилей.</div>
+            <div class="podp"><%= @main_mission_text.html_safe %></div>
             <div class="pre">
               <%= image_tag "pr1.png", alt: "", title: "" %>
               Клиент наш друг!
@@ -247,7 +244,7 @@
         </div>
         <div class="col1">
             <div class="zg">Наши Преимущества</div>
-            <div class="podp">Построение бизнеса нового поколения, основанного на принципе: <br />«К клиенту — с душой!» Стать прокатом автомобилей мирового уровня, лучшим в России. Миссия компании Амиго — развитие рынка доступной, удобной и качественной аренды автомобилей.</div>
+            <div class="podp"><%= @main_edge_text.html_safe %></div>
             <div class="pere opened">
                 <div class="za">
                   <%= image_tag "pe1.png", alt: "", title: "" %>
