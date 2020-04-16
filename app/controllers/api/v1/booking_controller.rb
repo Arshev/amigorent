@@ -12,6 +12,6 @@ class Api::V1::BookingController < ApiController
 
     private
     def booking_params
-        params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, :days, :price, :accept, :total)
+        params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, :days, :price, :accept, :total, :deposit)
     end
 end

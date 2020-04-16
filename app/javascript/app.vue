@@ -314,6 +314,7 @@ export default {
         formData.append('booking[days]', this.days);
         formData.append('booking[price]', this.price);
         formData.append('booking[total]', this.total);
+        formData.append('booking[deposit]', this.deposit);
 
         // axios.post('https://amigorent.ru/api/v1/booking.json',
         axios.post('http://localhost:3000/api/v1/booking.json'

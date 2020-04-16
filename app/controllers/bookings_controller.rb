@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.accept = true
     if @booking.save
+      BookingMailer.with(booking: @booking).user_accept_booking_email.deliver_later
       redirect_back(fallback_location: request.referer, notice: "Заявка одобрена!")
     else
       redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
@@ -56,6 +57,6 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, :accept, :total)
+      params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, :accept, :total, :deposit)
     end
 end

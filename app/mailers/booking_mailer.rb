@@ -5,4 +5,9 @@ class BookingMailer < ApplicationMailer
     @booking = params[:booking]
     mail(to: 'ashev08@gmail.com', subject: 'Новая заявка на бронирование')
   end
+
+  def user_accept_booking_email
+    @booking = params[:booking]
+    mail(to: @booking.email, subject: 'Подтверждение заявки на бронирование')
+  end
 end
