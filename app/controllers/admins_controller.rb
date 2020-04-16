@@ -5,6 +5,8 @@ class AdminsController < ApplicationController
   before_action :set_car, only: [:edit_car, :upload_photos]
 
   def show
+    @rating = Rating.first
+    @rating_new = Rating.new
   end
   def cars
     @cars = Car.all

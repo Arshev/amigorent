@@ -15,7 +15,30 @@
     <!-- Main content -->
     <div class="content">
       <div class="row">
-        <p>Тут что то будет</p>
+        <div>
+          <p>Рейтинг компании в поисковых системах</p>
+          <% if @rating %>
+            <%= form_for @rating do |f| %>
+              <%= f.label :yandex, "Яндекс" %>
+              <%= f.number_field :yandex, step: 0.1, placeholder: "5.0", class: "form-control" %>
+              <%= f.label :google, "Google" %>
+              <%= f.number_field :google, step: 0.1, placeholder: "5.0", class: "form-control" %>
+              <div class="text-center" style="padding-top:10px;">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= form_for @rating_new, url: rating_path do |f| %>
+              <%= f.label :yandex, "Яндекс" %>
+              <%= f.number_field :yandex, step: 0.1, placeholder: "5.0", class: "form-control" %>
+              <%= f.label :google, "Google" %>
+              <%= f.number_field :google, step: 0.1, placeholder: "5.0", class: "form-control" %>
+              <div class="text-center" style="padding-top:10px;">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- /.content -->

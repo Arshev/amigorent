@@ -14,7 +14,7 @@
         <ul class="nav navbar-nav">
         <!-- SMS Balance -->
           <% balance = MainsmsApi::Balance.new %>
-          <li style="padding: 23px 20px 22px 20px;">Баланс смс: <%= balance.check.balance %> руб</li>
+          <li style="padding: 23px 20px 22px 20px;">Баланс смс: <%# balance.check.balance %> руб</li>
           <!-- User Account  -->
           <li class="dropdown user user-menu p-ph-res"> 
             <%= link_to edit_user_registration_path, class:"dropdown-toggle" do %>

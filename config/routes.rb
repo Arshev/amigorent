@@ -39,10 +39,9 @@ Rails.application.routes.draw do
   end
 
   resources :quick_bookings, only: [:create]
+  resource :rating, only: [:create, :update]
 
-  resources :bookings, only: [:create, :show, :index, :new] do
-    resources :documents, only: [:create]
-  end
+  resources :bookings, only: [:create, :show, :index, :new]
 
   resources :prices, only: [:index]
   resources :contacts, only: [:index, :create]

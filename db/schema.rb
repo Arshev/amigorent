@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_141957) do
+ActiveRecord::Schema.define(version: 2020_04_15_165050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,11 @@ ActiveRecord::Schema.define(version: 2020_04_15_141957) do
     t.boolean "is_universal"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.float "yandex", default: 5.0
+    t.float "google", default: 5.0
   end
 
   create_table "reviews", force: :cascade do |t|

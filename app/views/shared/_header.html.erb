@@ -57,21 +57,65 @@
       </div>
       <div class="rating">
         <div class="obo">
-          <span>4.5</span>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r05.png", alt: "", title: "" %>
+          <span><%= rating_yandex %></span>
+          <% 4.times do  %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% end %>
+          <% case rating_yandex %>
+          <% when 5.0 %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% when 4.9 %>
+            <%= image_tag "ra49.png", alt: "", title: "" %>
+          <% when 4.8 %>
+            <%= image_tag "ra48.png", alt: "", title: "" %>
+          <% when 4.7 %>
+            <%= image_tag "ra47.png", alt: "", title: "" %>
+          <% when 4.6 %>
+            <%= image_tag "ra46.png", alt: "", title: "" %>
+          <% when 4.5 %>
+            <%= image_tag "ra05.png", alt: "", title: "" %>
+          <% when 4.4 %>
+            <%= image_tag "ra44.png", alt: "", title: "" %>
+          <% when 4.3 %>
+            <%= image_tag "ra43.png", alt: "", title: "" %>
+          <% when 4.2 %>
+            <%= image_tag "ra42.png", alt: "", title: "" %>
+          <% when 4.1 %>
+            <%= image_tag "ra41.png", alt: "", title: "" %>
+          <% when 4.0 %>
+            <%= image_tag "ra0.png", alt: "", title: "" %>
+          <% end %>
           <%= image_tag "rat1.png", alt: "", title: "" %>
         </div>
         <div class="obo">
-          <span>4.0</span>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r1.png", alt: "", title: "" %>
-          <%= image_tag "r0.png", alt: "", title: "" %>
+          <span><%= rating_google %></span>
+          <% 4.times do  %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% end %>
+          <% case rating_google %>
+          <% when 5.0 %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% when 4.9 %>
+            <%= image_tag "ra49.png", alt: "", title: "" %>
+          <% when 4.8 %>
+            <%= image_tag "ra48.png", alt: "", title: "" %>
+          <% when 4.7 %>
+            <%= image_tag "ra47.png", alt: "", title: "" %>
+          <% when 4.6 %>
+            <%= image_tag "ra46.png", alt: "", title: "" %>
+          <% when 4.5 %>
+            <%= image_tag "ra05.png", alt: "", title: "" %>
+          <% when 4.4 %>
+            <%= image_tag "ra44.png", alt: "", title: "" %>
+          <% when 4.3 %>
+            <%= image_tag "ra43.png", alt: "", title: "" %>
+          <% when 4.2 %>
+            <%= image_tag "ra42.png", alt: "", title: "" %>
+          <% when 4.1 %>
+            <%= image_tag "ra41.png", alt: "", title: "" %>
+          <% when 4.0 %>
+            <%= image_tag "ra0.png", alt: "", title: "" %>
+          <% end %>
           <%= image_tag "rat2.png", alt: "", title: "" %>
         </div>
         <div class="clear"></div>
