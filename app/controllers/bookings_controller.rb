@@ -17,6 +17,23 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.accept = true
+    if @booking.save
+      redirect_back(fallback_location: request.referer, notice: "Заявка одобрена!")
+    else
+      redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    if @booking.destroy
+      redirect_back(fallback_location: request.referer, notice: "Бронь удалена!")
+    end
+  end
+
   def index
     @bookings = Booking.all
   end

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resource :admin, except: [:edit, :new, :create] do
     member do
       get 'cars'
+      get 'bookings'
       get 'new_car'
       get 'upload_photos'
       get 'edit_car'
@@ -41,7 +42,11 @@ Rails.application.routes.draw do
   resources :quick_bookings, only: [:create]
   resource :rating, only: [:create, :update]
 
-  resources :bookings, only: [:create, :show, :index, :new]
+  resources :bookings, only: [:create, :show, :index, :new, :destroy] do
+    member do
+      post '/accept' => "bookings#accept"
+    end
+  end
 
   resources :prices, only: [:index]
   resources :contacts, only: [:index, :create]

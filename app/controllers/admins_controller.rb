@@ -11,6 +11,9 @@ class AdminsController < ApplicationController
   def cars
     @cars = Car.all
   end
+  def bookings
+    @bookings = Booking.paginate(page: params[:page])
+  end
   def new_car
     @car = current_user.cars.build
   end
