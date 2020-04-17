@@ -46,7 +46,7 @@ class DeliveriesController < ApplicationController
   private
     def delivery_params
       params.require(:delivery).permit(:city, :text, :price_work_time, :price_not_work_time, :h1, :title,
-        :description)
+        :description, :background)
     end
 
     def set_delivery
