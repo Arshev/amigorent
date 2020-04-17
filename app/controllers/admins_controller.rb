@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
   before_action :is_authorised
   before_action :set_text, only: [:text_main, :text_other, :text_metatags]
   before_action :set_car, only: [:edit_car, :upload_photos]
+  before_action :set_delivery, only: [:edit_delivery]
 
   def show
     @rating = Rating.first
@@ -21,6 +22,14 @@ class AdminsController < ApplicationController
   end
   def upload_photos
   end
+  def deliveries
+    @deliveries = Delivery.all
+  end
+  def new_delivery
+    @delivery = Delivery.new
+  end
+  def edit_delivery
+  end
   def text_main
   end
   def text_other
@@ -32,6 +41,9 @@ class AdminsController < ApplicationController
 
     def set_car
       @car = Car.find(params[:id])
+    end
+    def set_delivery
+      @delivery = Delivery.find(params[:id])
     end
     def set_text
       @text = Text.first

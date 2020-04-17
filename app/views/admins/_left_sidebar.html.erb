@@ -2,6 +2,13 @@
   <div class="sidebar">
     <ul class="sidebar-menu" data-widget="tree">
       <li class="treeview">
+        <%= link_to bookings_admin_path do %>
+          <i class="icon-home"></i>
+          <span>Заявки</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+         <% end %>
          <%= link_to cars_admin_path do %>
           <i class="icon-home"></i>
           <span>Автомобили</span>
@@ -33,6 +40,20 @@
          <%= link_to text_metatags_admin_path do %>
           <i class="icon-home"></i>
           <span>Метатеги</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+         <% end %>
+         <%= link_to deliveries_admin_path do %>
+          <i class="icon-home"></i>
+          <span>Страницы городов</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+         <% end %>
+         <%= link_to new_delivery_admin_path do %>
+          <i class="icon-home"></i>
+          <span>Добавить новый город</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>

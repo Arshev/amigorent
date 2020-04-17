@@ -41,6 +41,7 @@ class BookingsController < ApplicationController
 
   def new
     # @cars = Car.all
+    @main_up_text = Text.first.main_up_text
     @booking = Booking.new
     if params[:car_id]
       @car = Car.find(params[:car_id])

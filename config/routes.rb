@@ -28,6 +28,9 @@ Rails.application.routes.draw do
       get 'cars'
       get 'bookings'
       get 'new_car'
+      get 'deliveries'
+      get 'new_delivery'
+      get 'edit_delivery'
       get 'upload_photos'
       get 'edit_car'
       get 'text_main'
@@ -51,12 +54,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :deliveries
+
   resources :prices, only: [:index]
   resources :contacts, only: [:index, :create]
   resources :terms, only: [:index]
   resources :faqs, only: [:index]
   resources :abouts, only: [:index]
   resources :services, only: [:index]
-  resources :deliveries, only: [:index]
   resources :articles, only: [:index]
 end

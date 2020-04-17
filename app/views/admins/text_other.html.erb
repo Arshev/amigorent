@@ -1,9 +1,6 @@
 <%= render 'header' %>
 <%= render 'left_sidebar' %>
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header sty-one">
       <h1>Текстовка на остальных страницах</h1>
       <ol class="breadcrumb">
@@ -13,8 +10,6 @@
         <li><i class="fa fa-angle-right"></i> Текстовка на остальных страницах</li>
       </ol>
     </div>
-
-    <!-- Main content -->
     <div class="content">
       <div class="row">
         <%= form_for @text do |f| %>
@@ -23,8 +18,7 @@
               <div class="card-body">
                 <div class="click2edit m-b-3">
                   <h4>Цены действительны до</h4>
-                  <%= f.text_area :prices_text, id: "summernote", style: "min-width: 800px;", rows: "2" %>
-                  <%= tinymce %>
+                  <%= f.cktext_area :prices_text, ckeditor: { language: 'ru'} %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -40,20 +34,12 @@
                       <tr>
                         <th scope="col">Время рабочее</th>
                         <th scope="col">Город</th>
-                        <th scope="col">Аэропорт</th>
-                        <th scope="col">Светлогорск</th>
-                        <th scope="col">Зеленоградск</th>
-                        <th scope="col">Коса</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td><%= f.text_field :dop_table_worktime, placeholder: "1000", class: "form-control", required: true %></td>
                         <td><%= f.text_field :dop_table_city_price_worktime, placeholder: "1000", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_aero_price_worktime, placeholder: "1000", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_svetlogorsk_price_worktime, placeholder: "1000", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_zelenogradsk_price_worktime, placeholder: "1000", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_kosa_price_worktime, placeholder: "1000", class: "form-control", required: true %></td>
                       </tr>
                     </tbody>
                   </table>
@@ -72,20 +58,12 @@
                       <tr>
                         <th scope="col">Время нерабочее</th>
                         <th scope="col">Город н/р</th>
-                        <th scope="col">Аэропорт н/р</th>
-                        <th scope="col">Светлогорск н/р</th>
-                        <th scope="col">Зеленоградск н/р</th>
-                        <th scope="col">Коса н/р</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td><%= f.text_field :dop_table_endtime, placeholder: "1000", class: "form-control", required: true %></td>
                         <td><%= f.text_field :dop_table_city_price_endtime, placeholder: "1000", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_aero_price_endtime, placeholder: "150", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_svetlogorsk_price_endtime, placeholder: "1000", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_zelenogradsk_price_endtime, placeholder: "1000", class: "form-control", required: true %></td>
-                        <td><%= f.text_field :dop_table_kosa_price_endtime, placeholder: "150", class: "form-control", required: true %></td>
                       </tr>
                     </tbody>
                   </table>
@@ -124,8 +102,8 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
-                  <h4>Текст под таблицей цен и доп</h4>
-                  <%= f.text_area :dop_table_downtext, class: "tinymce", style: "min-width: 800px;", rows: "7" %>
+                  <h4>Текст под таблицей доп услуг</h4>
+                  <%= f.cktext_area :dop_table_downtext, ckeditor: { language: 'ru'} %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -135,8 +113,8 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
-                  <h4>Контакты</h4>
-                  <%= f.text_area :contacts_text, class: "tinymce", style: "min-width: 800px;", rows: "7" %>
+                  <h4>Текст под таблицей цен</h4>
+                  <%= f.cktext_area :prices_bottom_text, ckeditor: { language: 'ru'} %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -147,40 +125,7 @@
               <div class="card-body">
                 <div class="click2edit m-b-3">
                   <h4>Текст внизу страницы заявки</h4>
-                  <%= f.text_area :bookings_bottom_text, class: "tinymce", style: "min-width: 800px;", rows: "10" %>
-                </div>
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <div class="click2edit m-b-3">
-                  <h4>Условия</h4>
-                  <%= f.text_area :terms_text, class: "tinymce", style: "min-width: 800px;", rows: "20" %>
-                </div>
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <div class="click2edit m-b-3">
-                  <h4>Faqs</h4>
-                  <%= f.text_area :faqs_text, class: "tinymce", style: "min-width: 800px;", rows: "30" %>
-                </div>
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <div class="click2edit m-b-3">
-                  <h4>О нас</h4>
-                  <%= f.text_area :about_text, class: "tinymce", style: "min-width: 800px;", rows: "10" %>
+                  <%= f.cktext_area :bookings_bottom_text, ckeditor: { language: 'ru'} %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -191,7 +136,7 @@
               <div class="card-body">
                 <div class="click2edit m-b-3">
                   <h4>Отзывы, заголовок</h4>
-                  <%= f.text_area :reviews_text, id: "summernote", style: "min-width: 800px;", rows: "3" %>
+                  <%= f.cktext_area :about_text, ckeditor: { language: 'ru'} %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -200,8 +145,5 @@
         <% end %>
       </div>
     </div>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
   <%= render 'footer'  %>
-<!-- ./wrapper -->

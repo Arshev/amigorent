@@ -5,6 +5,7 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
+    @main_up_text = Text.first.main_up_text
   end
 
   def new
@@ -29,18 +30,8 @@ class CarsController < ApplicationController
   end
 
   def show
-    @photos = @car.images
   end
-
-  def listing
-  end
-
-  def pricing
-  end
-
-  def description
-  end
-
+  
   def images_upload
   end
 

@@ -1,0 +1,19 @@
+<%= render 'header' %>
+<%= render 'left_sidebar' %>
+<div class="content-wrapper">
+  <div class="content-header sty-one">
+    <h1>Доставки</h1>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Главная", admin_path %>
+      </li>
+      <li><i class="fa fa-angle-right"></i> Доставки</li>
+    </ol>
+  </div>
+  <div class="content">
+    <div class="row">
+      <%= render "delivery"  %>
+    </div>
+  </div>
+</div>
+<%= render 'footer'  %>

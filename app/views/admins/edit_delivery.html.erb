@@ -1,0 +1,47 @@
+<%= render 'header' %>
+<%= render 'left_sidebar' %>
+  <div class="content-wrapper">
+    <div class="content-header sty-one">
+      <h1>Изменение страницы города</h1>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Главная', admin_path %>
+        </li>
+        <li><i class="fa fa-angle-right"></i> <%= link_to 'Автомобили', cars_admin_path %></li>
+        <li><i class="fa fa-angle-right"></i> Изменение страницы города</li>
+      </ol>
+    </div>
+    <div class="content">
+      <div class="row">
+        <%= form_for @delivery do |f| %>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Изменение страницы города</h4>
+                <h3>Название города</h3>
+                <%= f.text_field :city, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.text_area :text, class: "form-control" %>
+                <h3>Заголовок Н1</h3>
+                <%= f.text_field :h1, class: "form-control" %>
+                <h3>Цена доставки в рабочее время</h3>
+                <%= f.text_field :price_work_time, class: "form-control" %>
+                <h3>Цена доставки в нерабочее время</h3>
+                <%= f.text_field :price_not_work_time, class: "form-control" %>
+                <h3>Title</h3>
+                <%= f.text_field :title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :description, class: "form-control" %>
+                </div>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render 'footer'  %>
