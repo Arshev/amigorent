@@ -60,7 +60,11 @@ Rails.application.routes.draw do
   resources :deliveries
 
   resources :prices, only: [:index]
-  resources :contacts, only: [:index, :create]
+  resources :contacts, only: [:index, :create, :send_email] do 
+    member do
+      post '/send_email' => "contacts#send_email"
+    end
+  end
   resources :terms, only: [:index]
   resources :faqs, only: [:index]
   resources :abouts, only: [:index]
