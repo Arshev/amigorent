@@ -91,7 +91,7 @@ a {
 }
 .header {
     background: #28293d;
-    border-bottom: 5px solid #d67e2a;
+    border-bottom: 5px solid #f77d0a;
     padding: 0 0 10px;
     position: relative;
     z-index: 7;
@@ -189,7 +189,7 @@ a {
     display: inline-block;
     vertical-align: middle;
     font-size: 25px;
-    color: #d67e2a;
+    color: #f77d0a;
     font-weight: 600;
     line-height: 32px;
 }
@@ -203,7 +203,7 @@ a {
     display: block;
     text-align: center;
     font-size: 0;
-    background: #d67e2a;
+    background: #f77d0a;
     margin: 11px 0 -76px;
     padding: 0;
     border-radius: 0 0 60px 60px;
@@ -267,7 +267,7 @@ a {
     position: absolute;
     z-index: 120;
     background: #fff;
-    border: 2px solid #d67e2a;
+    border: 2px solid #f77d0a;
     top: 66px;
     left: 0;
     width: 200px;
@@ -302,7 +302,7 @@ a {
     font-weight: 700;
     font-size: 40px;
     line-height: 54px;
-    color: #79b182;
+    color: #fff;
 }
 .block1 .text2 {
     color: #fff;
@@ -329,11 +329,11 @@ a {
 }
 .block1 .zakaz {
     font-family: 'Georgia', sans-serif;
-    color: #d67e2a;
+    color: #f77d0a;
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
-    border: 3px solid #d67e2a;
+    border: 3px solid #f77d0a;
     margin: 35px 0 0;
     line-height: 60px;
     font-size: 30px;
@@ -341,7 +341,7 @@ a {
     border-radius: 30px;
 }
 .block1 .zakaz:hover {
-    background: #d67e2a;
+    background: #f77d0a;
     color: #fff;
 }
 .block2 {
@@ -392,7 +392,7 @@ a {
     vertical-align: middle;
 }
 .block2 .perekl label input:checked + span {
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .block2 form {
     margin: 28px 0 0;
@@ -415,12 +415,12 @@ a {
     padding: 0;
     color: #fff;
     font-family: 'Georgia', sans-serif;
-    background: #d67e2a;
-    border: 2px solid #d67e2a;
+    background: #f77d0a;
+    border: 2px solid #f77d0a;
     font-size: 20px;
 }
 .block2 form input[type="submit"]:hover {
-    color: #d67e2a;
+    color: #f77d0a;
     background: transparent;
 }
 .block2 form input:nth-child(3n+2) {
@@ -553,7 +553,7 @@ a {
 }
 .block4 .spis_avto .avto .price b {
     font-weight: 700;
-    color: #d67e2a;
+    color: #f77d0a;
     font-size: 23px;
 }
 .block4 .spis_avto .avto .more {
@@ -561,8 +561,8 @@ a {
     vertical-align: top;
     text-decoration: none;
     color: #fff;
-    border: 1px solid #d67e2a;
-    background: #d67e2a;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
     margin: 15px 0 0;
     line-height: 37px;
     font-family: 'Georgia', sans-serif;
@@ -572,7 +572,7 @@ a {
 }
 .block4 .spis_avto .avto .more:hover {
     background: #fff;
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .block4 .spis_avto .avto .hara {
     font-size: 0;
@@ -604,8 +604,8 @@ a {
     vertical-align: top;
     text-decoration: none;
     font-family: 'Georgia', sans-serif;
-    color: #d67e2a;
-    border: 2px solid #d67e2a;
+    color: #f77d0a;
+    border: 2px solid #f77d0a;
     margin: 59px 0 0;
     line-height: 64px;
     font-size: 20px;
@@ -614,7 +614,7 @@ a {
     border-radius: 35px;
 }
 .block4 .all:hover {
-    background: #d67e2a;
+    background: #f77d0a;
     color: #fff;
 }
 .block5 {
@@ -779,7 +779,7 @@ a {
     padding: 0 0 68px;
 }
 .footer .zg {
-    color: #d67e2a;
+    color: #f77d0a;
     font-weight: 700;
     font-family: 'Georgia', sans-serif;
     font-size: 20px;
@@ -843,7 +843,7 @@ a {
 }
 .footer .col1 .polz {
     text-decoration: underline;
-    color: #d67e2a;
+    color: #f77d0a;
     display: inline-block;
     vertical-align: top;
     font-size: 16px;
@@ -909,7 +909,7 @@ a {
 .content .bread {
     background-color: #f6f5f5;
     font-weight: 300;
-    color: #d67e2a;
+    color: #f77d0a;
     font-size: 16px;
     line-height: 30px;
 }
@@ -931,11 +931,11 @@ a {
 }
 .content .bl_faq {}
 .content .bl_faq .fq {
-    border: 1px solid #d67e2a;
+    border: 1px solid #f77d0a;
     margin: 0 0 14px;
 }
 .content .bl_faq .fq .vopr {
-    background: #d67e2a;
+    background: #f77d0a;
     line-height: 80px;
     height: 81px;
     padding: 0 19px;
@@ -1118,7 +1118,7 @@ a {
 }
 .content .bl_avtomob .avto .price b {
     font-weight: 700;
-    color: #d67e2a;
+    color: #f77d0a;
     font-size: 28px;
 }
 .content .bl_avtomob .avto .more {
@@ -1127,8 +1127,8 @@ a {
     vertical-align: top;
     text-decoration: none;
     color: #fff;
-    border: 1px solid #d67e2a;
-    background: #d67e2a;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
     margin: -35px 17px 0 0;
     line-height: 37px;
     font-family: 'Georgia', sans-serif;
@@ -1138,7 +1138,7 @@ a {
 }
 .content .bl_avtomob .avto .more:hover {
     background: #fff;
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .content .bl_avtomob .avto .hara {
     font-size: 0;
@@ -1175,8 +1175,8 @@ a {
     vertical-align: top;
     text-decoration: none;
     font-family: 'Georgia', sans-serif;
-    color: #d67e2a;
-    border: 2px solid #d67e2a;
+    color: #f77d0a;
+    border: 2px solid #f77d0a;
     margin: 16px 0 0;
     line-height: 64px;
     font-size: 20px;
@@ -1185,7 +1185,7 @@ a {
     border-radius: 35px;
 }
 .content .bl_avtomob .all:hover {
-    background: #d67e2a;
+    background: #f77d0a;
     color: #fff;
 }
 .content .bl_avto {}
@@ -1300,7 +1300,7 @@ a {
     font-family: 'Georgia', sans-serif;
     font-weight: 700;
     font-size: 19px;
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .content .bl_avto .pol2 .price {
     color: #fff;
@@ -1312,7 +1312,7 @@ a {
 }
 .content .bl_avto .pol2 .price b {
     font-weight: 700;
-    color: #d67e2a;
+    color: #f77d0a;
     font-size: 29px;
 }
 .content .bl_avto .pol2 .bron {
@@ -1320,8 +1320,8 @@ a {
     vertical-align: top;
     text-decoration: none;
     color: #fff;
-    border: 1px solid #d67e2a;
-    background: #d67e2a;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
     margin: 16px 0 0;
     line-height: 36px;
     font-family: 'Georgia', sans-serif;
@@ -1353,11 +1353,11 @@ a {
 }
 .content .bl_avto .bl_perekl a:hover,
 .content .bl_avto .bl_perekl a.active {
-    background: #d67e2a;
+    background: #f77d0a;
 }
 .content .bl_avto .perek {
     display: none;
-    border: 1px solid #d67e2a;
+    border: 1px solid #f77d0a;
     padding: 10px 13px;
     margin: 0 0 45px;
 }
@@ -1448,8 +1448,8 @@ a {
     font-size: 18px;
     color: #fff;
     height: 42px;
-    background: #d67e2a;
-    border: 1px solid #d67e2a;
+    background: #f77d0a;
+    border: 1px solid #f77d0a;
 }
 .content .bl_avto .bl_ostav form input[type="submit"]:hover {
     background: transparent;
@@ -1467,7 +1467,7 @@ a {
     margin: 0 0 12px;
 }
 .content .bl_avto .bl_otz .otz:nth-child(2n+1) {
-    border: 1px solid #d67e2a;
+    border: 1px solid #f77d0a;
 }
 .content .bl_avto .bl_otz .otz {
     border: 1px solid #33354d;
@@ -1648,13 +1648,13 @@ a {
     margin: 0 0 20px;
 }
 .content .bl_zakaz .pol2 p.itogo {
-    color: #d67e2a;
+    color: #f77d0a;
     font-weight: 700;
     font-size: 20px;
     margin: 55px 0 22px;
 }
 .booking_info {
-    color: #d67e2a;
+    color: #f77d0a;
     float: right;
     font-weight: 700;
 }
@@ -1669,8 +1669,8 @@ a {
     color: #fff;
     text-decoration: none;
     font-family: 'Georgia', sans-serif;
-    border: 1px solid #d67e2a;
-    background: #d67e2a;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
     margin: 54px 0 0;
     line-height: 37px;
     border-radius: 25px;
@@ -1729,7 +1729,7 @@ a {
     margin: 28px 0 0;
 }
 .content .bl_contact .pol1 .zg2 {
-    color: #d67e2a;
+    color: #f77d0a;
     font-weight: 600;
     font-size: 20px;
     line-height: 26px;
@@ -1869,8 +1869,8 @@ a {
     cursor: pointer;
     width: 100%;
     color: #fff;
-    border: 1px solid #d67e2a;
-    background: #d67e2a;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
     line-height: 37px;
     border-radius: 25px;
     font-family: 'Georgia', sans-serif;
@@ -1893,7 +1893,7 @@ a {
     border-radius: 25px;
 }
 .bl_mapp .bl_connt form label {
-    color: #d67e2a;
+    color: #f77d0a;
     cursor: pointer;
     font-size: 16px;
     line-height: 18px;
@@ -1923,7 +1923,7 @@ a {
     margin: -20px 0 0;
 }
 .content .bl_news .new1 {
-    border: 1px solid #d67e2a;
+    border: 1px solid #f77d0a;
     padding: 0 0 18px;
     margin: 0 0 20px;
 }
@@ -2002,13 +2002,13 @@ a {
 .content .pagin a:hover,
 .content .pagin a.active {
     text-decoration: underline;
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .content .bl_news .new1:nth-child(2n+2) .bl_text .zg {
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .content .bl_news .new1:nth-child(2n+1) .bl_text .more {
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .content .bl_otziv {}
 .content .bl_otziv .col_l {
@@ -2022,10 +2022,10 @@ a {
     padding: 0 0 33px;
 }
 .content .bl_otziv .col_l .otziv:nth-child(2n+1) {
-    border: 1px solid #d67e2a;
+    border: 1px solid #f77d0a;
 }
 .content .bl_otziv .col_l .otziv:nth-child(2n+1) .fio {
-    color: #d67e2a;
+    color: #f77d0a;
 }
 .content .bl_otziv .col_l .otziv .fio {
     font-weight: 700;
@@ -2101,8 +2101,8 @@ a {
     font-family: 'Georgia', sans-serif;
     font-size: 18px;
     margin: 41px 0 0;
-    border: 1px solid #d67e2a;
-    background: #d67e2a;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
     color: #fff;
     cursor: pointer;
     height: 40px;
@@ -2190,7 +2190,7 @@ a {
 }
 .content .bl_usloviya {}
 .content .bl_usloviya .bl_uslo {
-    background: #d67e2a;
+    background: #f77d0a;
     margin: 0 0 20px;
     padding: 14px 20px 20px;
 }
@@ -2278,7 +2278,7 @@ a {
 .content .bl_ceny table tbody td[colspan="9"] {
     text-align: center;
     color: #fff;
-    background: #d67e2a!important;
+    background: #f77d0a!important;
     padding: 4px;
     font-family: 'Georgia', sans-serif;
     font-weight: 700;
@@ -2343,8 +2343,8 @@ a {
     vertical-align: middle;
     text-decoration: none;
     color: #fff;
-    border: 1px solid #d67e2a;
-    background: #d67e2a;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
     border-radius: 25px;
     font-size: 17px;
     line-height: 36px;

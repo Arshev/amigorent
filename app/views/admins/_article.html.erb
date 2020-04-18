@@ -1,0 +1,27 @@
+<div class="content">
+  <div class="row">
+    <% @articles.each do |article| %>
+        <div class="col-md-6 m-b-3">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="text-black m-b-0"><%= article.title %></h4>
+              <p>
+                <%= link_to article_path(article.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                  Удалить
+                <% end %>
+                <%= link_to edit_article_admin_path(action: "edit_article", id: article), class: "btn btn-sm btn-secondary" do %>
+                  Изменить
+                <% end %>
+              </p>
+              <p>
+                Датa: <%= article.updated_at.strftime("%d-%m-%Y") %>
+              </p>
+              <p>
+                <%= truncate(strip_tags(article.text.to_s), length: 300) %>
+              </p>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

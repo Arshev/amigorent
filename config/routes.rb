@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     member do
       get 'cars'
       get 'bookings'
+      get 'articles'
+      get 'new_article'
+      get 'edit_article'
       get 'new_car'
       get 'deliveries'
       get 'new_delivery'
@@ -62,5 +65,5 @@ Rails.application.routes.draw do
   resources :faqs, only: [:index]
   resources :abouts, only: [:index]
   resources :services, only: [:index]
-  resources :articles, only: [:index]
+  resources :articles
 end

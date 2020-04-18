@@ -4,6 +4,7 @@ class AdminsController < ApplicationController
   before_action :set_text, only: [:text_main, :text_other, :text_metatags]
   before_action :set_car, only: [:edit_car, :upload_photos]
   before_action :set_delivery, only: [:edit_delivery]
+  before_action :set_article, only: [:edit_article]
 
   def show
     @rating = Rating.first
@@ -30,6 +31,14 @@ class AdminsController < ApplicationController
   end
   def edit_delivery
   end
+  def articles
+    @articles = Article.all
+  end
+  def new_article
+    @article = Article.new
+  end
+  def edit_article
+  end
   def text_main
   end
   def text_other
@@ -44,6 +53,9 @@ class AdminsController < ApplicationController
     end
     def set_delivery
       @delivery = Delivery.find(params[:id])
+    end
+    def set_article
+      @article = Article.find(params[:id])
     end
     def set_text
       @text = Text.first

@@ -23,6 +23,20 @@
             <i class="fa fa-angle-left pull-right"></i>
           </span>
          <% end %>
+         <%= link_to articles_admin_path do %>
+          <i class="icon-home"></i>
+          <span>Статьи</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+         <% end %>
+         <%= link_to new_article_admin_path do %>
+          <i class="icon-home"></i>
+          <span>Добавить статью</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+         <% end %>
          <%= link_to text_main_admin_path do %>
           <i class="icon-home"></i>
           <span>Текст на главной</span>
