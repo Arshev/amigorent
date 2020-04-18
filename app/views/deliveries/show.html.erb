@@ -1,4 +1,4 @@
-<%= render 'shared/header' %>
+<%= render 'shared/header', cached: true %>
 <div class="bl_topp" style="background: url(<%= url_for(@delivery.background.variant(resize_to_fill: [1920, 558])) if @delivery.background.attached? %>) no-repeat center top transparent;">
     <div class="wrapper">
       <h1><%= @delivery.h1 %></h1>

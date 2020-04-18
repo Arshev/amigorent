@@ -1,9 +1,9 @@
-<%= render 'shared/header' %>
+<%= render 'shared/header', cached: true %>
 <div class="block1">
     <div class="wrapper">
         <h1 class="text1"><%= @main_h1_text.html_safe %></h1>
         <div class="text2">С нами ты всегда у руля!</div>
-        <div class="text3"><a href="tel:+7 (921) 710-16-15">+7 (921) 710-16-15</a></div>
+        <div class="text3"><a href="tel:+79217101615">+7 (921) 710-16-15</a></div>
         <%= link_to "Цены на аренду", prices_path, class: "zakaz" %>
         <div class="clear"></div>
     </div>
@@ -89,111 +89,10 @@
         <div class="zag">Найдём машину для каждого!</div>
         <div class="podzag">У нас большой ассортимент автомобилей.</div>
         <div class="spis_avto">
-            <div class="avto">
-                <a href="#" class="bl_img">
-                  <%= image_tag "a1.jpg", alt: "", title: "" %>
-                </a>
-                <a href="#" class="zg">Chevrolet Spark Promo</a>
-                <div class="price">от <b>700</b> руб/сутки</div>
-                <a href="#" class="more">Подробнее</a>
-                <div class="hara">
-                    <p>
-                      <%= image_tag "h1.png", alt: "", title: "" %>
-                        Автомат
-                    </p>
-                    <p>
-                      <%= image_tag "h2.png", alt: "", title: "" %>
-                      Бензин
-                    </p>
-                    <p>
-                      <%= image_tag "h3.png", alt: "", title: "" %>
-                        2012г.
-                    </p>
-                    <p>
-                      <%= image_tag "h4.png", alt: "", title: "" %>
-                      Хэтчбэк
-                    </p>
-                    <p>
-                      <%= image_tag "h5.png", alt: "", title: "" %>
-                      1,0
-                    </p>
-                    <p>
-                      <%= image_tag "h6.png", alt: "", title: "" %>
-                      Есть
-                    </p>
-                </div>
-            </div>
-            <div class="avto">
-                <a href="#" class="bl_img">
-                  <%= image_tag "a2.jpg", alt: "", title: "" %>
-                </a>
-                <a href="#" class="zg">KIA Picanto</a>
-                <div class="price">от <b>900</b> руб/сутки</div>
-                <a href="#" class="more">Подробнее</a>
-                <div class="hara">
-                    <p>
-                      <%= image_tag "h1.png", alt: "", title: "" %>
-                      Автомат
-                    </p>
-                    <p>
-                      <%= image_tag "h2.png", alt: "", title: "" %>
-                      Бензин
-                    </p>
-                    <p>
-                      <%= image_tag "h3.png", alt: "", title: "" %>
-                      2014г.
-                    </p>
-                    <p>
-                      <%= image_tag "h4.png", alt: "", title: "" %>
-                      Хэтчбэк
-                    </p>
-                    <p>
-                      <%= image_tag "h5.png", alt: "", title: "" %>
-                      1,2
-                    </p>
-                    <p>
-                      <%= image_tag "h6.png", alt: "", title: "" %>
-                      Есть
-                    </p>
-                </div>
-            </div>
-            <div class="avto">
-                <a href="#" class="bl_img">
-                  <%= image_tag "a3.jpg", alt: "", title: "" %>
-                </a>
-                <a href="#" class="zg">Спецпредложение! <br />Nissan Almera New</a>
-                <div class="price">от <b>1000</b> руб/сутки</div>
-                <a href="#" class="more">Подробнее</a>
-                <div class="hara">
-                  <p>
-                    <%= image_tag "h1.png", alt: "", title: "" %>
-                    Автомат
-                  </p>
-                  <p>
-                    <%= image_tag "h2.png", alt: "", title: "" %>
-                    Бензин
-                  </p>
-                  <p>
-                    <%= image_tag "h3.png", alt: "", title: "" %>
-                    2012г.
-                  </p>
-                  <p>
-                    <%= image_tag "h4.png", alt: "", title: "" %>
-                    Хэтчбэк
-                  </p>
-                  <p>
-                    <%= image_tag "h5.png", alt: "", title: "" %>
-                    1,0
-                  </p>
-                  <p>
-                    <%= image_tag "h6.png", alt: "", title: "" %>
-                    Есть
-                  </p>
-                </div>
-            </div>
+            <%= render "cars"%>
             <div class="clear"></div>
         </div>
-        <a href="#" class="all">Посмотреть все автомобили</a>
+        <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
         <div class="clear"></div>
     </div>
 </div>

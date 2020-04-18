@@ -3,6 +3,8 @@ class MainController < ApplicationController
     @quick_booking = QuickBooking.new
     @reviews = Review.where(active: :true).limit(3)
 
+    @cars = Car.all.limit(3)
+
     @main_up_text = Text.first.main_up_text
     @main_h1_text = Text.first.main_h1_text
     @main_quick_booking_text = Text.first.main_quick_booking_text
