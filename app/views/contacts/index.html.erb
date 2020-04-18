@@ -69,18 +69,17 @@
         <div class="bl_connt">
             <div class="zg">Помогите нам стать лучше!</div>
             <%= form_with(model: @contact, action: "send_email", method: "post")  do |f| %>
-                    <%= f.text_field :name, placeholder: "Имя *", required: true %>
-                    <%= f.text_field :email, placeholder: "Email *", required: true %>
-                    <%= f.text_field :phone, placeholder: "Телефон *", required: true %>
-                    <%= f.text_area :message, placeholder: "Текст письма", required: true %>
-                    <label>
-                        <input type="checkbox" value="" name="" >
-                        Принимаю соглашение О персональных данных согласно 152-ФЗ *
-                    </label>
-                    <%# <div id="rateYo"></div> %>
-                    <%# recaptcha_v3(action: 'create') %>
-                    <%= f.submit "Отправить" %>
-                <% end %>
+              <%= f.text_field :name, placeholder: "Имя *", required: true %>
+              <%= f.text_field :email, placeholder: "Email *", required: true %>
+              <%= f.text_field :phone, placeholder: "Телефон *", required: true %>
+              <%= f.text_area :message, placeholder: "Текст письма", required: true %>
+              <label>
+                <%= f.check_box :fz152, required: true %>
+                Принимаю соглашение О персональных данных согласно 152-ФЗ *
+              </label>
+              <%= recaptcha_v3(action: 'create') %>
+              <%= f.submit "Отправить" %>
+            <% end %>
         </div>
         <div class="clear"></div>
     </div>
