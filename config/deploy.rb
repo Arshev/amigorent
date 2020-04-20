@@ -9,7 +9,7 @@ require "whenever/capistrano"
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads', 'node_modules', "public/packs"
 
-append :linked_files, "config/database.yml", "config/secrets.yml.key"
+append :linked_files, "config/database.yml"
 
 set :keep_releases, 5
 
