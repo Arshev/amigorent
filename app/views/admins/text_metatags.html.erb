@@ -1,11 +1,8 @@
 <%= render 'header' %>
 <%= render 'left_sidebar' %>
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header sty-one">
-      <h1>Текстовка на остальных страницах</h1>
+      <h1>Метатеги</h1>
       <ol class="breadcrumb">
         <li>
           <%= link_to 'Главная', admin_path %>
@@ -13,8 +10,6 @@
         <li><i class="fa fa-angle-right"></i> Метатеги</li>
       </ol>
     </div>
-
-    <!-- Main content -->
     <div class="content">
       <div class="row">
         <%= form_for @text do |f| %>
@@ -23,10 +18,10 @@
               <div class="card-body">
                 <div class="click2edit m-b-3">
                   <h4>Метатеги на главной</h4>
-                  <%= f.text_field :home_title, style: "min-width: 800px;" %>
+                  <%= f.text_field :main_title, style: "min-width: 800px;" %>
                 </div>
                 <div class="click2edit m-b-3">
-                  <%= f.text_area :home_description, style: "min-width: 800px;" %>
+                  <%= f.text_area :main_description, style: "min-width: 800px;" %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -41,6 +36,20 @@
                 </div>
                 <div class="click2edit m-b-3">
                   <%= f.text_area :cars_description, style: "min-width: 800px;" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Метатеги на странице автомобиля + название авто</h4>
+                  <%= f.text_field :car_title, style: "min-width: 800px;" %>
+                </div>
+                <div class="click2edit m-b-3">
+                  <%= f.text_area :car_description, style: "min-width: 800px;" %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -139,6 +148,62 @@
                 </div>
                 <div class="click2edit m-b-3">
                   <%= f.text_area :abouts_description, style: "min-width: 800px;" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Метатеги на странице Доставки</h4>
+                  <%= f.text_field :deliveries_title, style: "min-width: 800px;" %>
+                </div>
+                <div class="click2edit m-b-3">
+                  <%= f.text_area :deliveries_description, style: "min-width: 800px;" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Метатеги на странице Города + название</h4>
+                  <%= f.text_field :delivery_title, style: "min-width: 800px;" %>
+                </div>
+                <div class="click2edit m-b-3">
+                  <%= f.text_area :delivery_description, style: "min-width: 800px;" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Метатеги на странице Услуги</h4>
+                  <%= f.text_field :services_title, style: "min-width: 800px;" %>
+                </div>
+                <div class="click2edit m-b-3">
+                  <%= f.text_area :services_description, style: "min-width: 800px;" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Метатеги на странице Статьи</h4>
+                  <%= f.text_field :articles_title, style: "min-width: 800px;" %>
+                </div>
+                <div class="click2edit m-b-3">
+                  <%= f.text_area :articles_description, style: "min-width: 800px;" %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>

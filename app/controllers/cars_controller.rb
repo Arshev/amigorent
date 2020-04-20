@@ -6,6 +6,8 @@ class CarsController < ApplicationController
   def index
     @cars = Car.all
     @main_up_text = Text.first.main_up_text
+    @cars_title = Text.first.cars_title
+    @cars_description = Text.first.cars_description
   end
 
   def new
@@ -30,6 +32,8 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car_title = Text.first.car_title + " " + @car.car_name
+    @car_description = Text.first.car_description + " " + @car.car_name
   end
   
   def images_upload

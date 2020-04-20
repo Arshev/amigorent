@@ -1,6 +1,9 @@
 class ContactsController < ApplicationController
   def index
     @main_up_text = Text.first.main_up_text
+
+    @contacts_title = Text.first.contacts_title
+    @contacts_description = Text.first.contacts_description
   end
 
   def create

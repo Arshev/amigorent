@@ -6,6 +6,9 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.paginate(page: params[:page])
     @main_up_text = Text.first.main_up_text
+
+    @articles_title = Text.first.articles_title
+    @articles_description = Text.first.articles_description
   end
 
   def create

@@ -3,7 +3,10 @@ class MainController < ApplicationController
     @quick_booking = QuickBooking.new
     @reviews = Review.where(active: :true).limit(3)
 
-    @cars = Car.all.limit(3)
+    @main_title = Text.first.main_title
+    @main_description = Text.first.main_description
+
+    @cars = Car.all.limit(3) # On main
 
     @main_up_text = Text.first.main_up_text
     @main_h1_text = Text.first.main_h1_text
@@ -14,7 +17,7 @@ class MainController < ApplicationController
     @main_mission_text = Text.first.main_mission_text
     @main_edge_text = Text.first.main_edge_text
     @footer_text = Text.first.footer_text
-    @home_title = Text.first.home_title
-    @home_description = Text.first.home_description
+    @home_title = Text.first.main_title
+    @home_description = Text.first.main_description
   end
 end

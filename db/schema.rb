@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_154411) do
+ActiveRecord::Schema.define(version: 2020_04_20_103916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,8 +182,6 @@ ActiveRecord::Schema.define(version: 2020_04_17_154411) do
     t.text "terms_text", default: "empty"
     t.text "faqs_text", default: "empty"
     t.text "about_text", default: "empty"
-    t.text "home_title", default: "empty"
-    t.text "home_description", default: "empty"
     t.text "cars_title", default: "empty"
     t.text "cars_description", default: "empty"
     t.text "prices_title", default: "empty"
@@ -218,6 +216,18 @@ ActiveRecord::Schema.define(version: 2020_04_17_154411) do
     t.text "dop_table_downtext", default: "empty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "main_title", default: "empty"
+    t.string "car_title", default: "empty"
+    t.string "services_title", default: "empty"
+    t.string "deliveries_title", default: "empty"
+    t.string "delivery_title", default: "empty"
+    t.string "articles_title", default: "empty"
+    t.text "main_description", default: "empty"
+    t.text "car_description", default: "empty"
+    t.text "services_description", default: "empty"
+    t.text "deliveries_description", default: "empty"
+    t.text "delivery_description", default: "empty"
+    t.text "articles_description", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|

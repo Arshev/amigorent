@@ -6,6 +6,10 @@ class DeliveriesController < ApplicationController
   def index
     @deliveries = Delivery.all
     @main_up_text = Text.first.main_up_text
+
+    @deliveries_title = Text.first.deliveries_title
+    @deliveries_description = Text.first.deliveries_description
+
     @dop_table_worktime = Text.first.dop_table_worktime
     @dop_table_endtime = Text.first.dop_table_endtime
     @dop_table_city_price_worktime = Text.first.dop_table_city_price_worktime
@@ -39,6 +43,9 @@ class DeliveriesController < ApplicationController
   end
 
   def show
+    @delivery_title = Text.first.delivery_title + " " + @delivery.city
+    @delivery_description = Text.first.delivery_description + " " + @delivery.city
+
     @dop_table_worktime = Text.first.dop_table_worktime
     @dop_table_endtime = Text.first.dop_table_endtime
   end

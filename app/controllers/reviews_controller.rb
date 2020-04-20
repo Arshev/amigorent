@@ -15,9 +15,12 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    # @reviews = Review.all
     @reviews = Review.paginate(page: params[:page])
+
     @main_up_text = Text.first.main_up_text
+    
+    @reviews_title = Text.first.reviews_title
+    @reviews_description = Text.first.reviews_description
   end
 
   def destroy

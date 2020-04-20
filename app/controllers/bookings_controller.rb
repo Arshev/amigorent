@@ -40,6 +40,8 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @bookings_title = Text.first.bookings_title
+    @bookings_description = Text.first.bookings_description
     # @cars = Car.all
     @main_up_text = Text.first.main_up_text
     @booking = Booking.new
