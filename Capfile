@@ -10,7 +10,7 @@ require "capistrano/rails"
 require "capistrano/passenger"
 require 'capistrano/rails/console'
 require 'capistrano/sitemap_generator'
-# require "whenever/capistrano"
+require "whenever/capistrano"
 require 'capistrano/npm'
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
