@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: amigorent_production
-  username: amigorent
+  username: deployer
   password: <%= ENV['AMIGORENT_DATABASE_PASSWORD'] %>

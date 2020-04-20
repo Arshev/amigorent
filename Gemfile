@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.6.2'
 
@@ -36,10 +36,12 @@ gem 'mainsms_api', '~> 0.0.9'
 gem 'mailgun-ruby', '~> 1.2.0'
 gem 'sucker_punch', '~> 2.1.2'
 gem 'telegram-bot-ruby', '~> 0.12.0'
-gem "recaptcha", '~> 5.2.1'
+gem 'recaptcha', '~> 5.2.1'
 gem 'will_paginate', '~> 3.3.0'
 gem 'ckeditor', '~> 5.1.0'
 gem 'meta-tags', '~> 2.13.0'
+gem 'sitemap_generator', '~> 6.1.0'
+gem 'whenever', '~> 1.0.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,6 +55,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Use Capistrano for deployment
+  gem 'capistrano', '~> 3.11.2', require: false
+  gem 'capistrano-bundler', '~> 1.5.0', require: false
+  gem 'capistrano-rbenv', '~> 2.1.4', require: false
+  gem 'capistrano-rails', '~> 1.4.0', require: false
+  gem 'capistrano-passenger', '~> 0.2.0', require: false
+  gem 'capistrano-rails-console', '~> 2.3.0', require: false
+  gem 'capistrano-npm', '~> 1.0.3', require: false
 end
 
 group :test do
