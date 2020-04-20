@@ -1,0 +1,31 @@
+<div class="reviews">
+<% @reviews.each do |review| %>
+  <% if review.active || (current_user && current_user.is_admin) %>
+    <div class="otziv">
+      <div class="fio"><%= review.name %></div>
+      <div class="data"><%= review.created_at.strftime("%d-%m-%Y") %></div>
+      <% if current_user && current_user.is_admin %>
+        <%= link_to review_path(review.id), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
+          Удалить
+        <% end %>
+        <% if !(review.active?) %>
+          <%= link_to approve_review_path(review), method: :post do %>
+            Принять
+          <% end %>
+        <% end %>
+      <% end %>
+      <div class="clear"></div>
+      <div class="rating">
+        <% review.star.to_i.times do  %>
+          <%= image_tag "ra1.png", alt: "", title: "" %>
+        <% end %>
+        <% review.blank_stars.to_i.times do  %>
+          <%= image_tag "ra0.png", alt: "", title: "" %>
+        <% end %>
+      </div>
+      <p><%= review.text %></p>
+      <div class="clear"></div>
+    </div>
+  <% end %>
+<% end %>
+</div>

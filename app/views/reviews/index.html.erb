@@ -1,0 +1,46 @@
+<% title @reviews_title %>
+<% description @reviews_description %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+    <div class="wrapper">
+        <%= render 'shared/bread'%>
+        <div class="bl_otziv">
+            <div class="col_l">
+                <h1>Отзывы наших клиентов</h1>
+                <%= render "review" %>
+            </div>
+            <div class="col_r">
+                <div class="zg">Оставить отзыв</div>
+                <div class="podzg">Заполните форму ниже</div>
+                <%= form_for Review.new do |f| %>
+                    <%= f.text_field :name, placeholder: "Имя *", required: true %>
+                    <%= f.text_field :email, placeholder: "Email *", required: true %>
+                    <%= f.text_area :text, placeholder: "Текст отзыва", required: true %>
+                    <%= f.hidden_field :star, id:"star_counter", value:"" %>
+                    <div id="rateYo"></div>
+                    <%= recaptcha_v3(action: 'create') %>
+                    <%= f.submit "Отправить отзыв" %>
+                <% end %>
+            </div>
+            <div class="clear"></div>
+            <div class="pagin">
+                <%= will_paginate @reviews %>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+    
+    $("#rateYo").rateYo({
+        rating: 5,
+        fullStar: true,
+        onChange: function (rating, rateYoInstance) {
+            document.getElementById('star_counter').value = rating
+        }
+    })
+});
+</script>
+<%= render 'shared/footer', cached: true %>

@@ -1,0 +1,81 @@
+<%= render 'header' %>
+<%= render 'left_sidebar' %>
+  <div class="content-wrapper">
+    <div class="content-header sty-one">
+      <h1>Добавление автомобиля</h1>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Главная', admin_path %>
+        </li>
+        <li><i class="fa fa-angle-right"></i> <%= link_to 'Автомобили', cars_admin_path %></li>
+        <li><i class="fa fa-angle-right"></i> Новая машина</li>
+      </ol>
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card m-t-3">
+            <div class="card-body">
+              <div id="photos" style="text-align: center;">
+                <% if @car.main_image.attached? %>
+                  <%= image_tag @car.main_image.variant(resize_to_limit: [500, nil]), class: "m-t-1" %>
+                <% else %>
+                  <div class="text-center m-b-3">
+                    <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
+                  </div>
+                <% end %>
+              </div>
+              <br>
+              <%= form_with model: @car do |f| %>
+                <h4 class="text-black text-center">Главное фото </h4>
+                <div class="form-group text-center" >
+                  <span class="btn btn-default btn-file text-babu">
+                    <i class="fa fa-cloud-upload" aria-hidden="true"></i> Выберите главное фото
+                    <%= f.file_field :main_image %>
+                  </span>
+                </div>
+                <div class="text-center m-b-3">
+                  <%= f.submit "Загрузить фото", class: "btn btn-rounded btn-outline-danger" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card m-t-3">
+            <div class="card-body">
+              <div id="photos">
+                <% if @car.images.attached? %>
+                  <% @car.images.each do |file| %>
+                    <%= image_tag file.variant(resize_to_limit: [200, nil]), class: "m-t-1" %>
+                    <%= link_to 'Удалить', remove_attachment_car_url(file),
+                                      method: :delete,
+                                      remote: true,
+                                      data: { confirm: 'Вы уверены?' } %>
+                  <% end %>
+                <% else %>
+                  <div class="text-center m-b-3">
+                    <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
+                  </div>
+                <% end %>
+              </div>
+              <br>
+              <%= form_for @car, :html => { :multipart => true } do |f| %>
+                <h4 class="text-black text-center">Остальные фото </h4>
+                <div class="form-group text-center" >
+                  <span class="btn btn-default btn-file text-babu">
+                    <i class="fa fa-cloud-upload" aria-hidden="true"></i> Выберите остальные фото
+                    <%= f.file_field :images, multiple: true %>
+                  </span>
+                </div>
+                <div class="text-center m-b-3">
+                  <%= f.submit "Загрузить фото", class: "btn btn-rounded btn-outline-danger" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'footer'  %>

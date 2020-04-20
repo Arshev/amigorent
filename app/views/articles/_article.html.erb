@@ -1,0 +1,20 @@
+<% @articles.each do |article| %>
+  <div class="new1">
+    <% if article.image.attached? %>
+      <%= link_to article_path(article), class: "bl_img" do %>
+          <%= image_tag article.image.variant(resize_to_fill: [199, 143]), alt: "#{article.title}", title: "#{article.title}" %>
+      <% end %>
+    <% else %>
+      <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 199px; height: 143px;" %>
+    <% end %>
+    <div class="bl_text">
+        <a href="#" class="zg"><%= article.title %></a>
+        <div class="data"><%= article.updated_at.strftime("%d.%m.%Y") %></div>
+        <p><%= truncate(strip_tags(article.text.to_s), length: 700) %></p>
+        <%= link_to article_path(article), class: "more" do %>
+          Читать подробнее
+        <% end %>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% end %>

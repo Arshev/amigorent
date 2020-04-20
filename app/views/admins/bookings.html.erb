@@ -1,0 +1,20 @@
+<%= render 'header' %>
+<%= render 'left_sidebar' %>
+<div class="content-wrapper">
+  <div class="content-header sty-one">
+    <h1>Заявки</h1>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Главная", admin_path %>
+      </li>
+      <li><i class="fa fa-angle-right"></i> Полные заявки</li>
+    </ol>
+  </div>
+  <div class="content">
+    <div class="row">
+      <%= render "booking"  %>
+    </div>
+    <%= will_paginate @bookings %>
+  </div>
+</div>
+<%= render 'footer'  %>

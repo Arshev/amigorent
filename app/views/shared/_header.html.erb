@@ -1,0 +1,174 @@
+<div class="polosa">
+  <div class="wrapper">
+    <div id="menu_tg1">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="privet">Дорогой друг, добро пожаловать в автопрокат <b>Амиго!</b></div>
+    <div class="transl">
+      <a href="#">
+        <%= image_tag "tr1.png", alt: "", title: "" %>
+      </a>
+      <a href="#">
+        <%= image_tag "tr2.png", alt: "", title: "" %>
+      </a>
+    </div>
+    <div class="social">
+      <a href="#" target="_blank">
+        <%= image_tag "soc1.png", alt: "", title: "" %>
+      </a>
+      <a href="#" target="_blank">
+        <%= image_tag "soc2.png", alt: "", title: "" %>
+      </a>
+      <a href="#" target="_blank">
+        <%= image_tag "soc3.png", alt: "", title: "" %>
+      </a>
+      <a href="#" target="_blank">
+        <%= image_tag "soc4.png", alt: "", title: "" %>
+      </a>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="header">
+  <div class="wrapper">
+    <div id="menu_tg2">
+      <span></span>
+      <span></span>
+      <span></span>
+      Меню
+    </div>
+      <a href="/" id="logo">
+        <%= image_tag "logo.png", alt: "", title: "" %>
+        <h3>Прокат автомобилей</h3>
+      </a>
+      <div class="addr">
+        Невского 36В, 3 этаж
+        <b>Калининград</b>
+      </div>
+      <div class="phone">
+        <a href="tel:+7 (921) 710-16-15">+7 (921) 710-16-15</a>
+        <b><a href="tel:8 (800) 100-39-73">8 (800) 100-39-73</a></b>
+      </div>
+      <div class="vrem">
+        Пн - Вс:
+        <b>09:00 ~ 19:00</b>
+      </div>
+      <div class="rating">
+        <div class="obo">
+          <span><%= rating_yandex %></span>
+          <% 4.times do  %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% end %>
+          <% case rating_yandex %>
+          <% when 5.0 %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% when 4.9 %>
+            <%= image_tag "ra49.png", alt: "", title: "" %>
+          <% when 4.8 %>
+            <%= image_tag "ra48.png", alt: "", title: "" %>
+          <% when 4.7 %>
+            <%= image_tag "ra47.png", alt: "", title: "" %>
+          <% when 4.6 %>
+            <%= image_tag "ra46.png", alt: "", title: "" %>
+          <% when 4.5 %>
+            <%= image_tag "ra05.png", alt: "", title: "" %>
+          <% when 4.4 %>
+            <%= image_tag "ra44.png", alt: "", title: "" %>
+          <% when 4.3 %>
+            <%= image_tag "ra43.png", alt: "", title: "" %>
+          <% when 4.2 %>
+            <%= image_tag "ra42.png", alt: "", title: "" %>
+          <% when 4.1 %>
+            <%= image_tag "ra41.png", alt: "", title: "" %>
+          <% when 4.0 %>
+            <%= image_tag "ra0.png", alt: "", title: "" %>
+          <% end %>
+          <%= image_tag "rat1.png", alt: "", title: "" %>
+        </div>
+        <div class="obo">
+          <span><%= rating_google %></span>
+          <% 4.times do  %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% end %>
+          <% case rating_google %>
+          <% when 5.0 %>
+            <%= image_tag "ra1.png", alt: "", title: "" %>
+          <% when 4.9 %>
+            <%= image_tag "ra49.png", alt: "", title: "" %>
+          <% when 4.8 %>
+            <%= image_tag "ra48.png", alt: "", title: "" %>
+          <% when 4.7 %>
+            <%= image_tag "ra47.png", alt: "", title: "" %>
+          <% when 4.6 %>
+            <%= image_tag "ra46.png", alt: "", title: "" %>
+          <% when 4.5 %>
+            <%= image_tag "ra05.png", alt: "", title: "" %>
+          <% when 4.4 %>
+            <%= image_tag "ra44.png", alt: "", title: "" %>
+          <% when 4.3 %>
+            <%= image_tag "ra43.png", alt: "", title: "" %>
+          <% when 4.2 %>
+            <%= image_tag "ra42.png", alt: "", title: "" %>
+          <% when 4.1 %>
+            <%= image_tag "ra41.png", alt: "", title: "" %>
+          <% when 4.0 %>
+            <%= image_tag "ra0.png", alt: "", title: "" %>
+          <% end %>
+          <%= image_tag "rat2.png", alt: "", title: "" %>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+      <ul class="menu_top">
+        <li>
+            <%= link_to "Главная", root_path %>
+        </li>
+        <li class="<%= active_class?(cars_path) %>">
+            <%= link_to cars_path do %>
+              Автомобили
+            <% end %>
+        </li>
+        <li class="<%= active_class?(prices_path) %>">
+          <%= link_to "Цены", prices_path %>
+        </li>
+        <li class="<%= active_class?(contacts_path) %>">
+          <%= link_to "Контакты", contacts_path %>
+        </li>
+        <li class="<%= active_class?(new_booking_path) %>">
+          <%= link_to "Заказать", new_booking_path %>
+        </li>
+        <li class="<%= active_class?(reviews_path) %>">
+          <%= link_to "Отзывы", reviews_path %>
+        </li>
+        <li class="<%= active_class?(terms_path) %>">
+          <%= link_to "Условия", terms_path %>
+        </li>
+        <li class="<%= active_class?(faqs_path) %>">
+          <%= link_to "Вопросы", faqs_path %>
+        </li>
+        <li>
+          <a>
+            Прочее
+            <span>&#9660;</span>
+          </a>
+            <ul>
+              <li class="<%= active_class?(abouts_path) %>">
+                <%= link_to "О нас", abouts_path %>
+              </li>
+              <li class="<%= active_class?(services_path) %>">
+                <%= link_to "Доп услуги", services_path %>
+              </li>
+              <li class="<%= active_class?(deliveries_path) %>">
+                <%= link_to "Доставка", deliveries_path %>
+              </li>
+              <li class="<%= active_class?(articles_path) %>">
+                <%= link_to "Новости и акции", articles_path %>
+              </li>
+            </ul>
+        </li>
+      </ul>
+      <div class="clear"></div>
+  </div>
+</div>

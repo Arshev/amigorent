@@ -1,0 +1,160 @@
+<%= render 'header' %>
+<%= render 'left_sidebar' %>
+  <div class="content-wrapper">
+    <div class="content-header sty-one">
+      <h1>Текстовка на остальных страницах</h1>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Главная', admin_path %>
+        </li>
+        <li><i class="fa fa-angle-right"></i> Текстовка на остальных страницах</li>
+      </ol>
+    </div>
+    <div class="content">
+      <div class="row">
+        <%= form_for @text do |f| %>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Цены действительны до</h4>
+                  <%= f.cktext_area :prices_text, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Доставки/возвтраты рабочее время</h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Время рабочее</th>
+                        <th scope="col">Город</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><%= f.text_field :dop_table_worktime, placeholder: "1000", class: "form-control", required: true %></td>
+                        <td><%= f.text_field :dop_table_city_price_worktime, placeholder: "1000", class: "form-control", required: true %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Доставки/возвтраты нерабочее время</h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Время нерабочее</th>
+                        <th scope="col">Город н/р</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><%= f.text_field :dop_table_endtime, placeholder: "1000", class: "form-control", required: true %></td>
+                        <td><%= f.text_field :dop_table_city_price_endtime, placeholder: "1000", class: "form-control", required: true %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Цены на доп. оборудование</h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Детское кресло/бустер за сутки</th>
+                        <th scope="col">Детское кресло/бустер за весь срок</th>
+                        <th scope="col">Навигатор</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><%= f.text_field :dop_table_kreslo_dayprice, placeholder: "1000", class: "form-control", required: true %></td>
+                        <td><%= f.text_field :dop_table_kreslo_allprice, placeholder: "1000", class: "form-control", required: true %></td>
+                        <td><%= f.text_field :dop_table_navigator_dayprice, placeholder: "150", class: "form-control", required: true %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Текст под таблицей доп услуг</h4>
+                  <%= f.cktext_area :dop_table_downtext, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Текст под таблицей цен</h4>
+                  <%= f.cktext_area :prices_bottom_text, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Текст О нас</h4>
+                  <%= f.cktext_area :about_text, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Текст внизу страницы заявки</h4>
+                  <%= f.cktext_area :bookings_bottom_text, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Отзывы, заголовок</h4>
+                  <%= f.cktext_area :reviews_text, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render 'footer'  %>

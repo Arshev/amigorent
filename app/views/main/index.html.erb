@@ -1,0 +1,203 @@
+<% title @main_title %>
+<% description @main_description %>
+<%= render 'shared/header', cached: true %>
+<div class="block1">
+    <div class="wrapper">
+        <h1 class="text1"><%= @main_h1_text.html_safe %></h1>
+        <div class="text2">С нами ты всегда у руля!</div>
+        <div class="text3"><a href="tel:+79217101615">+7 (921) 710-16-15</a></div>
+        <%= link_to "Цены на аренду", prices_path, class: "zakaz" %>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block2">
+    <div class="wrapper">
+        <div class="zag">Быстрая заявка</div>
+        <div class="podzag"><%= @main_quick_booking_text.html_safe %></div>
+        <div class="perekl">
+            <label>
+                <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
+                <span>Седан</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_hatch]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_hatch]" id="quick_booking_is_hatch">
+                <span>Хэтчбэк</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_cross]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_cross]" id="quick_booking_is_cross">
+                <span>Кроссовер</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_minivan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_minivan]" id="quick_booking_is_minivan">
+                <span>Минивен</span>
+            </label>
+            <label>
+                <input name="quick_booking[is_universal]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_universal]" id="quick_booking_is_universal">
+                <span>Универсал</span>
+            </label>
+        </div>
+        <%= form_for @quick_booking do |f| %>
+          <%= f.text_field :name, placeholder: "Ваше имя", class: "inp1" %>
+          <%= f.text_field :phone, placeholder: "Ваш телефон", class: "inp2" %>
+          <%= f.text_field :email, placeholder: "Ваш E-mail", class: "inp3" %>
+          <%= f.text_field :start_date, placeholder: "Дата начала", class: "inp4" %>
+          <%= f.text_field :end_date, placeholder: "Дата окончания", class: "inp4" %>
+          <%= f.submit "Отправить заявку" %>
+          <div class="clear"></div>
+        <% end %>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block3">
+  <div class="wrapper">
+    <div class="spis_bl">
+      <div class="blck">
+        <%= image_tag "b1.png", alt: "", title: "" %>
+        <div class="zg">Страховка Каско</div>
+        <p>Все автомобили застрахованы, минимальная ответственность клиента даже при происшествиях по его вине.</p>
+      </div>
+      <div class="blck">
+        <%= image_tag "b2.png", alt: "", title: "" %>
+        <div class="zg">Неограниченный пробег</div>
+        <p>Ограничение суточного пробега и штраф за несоблюдение нашими условиями не предусмотрены.</p>
+      </div>
+      <div class="blck">
+        <%= image_tag "b3.png", alt: "", title: "" %>
+        <div class="zg">Немедленный возврат залога</div>
+        <p>Возвращаем залоговую сумму непосредственно после осмотра и приема автомобиля.</p>
+      </div>
+      <div class="blck">
+        <%= image_tag "b4.png", alt: "", title: "" %>
+        <div class="zg">Гарантия лучшей цены</div>
+        <p>Если вы найдете машину дешевле, с аналогичными условиями аренды — мы снизим цену для Вас!</p>
+      </div>
+      <div class="blck">
+        <%= image_tag "b5.png", alt: "", title: "" %>
+        <div class="zg">Поддержка 24/7</div>
+        <p>Круглосуточная поддержка клиента по всем вопросам, связанным с арендой автомобиля.</p>
+      </div>
+      <div class="blck">
+        <%= image_tag "b6.png", alt: "", title: "" %>
+        <div class="zg">Дружественное отношение</div>
+        <p>Мы ценим своих клиентов и не придираемся к мелким недостаткам при приеме автомобиля.</p>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="block4">
+    <div class="wrapper">
+        <div class="zag">Найдём машину для каждого!</div>
+        <div class="podzag">У нас большой ассортимент автомобилей.</div>
+        <div class="spis_avto">
+            <%= render "cars"%>
+            <div class="clear"></div>
+        </div>
+        <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block5">
+    <div class="wrapper">
+        <div class="zag">Отзывы</div>
+        <div class="spis_otz">
+            <%= render "reviews/reviews_on_main"%>
+            <div class="clear"></div>
+        </div>
+        <%= link_to reviews_path, class:"all" do %>
+          Посмотреть все отзывы
+        <% end %>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block6">
+    <div class="wrapper">
+        <div class="zag">Что мы предлагаем?</div>
+        <div class="podzag">Автопрокат Амиго предоставляет услуги по прокату авто и аренде автомобилей различных классов без водителя <br />и с водителем в Калининграде и области. Мы осуществляем доставку машины прямо к клиенту.</div>
+        <div class="col1">
+            <div class="zg">Наша Миссия</div>
+            <div class="podp"><%= @main_mission_text.html_safe %></div>
+            <div class="pre">
+              <%= image_tag "pr1.png", alt: "", title: "" %>
+              Клиент наш друг!
+            </div>
+            <div class="pre">
+              <%= image_tag "pr2.png", alt: "", title: "" %>
+              Всегда стараемся справедливо урегулировать все спорные моменты.
+            </div>
+            <div class="pre">
+              <%= image_tag "pr3.png", alt: "", title: "" %>
+              Содержим парк машин в хорошем состоянии.
+            </div>
+            <div class="pre">
+              <%= image_tag "pr4.png", alt: "", title: "" %>
+              Договор без подводных камней.
+            </div>
+            <div class="pre">
+              <%= image_tag "pr5.png", alt: "", title: "" %>
+              Большие скидки при долгосрочной аренде.
+            </div>
+            <div class="pre">
+              <%= image_tag "pr6.png", alt: "", title: "" %>
+              Многолетний опыт работы.
+            </div>
+        </div>
+        <div class="col1">
+            <div class="zg">Наши Преимущества</div>
+            <div class="podp"><%= @main_edge_text.html_safe %></div>
+            <div class="pere opened">
+                <div class="za">
+                  <%= image_tag "pe1.png", alt: "", title: "" %>
+                  Самые выгодные условия по КАСКО
+                  <span></span>
+                </div>
+                <div class="skrito" style="display: block;">
+                  <p>Договором аренды предусмотрена самая низкая в Калининграде франшиза по страховке.</p>
+                </div>
+            </div>
+            <div class="pere">
+                <div class="za">
+                  <%= image_tag "pe2.png", alt: "", title: "" %>
+                  Круглосуточная поддержка 24/7
+                  <span></span>
+                </div>
+                <div class="skrito">
+                    <p>Договором аренды предусмотрена самая низкая в Калининграде франшиза по страховке.</p>
+                </div>
+            </div>
+            <div class="pere">
+                <div class="za">
+                  <%= image_tag "pe3.png", alt: "", title: "" %>
+                  Низкие залоги
+                  <span></span>
+                </div>
+                <div class="skrito">
+                    <p>Договором аренды предусмотрена самая низкая в Калининграде франшиза по страховке.</p>
+                </div>
+            </div>
+            <div class="pere">
+                <div class="za">
+                  <%= image_tag "pe4.png", alt: "", title: "" %>
+                  Есть почасовая оплата
+                  <span></span>
+                </div>
+                <div class="skrito">
+                    <p>Договором аренды предусмотрена самая низкая в Калининграде франшиза по страховке.</p>
+                </div>
+            </div>
+            <div class="pere">
+                <div class="za">
+                  <%= image_tag "pe5.png", alt: "", title: "" %>
+                  Справедливая топливная политика
+                  <span></span>
+                </div>
+                <div class="skrito">
+                    <p>Договором аренды предусмотрена самая низкая в Калининграде франшиза по страховке.</p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<%= render 'shared/footer', cached: true %>

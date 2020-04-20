@@ -1,0 +1,17 @@
+<% title @article.title %>
+<% description @article.description %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+        <%= render 'shared/bread'%>
+    <div class="bl_full_statya">
+        <h1><%= @article.title %></h1>
+        <div class="data"><%= @article.updated_at.strftime("%d.%m.%Y") %></div>
+        <div class="clear"></div>
+        <%= @article.text %>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>

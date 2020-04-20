@@ -1,0 +1,37 @@
+<% title @services_title %>
+<% description @services_description %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+    <%= render 'shared/bread'%>
+    <div class="bl_dop">
+        <h1>Цены на доп. оборудование</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td>Оборудование</td>
+                    <td>За сутки, руб</td>
+                    <td>За весь срок до 15 суток, руб</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Детское кресло/бустер</td>
+                    <td><%= @dop_table_kreslo_dayprice %></td>
+                    <td><%= @dop_table_kreslo_allprice %></td>
+                </tr>
+                <tr>
+                    <td>GPS навигатор</td>
+                    <td><%= @dop_table_navigator_dayprice %></td>
+                    <td><%= @dop_table_navigator_dayprice %></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><%= @dop_table_downtext.html_safe %></p>
+        <p><b>Посмотреть текст договора можно <a href="#">здесь</a>, акт приема автомобиля и штрафные санкции <a href="#">здесь</a>.</b></p>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>

@@ -1,0 +1,30 @@
+<% title @bookings_title %>
+<% description @bookings_description %>
+<%= render 'shared/header' %>
+<div class="content">
+  <div class="wrapper">
+    <%= render 'shared/bread'%>
+    <div class="bl_zakaz">
+      <%# content_tag :div,
+        id: "booking",
+        data: {
+          allCarsFromView: @cars
+        }.to_json do %>
+      <%# end %>
+      <div id='booking'>
+        <app>
+        </app>
+      </div>
+      <div class="nizz">
+          <p>Цены на доставку указаны в рабочее время, возможность и цены доставки в нерабочее время уточняйте у наших менеджеров.</p>
+          <p>Выдача и прием автомобиля в офисе в нерабочее время с 19-00 до 9-00 составляет 400 руб.</p>
+          <p>Прием автомобиля в городе в выходные и праздничные дни в рабочее время - 300 руб.</p>
+          <p>Выдача и прием автомобиля по городу в нерабочее время с 19-00 до 9-00 составляет 500 руб.</p>
+          <p>Выдача и прием автомобиля в аэропорту в нерабочее время с 19-00 до 9-00 составляет 700 руб.</p>
+      </div>
+      <div class="clear"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>

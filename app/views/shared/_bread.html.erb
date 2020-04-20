@@ -1,0 +1,29 @@
+<div class="bread">
+  <% if current_page?(controller: 'cars', action: 'index')%>
+    <a href="/">Главная /</a> Автомобили
+  <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
+    <a href="/">Главная /</a><%= link_to "Автомобили", cars_path %> / <%= @car.car_name%>
+  <% elsif current_page?(controller: 'prices', action: 'index')%>
+    <a href="/">Главная /</a> Цены
+  <% elsif current_page?(controller: 'contacts', action: 'index')%>
+    <a href="/">Главная /</a> Контакты
+  <% elsif current_page?(controller: 'bookings', action: 'new')%>
+    <a href="/">Главная /</a> Заказать
+  <% elsif current_page?(controller: 'reviews', action: 'index')%>
+    <a href="/">Главная /</a> Отзывы
+  <% elsif current_page?(controller: 'terms', action: 'index')%>
+    <a href="/">Главная /</a> Условия
+  <% elsif current_page?(controller: 'faqs', action: 'index')%>
+    <a href="/">Главная /</a> Вопросы
+  <% elsif current_page?(controller: 'abouts', action: 'index')%>
+    <a href="/">Главная /</a> О нас
+  <% elsif current_page?(controller: 'services', action: 'index')%>
+    <a href="/">Главная /</a> Дополнительные услуги
+  <% elsif current_page?(controller: 'deliveries', action: 'index')%>
+    <a href="/">Главная /</a> Доставка
+  <% elsif current_page?(controller: 'articles', action: 'index')%>
+    <a href="/">Главная /</a> Новости и акции
+  <% else %>
+    <a href="/">Главная /</a>
+  <% end %>
+</div>

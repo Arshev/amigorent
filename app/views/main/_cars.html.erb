@@ -1,0 +1,47 @@
+ <% @cars.each do |car| %> 
+  <div class="avto">
+    <%= link_to car_path(car), class: "bl_img", 'data-turbolinks': false do %>
+      <%= image_tag car.main_image.variant(resize_to_fill: [370, 221]), alt: "#{car.car_name}", title: "#{car.car_name}" %>
+    <% end %>
+    <%= link_to car_path(car), class: "zg", 'data-turbolinks': false do %>
+      <%= car.car_name %>
+    <% end %>
+    <div class="price">от <b><%= car.price_main %></b> руб/сутки</div>
+    <%= link_to car_path(car), class: "more", 'data-turbolinks': false do %>
+      Подробнее
+    <% end %>
+    <div class="hara">
+        <p>
+            <% if car.transmission == 'Механика'%>
+              <%= image_tag "transmission.png", style: "width: 20px;", alt: "", title: "" %>
+              Механика
+            <% else %>
+              <%= image_tag "transmission.png", style: "width: 20px;", alt: "", title: "" %>
+              Автомат
+            <% end %>
+          </p>
+          <p>
+            <%= image_tag "fuel.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= car.fuel %>
+          </p>
+          <p>
+            <%= image_tag "year.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= car.year %> г.
+          </p>
+          <p>
+            <%= image_tag "car_type.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= car.car_type %>
+          </p>
+          <p>
+            <%= image_tag "capacity.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= car.engine_capacity %> л.
+          </p>
+          <p>
+            <% if car.is_air %>
+              <%= image_tag "snow.png", style: "width: 20px;", alt: "", title: "" %>
+              Есть
+            <% end %>
+          </p>
+    </div>
+  </div>
+<% end %>

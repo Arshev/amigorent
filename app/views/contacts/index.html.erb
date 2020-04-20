@@ -1,0 +1,89 @@
+<% title @contacts_title %>
+<% description @contacts_description %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+    <div class="wrapper">
+        <%= render 'shared/bread'%>
+        <div class="bl_contact">
+            <div class="slider">
+                <ul class="bxslider">
+                    <li>
+                      <%= image_tag "sl1.jpg", alt: "", title: "" %>
+                    </li>
+                </ul>
+            </div>
+            <div class="pol1">
+                <h1>Контактные данные:</h1>
+                <div class="zg2">
+                  <%= image_tag "co1.png", alt: "", title: "" %>
+                  Адрес офиса:
+                </div>
+                <p>Калининград ул. А.Невского 36В, ТЦ "Невский", 3 этаж - левое крыло</p>
+                <p><b>Уважаемые клиенты! Просьба, перед выходом к нам - звоните, при большом количестве заказов бывает, что все сотрудники на выезде</b></p>
+                <div class="zg2">
+                  <%= image_tag "co2.png", alt: "", title: "" %>
+                  Телефон:
+                </div>
+                <p>+7 (4012) 52-16-15; +7 (921) 710-16-15 <%= image_tag "mess.png", alt: "", title: "" %></p>
+                <p>8 800 100-39-73 <span>Звонок бесплатный по России (с 10:00 до 20:00 Мск);</span></p>
+                <p>+7 (4012) 64 00 03; +7 (908) 290-09-08 <span style="color: #d67e2a;">Экстренный (круглосуточно)</span></p>
+                <div class="zg2">
+                  <%= image_tag "co3.png", alt: "", title: "" %>
+                  E-mail:
+                </div>
+                <p>amigorent@ya.ru</p>
+                <div class="zg2">
+                    Мы в соц. сетях:
+                </div>
+                <div class="social">
+                    <a href="#" target="_blank">
+                      <%= image_tag "s1.png", alt: "", title: "" %>
+                    </a>
+                    <a href="#" target="_blank">
+                      <%= image_tag "s2.png", alt: "", title: "" %>
+                    </a>
+                    <a href="#" target="_blank">
+                      <%= image_tag "s3.png", alt: "", title: "" %>
+                    </a>
+                </div>
+                <div class="zg2">
+                  <%= image_tag "co4.png", alt: "", title: "" %>
+                    Режим работы:
+                </div>
+                <p>С 9:00 до 19:00 Без выходных;<br /><span>По предварительной договоренности о заказе автомобиля - круглосуточно.</span></p>
+                <div class="zg2">
+                  <%= image_tag "co5.png", alt: "", title: "" %>
+                    Способы оплаты:
+                </div>
+                <p>Наличными, банковской картой, безналичным переводом</p>
+            </div>
+            <%= image_tag "pol2.jpg", alt: "", title: "", class: "pol2" %>
+            <div class="clear"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/iYQoHsnN5Uk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="bl_mapp">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d42051.78494771656!2d30.519277000000002!3d48.7964636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1585651351353!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div class="wrapper">
+        <div class="bl_connt">
+            <div class="zg">Помогите нам стать лучше!</div>
+            <%= form_with(model: @contact, action: "send_email", method: "post")  do |f| %>
+              <%= f.text_field :name, placeholder: "Имя *", required: true %>
+              <%= f.text_field :email, placeholder: "Email *", required: true %>
+              <%= f.text_field :phone, placeholder: "Телефон *", required: true %>
+              <%= f.text_area :message, placeholder: "Текст письма", required: true %>
+              <label>
+                <%= f.check_box :fz152, required: true %>
+                Принимаю соглашение О персональных данных согласно 152-ФЗ *
+              </label>
+              <%= recaptcha_v3(action: 'create') %>
+              <%= f.submit "Отправить" %>
+            <% end %>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<%= render 'shared/footer', cached: true %>

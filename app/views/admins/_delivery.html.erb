@@ -1,0 +1,13 @@
+<% @deliveries.each do |delivery| %>
+  <ul>
+    <li>
+      <h2><%= delivery.city %></h2>
+      <%= link_to edit_delivery_admin_path(action: "edit_delivery", id: delivery) do %>
+        <p>Изменить</p>
+      <% end %>
+      <%= link_to delivery_path(delivery), remote: true, method: :delete, data: {confirm: "Уверены?"} do %>
+        Удалить
+      <% end %>
+    </li>
+  </ul>
+<% end %>

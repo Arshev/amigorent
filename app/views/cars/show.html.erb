@@ -1,0 +1,234 @@
+<% title @car_title %>
+<% description @car_description %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+    <div class="wrapper">
+        <%= render 'shared/bread'%>
+        <div class="bl_avto">
+            <div class="pol1" id="side-block">
+                <h1><%= @car.car_name %></h1>
+                <div class="bir"><%= @car.car_class %></div>
+                <div class="bl_full" style="margin-top: 100px;">
+                    <% if @car.old_price_1 %>
+                        <div class="badge">
+                            <%= image_tag "badge.png", alt: "", title: "" %>
+                        </div>
+                    <% end %>
+                    <div class="fotorama" data-nav="thumbs" data-thumbwidth="100" data-thumbheight="100">
+                        <%= image_tag @car.main_image, alt: @car.car_name, title: @car.car_name %>
+                        <% @car.images.each do |image| %>
+                            <%= image_tag image, alt: @car.car_name, title: @car.car_name %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="pol2">
+                <div class="zg">Спецификация:</div>
+                <div class="rating">
+                    Рейтинг модели:
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra1.png", alt: "", title: "" %>
+                    <%= image_tag "ra0.png", alt: "", title: "" %>
+                </div>
+                <p>
+                    <%= image_tag "i1.png", alt: "", title: "" %>
+                    Коробка передач:
+                    <span><%= @car.transmission %></span>
+                </p>
+                <p>
+                    <%= image_tag "i2.png", alt: "", title: "" %>
+                    Цвет кузова:
+                    <span><%= @car.color %></span>
+                </p>
+                <p>
+                    <%= image_tag "i3.png", alt: "", title: "" %>
+                    Вид топлива:
+                    <span><%= @car.fuel %></span>
+                </p>
+                <p>
+                    <%= image_tag "i4.png", alt: "", title: "" %>
+                    Год выпуска:
+                    <span><%= @car.year %></span>
+                </p>
+                <p>
+                    <%= image_tag "i5.png", alt: "", title: "" %>
+                    Объем двигателя:
+                    <span><%= @car.engine_capacity %>л</span>
+                </p>
+                <p>
+                    <%= image_tag "i6.png", alt: "", title: "" %>
+                    Тип кузова:
+                    <span><%= @car.car_type %></span>
+                </p>
+                <p>
+                    <%= image_tag "i7.png", alt: "", title: "" %>
+                    Количество дверей:
+                    <span><%= @car.number_doors %></span>
+                </p>
+                <p>
+                    <%= image_tag "i8.png", alt: "", title: "" %>
+                    Кондиционер:
+                    <% if @car.is_air %>
+                        <span>Есть</span>
+                    <% else %>
+                        <span>Нет</span>
+                    <% end %>
+                </p>
+                <p>
+                    <%= image_tag "i9.png", alt: "", title: "" %>
+                    Электропакет:
+                    <% if @car.is_electropackage %>
+                        <span>Есть</span>
+                    <% else %>
+                        <span>Нет</span>
+                    <% end %>
+                </p>
+                <div class="price">от <b><%= @car.price_main %></b> руб/сутки</div>
+                <%= link_to "Забронировать", new_booking_path(car_id: @car.id), class:"bron" %>
+            </div>
+            <div class="clear"></div>
+            <div class="bl_perekl">
+                <a href="#" class="active" data-per="pere1">Описание</a>
+                <a href="#" data-per="pere2">Цены</a>
+                <a href="#" data-per="pere3">ТТХ</a>
+            </div>
+            <div class="perek active" id="pere1">
+                <p><%= @car.description %></p>
+                <div class="clear"></div>
+            </div>
+            <div class="perek" id="pere2">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <h3>Цены на аренду</h3>
+                    </thead>
+                    <tbody>
+                        <tr class="prices-single-car-header">
+                            <td class="prices-table-header">до 3 суток</td>
+                            <td class="prices-table-header">4-7 суток</td>
+                            <td class="prices-table-header">8-14 суток</td>
+                            <td class="prices-table-header">15-30 суток</td>
+                            <td class="prices-table-header">> 30 суток</td>
+                            <td class="prices-table-header">Залог</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <%= @car.price_1 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_2 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_3 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_4 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_5 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.deposit %> рублей
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clear"></div>
+            </div>
+            <div class="perek" id="pere3">
+                <p>Тут будут ТТХ.</p>
+                <div class="clear"></div>
+            </div>
+            <div class="bl_ostav">
+                <div class="zg">Заполните данные что бы оставить отзыв</div>
+                <form>
+                    <input type="text" value="" placeholder="Ваше имя" name="" />
+                    <input type="text" value="" placeholder="Ваш телефон" name="" />
+                    <input type="text" value="" placeholder="Ваш E-mail" name="" />
+                    <div class="clear"></div>
+                    <textarea placeholder="Ваш отзыв"></textarea>
+                    <div class="rating">
+                        <p class="num1">
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        </p>
+                        <p class="num2">
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        </p>
+                        <p class="num3">
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        </p>
+                        <p class="num4">
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        </p>
+                        <p class="num5">
+                            <%= image_tag "ra0.png", alt: "", title: "" %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        </p>
+                    </div>
+                    <input type="submit" value="Отправить отзыв" name="">
+                </form>
+                <div class="clear"></div>
+            </div>
+            <div class="bl_otz">
+                <div class="zag">Отзывы</div>
+                <div class="otz">
+                    <div class="data">29.02.2020</div>
+                    <div class="fio">Иванов Иван</div>
+                    <div class="rating">
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                </div>
+                <div class="otz">
+                    <div class="data">29.02.2020</div>
+                    <div class="fio">Иванов Иван</div>
+                    <div class="rating">
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                </div>
+                <div class="otz">
+                    <div class="data">29.02.2020</div>
+                    <div class="fio">Иванов Иван</div>
+                    <div class="rating">
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                </div>
+                <a href="#" class="all">Посмотреть все отзывы</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<%= render 'shared/footer', cached: true %>

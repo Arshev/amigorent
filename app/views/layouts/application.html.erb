@@ -1,15 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Amigorent</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8" />
+  
+  <%= display_meta_tags %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+<% if !request.path.include?('admin') %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'actiontext', 'data-turbolinks-track': 'reload' %>
+
+  <meta name="viewport" content="width=device-width" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap&subset=cyrillic" rel="stylesheet">
+  <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+  <% unless request.path.include?('/prices') || request.path.include?('/bookings/new') || request.path.include?('admin') %>
+    <%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
+  <% end %>
+
+    <% if request.path.include?('/cars/') %>
+        <%= javascript_pack_tag 'fotorama', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag 'fotorama', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+    <% if request.path.include?('/bookings/new') %>
+      <%= javascript_pack_tag 'vue-app' %>
+      <%= stylesheet_pack_tag 'vue-app' %>
+    <% end %>
+    <% if request.path.include?('/reviews') %>
+      <%= javascript_pack_tag 'rateyo', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag 'jquery.rateyo.min', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
+<% else %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= stylesheet_link_tag 'actiontext', 'data-turbolinks-track': 'reload' %>
+    <%# javascript_pack_tag 'jquery', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'admins_panel', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# javascript_pack_tag 'adminkit', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
 
-  <body>
+<% end %>
+</head>
+<body>
+    <%= render 'layouts/messages' %>
     <%= yield %>
-  </body>
+</body>
 </html>
