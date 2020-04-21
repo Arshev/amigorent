@@ -11,9 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require fotorama
+  *= require toastr
  *= require_self
  *= require style
  */
  
-
- @import "toastr/toastr";
