@@ -96,6 +96,12 @@
             </div>
             <div class="perek active" id="pere1">
                 <p><%= @car.description %></p>
+                <% if @car.youtube %>
+                    <div style="text-align:center;">
+                        <h3>Видео об автомобиле</h3>
+                        <iframe width="800" height="400" src="<%= @car.youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                <% end %>
                 <div class="clear"></div>
             </div>
             <div class="perek" id="pere2">
