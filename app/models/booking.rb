@@ -1,4 +1,7 @@
 class Booking < ApplicationRecord
+  validates :car, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 
   default_scope {order('created_at DESC')}
 

@@ -105,14 +105,16 @@
         </label>
         <div class="zg2">Подтвердите согласие<span>*</span></div>
         <label>
+            <input type="checkbox" id="checkbox" value="true" v-model="termsData">
+            Подтверждаю, что ознакомился с условиями аренды: <a href="/terms" target="_blank">Условия</a><br/>
             <input type="checkbox" id="checkbox" value="true" v-model="personData">
             Даю согласие на обработку персональных данных, согласно <a href="https://base.garant.ru/12148567/" rel="nofollow">152-ФЗ</a>
         </label>
     </div>
-    <modal
+    <!-- <modal
       v-show="isModalVisible"
       @close="closeModal"
-    />
+    /> -->
   </div>
 </template>
 
@@ -161,6 +163,7 @@ export default {
       additional_hours: 0,
       hours: 0,
       personData: false,
+      termsData: false,
       errors: [],
       locations: [
         'Аэропорт', 
@@ -184,6 +187,7 @@ export default {
       dateStartError: false,
       dateEndError: false,
       personDataError: false,
+      termsDataError: false,
       isModalVisible: false,
       files: '',
       file: '',
@@ -281,12 +285,16 @@ export default {
         this.errors.push(' - Подтверите согласие с обработкой персональных данных')
         this.personDataError = true
       }
+      if (this.termsData === false) {
+        this.errors.push(' - Подтверите ознакомление с условиями аренды')
+        this.termsDataError = true
+      }
       if (this.days === 'Минимум 2-е суток') {
         this.errors.push(' - Минимальный срок аренды 2-е суток')
         // this.personDataError = true
       }
 
-      if (true) {
+      if (this.carError === false && this.nameError === false && this.lastnameError === false && this.emailError === false && this.phoneError === false && this.dateStartError === false && this.dateEndError === false && this.days != 'Минимум 2-е суток' && this.personDataError === false && this.termsDataError === false) {
         
         var self=this;
         // this.file = this.$refs.file.files[0];
@@ -342,7 +350,8 @@ export default {
           self.deposit = 0
           self.total = 0
 
-          self.showModal()
+          // self.showModal()
+          window.location.href = '/success';
         })
         .catch(function (error) {
           console.log(error);
@@ -386,6 +395,10 @@ export default {
     personData () {
       this.errors = []
       this.personDataError = false
+    },
+    termsData () {
+      this.errors = []
+      this.termsDataError = false
     },
     dateEnd () {
       let start_date = moment(this.dateStart, "DD-MM-YYYY H:mm")

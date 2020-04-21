@@ -7,8 +7,12 @@
     <a href="/">Главная /</a> Цены
   <% elsif current_page?(controller: 'contacts', action: 'index')%>
     <a href="/">Главная /</a> Контакты
+  <% elsif current_page?(controller: 'main', action: 'conditions')%>
+    <a href="/">Главная /</a> Пользовательское соглашение
   <% elsif current_page?(controller: 'bookings', action: 'new')%>
     <a href="/">Главная /</a> Заказать
+  <% elsif current_page?(controller: 'bookings', action: 'success')%>
+    <a href="/">Главная /</a> Успешная заявка
   <% elsif current_page?(controller: 'reviews', action: 'index')%>
     <a href="/">Главная /</a> Отзывы
   <% elsif current_page?(controller: 'terms', action: 'index')%>
@@ -23,6 +27,8 @@
     <a href="/">Главная /</a> Доставка
   <% elsif current_page?(controller: 'articles', action: 'index')%>
     <a href="/">Главная /</a> Новости и акции
+  <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
+    <a href="/">Главная /</a><%= link_to "Статьи", articles_path %> / <%= @article.title%>
   <% else %>
     <a href="/">Главная /</a>
   <% end %>

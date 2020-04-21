@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :is_authorised, only: [:update, :destroy]
 
   def index
     @articles = Article.paginate(page: params[:page])

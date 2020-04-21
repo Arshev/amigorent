@@ -20,4 +20,8 @@ class MainController < ApplicationController
     @home_title = Text.first.main_title
     @home_description = Text.first.main_description
   end
+
+  def conditions
+    @conditions_text = Text.first.conditions
+  end
 end

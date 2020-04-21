@@ -5,26 +5,17 @@
             <div class="adr">г. Калининград, ул.А. Невского 36В</div>
             <a href="tel:+7 (4012) 52-16-15" class="tel">+7 (4012) 52-16-15</a>
             <a href="mailto:amigorent@ya.ru" class="mai">amigorent@ya.ru</a>
-            <a href="#" class="polz">Пользовательское соглашение</a>
+            <%= link_to "Пользовательское соглашение", conditions_path, class:"polz" %>
             <p class="copy">&copy; 2010-2020. Автопрокат Амиго. <br />Все права защищены.</p>
         </div>
         <div class="col2">
             <div class="zg">Разделы сайта</div>
             <ul>
                 <li>
-                    <a href="#">Автопарк</a>
+                    <%= link_to "Автопарк", cars_path %>
                 </li>
                 <li>
-                    <a href="#">Авто с водителем</a>
-                </li>
-                <li>
-                    <a href="#">Трансфер</a>
-                </li>
-                <li>
-                    <a href="#">О компании</a>
-                </li>
-                <li>
-                    <a href="#">Наши реквизиты</a>
+                    <%= link_to "О компании", abouts_path %>
                 </li>
             </ul>
         </div>
@@ -32,7 +23,7 @@
             <div class="zg">Для клиентов</div>
             <ul>
                 <li>
-                    <a href="#">Услуги</a>
+                    <%= link_to "Услуги", services_path %>
                 </li>
                 <li>
                     <a href="#">Система скидок</a>
@@ -41,16 +32,13 @@
                     <a href="#">Корпоративным клиентам</a>
                 </li>
                 <li>
-                    <a href="#">Партнеры</a>
-                </li>
-                <li>
                     <a href="#">Доп. оснащение</a>
                 </li>
                 <li>
                     <a href="#">Способы оплаты</a>
                 </li>
                 <li>
-                    <a href="#">Условия аренды</a>
+                    <%= link_to "Условия аренды", terms_path %>
                 </li>
             </ul>
         </div>
@@ -59,13 +47,13 @@
                 <div class="zg">Полезное</div>
                 <ul>
                     <li>
-                        <a href="#">Новости и акции</a>
+                        <%= link_to "Новости и акции", articles_path %>
                     </li>
                     <li>
-                        <a href="#">Вопрос-Ответ</a>
+                        <%= link_to "Вопрос-Ответ", faqs_path %>
                     </li>
                     <li>
-                        <a href="#">Отзывы</a>
+                        <%= link_to "Отзывы", reviews_path %>
                     </li>
                 </ul>
             </div>

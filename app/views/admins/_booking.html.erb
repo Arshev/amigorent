@@ -10,6 +10,9 @@
                   <%= link_to accept_booking_path(booking), method: :post, class: "btn btn-sm btn-success" do %>
                     Принять
                   <% end %>
+                  <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                    Удалить
+                  <% end %>
                 <% else %>
                   <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
                     Удалить

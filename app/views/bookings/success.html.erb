@@ -1,0 +1,17 @@
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+        <%= render 'shared/bread'%>
+    <div class="bl_full_statya">
+        <h1>Вы успешно подали заявку на бронирование автомобиля</h1>
+        <p>Мы свяжемся с вами в ближайщее время, если этого не произойдет, позвоните нам!</p>
+        <p>Чтобы процесс оформления договора аренды был быстрее, пришлите нам фото паспорта и водительского удостоверения.</p>
+        <p>На почту: <a href="mailto:amigorent@ya.ru">amigorent@ya.ru</a></p>
+        <p>Или в мессенджеры: <a style="color: #01df3a; float: none; display: inline;" href="whatsapp://send?phone=+79217101615">WhatsApp</a>, <a style="color: #8258fa; float: none; display: inline;" title="Viber" href="viber://add?number=79217101615">Viber</a>, <a style="color: blue; float: none; display: inline;" title="Telegram" href="tg://resolve?domain=amigorent_ru">Telegram</a></p>
+        <%= @success_text.html_safe %>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>

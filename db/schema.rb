@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_103916) do
+ActiveRecord::Schema.define(version: 2020_04_21_093534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -228,6 +228,8 @@ ActiveRecord::Schema.define(version: 2020_04_20_103916) do
     t.text "deliveries_description", default: "empty"
     t.text "delivery_description", default: "empty"
     t.text "articles_description", default: "empty"
+    t.text "conditions", default: "empty"
+    t.text "success", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|

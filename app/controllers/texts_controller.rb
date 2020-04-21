@@ -16,6 +16,8 @@ class TextsController < ApplicationController
     @terms_text = Text.first.terms_text
     @faqs_text = Text.first.faqs_text
     @about_text = Text.first.about_text
+    @conditions_text = Text.first.conditions
+    @success_text = Text.first.success
   end
 
   def update
@@ -50,6 +52,6 @@ private
       :dop_table_zelenogradsk_price_worktime, :dop_table_zelenogradsk_price_endtime,
       :dop_table_kosa_price_worktime, :dop_table_kosa_price_endtime,
       :dop_table_kreslo_dayprice, :dop_table_kreslo_allprice,
-      :dop_table_navigator_dayprice, :dop_table_downtext)
+      :dop_table_navigator_dayprice, :dop_table_downtext, :conditions, :success)
   end
 end

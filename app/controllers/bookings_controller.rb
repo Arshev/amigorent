@@ -4,17 +4,22 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :index]
 
   def create
-    @booking = Booking.create(booking_params)
-    if @booking.save!
+    @booking = Booking.new(booking_params)
+    if @booking.valid? && @booking.save
+      redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
+      # redirect_to success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток"
       @booking.send_sms
       BookingMailer.with(booking: @booking).new_booking_email.deliver_later
-      redirect_to root_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток"
     else
       redirect_to root_path, alert: "Что то пошло не так!"
     end
   end
 
   def show
+  end
+
+  def success
+    @success_text = Text.first.success
   end
 
   def accept
