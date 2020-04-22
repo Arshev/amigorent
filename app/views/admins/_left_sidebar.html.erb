@@ -2,75 +2,38 @@
   <div class="sidebar">
     <ul class="sidebar-menu" data-widget="tree">
       <li class="treeview">
+        <%= link_to admin_path, style:"text-align:center;" do %>
+          <button class="btn btn-outline-secondary btn-block">Главная</button>
+        <% end %>
         <%= link_to bookings_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Заявки</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Заявки</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to cars_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Автомобили</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Автомобили</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to new_car_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Добавить новый авто</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Добавить новый авто</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to articles_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Статьи</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Статьи</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to new_article_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Добавить статью</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Добавить статью</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to text_main_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Текст на главной</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Текст на главной</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to text_other_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Текст на остальных</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Текст на остальных</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to text_metatags_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Метатеги</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Метатеги</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to deliveries_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Страницы городов</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Страницы городов</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to new_delivery_admin_path do %>
-          <i class="icon-home"></i>
-          <span>Добавить новый город</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+          <button class="btn btn-outline-secondary btn-block">Добавить новый город</button class="btn btn-outline-secondary btn-block">
          <% end %>
       </li>
     </ul>

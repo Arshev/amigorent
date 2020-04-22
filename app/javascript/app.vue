@@ -217,7 +217,7 @@ export default {
   },
   created() {
     // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
+    axios.get("http://95.213.199.82/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
