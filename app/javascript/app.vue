@@ -325,7 +325,7 @@ export default {
         formData.append('booking[deposit]', this.deposit);
 
         // axios.post('https://amigorent.ru/api/v1/booking.json',
-        axios.post('http://localhost:3000/api/v1/booking.json'
+        axios.post('http://95.213.199.82/api/v1/booking.json'
         ,
           formData,
                 {
