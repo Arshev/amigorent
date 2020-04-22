@@ -18,7 +18,8 @@
             <div class="card-body">
               <div id="photos" style="text-align: center;">
                 <% if @car.main_image.attached? %>
-                  <%= image_tag @car.main_image.variant(resize_to_limit: [500, nil]), class: "m-t-1" %>
+                  <%# image_tag @car.main_image.variant(resize_to_limit: [500, nil]), class: "m-t-1" %>
+                  <%= image_tag @car.main_image.variant(resize: "100x100"), class: "m-t-1" %>
                 <% else %>
                   <div class="text-center m-b-3">
                     <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
