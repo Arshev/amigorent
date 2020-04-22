@@ -4,7 +4,7 @@ class CarsController < ApplicationController
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :update, :destroy]
 
   def index
-    @cars = Car.all
+    @cars = Car.where(active: true)
     @main_up_text = Text.first.main_up_text
     @cars_title = Text.first.cars_title
     @cars_description = Text.first.cars_description
