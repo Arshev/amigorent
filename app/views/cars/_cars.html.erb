@@ -1,4 +1,4 @@
-<% @cars.each do |car| %>
+<% @cars.where(active:true).each do |car| %>
   <% if car.active %>
     <div class="avto">
       <%= link_to car_path(car), class: "bl_img", 'data-turbolinks': false do %>
