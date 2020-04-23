@@ -8,8 +8,8 @@
             <div class="col-lg-4">
               <div class="user-img pull-left">
                 <%= link_to car_path(car) do %>
-                  <% if car.main_image.attached? %>
-                    <%= image_tag car.main_image.variant(resize: "100x100") %>
+                  <% if car.main_image? %>
+                    <%= image_tag car.main_image.url(:thumb), class: 'm-t-1', alt: car.car_name if car.main_image? %>
                   <% else %>
                     <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 100px; height: 100px;" %>
                   <% end %>
@@ -23,7 +23,7 @@
                   <%= link_to ' Изменить', edit_car_admin_path(action: "edit_car", id: car), class: "btn btn-sm btn-secondary" %>
                   <%= link_to 'Фотографии', upload_photos_admin_path(action: "upload_photos", id: car), class: "btn btn-sm btn-dark" %>
                 </p>
-                <% is_ready = !car.price_1.blank? && !car.price_2.blank? && !car.price_3.blank? && !car.price_4.blank? && !car.price_main.blank? && !car.car_name.blank? && car.images.attached?  %>
+                <% is_ready = !car.price_1.blank? && !car.price_2.blank? && !car.price_3.blank? && !car.price_4.blank? && !car.price_main.blank? && !car.car_name.blank? && car.images?  %>
                 <% is_active = car.active %>
                 <% if !car.active %>
                   <%= form_for car do |f| %>

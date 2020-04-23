@@ -17,9 +17,8 @@
           <div class="card m-t-3">
             <div class="card-body">
               <div id="photos" style="text-align: center;">
-                <% if @car.main_image.attached? %>
-                  <%# image_tag @car.main_image.variant(resize_to_limit: [500, nil]), class: "m-t-1" %>
-                  <%= image_tag @car.main_image.variant(resize_to_limit: [500, nil]), class: "m-t-1" %>
+                <% if @car.main_image? %>
+                  <%= image_tag @car.main_image.url(:show), class: 'm-t-1', alt: @car.car_name if @car.main_image? %>
                 <% else %>
                   <div class="text-center m-b-3">
                     <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
@@ -27,7 +26,7 @@
                 <% end %>
               </div>
               <br>
-              <%= form_with model: @car do |f| %>
+              <%= form_with model: @car, html: { multipart: true } do |f| %>
                 <h4 class="text-black text-center">Главное фото </h4>
                 <div class="form-group text-center" >
                   <span class="btn btn-default btn-file text-babu">
@@ -46,10 +45,10 @@
           <div class="card m-t-3">
             <div class="card-body">
               <div id="photos">
-                <% if @car.images.attached? %>
-                  <% @car.images.each do |file| %>
-                    <%= image_tag file.variant(resize_to_limit: [200, nil]), class: "m-t-1" %>
-                    <%= link_to 'Удалить', remove_attachment_car_url(file),
+                <% if @car.images? %>
+                  <% @car.images.each_with_index do |image, index| %>
+                    <%= image_tag image.url(:thumb), class: "m-t-1" %>
+                    <%= link_to 'Удалить', car_image_path(@car, index),
                                       method: :delete,
                                       remote: true,
                                       data: { confirm: 'Вы уверены?' } %>
@@ -61,17 +60,35 @@
                 <% end %>
               </div>
               <br>
-              <%= form_for @car, :html => { :multipart => true } do |f| %>
-                <h4 class="text-black text-center">Остальные фото </h4>
-                <div class="form-group text-center" >
-                  <span class="btn btn-default btn-file text-babu">
-                    <i class="fa fa-cloud-upload" aria-hidden="true"></i> Выберите остальные фото
-                    <%= f.file_field :images, multiple: true %>
-                  </span>
-                </div>
-                <div class="text-center m-b-3">
-                  <%= f.submit "Загрузить фото", class: "btn btn-rounded btn-outline-danger" %>
-                </div>
+              <% if !@car.images? %>
+                <%= form_for @car, html: {multipart: true} do |f| %>
+                  <h4 class="text-black text-center">Остальные фото </h4>
+                  <div class="form-group text-center" >
+                    <span class="btn btn-default btn-file text-babu">
+                      <i class="fa fa-cloud-upload" aria-hidden="true"></i> Выберите остальные фото
+                      <%= f.file_field :images, multiple: true %>
+                    </span>
+                  </div>
+                  <div class="text-center m-b-3">
+                    <%= f.submit "Загрузить фото", class: "btn btn-rounded btn-outline-danger" %>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= form_for @car, url: car_images_path(@car), method: :post do |f| %>
+                  <% @car.images.each do |image| %>
+                    <%= hidden_field :images, multiple: true, value: image.identifier %>
+                  <% end %>
+                  <h4 class="text-black text-center">Остальные фото </h4>
+                  <div class="form-group text-center" >
+                    <span class="btn btn-default btn-file text-babu">
+                      <i class="fa fa-cloud-upload" aria-hidden="true"></i> Выберите остальные фото
+                      <%= f.file_field :images, multiple: true %>
+                    </span>
+                  </div>
+                  <div class="text-center m-b-3">
+                    <%= f.submit "Добавить фото", class: "btn btn-rounded btn-outline-danger" %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
           </div>

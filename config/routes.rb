@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :cars, except: [:edit] do
+    resources :images, :only => [:create, :destroy]
     member do
       delete :remove_attachment
     end

@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, except: [:index, :new, :create, :remove_attachment]
+  before_action :set_car, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :update, :destroy]
 
@@ -39,11 +39,11 @@ class CarsController < ApplicationController
   def images_upload
   end
 
-  def remove_attachment
-    @image = ActiveStorage::Attachment.find(params[:id])
-    @image.purge_later
-    redirect_back(fallback_location: upload_photos_admin_path)
-  end
+  # def remove_attachment
+  #   remove_image_at_index(params[:id].to_i)
+  #   flash[:error] = "Failed deleting image" unless @car.save
+  #   redirect_back(fallback_location: upload_photos_admin_path)
+  # end
 
   def amenities
   end
@@ -71,7 +71,7 @@ class CarsController < ApplicationController
     end
 
     def is_ready_car
-      !@car.active && !@car.price_1.blank? && !@car.price_2.blank? && !@car.price_3.blank? && !@car.price_4.blank? && !@car.price_5.blank? && !@car.price_hour.blank? && !@car.price_main.blank? && !@car.car_name.blank? && @car.images.attached?
+      !@car.active && !@car.price_1.blank? && !@car.price_2.blank? && !@car.price_3.blank? && !@car.price_4.blank? && !@car.price_5.blank? && !@car.price_hour.blank? && !@car.price_main.blank? && !@car.car_name.blank? && @car.images?
     end
 
     def car_params

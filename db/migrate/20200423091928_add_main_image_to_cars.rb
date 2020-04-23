@@ -1,0 +1,5 @@
+class AddMainImageToCars < ActiveRecord::Migration[6.0]
+  def change
+    add_column :cars, :main_image, :string
+  end
+end

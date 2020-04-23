@@ -1,7 +1,7 @@
  <% @cars.where(active:true, show_on_main: true).each do |car| %> 
   <div class="avto">
     <%= link_to car_path(car), class: "bl_img", 'data-turbolinks': false do %>
-      <%= image_tag car.main_image.variant(resize_to_fill: [370, 221]), alt: "#{car.car_name}", title: "#{car.car_name}" %>
+      <%= image_tag car.main_image.url(:show), alt: "#{car.car_name}", title: "#{car.car_name}" if car.main_image? %>
     <% end %>
     <%= link_to car_path(car), class: "zg", 'data-turbolinks': false do %>
       <%= car.car_name %>

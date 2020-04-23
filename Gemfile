@@ -43,6 +43,8 @@ gem 'ckeditor', '~> 5.1.0'
 gem 'meta-tags', '~> 2.13.0'
 gem 'sitemap_generator', '~> 6.1.0'
 gem 'whenever', '~> 1.0.0', require: false
+gem 'carrierwave', '~> 2.1.0'
+gem 'mini_magick', '~> 4.10.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

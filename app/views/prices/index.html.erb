@@ -33,7 +33,7 @@
                           <div class="avto">
                               <div class="zz"><%= car.car_name %></div>
                               <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
                               <% end %>
                               <div class="hara">
                                   <% if car.transmission == 'Механика'%>
@@ -112,7 +112,7 @@
                           <div class="avto">
                               <div class="zz"><%= car.car_name %></div>
                               <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
                               <% end %>
                               <div class="hara">
                                   <% if car.transmission == 'Механика'%>
@@ -191,7 +191,7 @@
                           <div class="avto">
                               <div class="zz"><%= car.car_name %></div>
                               <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
                               <% end %>
                               <div class="hara">
                                   <% if car.transmission == 'Механика'%>
@@ -270,7 +270,7 @@
                           <div class="avto">
                               <div class="zz"><%= car.car_name %></div>
                               <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.variant(resize_to_fit: [218, nil]), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" %>
+                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
                               <% end %>
                               <div class="hara">
                                   <% if car.transmission == 'Механика'%>
