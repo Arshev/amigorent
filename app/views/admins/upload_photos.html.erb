@@ -48,10 +48,12 @@
                 <% if @car.images? %>
                   <% @car.images.each_with_index do |image, index| %>
                     <%= image_tag image.url(:thumb), class: "m-t-1" %>
-                    <%= link_to 'Удалить', car_image_path(@car, index),
+                    <%= link_to car_image_path(@car, index),
                                       method: :delete,
                                       remote: true,
-                                      data: { confirm: 'Вы уверены?' } %>
+                                      data: { confirm: 'Вы уверены?' } do %>
+                    <%= image_tag 'trash', class: 'm-t-1' %>
+                    <% end %>
                   <% end %>
                 <% else %>
                   <div class="text-center m-b-3">

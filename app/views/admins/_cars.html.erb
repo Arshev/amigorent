@@ -38,7 +38,7 @@
                   <% end %>
                 <% end %>
                 <%= link_to car_path(car), remote: true, method: :delete, data: {confirm: "Уверены?"} do %>
-                  <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                  <%= image_tag 'trash', class: 'm-t-1' %>
                 <% end %>
               </div>
             </div>

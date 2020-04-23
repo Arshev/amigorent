@@ -3,37 +3,37 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="treeview">
         <%= link_to admin_path, style:"text-align:center;" do %>
-          <button class="btn btn-outline-secondary btn-block">Главная</button>
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(admin_path) %>">Главная</button>
         <% end %>
         <%= link_to bookings_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Заявки</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(bookings_admin_path) %>">Заявки</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to cars_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Автомобили</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(cars_admin_path) %>">Автомобили</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to new_car_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Добавить новый авто</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(new_car_admin_path) %>">Добавить новый авто</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to articles_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Статьи</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(articles_admin_path) %>">Статьи</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to new_article_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Добавить статью</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(new_article_admin_path) %>">Добавить статью</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to text_main_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Текст на главной</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(text_main_admin_path) %>">Текст на главной</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to text_other_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Текст на остальных</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(text_other_admin_path) %>">Текст на остальных</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to text_metatags_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Метатеги</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(text_metatags_admin_path) %>">Метатеги</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to deliveries_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Страницы городов</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(deliveries_admin_path) %>">Страницы городов</button class="btn btn-outline-secondary btn-block">
          <% end %>
          <%= link_to new_delivery_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block">Добавить новый город</button class="btn btn-outline-secondary btn-block">
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(new_delivery_admin_path) %>">Добавить новый город</button class="btn btn-outline-secondary btn-block">
          <% end %>
       </li>
     </ul>
