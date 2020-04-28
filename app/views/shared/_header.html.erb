@@ -39,10 +39,17 @@
       <span></span>
       Меню
     </div>
-      <a href="/" id="logo">
-        <%= image_tag "logo.png", alt: "", title: "" %>
-        <h3>Прокат автомобилей</h3>
-      </a>
+      <% if current_page?(controller: 'main', action: 'index') %>
+        <a href="" onclick="return false" id="logo">
+          <%= image_tag "logo.png", alt: "", title: "" %>
+          <h3>Прокат автомобилей</h3>
+        </a>
+      <% else %>
+        <%= link_to root_path, id: "logo" do %>
+          <%= image_tag "logo.png", alt: "", title: "" %>
+          <h3>Прокат автомобилей</h3>
+        <% end %>
+      <% end%>
       <div class="addr">
         Невского 36В, 3 этаж
         <b>Калининград</b>
@@ -150,7 +157,7 @@
         </li>
         <li>
           <a>
-            Прочее
+            Ещё
             <span>&#9660;</span>
           </a>
             <ul>
