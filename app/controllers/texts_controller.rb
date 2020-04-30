@@ -43,7 +43,7 @@ private
       :prices_description, :contacts_title, :contacts_description,
       :reviews_title, :reviews_description,
       :terms_title, :terms_description, :faqs_title, :faqs_description,
-      :abouts_title, :abouts_description, :services_title, :services_descroption, :deliveries_title, 
+      :abouts_title, :abouts_description, :services_title, :services_description, :deliveries_title, 
       :deliveries_description, :delivery_title, :delivery_description, :articles_title, 
       :articles_description, :dop_table_worktime,
       :dop_table_endtime, :dop_table_city_price_worktime, :dop_table_city_price_endtime,

@@ -1,5 +1,5 @@
-<% title @car_title %>
-<% description @car_description %>
+<% title "Аренда автомобиля " + @car.car_name + " в Калининграде | Амиго" %>
+<% description "✔️ Взять в аренду #{@car.car_name} в Калининграде. Прокат автомобиля #{@car.car_name} в автопрокате Амиго в Калининграде. Бронируйте на сайте." %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
@@ -91,10 +91,82 @@
             <div class="clear"></div>
             <div class="bl_perekl">
                 <a href="#" class="active" data-per="pere1">Описание</a>
-                <a href="#" data-per="pere2">Цены</a>
+                <%#<a href="#" data-per="pere2">Цены</a>%>
                 <a href="#" data-per="pere3">ТТХ</a>
             </div>
             <div class="perek active" id="pere1">
+                <h3>Цены</h3>
+                <table class="blueTable" style="font-size: 1em;">
+                    <thead>
+                        <tr>
+                            <th>до 3 суток</th>
+                            <th>4-7 суток</th>
+                            <th>8-14 суток</th>
+                            <th>15-30 суток</th>
+                            <th>> 30 суток</th>
+                            <th>Залог</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    <%= @car.price_1 %> рублей
+                                </div>
+                                <% if @car.old_price_1 %>
+                                    <div>
+                                        <s><small><%= @car.old_price_1 %> рублей</s></small>
+                                    </div>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_2 %> рублей
+                                </div>
+                                <% if @car.old_price_2 %>
+                                    <div>
+                                        <small><s><%= @car.old_price_2 %> рублей</s></small>
+                                    </div>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_3 %> рублей
+                                </div>
+                                <% if @car.old_price_3 %>
+                                    <div>
+                                        <small><s><%= @car.old_price_3 %> рублей</s></small>
+                                    </div>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_4 %> рублей
+                                </div>
+                                <% if @car.old_price_4 %>
+                                    <div>
+                                        <small><s><%= @car.old_price_4 %> рублей</s></small>
+                                    </div>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.price_5 %> рублей
+                                </div>
+                                <% if @car.old_price_5 %>
+                                    <div>
+                                        <small><s><%= @car.old_price_5 %> рублей</s></small>
+                                    </div>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.deposit %> рублей
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <p><%= @car.description %></p>
                 <% if @car.youtube %>
                     <div style="text-align:center;">
@@ -143,6 +215,38 @@
                             <td>
                                 <div>
                                     <%= @car.price_5 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.deposit %> рублей
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <%= @car.old_price_1 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.old_price_2 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.old_price_3 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.old_price_4 %> рублей
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <%= @car.old_price_5 %> рублей
                                 </div>
                             </td>
                             <td>
