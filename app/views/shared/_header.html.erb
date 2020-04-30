@@ -5,27 +5,13 @@
       <span></span>
       <span></span>
     </div>
-    <div class="privet">Дорогой друг, добро пожаловать в автопрокат <b>Амиго!</b></div>
+    <div class="privet"><%= @main_up_text.html_safe %></div>
     <div class="transl">
-      <a href="#">
+      <a href="" onclick="return false">
         <%= image_tag "tr1.png", alt: "", title: "" %>
       </a>
-      <a href="#">
+      <a href="" onclick="return false">
         <%= image_tag "tr2.png", alt: "", title: "" %>
-      </a>
-    </div>
-    <div class="social">
-      <a href="#" target="_blank">
-        <%= image_tag "soc1.png", alt: "", title: "" %>
-      </a>
-      <a href="#" target="_blank">
-        <%= image_tag "soc2.png", alt: "", title: "" %>
-      </a>
-      <a href="#" target="_blank">
-        <%= image_tag "soc3.png", alt: "", title: "" %>
-      </a>
-      <a href="#" target="_blank">
-        <%= image_tag "soc4.png", alt: "", title: "" %>
       </a>
     </div>
     <div class="clear"></div>
@@ -92,7 +78,9 @@
           <% when 4.0 %>
             <%= image_tag "ra0.png", alt: "", title: "" %>
           <% end %>
-          <%= image_tag "rat1.png", alt: "", title: "" %>
+          <a href="https://yandex.ru/profile/12804442716" rel="nofollow" target="_blank">
+            <%= image_tag "rat1.png", alt: "", title: "" %>
+          </a>
         </div>
         <div class="obo">
           <span><%= rating_google %></span>
@@ -123,7 +111,9 @@
           <% when 4.0 %>
             <%= image_tag "ra0.png", alt: "", title: "" %>
           <% end %>
-          <%= image_tag "rat2.png", alt: "", title: "" %>
+          <a href="https://g.page/Amigorent" rel="nofollow" target="_blank">
+            <%= image_tag "rat2.png", alt: "", title: "" %>
+          </a>
         </div>
         <div class="clear"></div>
       </div>
