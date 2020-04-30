@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
 
   def success
     @success_text = Text.first.success
+    @main_up_text = Text.first.main_up_text
   end
 
   def accept
