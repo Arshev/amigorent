@@ -3370,7 +3370,7 @@ li.errors {
 
 @media (max-width: 767px) {
     .sticky {
-        
+        position: relative;
     }
     .wrapper {
         width: 480px;
@@ -3566,13 +3566,13 @@ li.errors {
         box-sizing: border-box;
     }
     .sticky {
-        
+        position: relative;
     }
 }
 
 @media (max-width: 479px) {
     .sticky {
-        
+        position: relative;
     }
     .wrapper {
         width: 310px;

@@ -1,5 +1,5 @@
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -29,3 +29,15 @@ require("@rails/actiontext")
 //     dateFormat: "Y-m-d",
 //   })
 // })
+// document.addEventListener("DOMContentLoaded", () => {
+//   $(".block6 .col1 .pere .za").click(function(){
+//     if($(this).parent().hasClass("opened")) {
+//         $(this).parent().removeClass("opened");
+//         $(this).parent().find(".skrito").slideToggle();
+//     } else {
+//         $(this).parent().addClass("opened");
+//         $(this).parent().find(".skrito").slideToggle();
+//     }
+//     return false;
+//   });
+// });
