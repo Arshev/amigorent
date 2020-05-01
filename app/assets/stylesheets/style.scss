@@ -503,6 +503,15 @@ table.blueTable {
 .block2 form input.inp4 {
     background: url(asset_path("in4.png")) no-repeat right 20px center #fff;
 }
+.block2 form input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+.block2 form input[type="date"]:focus:before,
+    input[type="date"]:valid:before {
+    content: "";
+}
 .block3 {
     padding: 84px 0 32px;
 }
