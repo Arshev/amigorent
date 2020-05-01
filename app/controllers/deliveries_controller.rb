@@ -1,7 +1,13 @@
 class DeliveriesController < ApplicationController
-  before_action :set_delivery, except: [:index, :create]
-  before_action :authenticate_user!, except: [:show, :index]
+  # before_action :set_delivery, except: [:index, :create]
+  before_action :authenticate_user!, except: [:show, :index, :zelenogradsk]
   before_action :is_authorised, only: [:update, :destroy]
+
+  def zelenogradsk
+    @main_up_text = Text.first.main_up_text
+
+  end
+  
 
   def index
     @deliveries = Delivery.all
