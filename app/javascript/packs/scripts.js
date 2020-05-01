@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function(){
+// $(document).on('turbolinks:load', function(){
+    document.addEventListener("DOMContentLoaded", () => {
     $(".block6 .col1 .pere .za").click(function(){
         if($(this).parent().hasClass("opened")) {
             $(this).parent().removeClass("opened");
