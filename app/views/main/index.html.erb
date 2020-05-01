@@ -37,11 +37,11 @@
             </label>
         </div>
         <%= form_for @quick_booking do |f| %>
-          <%= f.text_field :name, placeholder: "Ваше имя", class: "inp1" %>
+          <%= f.text_field :name, placeholder: "Ваше имя", class: "inp1 bs" %>
           <%= f.text_field :phone, placeholder: "Ваш телефон", class: "inp2" %>
           <%= f.text_field :email, placeholder: "Ваш E-mail", class: "inp3" %>
-          <%= f.text_field :start_date, placeholder: "Дата начала", class: "inp4" %>
-          <%= f.text_field :end_date, placeholder: "Дата окончания", class: "inp4" %>
+          <%= f.date_field :start_date, placeholder: "Дата начала", class: "inp4 bs" %>
+          <%= f.date_field :end_date, placeholder: "Дата окончания", class: "inp4" %>
           <%= f.submit "Отправить заявку" %>
           <div class="clear"></div>
         <% end %>
