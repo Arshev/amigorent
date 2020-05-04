@@ -105,7 +105,7 @@ import flatPickr from 'vue-flatpickr-component'
 import { Russian } from "flatpickr/dist/l10n/ru"
 import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
 import { required, minLength, maxLength, email, phone } from 'vuelidate/lib/validators'
-// import modal from './packs/components/modal.vue'
+import modal from './packs/components/modal.vue'
 import moment from 'moment'
     import 'moment/locale/ru'
     moment.locale('ru')
@@ -664,7 +664,8 @@ export default {
         
   },
   components: {
-      flatPickr
+      flatPickr,
+      modal
   }
 };
 </script>
