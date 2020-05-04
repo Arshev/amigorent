@@ -27,7 +27,13 @@ Rails.application.routes.draw do
   get 'conditions', action: :conditions, controller: 'main'
   get 'success', action: :success, controller: 'bookings'
 
+  get 'arenda-avto-aeroport-hrabrovo', action: :aeroport, controller: 'deliveries'
   get 'arenda-avto-zelenogradsk', action: :zelenogradsk, controller: 'deliveries'
+  get 'arenda-avto-svetlogorsk', action: :svetlogorsk, controller: 'deliveries'
+  get 'arenda-avto-yantarnyi', action: :yantarnyi, controller: 'deliveries'
+  get 'arenda-avto-baltyisk', action: :baltyisk, controller: 'deliveries'
+  get 'arenda-avto-pionerskyi', action: :pionerskyi, controller: 'deliveries'
+  get 'arenda-avto-chernyahovsk', action: :chernyahovsk, controller: 'deliveries'
 
   resource :admin, except: [:edit, :new, :create] do
     member do
@@ -45,6 +51,7 @@ Rails.application.routes.draw do
       get 'text_main'
       get 'text_other'
       get 'text_metatags'
+      get 'cities'
     end
   end
 

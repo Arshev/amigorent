@@ -2,10 +2,21 @@ class DeliveriesController < ApplicationController
   # before_action :set_delivery, except: [:index, :create]
   before_action :authenticate_user!, except: [:show, :index, :zelenogradsk]
   before_action :is_authorised, only: [:update, :destroy]
+  before_action :set_city, only: [:aeroport, :zelenogradsk, :svetlogorsk, :yantarnyi, :baltiysk, :pionerskyi, :chernyahovsk]
 
+  def aeroport
+  end
   def zelenogradsk
-    @main_up_text = Text.first.main_up_text
-    @cars = Car.where(active: true).sample(9)
+  end
+  def svetlogorsk
+  end
+  def yantarnyi
+  end
+  def baltyisk
+  end
+  def pionerskyi
+  end
+  def chernyahovsk
   end
   
 
@@ -61,6 +72,13 @@ class DeliveriesController < ApplicationController
       params.require(:delivery).permit(:city, :text, :price_work_time, :price_not_work_time, :h1, :title,
         :description, :background)
     end
+
+    def set_city
+      @main_up_text = Text.first.main_up_text
+      @text = Text.first
+      @cars = Car.where(active: true).sample(9)
+    end
+    
 
     def set_delivery
       @delivery = Delivery.find(params[:id])

@@ -1,9 +1,9 @@
-<% title @text.zelenogradsk_title %>
-<% description @text.zelenogradsk_description %>
+<% title @text.svetlogorsk_title %>
+<% description @text.svetlogorsk_description %>
 <%= render 'shared/header', cached: true %>
   <div class="bl_topp" style="background:url(<%= asset_path("bg_zelenogradsk.jpeg")%>) no-repeat center top transparent;">
     <div class="wrapper">
-      <h1><%= @text.zelenogradsk_h1 %></h1>
+      <h1><%= @text.svetlogorsk_h1 %></h1>
       <div class="blcks">
           <div class="clear"></div>
       </div>
@@ -13,10 +13,10 @@
   <div class="content">
       <div class="wrapper">
           <div class="bread">
-              <a href="/">Главная /</a> Зеленоградск
+              <a href="/">Главная /</a> Светлогорск
           </div>
           <div class="bl_dop">
-              <h1>Цены на доставку в Зеленоградск</h1>
+              <h1>Цены на доставку в Светлогорск</h1>
               <table class="var2">
                   <thead>
                       <tr>
@@ -30,22 +30,22 @@
                   </thead>
                   <tbody>
                       <tr>
-                          <td>Зеленоградск</td>
-                          <td><%= @text.zelenogradsk_price %></td>
-                          <td><%= @text.zelenogradsk_price_unwork %></td>
+                          <td>Светлогорск</td>
+                          <td><%= @text.svetlogorsk_price %></td>
+                          <td><%= @text.svetlogorsk_price_unwork %></td>
                       </tr>
                   </tbody>
               </table>
               <div class="clear"></div>
           </div>
           <div class="bl_full_text">
-              <%= @text.zelenogradsk_text %>
+              <%= @text.svetlogorsk_text %>
               <div class="clear"></div>
           </div>
           <br />
           <div class="block4">
               <div class="wrapper">
-                  <div class="zag"><%= @text.zelenogradsk_avto %></div>
+                  <div class="zag"><%= @text.svetlogorsk_avto %></div>
                   <div class="spis_avto">
                       <%= render "cars"%>
                       <div class="clear"></div>

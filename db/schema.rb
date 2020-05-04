@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_095507) do
+ActiveRecord::Schema.define(version: 2020_05_04_141512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -233,6 +233,55 @@ ActiveRecord::Schema.define(version: 2020_04_23_095507) do
     t.text "articles_description", default: "empty"
     t.text "conditions", default: "empty"
     t.text "success", default: "empty"
+    t.string "aeroport_h1", default: "empty"
+    t.string "aeroport_title", default: "empty"
+    t.text "aeroport_description", default: "empty"
+    t.integer "aeroport_price", default: 0
+    t.integer "aeroport_price_unwork", default: 0
+    t.string "aeroport_avto", default: "empty"
+    t.string "zelenogradsk_h1", default: "empty"
+    t.string "zelenogradsk_title", default: "empty"
+    t.text "zelenogradsk_description", default: "empty"
+    t.integer "zelenogradsk_price", default: 0
+    t.integer "zelenogradsk_price_unwork", default: 0
+    t.string "zelenogradsk_avto", default: "empty"
+    t.string "svetlogorsk_h1", default: "empty"
+    t.string "svetlogorsk_title", default: "empty"
+    t.text "svetlogorsk_description", default: "empty"
+    t.integer "svetlogorsk_price", default: 0
+    t.integer "svetlogorsk_price_unwork", default: 0
+    t.string "svetlogorsk_avto", default: "empty"
+    t.string "yantarnyi_h1", default: "empty"
+    t.string "yantarnyi_title", default: "empty"
+    t.text "yantarnyi_description", default: "empty"
+    t.integer "yantarnyi_price", default: 0
+    t.integer "yantarnyi_price_unwork", default: 0
+    t.string "yantarnyi_avto", default: "empty"
+    t.string "baltiysk_h1", default: "empty"
+    t.string "baltiysk_title", default: "empty"
+    t.text "baltiysk_description", default: "empty"
+    t.integer "baltiysk_price", default: 0
+    t.integer "baltiysk_price_unwork", default: 0
+    t.string "baltiysk_avto", default: "empty"
+    t.string "pionerskyi_h1", default: "empty"
+    t.string "pionerskyi_title", default: "empty"
+    t.text "pionerskyi_description", default: "empty"
+    t.integer "pionerskyi_price", default: 0
+    t.integer "pionerskyi_price_unwork", default: 0
+    t.string "pionerskyi_avto", default: "empty"
+    t.string "chernyahovsk_h1", default: "empty"
+    t.string "chernyahovsk_title", default: "empty"
+    t.text "chernyahovsk_description", default: "empty"
+    t.integer "chernyahovsk_price", default: 0
+    t.integer "chernyahovsk_price_unwork", default: 0
+    t.string "chernyahovsk_avto", default: "empty"
+    t.text "chernyahovsk_text", default: "empty"
+    t.text "svetlogorsk_text", default: "empty"
+    t.text "zelenogradsk_text", default: "empty"
+    t.text "aeroport_text", default: "empty"
+    t.text "yantarnyi_text", default: "empty"
+    t.text "baltiysk_text", default: "empty"
+    t.text "pionerskyi_text", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|

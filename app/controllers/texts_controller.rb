@@ -52,6 +52,17 @@ private
       :dop_table_zelenogradsk_price_worktime, :dop_table_zelenogradsk_price_endtime,
       :dop_table_kosa_price_worktime, :dop_table_kosa_price_endtime,
       :dop_table_kreslo_dayprice, :dop_table_kreslo_allprice,
-      :dop_table_navigator_dayprice, :dop_table_downtext, :conditions, :success)
+      :dop_table_navigator_dayprice, :dop_table_downtext, :conditions, :success,
+      :aeroport_h1, :aeroport_title, :aeroport_description, :aeroport_price, 
+      :aeroport_price_unwork, :aeroport_avto, :zelenogradsk_h1, :zelenogradsk_title, 
+      :zelenogradsk_description, :zelenogradsk_price, :zelenogradsk_price_unwork, :zelenogradsk_avto, 
+      :svetlogorsk_h1, :svetlogorsk_title, :svetlogorsk_description, :svetlogorsk_price, 
+      :svetlogorsk_price_unwork, :svetlogorsk_avto, :yantarnyi_h1, :yantarnyi_title, 
+      :yantarnyi_description, :yantarnyi_price, :yantarnyi_price_unwork, :yantarnyi_avto, 
+      :baltiysk_h1, :baltiysk_title, :baltiysk_description, :baltiysk_price, :baltiysk_price_unwork, 
+      :baltiysk_avto, :pionerskyi_h1, :pionerskyi_title, :pionerskyi_description, :pionerskyi_price, 
+      :pionerskyi_price_unwork, :pionerskyi_avto, :chernyahovsk_h1, :chernyahovsk_title, 
+      :chernyahovsk_description, :chernyahovsk_price, :chernyahovsk_price_unwork, :chernyahovsk_avto
+    )
   end
 end
