@@ -29,11 +29,8 @@
          <%= link_to text_metatags_admin_path do %>
           <button class="btn btn-outline-secondary btn-block <%= active_class?(text_metatags_admin_path) %>">Метатеги</button class="btn btn-outline-secondary btn-block">
          <% end %>
-         <%= link_to deliveries_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block <%= active_class?(deliveries_admin_path) %>">Страницы городов</button class="btn btn-outline-secondary btn-block">
-         <% end %>
-         <%= link_to new_delivery_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block <%= active_class?(new_delivery_admin_path) %>">Добавить новый город</button class="btn btn-outline-secondary btn-block">
+         <%= link_to cities_admin_path do %>
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(cities_admin_path) %>">Города</button class="btn btn-outline-secondary btn-block">
          <% end %>
       </li>
     </ul>

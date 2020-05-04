@@ -23,17 +23,69 @@
                         <td><%= @dop_table_city_price_worktime %></td>
                         <td><%= @dop_table_city_price_endtime %></td>
                     </tr>
-                    <% @deliveries.each do |delivery| %>
-                        <tr>
-                            <td>
-                                <%= link_to delivery_path(delivery) do %>
-                                    <%= delivery.city %>
-                                <% end %>
-                            </td>
-                            <td><%= delivery.price_work_time %></td>
-                            <td><%= delivery.price_not_work_time %></td>
-                        </tr>
-                    <% end %>
+                    <tr>
+                        <td>
+                            <%= link_to arenda_avto_aeroport_hrabrovo_path do %>
+                                Аэропорт Храброво
+                            <% end %>
+                        </td>
+                        <td><%= @text.aeroport_price %></td>
+                        <td><%= @text.aeroport_price_unwork %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= link_to arenda_avto_zelenogradsk_path do %>
+                                Зеленоградск
+                            <% end %>
+                        </td>
+                        <td><%= @text.zelenogradsk_price %></td>
+                        <td><%= @text.zelenogradsk_price_unwork %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= link_to arenda_avto_svetlogorsk_path do %>
+                                Светлогорск
+                            <% end %>
+                        </td>
+                        <td><%= @text.svetlogorsk_price %></td>
+                        <td><%= @text.svetlogorsk_price_unwork %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= link_to arenda_avto_yantarnyi_path do %>
+                                Янтарный
+                            <% end %>
+                        </td>
+                        <td><%= @text.yantarnyi_price %></td>
+                        <td><%= @text.yantarnyi_price_unwork %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= link_to arenda_avto_baltyisk_path do %>
+                                Балтийск
+                            <% end %>
+                        </td>
+                        <td><%= @text.baltiysk_price %></td>
+                        <td><%= @text.baltiysk_price_unwork %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= link_to arenda_avto_pionerskyi_path do %>
+                                Пионерский
+                            <% end %>
+                        </td>
+                        <td><%= @text.pionerskyi_price %></td>
+                        <td><%= @text.pionerskyi_price_unwork %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= link_to arenda_avto_chernyahovsk_path do %>
+                                Черняховск
+                            <% end %>
+                        </td>
+                        <td><%= @text.chernyahovsk_price %></td>
+                        <td><%= @text.chernyahovsk_price_unwork %></td>
+                    </tr>
                 </tbody>
             </table>
             <p>О ценовой политике нашей компании.<br />Ознакомьтесь с актуальным прайс-листом с ценами на аренду автомобилей. Чем более длительный срок аренды, тем ниже суточная стоимость автомобиля. Следите за обновлениями, у нас регулярно предлагаются большие скидки, проводятся акции по снижению цен на все или отдельные виды автомобилей, в зависимости от сезонности и загруженности автопарка. Периодически появляются спецпредолжения на отдельные модели автомобилей. Постоянным клиентам предоставляются скидки до 10% от суточной арендной платы. Так же предоставляем скидки по картам других прокатных компаний. Во всех случаях осуществляем индивидуальный подход к клиенту и можем предоставить дополнительную скидку при длительном сроке аренды. Звоните и мы вас проконсультируем. Дополнительным преимуществом клиента является полная открытость наших тарифов, все честно, никаких скрытых комиссий и дополнительных платежей в суточную арендную плату не включается. Страховка КАСКО уже входит в стоимость.<br />Вы можете заказать аренду авто по всей Калининградской области, без ограничения суточного пробега. Так же, можно оформить прокат автомобиля и заказать доставку в аэропорт Храброво, Светлогорск, Зеленоградск, Балтийск, Янтарный, Черняховск, Советск, Гусев, Пионерск и другие города Калининградской области. Доставка арендованной машины осуществляется за дополнительную плату.<br />*Обратите внимание, что по нашим условиям, при аренде автомобиля на 1 сутки применяется повышающий коэффициент - 1,5 к размеру арендной платы.</p>

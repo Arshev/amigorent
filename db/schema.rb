@@ -257,12 +257,12 @@ ActiveRecord::Schema.define(version: 2020_05_04_141512) do
     t.integer "yantarnyi_price", default: 0
     t.integer "yantarnyi_price_unwork", default: 0
     t.string "yantarnyi_avto", default: "empty"
-    t.string "baltiysk_h1", default: "empty"
-    t.string "baltiysk_title", default: "empty"
-    t.text "baltiysk_description", default: "empty"
-    t.integer "baltiysk_price", default: 0
-    t.integer "baltiysk_price_unwork", default: 0
-    t.string "baltiysk_avto", default: "empty"
+    t.string "baltyisk_h1", default: "empty"
+    t.string "baltyisk_title", default: "empty"
+    t.text "baltyisk_description", default: "empty"
+    t.integer "baltyisk_price", default: 0
+    t.integer "baltyisk_price_unwork", default: 0
+    t.string "baltyisk_avto", default: "empty"
     t.string "pionerskyi_h1", default: "empty"
     t.string "pionerskyi_title", default: "empty"
     t.text "pionerskyi_description", default: "empty"
@@ -280,7 +280,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_141512) do
     t.text "zelenogradsk_text", default: "empty"
     t.text "aeroport_text", default: "empty"
     t.text "yantarnyi_text", default: "empty"
-    t.text "baltiysk_text", default: "empty"
+    t.text "baltyisk_text", default: "empty"
     t.text "pionerskyi_text", default: "empty"
   end
 

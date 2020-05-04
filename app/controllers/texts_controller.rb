@@ -59,10 +59,11 @@ private
       :svetlogorsk_h1, :svetlogorsk_title, :svetlogorsk_description, :svetlogorsk_price, 
       :svetlogorsk_price_unwork, :svetlogorsk_avto, :yantarnyi_h1, :yantarnyi_title, 
       :yantarnyi_description, :yantarnyi_price, :yantarnyi_price_unwork, :yantarnyi_avto, 
-      :baltiysk_h1, :baltiysk_title, :baltiysk_description, :baltiysk_price, :baltiysk_price_unwork, 
-      :baltiysk_avto, :pionerskyi_h1, :pionerskyi_title, :pionerskyi_description, :pionerskyi_price, 
+      :baltyisk_h1, :baltyisk_title, :baltyisk_description, :baltyisk_price, :baltyisk_price_unwork, 
+      :baltyisk_avto, :pionerskyi_h1, :pionerskyi_title, :pionerskyi_description, :pionerskyi_price, 
       :pionerskyi_price_unwork, :pionerskyi_avto, :chernyahovsk_h1, :chernyahovsk_title, 
-      :chernyahovsk_description, :chernyahovsk_price, :chernyahovsk_price_unwork, :chernyahovsk_avto
+      :chernyahovsk_description, :chernyahovsk_price, :chernyahovsk_price_unwork, :chernyahovsk_avto,
+      :aeroport_text, :zelenogradsk_text, :svetlogorsk_text, :yantarnyi_text, :baltyisk_text, :pionerskyi_text, :chernyahovsk_text
     )
   end
 end

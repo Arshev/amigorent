@@ -1,8 +1,8 @@
 class DeliveriesController < ApplicationController
   # before_action :set_delivery, except: [:index, :create]
-  before_action :authenticate_user!, except: [:show, :index, :zelenogradsk]
+  before_action :authenticate_user!, except: [:show, :index, :aeroport, :zelenogradsk, :svetlogorsk, :yantarnyi, :baltiysk, :pionerskyi, :chernyahovsk]
   before_action :is_authorised, only: [:update, :destroy]
-  before_action :set_city, only: [:aeroport, :zelenogradsk, :svetlogorsk, :yantarnyi, :baltiysk, :pionerskyi, :chernyahovsk]
+  before_action :set_city, only: [:aeroport, :zelenogradsk, :svetlogorsk, :yantarnyi, :baltyisk, :pionerskyi, :chernyahovsk]
 
   def aeroport
   end
@@ -21,7 +21,7 @@ class DeliveriesController < ApplicationController
   
 
   def index
-    @deliveries = Delivery.all
+    @text = Text.first
     @main_up_text = Text.first.main_up_text
 
     @deliveries_title = Text.first.deliveries_title

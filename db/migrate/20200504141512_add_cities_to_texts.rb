@@ -24,12 +24,12 @@ class AddCitiesToTexts < ActiveRecord::Migration[6.0]
     add_column :texts, :yantarnyi_price, :integer, default: 0
     add_column :texts, :yantarnyi_price_unwork, :integer, default: 0
     add_column :texts, :yantarnyi_avto, :string, default: "empty"
-    add_column :texts, :baltiysk_h1, :string, default: "empty"
-    add_column :texts, :baltiysk_title, :string, default: "empty"
-    add_column :texts, :baltiysk_description, :text, default: "empty"
-    add_column :texts, :baltiysk_price, :integer, default: 0
-    add_column :texts, :baltiysk_price_unwork, :integer, default: 0
-    add_column :texts, :baltiysk_avto, :string, default: "empty"
+    add_column :texts, :baltyisk_h1, :string, default: "empty"
+    add_column :texts, :baltyisk_title, :string, default: "empty"
+    add_column :texts, :baltyisk_description, :text, default: "empty"
+    add_column :texts, :baltyisk_price, :integer, default: 0
+    add_column :texts, :baltyisk_price_unwork, :integer, default: 0
+    add_column :texts, :baltyisk_avto, :string, default: "empty"
     add_column :texts, :pionerskyi_h1, :string, default: "empty"
     add_column :texts, :pionerskyi_title, :string, default: "empty"
     add_column :texts, :pionerskyi_description, :text, default: "empty"
@@ -47,7 +47,7 @@ class AddCitiesToTexts < ActiveRecord::Migration[6.0]
     add_column :texts, :zelenogradsk_text, :text, default: "empty"
     add_column :texts, :aeroport_text, :text, default: "empty"
     add_column :texts, :yantarnyi_text, :text, default: "empty"
-    add_column :texts, :baltiysk_text, :text, default: "empty"
+    add_column :texts, :baltyisk_text, :text, default: "empty"
     add_column :texts, :pionerskyi_text, :text, default: "empty"
   end
 end
