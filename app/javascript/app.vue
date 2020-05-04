@@ -104,6 +104,9 @@ import axios from "axios"
 import flatPickr from 'vue-flatpickr-component'
 import { Russian } from "flatpickr/dist/l10n/ru"
 import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
+import 'flatpickr/dist/flatpickr.css';
+import 'flatpickr/dist/themes/airbnb.css';
+import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
 import { required, minLength, maxLength, email, phone } from 'vuelidate/lib/validators'
 import modal from './packs/components/modal.vue'
 import moment from 'moment'
@@ -671,4 +674,15 @@ export default {
 </script>
 
 <style>
+li.errors {
+  color: tomato;
+  font-weight: bold;
+  list-style-type: none;
+  margin-top: 5px;
+}
+.error-input {
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
+}
 </style>
