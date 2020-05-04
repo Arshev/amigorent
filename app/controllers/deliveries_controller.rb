@@ -1,6 +1,6 @@
 class DeliveriesController < ApplicationController
   # before_action :set_delivery, except: [:index, :create]
-  before_action :authenticate_user!, except: [:show, :index, :aeroport, :zelenogradsk, :svetlogorsk, :yantarnyi, :baltiysk, :pionerskyi, :chernyahovsk]
+  before_action :authenticate_user!, except: [:show, :index, :aeroport, :zelenogradsk, :svetlogorsk, :yantarnyi, :baltyisk, :pionerskyi, :chernyahovsk]
   before_action :is_authorised, only: [:update, :destroy]
   before_action :set_city, only: [:aeroport, :zelenogradsk, :svetlogorsk, :yantarnyi, :baltyisk, :pionerskyi, :chernyahovsk]
 
