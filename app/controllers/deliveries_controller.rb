@@ -5,7 +5,7 @@ class DeliveriesController < ApplicationController
 
   def zelenogradsk
     @main_up_text = Text.first.main_up_text
-
+    @cars = Car.where(active: true).sample(9)
   end
   
 

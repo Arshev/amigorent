@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get 'conditions', action: :conditions, controller: 'main'
   get 'success', action: :success, controller: 'bookings'
 
-  get 'arenda-avto-v-zelenogradske', action: :zelenogradsk, controller: 'deliveries'
+  get 'arenda-avto-zelenogradsk', action: :zelenogradsk, controller: 'deliveries'
 
   resource :admin, except: [:edit, :new, :create] do
     member do

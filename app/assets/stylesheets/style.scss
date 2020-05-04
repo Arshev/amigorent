@@ -576,9 +576,6 @@ table.blueTable {
     box-shadow: 0 0 8px 0px #333;
     width: 370px;
 }
-.block4 .spis_avto .avto + .avto {
-    margin: 0 0 0 30px;
-}
 .block4 .spis_avto .avto .bl_img {
     height: 221px;
     display: block;
@@ -600,9 +597,7 @@ table.blueTable {
     margin: 9px 0 0;
     min-height: 20px;
 }
-.block4 .spis_avto .avto .zg:hover {
-    text-decoration: underline;
-}
+
 .select_booking_form {
     display: block;
     color: #33354d;
@@ -681,6 +676,121 @@ ul.bxslider {
     clear: both;
     margin-left: 0;
 }
+.block4 .spis_avto .avto + .avto {
+    margin: 0 0 0 30px;
+}
+// start
+
+.block4 .spis_avto .gorod {
+    float: left;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: 0 0 8px 0px #333;
+    width: 370px;
+    margin-bottom: 20px;
+}
+.gorod:nth-child(2) {
+    margin: 0 0 0 30px;
+}
+.gorod:nth-child(3) {
+    margin: 0 0 0 30px;
+}
+.gorod:nth-child(5) {
+    margin: 0 0 0 30px;
+}
+.gorod:nth-child(6) {
+    margin: 0 0 0 30px;
+}
+.gorod:nth-child(8) {
+    margin: 0 0 0 30px;
+}
+.gorod:nth-child(9) {
+    margin: 0 0 0 30px;
+}
+.gorod div:nth-child(3n) {
+    clear: both;
+    margin-left: 0;
+}
+.block4 .spis_avto .gorod .bl_img {
+    height: 221px;
+    display: block;
+    overflow: hidden;
+}
+.block4 .spis_avto .gorod .bl_img img {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+}
+.block4 .spis_avto .gorod .zg {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Georgia', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 9px 0 0;
+    min-height: 20px;
+}
+
+.block4 .spis_avto .gorod .price {
+    color: #636364;
+    font-weight: 300;
+    line-height: 22px;
+    font-size: 16px;
+    margin: 3px 0 0;
+}
+.block4 .spis_avto .gorod .price b {
+    font-weight: 700;
+    color: #f77d0a;
+    font-size: 23px;
+}
+.block4 .spis_avto .gorod .more {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #f77d0a;
+    background: #f77d0a;
+    margin: 15px 0 0;
+    line-height: 37px;
+    font-family: 'Georgia', sans-serif;
+    font-size: 17px;
+    padding: 0 65px;
+    border-radius: 25px;
+}
+.block4 .spis_avto .gorod .more:hover {
+    background: #fff;
+    color: #f77d0a;
+}
+.block4 .spis_avto .gorod .hara {
+    font-size: 0;
+    text-align: left;
+    margin: 18px 14px 0;
+}
+.block4 .spis_avto .gorod .hara p {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #5d5d5d;
+    position: relative;
+    padding: 0 0 0 26px;
+    width: 95px;
+    margin: 0 0 12px 28px;
+}
+.block4 .spis_avto .gorod .hara p img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.block4 .spis_avto .gorod .hara p:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+}
+
+// end
+
 .block4 .all {
     display: inline-block;
     vertical-align: top;
