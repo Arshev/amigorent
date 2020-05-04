@@ -13,7 +13,6 @@
               <option selected :value="carNameWithId" >{{carNameWithId}}</option>
             </select>
           </template>
-      <!-- <input type="text" value="" placeholder="Выберите автомобиль" name=""> -->
       <div class="cha1">
           <div class="zg">Имя<span>*</span></div>
           <span style="color: tomato;" v-if="!$v.nameClient.minLength"> - должно содержать минимум {{$v.nameClient.$params.minLength.min}} буквы</span>
@@ -40,25 +39,11 @@
       <div class="clear"></div>
       <div class="cha1">
           <div class="zg">Дата и время начала аренды<span>*</span></div>
-          <date-picker
-            v-model="dateStart"
-            :disabled-date="notBeforeToday"
-            value-type="format"
-            format="DD-MM-YYYY H:mm"
-            type="datetime"
-            placeholder="Выберите дату и время"
-          ></date-picker>
+          <flat-pickr v-model="dateStart" :config="configStart" placeholder="Дата и время начала аренды" id="startDate" v-bind:class="{ 'error-input': dateStartError }"></flat-pickr>
       </div>
       <div class="cha1">
           <div class="zg">Окончание аренды<span>*</span></div>
-          <date-picker
-            v-model="dateEnd"
-            :disabled-date="notBeforeToday"
-            value-type="format"
-            format="DD-MM-YYYY H:mm"
-            type="datetime"
-            placeholder="Выберите дату и время"
-          ></date-picker>
+          <flat-pickr v-model="dateEnd" :config="configEnd" placeholder="Дата и время окончания аренды" required></flat-pickr>
       </div>
       <div class="clear"></div>
       <div class="cha1">
@@ -111,27 +96,21 @@
             Даю согласие на обработку персональных данных, согласно <a href="https://base.garant.ru/12148567/" rel="nofollow">152-ФЗ</a>
         </label>
     </div>
-    <!-- <modal
-      v-show="isModalVisible"
-      @close="closeModal"
-    /> -->
   </div>
 </template>
 
 <script>
 import axios from "axios"
+import flatPickr from 'vue-flatpickr-component'
+import { Russian } from "flatpickr/dist/l10n/ru"
+import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
 import { required, minLength, maxLength, email, phone } from 'vuelidate/lib/validators'
-import modal from './packs/components/modal.vue'
+// import modal from './packs/components/modal.vue'
 import moment from 'moment'
     import 'moment/locale/ru'
     moment.locale('ru')
 
-import DatePicker from 'vue2-datepicker'
-import 'vue2-datepicker/index.css'
-import 'vue2-datepicker/locale/ru'
-
-const today = new Date();
-today.setHours(0, 0, 0, 0);
+flatpickr.localize(Russian);
 
 export default {
   // props: ["allCarsFromView"],
@@ -159,7 +138,31 @@ export default {
       emailClient: '',
       phoneClient: '',
       dateStart: null,
+      configStart: {
+          altFormat: 'j M H:i',
+          enableTime: true,
+          altInput: true,
+          dateFormat: 'm-d-Y H:i',
+          minDate: "today",
+          time_24hr: true,
+          plugins: [new ConfirmDatePlugin({confirmText: 'Ok'})],
+          onChange: function(dateObj,selectedDates, dateStr, instance) {
+            this.dateStart = dateObj[0]
+          }  
+        },
       dateEnd: null,
+      configEnd: {
+          altFormat: 'j M H:i',
+          enableTime: true,
+          altInput: true,
+          dateFormat: 'm-d-Y H:i',
+          minDate: "today",
+          time_24hr: true,
+          plugins: [new ConfirmDatePlugin({confirmText: 'Ok'})],
+          onChange: function(dateObj,selectedDates, dateStr, instance) {
+            this.dateEnd = dateObj[0]
+          }
+        },
       additional_hours: 0,
       hours: 0,
       personData: false,
@@ -216,8 +219,8 @@ export default {
     }
   },
   created() {
-    // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    axios.get("http://95.213.199.82/api/v1/cars.json").then(response => {
+    axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
+    // axios.get("http://95.213.199.82/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
@@ -401,12 +404,12 @@ export default {
       this.termsDataError = false
     },
     dateEnd () {
-      let start_date = moment(this.dateStart, "DD-MM-YYYY H:mm")
-      let end_date = moment(this.dateEnd, "DD-MM-YYYY H:mm")
+      let start_date = moment(this.dateStart, "MM-DD-YYYY H:mm")
+      let end_date = moment(this.dateEnd, "MM-DD-YYYY H:mm")
       let hours = moment.duration(end_date.diff(start_date)).asHours()
       
-      let start_date_days = moment(this.dateStart, "DD-MM-YYYY")
-      let end_date_days = moment(this.dateEnd, "DD-MM-YYYY")
+      let start_date_days = moment(this.dateStart, "MM-DD-YYYY")
+      let end_date_days = moment(this.dateEnd, "MM-DD-YYYY")
       this.additional_hours = 0
       if (hours > (moment.duration(end_date_days.diff(start_date_days)).asDays() * 24)) {
         this.hours = hours
@@ -661,15 +664,10 @@ export default {
         
   },
   components: {
-      modal,
-      DatePicker
+      flatPickr
   }
 };
 </script>
 
 <style>
-  .mx-datepicker {
-    display: block;
-    width: 100%;
-  }
 </style>
