@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_135148) do
+ActiveRecord::Schema.define(version: 2020_05_04_141512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,34 +113,6 @@ ActiveRecord::Schema.define(version: 2020_05_05_135148) do
     t.string "youtube"
     t.string "main_image"
     t.json "images"
-    t.string "power", default: "empty"
-    t.string "consumption", default: "empty"
-    t.string "number_seats", default: "empty"
-    t.string "clearance", default: "empty"
-    t.string "length", default: "empty"
-    t.string "width", default: "empty"
-    t.string "height", default: "empty"
-    t.string "tank_capacity", default: "empty"
-    t.string "trunk_volume", default: "empty"
-    t.string "mass", default: "empty"
-    t.string "number_gears", default: "empty"
-    t.string "max_speed", default: "empty"
-    t.string "racing", default: "empty"
-    t.boolean "adjustment_seats", default: false
-    t.boolean "power_seats", default: false
-    t.string "climat", default: "empty"
-    t.boolean "mirror", default: false
-    t.boolean "power_window_front", default: false
-    t.boolean "power_window_back", default: false
-    t.boolean "steering_wheel_height", default: false
-    t.boolean "steering_wheel_adjustment", default: false
-    t.boolean "hot_seats", default: false
-    t.boolean "central_locking", default: false
-    t.boolean "radio", default: false
-    t.boolean "usb", default: false
-    t.boolean "aux", default: false
-    t.boolean "cd", default: false
-    t.boolean "video", default: false
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
