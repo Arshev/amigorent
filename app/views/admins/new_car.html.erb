@@ -139,32 +139,6 @@
                     <%= f.select :car_class, [["Эконом", "Эконом"], ["Средний", "Средний"], ["Минивены", "Минивены"], ["Кроссоверы", "Кроссоверы"], ["Бизнес", "Бизнес"], ["Коммерческий", "Коммерческий"]], {}, {class:"form-control", id: "car_class"} %>
                   </div>
                 </div>
-
-                <div class="">
-                  <div class="form-group">
-                    <div class="form-group">
-                      <h4 class="text-black">Коробка</h4>
-                    </div>
-                    <%= f.select :transmission, [["Автомат", "Автомат"], ["Механика", "Механика"], ["Вариатор", "Вариатор"], ["Робот", "Робот"]], {}, {class:"form-control", id: "transmission"} %>
-                  </div>
-                </div>
-
-                <div class="">
-                  <div class="form-group">
-                    <div class="form-group">
-                      <h4 class="text-black">Двери</h4>
-                    </div>
-                    <%= f.select :number_doors, [["2", 2], ["3", 3], ["4", 4], ["5", 5]], {}, {class:"form-control", id: "number_doors"} %>
-                  </div>
-                </div>
-                <div class="">
-                  <div class="form-group">
-                    <div class="form-group">
-                      <h4 class="text-black">Топливо</h4>
-                    </div>
-                    <%= f.select :fuel, [["Бензин", "Бензин"], ["Дизель", "Дизель"]], {}, {class:"form-control", id: "fuel"} %>
-                  </div>
-                </div>
                 <div>
                   <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
                 </div>
@@ -174,21 +148,130 @@
           <div class="col-12">
             <div class="card m-t-3">
               <div class="card-body">
-                <div class="row">
-                  <div class="col-md-4 form-group">
-                    <h4 class="text-black">Объём двигателя </h4>
-                    <%= f.text_field :engine_capacity, placeholder: "Объём двигателя?", class: "form-control" %>
-                  </div>
+                <h4 class="text-black">ТТХ</h4>
+                <div class="table-responsive">
+                  <!--Table-->
+                  <table class="table table-responsive">
+                  <!--Table head-->
+                    <thead class="text-center">
+                      <tr>
+                        <th scope="col" colspan="2">Технические данные</th>
+                        <th scope="col" colspan="2">Комфорт</th>
+                      </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                      <tr>
+                        <th scope="row">Тип двигателя</th>
+                        <td><%= f.select :fuel, [["Бензин", "Бензин"], ["Дизель", "Дизель"]], {}, {class:"form-control", id: "fuel"} %></td>
+                        <th scope="row">Регулировка сидений</th>
+                        <td><%= f.check_box :adjustment_seats %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Объем двигателя</th>
+                        <td><%= f.text_field :engine_capacity, placeholder: "Объём двигателя", class: "form-control" %></td>
+                        <th scope="row">Электрорегулировка сидений</th>
+                        <td><%= f.check_box :power_seats %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Мощность</th>
+                        <td><%= f.text_field :power, placeholder: "Мощность", class: "form-control" %></td>
+                        <th scope="row">Электропривод зеркал</th>
+                        <td><%= f.check_box :mirror %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Расход (трасса/смешан/город)</th>
+                        <td><%= f.text_field :consumption, placeholder: "Расход", class: "form-control" %></td>
+                        <th scope="row">Электростеклоподъёмники передние</th>
+                        <td><%= f.check_box :power_window_front %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Количество мест</th>
+                        <td><%= f.text_field :number_seats, placeholder: "Количество мест", class: "form-control" %></td>
+                        <th scope="row">Электростеклоподъёмники задние</th>
+                        <td><%= f.check_box :power_window_back %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Клиренс</th>
+                        <td><%= f.text_field :clearance, placeholder: "Клиренс", class: "form-control" %></td>
+                        <th scope="row">Регулировка руля по высоте</th>
+                        <td><%= f.check_box :steering_wheel_height %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Длина</th>
+                        <td><%= f.text_field :length, placeholder: "Длина", class: "form-control" %></td>
+                        <th scope="row">Регулировка руля по выносу</th>
+                        <td><%= f.check_box :steering_wheel_adjustment %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Ширина</th>
+                        <td><%= f.text_field :width, placeholder: "Ширина", class: "form-control" %></td>
+                        <th scope="row">Управление климатом</th>
+                        <td><%= f.text_field :climat, placeholder: "Управление климатом", class: "form-control" %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Высота</th>
+                        <td><%= f.text_field :height, placeholder: "Высота", class: "form-control" %></td>
+                        <th scope="row">Подогрев сидений</th>
+                        <td><%= f.check_box :hot_seats %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Объем топливного бака</th>
+                        <td><%= f.text_field :tank_capacity, placeholder: "Объем топливного бака", class: "form-control" %></td>
+                        <th scope="row">Центральный замок</th>
+                        <td><%= f.check_box :central_locking %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Объем багажника</th>
+                        <td><%= f.text_field :trunk_volume, placeholder: "Объем багажника", class: "form-control" %></td>
+                        <th scope="row">Radio</th>
+                        <td><%= f.check_box :radio %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Снаряженная масса</th>
+                        <td><%= f.text_field :mass, placeholder: "Снаряженная масса", class: "form-control" %></td>
+                        <th scope="row">USB</th>
+                        <td><%= f.check_box :usb %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Коробка</th>
+                        <td><%= f.select :transmission, [["Автомат", "Автомат"], ["Механика", "Механика"], ["Вариатор", "Вариатор"], ["Робот", "Робот"]], {}, {class:"form-control", id: "transmission"} %></td>
+                        <th scope="row">AUX</th>
+                        <td><%= f.check_box :aux %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Количество передач</th>
+                        <td><%= f.text_field :number_gears, placeholder: "Количество передач", class: "form-control" %></td>
+                        <th scope="row">CD</th>
+                        <td><%= f.check_box :cd %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Максимальная скорость</th>
+                        <td><%= f.text_field :max_speed, placeholder: "Максимальная скорость", class: "form-control" %></td>
+                        <th scope="row">Video</th>
+                        <td><%= f.check_box :video %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Разгон до 100км/ч</th>
+                        <td><%= f.text_field :racing, placeholder: "Разгон до 100км/ч", class: "form-control" %></td>
+                        <th scope="row">Количество дверей</th>
+                        <td><%= f.select :number_doors, [["2", 2], ["3", 3], ["4", 4], ["5", 5]], {}, {class:"form-control", id: "number_doors"} %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Есть кондиционер?</th>
+                        <td><%= f.check_box :is_air %></td>
+                        <th scope="row">Есть электропакет?</th>
+                        <td><%= f.check_box :is_electropackage %></td>
+                      </tr>
+                    </tbody>
+                    <!--Table body-->
+                  </table>
+                  <!--Table-->
                 </div>
-                <div class="row form-group">
-                  <div class="col-md-4">
-                    <%= f.check_box :is_air %> Есть кондиционер?
-                  </div>
-                  <div class="col-md-4">
-                    <%= f.check_box :is_electropackage %> Есть электропакет?
-                  </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
                 </div>
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
             </div>
           </div>
