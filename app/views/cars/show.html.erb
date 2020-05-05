@@ -178,89 +178,123 @@
                 <% end %>
                 <div class="clear"></div>
             </div>
-            <div class="perek" id="pere2">
-                <table class="blueTable">
-                    <thead>
-                        <tr>
-                            <th>до 3 суток</th>
-                            <th>4-7 суток</th>
-                            <th>8-14 суток</th>
-                            <th>15-30 суток</th>
-                            <th>> 30 суток</th>
-                            <th>Залог</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div>
-                                    <%= @car.price_1 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_2 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_3 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_4 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_5 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.deposit %> рублей
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div>
-                                    <%= @car.old_price_1 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.old_price_2 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.old_price_3 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.old_price_4 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.old_price_5 %> рублей
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.deposit %> рублей
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="clear"></div>
-            </div>
             <div class="perek" id="pere3">
-                <p>Тут будут ТТХ.</p>
+                <table class="table table-responsive">
+                    <!--Table head-->
+                    <thead class="text-center">
+                      <tr>
+                        <th scope="col" colspan="2">Технические данные</th>
+                        <th scope="col" colspan="2">Комфорт</th>
+                      </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                      <tr>
+                        <th scope="row">Тип двигателя</th>
+                        <td><%= @car.fuel %></td>
+                        <th scope="row">Регулировка сидений</th>
+                        <td><%= @car.adjustment_seats %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Объем двигателя</th>
+                        <td><%= @car.engine_capacity %></td>
+                        <th scope="row">Электрорегулировка сидений</th>
+                        <td><%= @car.power_seats %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Мощность</th>
+                        <td><%= @car.power %></td>
+                        <th scope="row">Электропривод зеркал</th>
+                        <td><%= @car.mirror %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Расход (трасса/смешан/город)</th>
+                        <td><%= @car.consumption %></td>
+                        <th scope="row">Электростеклоподъёмники передние</th>
+                        <td><%= @car.power_window_front %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Количество мест</th>
+                        <td><%= @car.number_seats %></td>
+                        <th scope="row">Электростеклоподъёмники задние</th>
+                        <td><%= @car.power_window_back %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Клиренс</th>
+                        <td><%= @car.clearance %></td>
+                        <th scope="row">Регулировка руля по высоте</th>
+                        <td><%= @car.steering_wheel_height %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Длина</th>
+                        <td><%= @car.length %></td>
+                        <th scope="row">Регулировка руля по выносу</th>
+                        <td><%= @car.steering_wheel_adjustment %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Ширина</th>
+                        <td><%= @car.width %></td>
+                        <th scope="row">Управление климатом</th>
+                        <td><%= @car.climat %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Высота</th>
+                        <td><%= @car.height %></td>
+                        <th scope="row">Подогрев сидений</th>
+                        <td><%= @car.hot_seats %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Объем топливного бака</th>
+                        <td><%= @car.tank_capacity %></td>
+                        <th scope="row">Центральный замок</th>
+                        <td><%= @car.central_locking %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Объем багажника</th>
+                        <td><%= @car.trunk_volume %></td>
+                        <th scope="row">Radio</th>
+                        <td><%= @car.radio %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Снаряженная масса</th>
+                        <td><%= @car.mass %></td>
+                        <th scope="row">USB</th>
+                        <td><%= @car.usb %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Коробка</th>
+                        <td><%= @car.transmission %></td>
+                        <th scope="row">AUX</th>
+                        <td><%= @car.aux %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Количество передач</th>
+                        <td><%= @car.number_gears %></td>
+                        <th scope="row">CD</th>
+                        <td><%= @car.cd %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Максимальная скорость</th>
+                        <td><%= @car.max_speed %></td>
+                        <th scope="row">Video</th>
+                        <td><%= @car.video %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Разгон до 100км/ч</th>
+                        <td><%= @car.racing %></td>
+                        <th scope="row">Количество дверей</th>
+                        <td><%= @car.number_doors %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Есть кондиционер?</th>
+                        <td><%= @car.is_air %></td>
+                        <th scope="row">Есть электропакет?</th>
+                        <td><%= @car.is_electropackage %></td>
+                      </tr>
+                    </tbody>
+                    <!--Table body-->
+                  </table>
                 <div class="clear"></div>
             </div>
             <div class="bl_ostav">
