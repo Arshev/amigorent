@@ -2833,6 +2833,29 @@ li.errors {
         line-height: 18px;
         margin: 5px 30px 0 25px;
     }
+    // My tth table responsive
+    .table-wrap-tth{
+        overflow-x:auto;
+    }	
+    table.table-tth {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+    }
+    table.table-tth th, table.table-tth td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid black; 
+    }
+    
+    table.table-tth th{
+        font-weight: bold;
+    }
+    table.table-tth tr{
+        text-align: left;
+        border: 1px solid black; 
+    }
+
     .footer .col2,
     .footer .col3,
     .footer .col41 {

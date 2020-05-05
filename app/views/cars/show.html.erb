@@ -89,86 +89,83 @@
                 <%= link_to "Забронировать", new_booking_path(car_id: @car.id), class:"bron" %>
             </div>
             <div class="clear"></div>
-            <div class="bl_perekl">
-                <a href="#" class="active" data-per="pere1">Описание</a>
-                <%#<a href="#" data-per="pere2">Цены</a>%>
-                <a href="#" data-per="pere3">ТТХ</a>
-            </div>
             <div class="perek active" id="pere1">
                 <h3>Цены</h3>
-                <table class="blueTable" style="font-size: 1em;">
-                    <thead>
-                        <tr>
-                            <th>до 3 суток</th>
-                            <th>4-7 суток</th>
-                            <th>8-14 суток</th>
-                            <th>15-30 суток</th>
-                            <th>> 30 суток</th>
-                            <th>Залог</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div>
-                                    <%= @car.price_1 %> рублей
-                                </div>
-                                <% if @car.old_price_1 %>
+                <div class="table-wrap-tth">
+                    <table class="blueTable" style="font-size: 1em;">
+                        <thead>
+                            <tr>
+                                <th>до 3 суток</th>
+                                <th>4-7 суток</th>
+                                <th>8-14 суток</th>
+                                <th>15-30 суток</th>
+                                <th>> 30 суток</th>
+                                <th>Залог</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
                                     <div>
-                                        <s><small><%= @car.old_price_1 %> рублей</s></small>
+                                        <%= @car.price_1 %> рублей
                                     </div>
-                                <% end %>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_2 %> рублей
-                                </div>
-                                <% if @car.old_price_2 %>
+                                    <% if @car.old_price_1 %>
+                                        <div>
+                                            <s><small><%= @car.old_price_1 %> рублей</s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
                                     <div>
-                                        <small><s><%= @car.old_price_2 %> рублей</s></small>
+                                        <%= @car.price_2 %> рублей
                                     </div>
-                                <% end %>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_3 %> рублей
-                                </div>
-                                <% if @car.old_price_3 %>
+                                    <% if @car.old_price_2 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_2 %> рублей</s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
                                     <div>
-                                        <small><s><%= @car.old_price_3 %> рублей</s></small>
+                                        <%= @car.price_3 %> рублей
                                     </div>
-                                <% end %>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_4 %> рублей
-                                </div>
-                                <% if @car.old_price_4 %>
+                                    <% if @car.old_price_3 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_3 %> рублей</s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
                                     <div>
-                                        <small><s><%= @car.old_price_4 %> рублей</s></small>
+                                        <%= @car.price_4 %> рублей
                                     </div>
-                                <% end %>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.price_5 %> рублей
-                                </div>
-                                <% if @car.old_price_5 %>
+                                    <% if @car.old_price_4 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_4 %> рублей</s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
                                     <div>
-                                        <small><s><%= @car.old_price_5 %> рублей</s></small>
+                                        <%= @car.price_5 %> рублей
                                     </div>
-                                <% end %>
-                            </td>
-                            <td>
-                                <div>
-                                    <%= @car.deposit %> рублей
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <% if @car.old_price_5 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_5 %> рублей</s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <div>
+                                        <%= @car.deposit %> рублей
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <p><%= @car.description %></p>
-                <% if @car.youtube %>
+                <% if @car.youtube && @car.youtube != "" %>
                     <div style="text-align:center;">
                         <h3>Видео об автомобиле</h3>
                         <div class="thumb-wrap">
@@ -176,125 +173,126 @@
                         </div>
                     </div>
                 <% end %>
-                <div class="clear"></div>
-            </div>
-            <div class="perek" id="pere3">
-                <table class="table table-responsive">
+                <div class="table-wrap-tth">
+                    <table class="table-tth" style="margin:auto;">
                     <!--Table head-->
-                    <thead class="text-center">
+                    <thead>
                       <tr>
-                        <th scope="col" colspan="2">Технические данные</th>
-                        <th scope="col" colspan="2">Комфорт</th>
+                        <th colspan="2">Технические данные</th>
+                        <th colspan="2">Комфорт</th>
                       </tr>
                     </thead>
                     <!--Table head-->
                     <!--Table body-->
-                    <tbody>
-                      <tr>
-                        <th scope="row">Тип двигателя</th>
+                    <tbody style="text-align:left;">
+                      <tr style="border: 1px solid black;">
+                        <th>Тип двигателя</th>
                         <td><%= @car.fuel %></td>
-                        <th scope="row">Регулировка сидений</th>
-                        <td><%= @car.adjustment_seats %></td>
+                        <th>Регулировка сидений</th>
+                        <td>
+                            <%= @car.adjustment_seats ? "Есть" : "Нет" %>
+                        </td>
                       </tr>
                       <tr>
-                        <th scope="row">Объем двигателя</th>
+                        <th>Объем двигателя</th>
                         <td><%= @car.engine_capacity %></td>
-                        <th scope="row">Электрорегулировка сидений</th>
-                        <td><%= @car.power_seats %></td>
+                        <th>Электрорегулировка сидений</th>
+                        <td><%= @car.power_seats ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Мощность</th>
+                        <th>Мощность</th>
                         <td><%= @car.power %></td>
-                        <th scope="row">Электропривод зеркал</th>
-                        <td><%= @car.mirror %></td>
+                        <th>Электропривод зеркал</th>
+                        <td><%= @car.mirror ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Расход (трасса/смешан/город)</th>
+                        <th>Расход (трасса/смешан/город)</th>
                         <td><%= @car.consumption %></td>
-                        <th scope="row">Электростеклоподъёмники передние</th>
-                        <td><%= @car.power_window_front %></td>
+                        <th>Электростеклоподъёмники передние</th>
+                        <td><%= @car.power_window_front ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Количество мест</th>
+                        <th>Количество мест</th>
                         <td><%= @car.number_seats %></td>
-                        <th scope="row">Электростеклоподъёмники задние</th>
-                        <td><%= @car.power_window_back %></td>
+                        <th>Электростеклоподъёмники задние</th>
+                        <td><%= @car.power_window_back ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Клиренс</th>
+                        <th>Клиренс</th>
                         <td><%= @car.clearance %></td>
-                        <th scope="row">Регулировка руля по высоте</th>
-                        <td><%= @car.steering_wheel_height %></td>
+                        <th>Регулировка руля по высоте</th>
+                        <td><%= @car.steering_wheel_height ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Длина</th>
+                        <th>Длина</th>
                         <td><%= @car.length %></td>
-                        <th scope="row">Регулировка руля по выносу</th>
-                        <td><%= @car.steering_wheel_adjustment %></td>
+                        <th>Регулировка руля по выносу</th>
+                        <td><%= @car.steering_wheel_adjustment ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Ширина</th>
+                        <th>Ширина</th>
                         <td><%= @car.width %></td>
-                        <th scope="row">Управление климатом</th>
+                        <th>Управление климатом</th>
                         <td><%= @car.climat %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Высота</th>
+                        <th>Высота</th>
                         <td><%= @car.height %></td>
-                        <th scope="row">Подогрев сидений</th>
-                        <td><%= @car.hot_seats %></td>
+                        <th>Подогрев сидений</th>
+                        <td><%= @car.hot_seats ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Объем топливного бака</th>
+                        <th>Объем топливного бака</th>
                         <td><%= @car.tank_capacity %></td>
-                        <th scope="row">Центральный замок</th>
-                        <td><%= @car.central_locking %></td>
+                        <th>Центральный замок</th>
+                        <td><%= @car.central_locking ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Объем багажника</th>
+                        <th>Объем багажника</th>
                         <td><%= @car.trunk_volume %></td>
-                        <th scope="row">Radio</th>
-                        <td><%= @car.radio %></td>
+                        <th>Radio</th>
+                        <td><%= @car.radio ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Снаряженная масса</th>
+                        <th>Снаряженная масса</th>
                         <td><%= @car.mass %></td>
-                        <th scope="row">USB</th>
-                        <td><%= @car.usb %></td>
+                        <th>USB</th>
+                        <td><%= @car.usb ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Коробка</th>
+                        <th>Коробка</th>
                         <td><%= @car.transmission %></td>
-                        <th scope="row">AUX</th>
-                        <td><%= @car.aux %></td>
+                        <th>AUX</th>
+                        <td><%= @car.aux ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Количество передач</th>
+                        <th>Количество передач</th>
                         <td><%= @car.number_gears %></td>
-                        <th scope="row">CD</th>
-                        <td><%= @car.cd %></td>
+                        <th>CD</th>
+                        <td><%= @car.cd ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Максимальная скорость</th>
+                        <th>Максимальная скорость</th>
                         <td><%= @car.max_speed %></td>
-                        <th scope="row">Video</th>
-                        <td><%= @car.video %></td>
+                        <th>Video</th>
+                        <td><%= @car.video ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Разгон до 100км/ч</th>
+                        <th>Разгон до 100км/ч</th>
                         <td><%= @car.racing %></td>
-                        <th scope="row">Количество дверей</th>
+                        <th>Количество дверей</th>
                         <td><%= @car.number_doors %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Есть кондиционер?</th>
-                        <td><%= @car.is_air %></td>
-                        <th scope="row">Есть электропакет?</th>
-                        <td><%= @car.is_electropackage %></td>
+                        <th>Кондиционер</th>
+                        <td><%= @car.is_air ? "Есть" : "Нет" %></td>
+                        <th>Электропакет</th>
+                        <td><%= @car.is_electropackage ? "Есть" : "Нет" %></td>
                       </tr>
                     </tbody>
                     <!--Table body-->
                   </table>
+                </div>
                 <div class="clear"></div>
             </div>
             <div class="bl_ostav">
