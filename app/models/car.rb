@@ -9,4 +9,5 @@ class Car < ApplicationRecord
   has_rich_text :description
 
   default_scope {order('sort')}
+
 end

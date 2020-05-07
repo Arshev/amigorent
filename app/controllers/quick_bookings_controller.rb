@@ -7,7 +7,7 @@ class QuickBookingsController < ApplicationController
       # @quick_booking.send_tg_message
       @quick_booking.send_sms
 
-      redirect_to root_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток"
+      redirect_to success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток"
     else
       redirect_to root_path, alert: "Что то пошло не так!"
     end

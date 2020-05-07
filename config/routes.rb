@@ -35,6 +35,14 @@ Rails.application.routes.draw do
   get 'arenda-avto-pionerskyi', action: :pionerskyi, controller: 'deliveries'
   get 'arenda-avto-chernyahovsk', action: :chernyahovsk, controller: 'deliveries'
 
+  get 'arenda-avto-s-voditelem', action: :s_voditelem, controller: 'main'
+  get 'car-sharing', action: :car_sharing, controller: 'main'
+  get 'casko', action: :casko, controller: 'main'
+  get 'corporativnym-clientam', action: :corporate, controller: 'main'
+  get 'sales-system', action: :sales, controller: 'main'
+  get 'payment-methods', action: :payment, controller: 'main'
+  get 'transportnyi-autsorsing', action: :outsours, controller: 'main'
+
   resource :admin, except: [:edit, :new, :create] do
     member do
       get 'cars'

@@ -2856,6 +2856,25 @@ li.errors {
         border: 1px solid black; 
     }
 
+    // My 2
+
+    table.table-carshearing{
+        width: 100%;
+        border-collapse:collapse;
+        border-spacing:0
+    }
+    table.table-carshearing, td, th {
+        border: 1px solid #595959;
+    }
+    .table-carshearing td, th {
+        padding: 3px;
+        width: 30px;
+        height: 35px;
+    }
+    .table-carshearing th {
+        background-color: #7accee;
+    }
+
     .footer .col2,
     .footer .col3,
     .footer .col41 {

@@ -165,8 +165,8 @@
                       <tr>
                         <th scope="row">Тип двигателя</th>
                         <td><%= f.select :fuel, [["Бензин", "Бензин"], ["Дизель", "Дизель"]], {}, {class:"form-control", id: "fuel"} %></td>
-                        <th scope="row">Регулировка сидений</th>
-                        <td><%= f.check_box :adjustment_seats %></td>
+                        <th scope="row">Вид топлива</th>
+                        <td><%= f.text_field :fuel_type, placeholder: "Вид топлива", class: "form-control" %></td>
                       </tr>
                       <tr>
                         <th scope="row">Объем двигателя</th>
@@ -187,8 +187,8 @@
                         <td><%= f.check_box :power_window_front %></td>
                       </tr>
                       <tr>
-                        <th scope="row">Количество мест</th>
-                        <td><%= f.text_field :number_seats, placeholder: "Количество мест", class: "form-control" %></td>
+                        <th scope="row">Привод</th>
+                        <td><%= f.text_field :drive_unit, placeholder: "Привод", class: "form-control" %></td>
                         <th scope="row">Электростеклоподъёмники задние</th>
                         <td><%= f.check_box :power_window_back %></td>
                       </tr>
@@ -263,6 +263,12 @@
                         <td><%= f.check_box :is_air %></td>
                         <th scope="row">Есть электропакет?</th>
                         <td><%= f.check_box :is_electropackage %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Количество мест</th>
+                        <td><%= f.text_field :number_seats, placeholder: "Количество мест", class: "form-control" %></td>
+                        <th scope="row">Примечание</th>
+                        <td><%= f.text_field :tth_note %></td>
                       </tr>
                     </tbody>
                     <!--Table body-->

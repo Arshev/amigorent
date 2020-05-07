@@ -20,6 +20,7 @@
                             <%= image_tag image.url, alt: @car.car_name, title: @car.car_name %>
                         <% end %>
                     </div>
+                    <%= link_to "Предыдущее", car_previous, style: "float:left;" %> <%= link_to "Следующее", car_next, style: "float:right;" %>
                 </div>
             </div>
             <div class="pol2">
@@ -188,9 +189,9 @@
                       <tr style="border: 1px solid black;">
                         <th>Тип двигателя</th>
                         <td><%= @car.fuel %></td>
-                        <th>Регулировка сидений</th>
+                        <th>Вид топлива</th>
                         <td>
-                            <%= @car.adjustment_seats ? "Есть" : "Нет" %>
+                            <%= @car.fuel_type %>
                         </td>
                       </tr>
                       <tr>
@@ -212,8 +213,8 @@
                         <td><%= @car.power_window_front ? "Есть" : "Нет" %></td>
                       </tr>
                       <tr>
-                        <th>Количество мест</th>
-                        <td><%= @car.number_seats %></td>
+                        <th>Привод</th>
+                        <td><%= @car.drive_unit %></td>
                         <th>Электростеклоподъёмники задние</th>
                         <td><%= @car.power_window_back ? "Есть" : "Нет" %></td>
                       </tr>
@@ -289,9 +290,18 @@
                         <th>Электропакет</th>
                         <td><%= @car.is_electropackage ? "Есть" : "Нет" %></td>
                       </tr>
+                      <tr>
+                        <th>Количество мест</th>
+                        <td><%= @car.number_seats %></td>
+                        <th></th>
+                        <td></td>
+                      </tr>
                     </tbody>
                     <!--Table body-->
                   </table>
+                  <div style="text-align:center;">
+                    <%= @car.tth_note %>
+                  </div>
                 </div>
                 <div class="clear"></div>
             </div>

@@ -11,4 +11,12 @@ module ApplicationHelper
   def rating_google
     Rating.first.google  if Rating.first.google
   end
+
+  def car_next
+    Car.where('id > ? and active = ?', params[:id], true ).first
+  end
+
+  def car_previous
+    Car.where('id < ? and active = ?', params[:id], true ).last
+  end
 end

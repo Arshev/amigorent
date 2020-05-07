@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_151022) do
+ActiveRecord::Schema.define(version: 2020_05_07_090542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 2020_05_05_151022) do
     t.string "number_gears", default: "empty"
     t.string "max_speed", default: "empty"
     t.string "racing", default: "empty"
-    t.boolean "adjustment_seats", default: false
     t.boolean "power_seats", default: false
     t.string "climat", default: "empty"
     t.boolean "mirror", default: false
@@ -141,6 +140,9 @@ ActiveRecord::Schema.define(version: 2020_05_05_151022) do
     t.boolean "aux", default: false
     t.boolean "cd", default: false
     t.boolean "video", default: false
+    t.string "fuel_type", default: "empty"
+    t.string "drive_unit", default: "empty"
+    t.text "tth_note", default: "empty"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

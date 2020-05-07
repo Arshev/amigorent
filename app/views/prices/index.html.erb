@@ -98,7 +98,7 @@
                       <td><%= car.price_hour %></td>
                       <td><%= car.deposit %></td>
                       <td>
-                        <%= link_to car_path(car), class:"zakaz" do %>
+                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
                           Заказать
                         <% end %>
                       </td>
@@ -179,7 +179,7 @@
                       <td><%= car.price_hour %></td>
                       <td><%= car.deposit %></td>
                       <td>
-                        <%= link_to car_path(car), class:"zakaz" do %>
+                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
                           Заказать
                         <% end %>
                       </td>
@@ -260,7 +260,7 @@
                       <td><%= car.price_hour %></td>
                       <td><%= car.deposit %></td>
                       <td>
-                        <%= link_to car_path(car), class:"zakaz" do %>
+                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
                           Заказать
                         <% end %>
                       </td>
@@ -341,7 +341,7 @@
                       <td><%= car.price_hour %></td>
                       <td><%= car.deposit %></td>
                       <td>
-                        <%= link_to car_path(car), class:"zakaz" do %>
+                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
                           Заказать
                         <% end %>
                       </td>
@@ -422,7 +422,7 @@
                       <td><%= car.price_hour %></td>
                       <td><%= car.deposit %></td>
                       <td>
-                        <%= link_to car_path(car), class:"zakaz" do %>
+                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
                           Заказать
                         <% end %>
                       </td>
@@ -503,7 +503,7 @@
                       <td><%= car.price_hour %></td>
                       <td><%= car.deposit %></td>
                       <td>
-                        <%= link_to car_path(car), class:"zakaz" do %>
+                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
                           Заказать
                         <% end %>
                       </td>
@@ -512,6 +512,34 @@
                 </tbody>
             </table>
             <p class="niz"><%= @prices_bottom_text.html_safe %></p>
+            <div>
+              <div class="bl_dop">
+                <h2>Цены на доп. оборудование</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Оборудование</td>
+                            <td>За сутки, руб</td>
+                            <td>За весь срок до 15 суток, руб</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Детское кресло/бустер</td>
+                            <td><%= @dop_table_kreslo_dayprice %></td>
+                            <td><%= @dop_table_kreslo_allprice %></td>
+                        </tr>
+                        <tr>
+                            <td>GPS навигатор</td>
+                            <td><%= @dop_table_navigator_dayprice %></td>
+                            <td><%= @dop_table_navigator_dayprice %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><%= @dop_table_downtext.html_safe %></p>
+                <div class="clear"></div>
+            </div>
+            </div>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
