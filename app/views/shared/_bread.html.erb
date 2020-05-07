@@ -25,6 +25,20 @@
     <a href="/">Главная /</a> Дополнительные услуги
   <% elsif current_page?(controller: 'deliveries', action: 'index')%>
     <a href="/">Главная /</a> Доставка
+  <% elsif current_page?(controller: 'main', action: 'casko')%>
+    <a href="/">Главная /</a> Страховка КАСКО
+  <% elsif current_page?(controller: 'main', action: 's_voditelem')%>
+    <a href="/">Главная /</a> Аренда авто с водителем
+  <% elsif current_page?(controller: 'main', action: 'car_sharing')%>
+    <a href="/">Главная /</a> Каршеринг
+  <% elsif current_page?(controller: 'main', action: 'corporate')%>
+    <a href="/">Главная /</a> Корпоративным клиентам
+  <% elsif current_page?(controller: 'main', action: 'sales')%>
+    <a href="/">Главная /</a> Система скидок
+  <% elsif current_page?(controller: 'main', action: 'payment')%>
+    <a href="/">Главная /</a> Методы оплаты
+  <% elsif current_page?(controller: 'main', action: 'outsours')%>
+    <a href="/">Главная /</a> Транспортный аутсорсинг
   <% elsif current_page?(controller: 'articles', action: 'index')%>
     <a href="/">Главная /</a> Новости и акции
   <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
