@@ -3,8 +3,8 @@ class QuickBookingsController < ApplicationController
   def create
     @quick_booking = QuickBooking.create(quick_booking_params)
     if @quick_booking.save
-      QuickBookingMailer.with(quick_booking: @quick_booking).new_quick_booking_email.deliver_now
-      # @quick_booking.send_tg_message
+      QuickBookingMailer.with(quick_booking: @quick_booking).new_quick_booking_email.deliver_later
+      @quick_booking.send_tg_message
       @quick_booking.send_sms
 
       redirect_to success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток"
