@@ -145,7 +145,7 @@ export default {
           altFormat: 'j M H:i',
           enableTime: true,
           altInput: true,
-          dateFormat: 'm-d-Y H:i',
+          dateFormat: 'd-m-Y H:i',
           minDate: "today",
           time_24hr: true,
           plugins: [new ConfirmDatePlugin({confirmText: 'Ok'})],
@@ -158,7 +158,7 @@ export default {
           altFormat: 'j M H:i',
           enableTime: true,
           altInput: true,
-          dateFormat: 'm-d-Y H:i',
+          dateFormat: 'd-m-Y H:i',
           minDate: "today",
           time_24hr: true,
           plugins: [new ConfirmDatePlugin({confirmText: 'Ok'})],
@@ -314,8 +314,8 @@ export default {
         // }
         
 
-        formData.append('booking[start_date]', this.dateStart);
-        formData.append('booking[end_date]', this.dateEnd);
+        formData.append('booking[start_date]', moment(this.dateStart, "MM-DD-YYYY H:mm"));
+        formData.append('booking[end_date]', moment(this.dateStart, "MM-DD-YYYY H:mm"));
         formData.append('booking[location_start]', this.locationStart);
         formData.append('booking[location_end]', this.locationEnd);
         formData.append('booking[firstname]', this.nameClient);
@@ -330,7 +330,7 @@ export default {
         formData.append('booking[total]', this.total);
         formData.append('booking[deposit]', this.deposit);
 
-        // axios.post('https://amigorent.ru/api/v1/booking.json',
+        // axios.post('https://amigorent.ru/api/v1/booking.json'
         axios.post('http://95.213.199.82/api/v1/booking.json'
         ,
           formData,
