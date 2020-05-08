@@ -166,7 +166,7 @@
                         <th scope="row">Тип двигателя</th>
                         <td><%= f.select :fuel, [["Бензин", "Бензин"], ["Дизель", "Дизель"]], {}, {class:"form-control", id: "fuel"} %></td>
                         <th scope="row">Вид топлива</th>
-                        <td><%= f.text_field :fuel_type, placeholder: "Вид топлива", class: "form-control" %></td>
+                        <td><%= f.select :fuel_type, [["АИ-92", "АИ-92"], ["АИ-95", "АИ-95"], ["ДТ", "ДТ"]], {}, {class:"form-control", id: "fuel-type"} %></td>
                       </tr>
                       <tr>
                         <th scope="row">Объем двигателя</th>
