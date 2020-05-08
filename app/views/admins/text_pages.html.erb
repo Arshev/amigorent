@@ -1,0 +1,140 @@
+<%= render 'header' %>
+<%= render 'left_sidebar' %>
+  <div class="content-wrapper">
+    <div class="content-header sty-one">
+      <h1>Изменение статьи</h1>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Главная', admin_path %>
+        </li>
+        <li><i class="fa fa-angle-right"></i> <%= link_to 'Статьи', articles_admin_path %></li>
+        <li><i class="fa fa-angle-right"></i> Тексты страниц</li>
+      </ol>
+    </div>
+    <div class="content">
+      <div class="row">
+        <%= form_for @text do |f| %>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Аренда авто с водителем</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :s_voditelem_title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :s_voditelem_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :s_voditelem_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Каршеринг</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :car_sharing_title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :car_sharing_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :car_sharing_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">КАСКО</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :casko_title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :casko_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :casko_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Корпоративным клиентам</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :corporate_title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :corporate_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :corporate_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Система скидок</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :sales_title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :sales_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :sales_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Методы оплаты</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :payment_title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :payment_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :payment_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Транспортный аутсорсинг</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :outsours_title, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :outsours_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :outsours_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render 'footer' %>

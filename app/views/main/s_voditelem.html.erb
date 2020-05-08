@@ -1,9 +1,11 @@
+<% title @text.s_voditelem_title %>
+<% description @text.s_voditelem_description %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
   <div class="wrapper">
         <%= render 'shared/bread'%>
     <div class="bl_dop">
-        <h1>Аренда авто с водителем</h1>
+        <h1><%= @text.s_voditelem_title %></h1>
         <table class="table-carshearing var2">
           <tbody>
             <tr>
@@ -43,15 +45,7 @@
           </tbody>
         </table>
         <div>
-          <p>
-            В указанные цены включены затраты на топливо и мойку автомобиля. Время доставки автомобиля  до арендатора и возврата в пункт проката не оплачивается.  
-          </p>
-          <p>
-            Организациям, при длительности срока аренды авто с водителем более одного месяца, готовы предоставить персональные условия. 
-          </p>
-          <p>
-            <sup>*</sup>Выезд за пределы г. Калининграда в течении одних календарных суток тарифицируется дополнительно - +1час к общей сумме арендной платы исчисленной за текущие сутки. 
-          </p>
+          <%= @text.s_voditelem_text.html_safe %>
         </div>
         <div class="clear"></div>
     </div>

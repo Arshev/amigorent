@@ -63,7 +63,12 @@ private
       :baltyisk_avto, :pionerskyi_h1, :pionerskyi_title, :pionerskyi_description, :pionerskyi_price, 
       :pionerskyi_price_unwork, :pionerskyi_avto, :chernyahovsk_h1, :chernyahovsk_title, 
       :chernyahovsk_description, :chernyahovsk_price, :chernyahovsk_price_unwork, :chernyahovsk_avto,
-      :aeroport_text, :zelenogradsk_text, :svetlogorsk_text, :yantarnyi_text, :baltyisk_text, :pionerskyi_text, :chernyahovsk_text
+      :aeroport_text, :zelenogradsk_text, :svetlogorsk_text, :yantarnyi_text, :baltyisk_text, :pionerskyi_text, 
+      :chernyahovsk_text, :s_voditelem_text, :s_voditelem_title, :s_voditelem_description, 
+      :car_sharing_text, :car_sharing_title, :car_sharing_description, :casko_text, 
+      :casko_title, :casko_description, :corporate_text, :corporate_title, :corporate_description, 
+      :sales_text, :sales_title, :sales_description, :payment_text, :payment_title, 
+      :payment_description, :outsours_text, :outsours_title, :outsours_description
     )
   end
 end

@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   before_action :set_up_text
+  before_action :set_text, only: [:s_voditelem, :car_sharing, :casko, :corporate, :sales, :payment, :outsours]
   def index
     @quick_booking = QuickBooking.new
     @reviews = Review.where(active: :true).limit(3)
@@ -42,5 +43,8 @@ class MainController < ApplicationController
   private
     def set_up_text
       @main_up_text = Text.first.main_up_text
+    end
+    def set_text
+      @text = Text.first
     end
 end

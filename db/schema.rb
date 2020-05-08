@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_090542) do
+ActiveRecord::Schema.define(version: 2020_05_08_114502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -312,6 +312,27 @@ ActiveRecord::Schema.define(version: 2020_05_07_090542) do
     t.text "yantarnyi_text", default: "empty"
     t.text "baltyisk_text", default: "empty"
     t.text "pionerskyi_text", default: "empty"
+    t.text "s_voditelem_text", default: "empty"
+    t.string "s_voditelem_title", default: "empty"
+    t.text "s_voditelem_description", default: "empty"
+    t.text "car_sharing_text", default: "empty"
+    t.string "car_sharing_title", default: "empty"
+    t.text "car_sharing_description", default: "empty"
+    t.text "casko_text", default: "empty"
+    t.string "casko_title", default: "empty"
+    t.text "casko_description", default: "empty"
+    t.text "corporate_text", default: "empty"
+    t.string "corporate_title", default: "empty"
+    t.text "corporate_description", default: "empty"
+    t.text "sales_text", default: "empty"
+    t.string "sales_title", default: "empty"
+    t.text "sales_description", default: "empty"
+    t.text "payment_text", default: "empty"
+    t.string "payment_title", default: "empty"
+    t.text "payment_description", default: "empty"
+    t.text "outsours_text", default: "empty"
+    t.string "outsours_title", default: "empty"
+    t.text "outsours_description", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|

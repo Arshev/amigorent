@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       get 'text_main'
       get 'text_other'
       get 'text_metatags'
+      get 'text_pages'
       get 'cities'
     end
   end
