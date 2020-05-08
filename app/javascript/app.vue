@@ -314,8 +314,8 @@ export default {
         // }
         
 
-        formData.append('booking[start_date]', moment(this.dateStart, "MM-DD-YYYY H:mm"));
-        formData.append('booking[end_date]', moment(this.dateStart, "MM-DD-YYYY H:mm"));
+        formData.append('booking[start_date]', this.dateStart);
+        formData.append('booking[end_date]', this.dateStart);
         formData.append('booking[location_start]', this.locationStart);
         formData.append('booking[location_end]', this.locationEnd);
         formData.append('booking[firstname]', this.nameClient);
@@ -407,12 +407,12 @@ export default {
       this.termsDataError = false
     },
     dateEnd () {
-      let start_date = moment(this.dateStart, "MM-DD-YYYY H:mm")
-      let end_date = moment(this.dateEnd, "MM-DD-YYYY H:mm")
+      let start_date = moment(this.dateStart, "DD-MM-YYYY H:mm")
+      let end_date = moment(this.dateEnd, "DD-MM-YYYY H:mm")
       let hours = moment.duration(end_date.diff(start_date)).asHours()
       
-      let start_date_days = moment(this.dateStart, "MM-DD-YYYY")
-      let end_date_days = moment(this.dateEnd, "MM-DD-YYYY")
+      let start_date_days = moment(this.dateStart, "DD-MM-YYYY")
+      let end_date_days = moment(this.dateEnd, "DD-MM-YYYY")
       this.additional_hours = 0
       if (hours > (moment.duration(end_date_days.diff(start_date_days)).asDays() * 24)) {
         this.hours = hours
@@ -488,13 +488,13 @@ export default {
       this.dateEndError = false
     },
     dateStart () {
-      let start_date = moment(this.dateStart, "MM-DD-YYYY H:mm")
-      let end_date = moment(this.dateEnd, "MM-DD-YYYY H:mm")
+      let start_date = moment(this.dateStart, "DD-MM-YYYY H:mm")
+      let end_date = moment(this.dateEnd, "DD-MM-YYYY H:mm")
       
       let hours = moment.duration(end_date.diff(start_date)).asHours()
       
-      let start_date_days = moment(this.dateStart, "MM-DD-YYYY")
-      let end_date_days = moment(this.dateEnd, "MM-DD-YYYY")
+      let start_date_days = moment(this.dateStart, "DD-MM-YYYY")
+      let end_date_days = moment(this.dateEnd, "DD-MM-YYYY")
       this.additional_hours = 0
       if (hours > (moment.duration(end_date_days.diff(start_date_days)).asDays() * 24)) {
           this.hours = hours
