@@ -15,11 +15,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "Статья добавлена"
+      redirect_to articles_admin_path, notice: "Статья добавлена"
     else
       flash[:notice] = "Что то не так!"
     end
-    redirect_back(fallback_location: request.referer)
   end
 
   def update
