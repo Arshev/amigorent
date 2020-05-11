@@ -189,8 +189,8 @@
                       <tr style="border: 1px solid black;">
                         <th>Вид топлива</th>
                         <td><%= @car.fuel_type %></td>
-                        <th>Кондиционер</th>
-                        <td><%= @car.is_air ? "Есть" : "Нет" %></td>
+                        <th>Количество мест</th>
+                        <td><%= @car.number_seats %></td>
                       </tr>
                       <tr>
                         <th>Объем двигателя</th>
@@ -283,11 +283,6 @@
                         <td><%= @car.number_doors %></td>
                       </tr>
                       <tr>
-                        <th>Количество мест</th>
-                        <td><%= @car.number_seats %></td>
-                        <th>Электропакет</th>
-                        <td><%= @car.is_electropackage ? "Есть" : "Нет" %></td>
-                      </tr>
                     </tbody>
                     <!--Table body-->
                   </table>
