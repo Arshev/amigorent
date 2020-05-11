@@ -212,6 +212,17 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
+                  <h4>Условия, без франшизы</h4>
+                  <%= f.cktext_area :term_no_franchise, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
                   <h4>Условия, Прочие</h4>
                   <%= f.cktext_area :term_other, ckeditor: { language: 'ru'} %>
                 </div>
