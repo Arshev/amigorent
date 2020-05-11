@@ -7,7 +7,7 @@ set :deploy_to, "/home/deployer/#{fetch :application}"
 
 require "whenever/capistrano"
 
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads', 'public/storage', 'node_modules', "public/packs"
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads', 'public/storage', 'storage', 'node_modules', "public/packs"
 
 append :linked_files, "config/database.yml"
 
