@@ -38,6 +38,8 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  config.assets.digest = false
+
   config.active_storage.variable_content_types = %w(
     image/png
     image/gif
