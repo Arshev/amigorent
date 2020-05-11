@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_114502) do
+ActiveRecord::Schema.define(version: 2020_05_11_132504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -333,6 +333,15 @@ ActiveRecord::Schema.define(version: 2020_05_08_114502) do
     t.text "outsours_text", default: "empty"
     t.string "outsours_title", default: "empty"
     t.text "outsours_description", default: "empty"
+    t.text "term_common", default: "empty"
+    t.text "term_docs", default: "empty"
+    t.text "term_gringo", default: "empty"
+    t.text "term_no_franchise", default: "empty"
+    t.text "term_companies", default: "empty"
+    t.text "term_clients", default: "empty"
+    t.text "term_other", default: "empty"
+    t.text "term_abroad", default: "empty"
+    t.text "term_bottom", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|

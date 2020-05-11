@@ -68,7 +68,8 @@ private
       :car_sharing_text, :car_sharing_title, :car_sharing_description, :casko_text, 
       :casko_title, :casko_description, :corporate_text, :corporate_title, :corporate_description, 
       :sales_text, :sales_title, :sales_description, :payment_text, :payment_title, 
-      :payment_description, :outsours_text, :outsours_title, :outsours_description
+      :payment_description, :outsours_text, :outsours_title, :outsours_description, :term_common,
+      :term_docs, :term_gringo, :term_companies, :term_clients, :term_other, :term_abroad, :term_bottom
     )
   end
 end
