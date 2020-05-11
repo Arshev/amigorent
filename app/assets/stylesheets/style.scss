@@ -2858,6 +2858,10 @@ li.errors {
 
     // My 2
 
+    .conditioner {
+        z-index:2;
+    }
+
     .article img {
         height: auto;
         width: 100%;
@@ -3543,6 +3547,9 @@ li.errors {
 }
 
 @media (max-width: 767px) {
+    .universal {
+        width: 22px;
+    }
     .sticky {
         position: relative;
     }
