@@ -315,7 +315,7 @@ export default {
         
 
         formData.append('booking[start_date]', this.dateStart);
-        formData.append('booking[end_date]', this.dateStart);
+        formData.append('booking[end_date]', this.dateEnd);
         formData.append('booking[location_start]', this.locationStart);
         formData.append('booking[location_end]', this.locationEnd);
         formData.append('booking[firstname]', this.nameClient);
