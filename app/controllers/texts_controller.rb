@@ -69,7 +69,10 @@ private
       :casko_title, :casko_description, :corporate_text, :corporate_title, :corporate_description, 
       :sales_text, :sales_title, :sales_description, :payment_text, :payment_title, 
       :payment_description, :outsours_text, :outsours_title, :outsours_description, :term_common,
-      :term_docs, :term_gringo, :term_companies, :term_clients, :term_no_franchise, :term_other, :term_abroad, :term_bottom
+      :term_docs, :term_gringo, :term_companies, :term_clients, :term_no_franchise, :term_other, 
+      :term_abroad, :term_bottom, :full_insurance_title, :full_insurance_description, :full_insurance_h1, 
+      :full_insurance_text, :car_sharing_h1,:casko_h1, :corporate_h1, :sales_h1, :payment_h1, 
+      :outsours_h1, :s_voditelem_h1
     )
   end
 end

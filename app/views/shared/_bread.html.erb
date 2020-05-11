@@ -39,6 +39,8 @@
     <a href="/">Главная /</a> Методы оплаты
   <% elsif current_page?(controller: 'main', action: 'outsours')%>
     <a href="/">Главная /</a> Транспортный аутсорсинг
+  <% elsif current_page?(controller: 'main', action: 'full_insurance')%>
+    <a href="/">Главная /</a> Полная страховка
   <% elsif current_page?(controller: 'articles', action: 'index')%>
     <a href="/">Главная /</a> Новости и акции
   <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>

@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   before_action :set_up_text
-  before_action :set_text, only: [:s_voditelem, :car_sharing, :casko, :corporate, :sales, :payment, :outsours]
+  before_action :set_text, only: [:s_voditelem, :car_sharing, :casko, :corporate, :sales, :payment, :outsours, :full_insurance]
   def index
     @quick_booking = QuickBooking.new
     @reviews = Review.where(active: :true).limit(3)
@@ -38,6 +38,8 @@ class MainController < ApplicationController
   def payment
   end
   def outsours
+  end
+  def full_insurance
   end
 
   private

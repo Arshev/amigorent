@@ -231,7 +231,7 @@ a {
 .header .menu_top li {
     display: inline-block;
     vertical-align: top;
-    margin: 0 19px;
+    margin: 0 15px;
     position: relative;
 }
 
@@ -2857,6 +2857,12 @@ li.errors {
     }
 
     // My 2
+
+    .article img {
+        height: auto;
+        width: 100%;
+        max-width: 720px;
+    }
 
     table.table-carshearing{
         width: 100%;

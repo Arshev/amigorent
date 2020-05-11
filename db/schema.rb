@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_132504) do
+ActiveRecord::Schema.define(version: 2020_05_11_152726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -342,6 +342,17 @@ ActiveRecord::Schema.define(version: 2020_05_11_132504) do
     t.text "term_other", default: "empty"
     t.text "term_abroad", default: "empty"
     t.text "term_bottom", default: "empty"
+    t.string "full_insurance_title", default: "empty"
+    t.text "full_insurance_description", default: "empty"
+    t.string "full_insurance_h1", default: "empty"
+    t.text "full_insurance_text", default: "empty"
+    t.string "car_sharing_h1", default: "empty"
+    t.string "casko_h1", default: "empty"
+    t.string "corporate_h1", default: "empty"
+    t.string "sales_h1", default: "empty"
+    t.string "payment_h1", default: "empty"
+    t.string "outsours_h1", default: "empty"
+    t.string "s_voditelem_h1", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|

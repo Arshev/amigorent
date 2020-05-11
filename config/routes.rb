@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get 'sales-system', action: :sales, controller: 'main'
   get 'payment-methods', action: :payment, controller: 'main'
   get 'transportnyi-autsorsing', action: :outsours, controller: 'main'
+  get 'full-insurance', action: :full_insurance, controller: 'main'
 
   resource :admin, except: [:edit, :new, :create] do
     member do
