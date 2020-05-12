@@ -3,11 +3,11 @@ class ReviewMailer < ApplicationMailer
 
   def review_email
     @review = params[:review]
-    mail(to: 'ashev08@gmail.com', subject: 'Новый отзыв')
+    mail(to: 'amigorent@ya.ru', subject: 'Новый отзыв')
   end
 
   def car_review_email
     @review = params[:review]
-    mail(to: 'ashev08@gmail.com', subject: 'Новый отзыв на авто')
+    mail(to: 'amigorent@ya.ru', subject: 'Новый отзыв на авто')
   end
 end
