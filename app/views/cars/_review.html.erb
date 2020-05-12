@@ -1,29 +1,33 @@
 <div class="reviews">
-<% @reviews.each do |review| %>
-  <% if review.active || (current_user && current_user.is_admin) %>
-    <div class="otz">
-      <div class="fio"><%= review.fullname %></div>
-      <div class="data"><%= review.created_at.strftime("%d-%m-%Y") %></div>
-      <div class="rating">
-        <% review.star.to_i.times do  %>
-          <%= image_tag "ra1.png", alt: "", title: "" %>
-        <% end %>
-        <% review.blank_stars.to_i.times do  %>
-          <%= image_tag "ra0.png", alt: "", title: "" %>
-        <% end %>
-      </div>
-      <% if current_user && current_user.is_admin %>
-        <%= link_to car_car_review_path(@car.id, review.id), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
-          Удалить
-        <% end %>
-        <% if !(review.active?) %>
-           <%= link_to approve_car_car_review_path(@car, review), method: :post do %>
-            Принять
+  <% if @reviews.count >= 1 %>
+    <% @reviews.each do |review| %>
+      <% if review.active || (current_user && current_user.is_admin) %>
+        <div class="otz">
+          <div class="fio"><%= review.fullname %></div>
+          <div class="data"><%= review.created_at.strftime("%d-%m-%Y") %></div>
+          <div class="rating">
+            <% review.star.to_i.times do  %>
+              <%= image_tag "ra1.png", alt: "", title: "" %>
+            <% end %>
+            <% review.blank_stars.to_i.times do  %>
+              <%= image_tag "ra0.png", alt: "", title: "" %>
+            <% end %>
+          </div>
+          <% if current_user && current_user.is_admin %>
+            <%= link_to car_car_review_path(@car.id, review.id), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
+              Удалить
+            <% end %>
+            <% if !(review.active?) %>
+              <%= link_to approve_car_car_review_path(@car, review), method: :post do %>
+                Принять
+              <% end %>
+            <% end %>
           <% end %>
-        <% end %>
+          <p><%= review.text %></p>
+        </div>
       <% end %>
-      <p><%= review.text %></p>
-    </div>
+    <% end %>
+  <% else %>
+  <h2>Ваш отзыв будет первым!</h2>
   <% end %>
-<% end %>
 </div>
