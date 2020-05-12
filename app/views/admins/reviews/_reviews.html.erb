@@ -1,0 +1,21 @@
+<% @reviews.each do |review| %>
+  <div class="col-12 reviews">
+    <div class="card m-t-3">
+      <div class="card-body">
+        <h4 class="text-black"><%= review.created_at.strftime("%d-%m-%Y") %> | <%= review.fullname %> | <%= review.star %></h4>
+        <p><%= review.text %></p>
+      </div>
+      <div class="text-center">
+        <%= link_to car_car_review_path(review.car.id, review.id), method: :delete, data: {confirm: "Уверены?"} do %>
+          <button class="btn btn-outline-danger">Удалить</button>
+        <% end %>
+        <% if !(review.active?) %>
+          <%= link_to approve_car_car_review_path(review.car.id, review.id), method: :post do %>
+            <button class="btn btn-outline-success">Принять</button>
+          <% end %>
+        <% end %>
+      </div>
+      <br>
+    </div>
+  </div>
+<% end %>

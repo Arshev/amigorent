@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Новый отзыв на авто!</h1>
+    <p>Имя: <%= @review.fullname %></p>
+    <p>Телефон: <%= @review.phone %></p>
+    <p>Звезды: <%= @review.star %></p>
+    <p>Email: <%= @review.email %></p>
+    <p>Текст: <%= @review.text %></p>
+    <p><%= link_to "Проверить", reviews_admin_url %></p>
+  </body>
+</html>

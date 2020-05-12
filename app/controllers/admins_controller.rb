@@ -49,6 +49,10 @@ class AdminsController < ApplicationController
   end
   def cities
   end
+  def reviews
+    @reviews = CarReview.all
+    render 'admins/reviews/index'
+  end
 
   private
 

@@ -1,0 +1,19 @@
+<%= render 'admins/header' %>
+<%= render 'admins/left_sidebar' %>
+  <div class="content-wrapper">
+    <div class="content-header sty-one">
+      <h1>Отзывы об автомобилях</h1>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Главная', admin_path %>
+        </li>
+        <li><i class="fa fa-angle-right"></i> <%= link_to 'Статьи', articles_admin_path %></li>
+      </ol>
+    </div>
+    <div class="content">
+      <div class="row">
+        <%= render 'admins/reviews/reviews' %>
+      </div>
+    </div>
+  </div>
+  <%= render 'admins/footer' %>

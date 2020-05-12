@@ -1,12 +1,12 @@
 class CarReviewsController < ApplicationController
-  before_action :set_car, only: [:create, :destroy, :approve]
+  before_action :set_car, only: [:create, :destroy, :approve, :destroy_from_admin]
   
   def create
     @review = @car.car_reviews.new(review_params)
     recaptcha_valid = verify_recaptcha(model: @review, action: 'create')
     # if recaptcha_valid
       if @review.save!
-        # CarReviewMailer.with(review: @review).review_email.deliver_later
+        ReviewMailer.with(review: @review).car_review_email.deliver_later
         redirect_back(fallback_location: request.referer, notice: "Отзыв успешно создан! Он будет проверен на предмет спама и размещен.")
       else
         redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
@@ -23,7 +23,10 @@ class CarReviewsController < ApplicationController
 
     @reviews = @car.car_reviews
 
-    respond_to :js
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: request.referer, notice: "Отзыв удален!") }
+      format.js
+    end
   end
 
   def approve

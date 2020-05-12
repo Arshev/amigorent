@@ -8,6 +8,9 @@
         <%= link_to bookings_admin_path do %>
           <button class="btn btn-outline-secondary btn-block <%= active_class?(bookings_admin_path) %>">Заявки</button class="btn btn-outline-secondary btn-block">
          <% end %>
+         <%= link_to reviews_admin_path do %>
+          <button class="btn btn-outline-secondary btn-block <%= active_class?(reviews_admin_path) %>">Отзывы на авто</button class="btn btn-outline-secondary btn-block">
+         <% end %>
          <%= link_to cars_admin_path do %>
           <button class="btn btn-outline-secondary btn-block <%= active_class?(cars_admin_path) %>">Автомобили</button class="btn btn-outline-secondary btn-block">
          <% end %>
