@@ -4,9 +4,13 @@
 <div class="content">
     <div class="wrapper">
         <%= render 'shared/bread'%>
-        <div class="bl_otziv">
+        <div class="bl_otziv" itemscope itemtype="http://schema.org/Product">
             <div class="col_l">
+                <meta itemprop="name" content="Прокат автомобилей Амиго">
                 <h1>Отзывы наших клиентов</h1>
+                <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
+                    Всего отзывов: <span itemprop="reviewCount"><%= Review.count%></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.average(:star)%></span>
+                </div>
                 <%= render "review" %>
             </div>
             <div class="col_r">

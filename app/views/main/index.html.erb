@@ -99,8 +99,12 @@
     </div>
 </div>
 <div class="block5">
-    <div class="wrapper">
+    <div class="wrapper" itemscope itemtype="http://schema.org/Product">
+      <meta itemprop="name" content="Прокат автомобилей Амиго">
         <div class="zag">Отзывы</div>
+        <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
+            Всего отзывов: <span itemprop="reviewCount"><%= Review.count%></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.average(:star)%></span>
+        </div>
         <div class="spis_otz">
             <%= render "reviews/reviews_on_main"%>
             <div class="clear"></div>

@@ -1,8 +1,9 @@
 <div class="reviews">
 <% @reviews.each do |review| %>
   <% if review.active || (current_user && current_user.is_admin) %>
-    <div class="otziv">
-      <div class="fio"><%= review.name %></div>
+    <div class="otziv" itemprop="review" itemscope itemtype="http://schema.org/Review">
+      <div class="fio" itemprop="author"><%= review.name %></div>
+      <meta itemprop="datePublished" content="<%= review.created_at.strftime("%Y-%m-%d") %>">
       <div class="data"><%= review.created_at.strftime("%d-%m-%Y") %></div>
       <% if current_user && current_user.is_admin %>
         <%= link_to review_path(review.id), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
@@ -15,7 +16,10 @@
         <% end %>
       <% end %>
       <div class="clear"></div>
-      <div class="rating">
+      <div class="rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+        <meta itemprop="worstRating" content="1">
+        <meta itemprop="ratingValue" content="<%= review.star.to_i %>">
+        <meta itemprop="bestRating" content="5">
         <% review.star.to_i.times do  %>
           <%= image_tag "ra1.png", alt: "", title: "" %>
         <% end %>
@@ -23,7 +27,7 @@
           <%= image_tag "ra0.png", alt: "", title: "" %>
         <% end %>
       </div>
-      <p><%= review.text %></p>
+      <p itemprop="reviewBody"><%= review.text %></p>
       <div class="clear"></div>
     </div>
   <% end %>

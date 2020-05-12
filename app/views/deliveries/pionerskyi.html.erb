@@ -35,6 +35,11 @@
               </table>
               <div class="clear"></div>
           </div>
+          <div class="bl_full_text">
+              <%= @text.pionerskyi_text.html_safe %>
+              <div class="clear"></div>
+          </div>
+          <br />
           <div class="block4">
               <div class="wrapper">
                   <div class="zag"><%= @text.pionerskyi_avto %></div>
@@ -45,10 +50,6 @@
                   <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
                   <div class="clear"></div>
               </div>
-          </div>
-          <div class="bl_full_text">
-              <%= @text.pionerskyi_text.html_safe %>
-              <div class="clear"></div>
           </div>
           <div class="clear"></div>
       </div>
