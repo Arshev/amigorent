@@ -46,6 +46,10 @@
 <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
+  <header itemscope itemtype="http://schema.org/WPHeader">
+    <meta itemprop="headline" content="Прокат автомобилей Амиго">
+    <meta itemprop="description" content="✔️ Честный прокат автомобилей в Калининграде. Дружественное отношение к клиенту, низкие цены на аренду авто, от 700₽, страховка КАСКО. Обращайтесь!">
+  </header>
     <%# render 'layouts/messages' %>
     <%= yield %>
 </body>

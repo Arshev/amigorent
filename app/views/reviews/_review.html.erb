@@ -1,4 +1,5 @@
 <div class="reviews">
+<meta itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 <% @reviews.each do |review| %>
   <% if review.active || (current_user && current_user.is_admin) %>
     <div class="otziv" itemprop="review" itemscope itemtype="http://schema.org/Review">
