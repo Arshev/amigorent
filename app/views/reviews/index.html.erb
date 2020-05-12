@@ -9,7 +9,7 @@
                 <meta itemprop="name" content="Прокат автомобилей Амиго">
                 <h1>Отзывы наших клиентов</h1>
                 <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
-                    Всего отзывов: <span itemprop="reviewCount"><%= Review.count%></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.average(:star)%></span>
+                    Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
                 </div>
                 <%= render "review" %>
             </div>
