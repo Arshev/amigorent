@@ -35,6 +35,9 @@ class CarsController < ApplicationController
     @main_up_text = Text.first.main_up_text
     @car_title = Text.first.car_title + " " + @car.car_name
     @car_description = Text.first.car_description + " " + @car.car_name
+
+    @reviews = @car.car_reviews.limit(10)
+    @new_review = CarReview.new
   end
   
   def images_upload

@@ -19,4 +19,14 @@ module ApplicationHelper
   def car_previous
     Car.where('id < ? and active = ?', params[:id], true ).last
   end
+
+  def car_rating(car_id)
+    car = Car.where(id: car_id).first
+    if car.car_reviews.count > 0
+      car.car_reviews.average(:star)
+    else
+      5
+    end
+  end
+  
 end

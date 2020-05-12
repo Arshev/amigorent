@@ -1,5 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :user
+  has_many :car_reviews
   # has_one_attached :main_image
   # has_many_attached :images
 

@@ -27,11 +27,70 @@
                 <div class="zg">Спецификация:</div>
                 <div class="rating">
                     Рейтинг модели:
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra1.png", alt: "", title: "" %>
-                    <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% case car_rating(@car.id) %>
+                    <% when 5.0 %>
+                        <% 5.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                    <% when 4.5 %>
+                        <% 4.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                    <% when 4.0 %>
+                        <% 4.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% when 3.5 %>
+                        <% 3.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% when 3.0 %>
+                        <% 3.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% when 2.5 %>
+                        <% 2.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% when 2.0 %>
+                        <% 2.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% when 1.5 %>
+                        <% 1.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% when 1.0 %>
+                        <% 1.times do %>
+                            <%= image_tag "ra1.png", alt: "", title: "" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% when 0.5 %>
+                        <%= image_tag "ra05.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                        <%= image_tag "ra0.png", alt: "", title: "" %>
+                    <% end %>
                 </div>
                 <p>
                     <%= image_tag "i1.png", alt: "", title: "" %>
@@ -294,81 +353,37 @@
             </div>
             <div class="bl_ostav">
                 <div class="zg">Заполните данные чтобы оставить отзыв</div>
-                <form>
-                    <input type="text" value="" placeholder="Ваше имя" name="" />
-                    <input type="text" value="" placeholder="Ваш телефон" name="" />
-                    <input type="text" value="" placeholder="Ваш E-mail" name="" />
+                <%= form_with(model: @new_review, url: [@car, @new_review], local: true) do |f| %>
+                    <%= f.text_field :fullname, placeholder: "Имя *", required: true %>
+                    <%= f.text_field :phone, placeholder: "Телефон", required: true %>
+                    <%= f.text_field :email, placeholder: "Email *", required: true %>
                     <div class="clear"></div>
-                    <textarea placeholder="Ваш отзыв"></textarea>
-                    <div class="rating">
-                        <p class="num1">
-                            <%= image_tag "ra0.png", alt: "", title: "" %>
-                            <%= image_tag "ra1.png", alt: "", title: "" %>
-                        </p>
-                        <p class="num2">
-                            <%= image_tag "ra0.png", alt: "", title: "" %>
-                            <%= image_tag "ra1.png", alt: "", title: "" %>
-                        </p>
-                        <p class="num3">
-                            <%= image_tag "ra0.png", alt: "", title: "" %>
-                            <%= image_tag "ra1.png", alt: "", title: "" %>
-                        </p>
-                        <p class="num4">
-                            <%= image_tag "ra0.png", alt: "", title: "" %>
-                            <%= image_tag "ra1.png", alt: "", title: "" %>
-                        </p>
-                        <p class="num5">
-                            <%= image_tag "ra0.png", alt: "", title: "" %>
-                            <%= image_tag "ra1.png", alt: "", title: "" %>
-                        </p>
-                    </div>
-                    <input type="submit" value="Отправить отзыв" name="">
-                </form>
+                    <div id="rateYo" style="margin:10px;"></div>
+                    <%= f.text_area :text, placeholder: "Текст отзыва", required: true %>
+                    <%= f.hidden_field :star, id:"star_counter", value:"5" %>
+                    <%# recaptcha_v3(action: 'create') %>
+                    <%= f.submit "Отправить отзыв" %>
+                <% end %>
                 <div class="clear"></div>
             </div>
             <div class="bl_otz">
                 <div class="zag">Отзывы</div>
-                <div class="otz">
-                    <div class="data">29.02.2020</div>
-                    <div class="fio">Иванов Иван</div>
-                    <div class="rating">
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra05.png", alt: "", title: "" %>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                </div>
-                <div class="otz">
-                    <div class="data">29.02.2020</div>
-                    <div class="fio">Иванов Иван</div>
-                    <div class="rating">
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra05.png", alt: "", title: "" %>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                </div>
-                <div class="otz">
-                    <div class="data">29.02.2020</div>
-                    <div class="fio">Иванов Иван</div>
-                    <div class="rating">
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra1.png", alt: "", title: "" %>
-                        <%= image_tag "ra05.png", alt: "", title: "" %>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                </div>
-                <a href="#" class="all">Посмотреть все отзывы</a>
+                <%= render "review" %>
             </div>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>
 </div>
+<script>
+    $(function () {
+        $("#rateYo").rateYo({
+            rating: 5,
+        fullStar: true,
+        onChange: function (rating, rateYoInstance) {
+            document.getElementById('star_counter').value = rating
+        }
+    })
+});
+</script>
 <%= render 'shared/footer', cached: true %>

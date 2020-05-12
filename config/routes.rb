@@ -20,6 +20,11 @@ Rails.application.routes.draw do
     member do
       delete :remove_attachment
     end
+    resources :car_reviews, only: [:create, :new, :destroy, :approve] do
+      member do
+        post '/approve' => "car_reviews#approve"
+      end
+    end
   end
 
   resource :text
