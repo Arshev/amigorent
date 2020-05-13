@@ -16,32 +16,32 @@
       <div class="hara">
           <p>
             <% if car.transmission == 'Механика'%>
-              <%= image_tag "transmission.png", style: "width: 20px;", alt: "", title: "" %>
+              <%= image_tag "transmission.png", style: "width: 20px;", alt: "Коробка передач", title: "Коробка передач" %>
               Механика
             <% else %>
-              <%= image_tag "transmission.png", style: "width: 20px;", alt: "", title: "" %>
+              <%= image_tag "transmission.png", style: "width: 20px;", alt: "Коробка передач", title: "Коробка передач" %>
               Автомат
             <% end %>
           </p>
           <p>
-            <%= image_tag "fuel.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= image_tag "fuel.png", style: "width: 20px;", alt: "Топливо", title: "Топливо" %>
             <%= car.fuel %>
           </p>
           <p>
-            <%= image_tag "year.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= image_tag "year.png", style: "width: 20px;", alt: "Год", title: "Год" %>
             <%= car.year %> г.
           </p>
           <p>
-            <%= image_tag "car_type.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= image_tag "car_type.png", style: "width: 20px;", alt: "Тип кузова", title: "Тип кузова" %>
             <%= car.car_type %>
           </p>
           <p>
-            <%= image_tag "capacity.png", style: "width: 20px;", alt: "", title: "" %>
+            <%= image_tag "capacity.png", style: "width: 20px;", alt: "Объем двигателя", title: "Объем двигателя" %>
             <%= car.engine_capacity %> л.
           </p>
           <p>
             <% if car.is_air %>
-              <%= image_tag "snow.png", style: "width: 20px;", alt: "", title: "" %>
+              <%= image_tag "snow.png", style: "width: 20px;", alt: "Кондиционер", title: "Кондиционер" %>
               Есть
             <% end %>
           </p>

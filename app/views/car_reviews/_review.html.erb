@@ -7,10 +7,10 @@
           <div class="data"><%= review.created_at.strftime("%d-%m-%Y") %></div>
           <div class="rating">
             <% review.star.to_i.times do  %>
-              <%= image_tag "ra1.png", alt: "", title: "" %>
+              <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
             <% end %>
             <% review.blank_stars.to_i.times do  %>
-              <%= image_tag "ra0.png", alt: "", title: "" %>
+              <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
             <% end %>
           </div>
           <% if current_user && current_user.is_admin %>

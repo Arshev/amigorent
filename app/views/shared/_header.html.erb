@@ -8,10 +8,10 @@
     <div class="privet"><%= @main_up_text.html_safe %></div>
     <div class="transl">
       <a href="" onclick="return false">
-        <%= image_tag "tr1.png", alt: "", title: "" %>
+        <%= image_tag "tr1.png", alt: "English", title: "English" %>
       </a>
       <a href="" onclick="return false">
-        <%= image_tag "tr2.png", alt: "", title: "" %>
+        <%= image_tag "tr2.png", alt: "Русский", title: "Русский" %>
       </a>
     </div>
     <div class="clear"></div>
@@ -27,12 +27,12 @@
     </div>
       <% if current_page?(controller: 'main', action: 'index') %>
         <a href="" onclick="return false" id="logo">
-          <%= image_tag "logo.png", alt: "", title: "" %>
+          <%= image_tag "logo.png", alt: "Автопрокат Амиго", title: "Автопрокат Амиго" %>
           <h3>Прокат автомобилей</h3>
         </a>
       <% else %>
         <%= link_to root_path, id: "logo" do %>
-          <%= image_tag "logo.png", alt: "", title: "" %>
+          <%= image_tag "logo.png", alt: "Автопрокат Амиго", title: "Автопрокат Амиго" %>
           <h3>Прокат автомобилей</h3>
         <% end %>
       <% end%>
@@ -52,67 +52,67 @@
         <div class="obo">
           <span><%= rating_yandex %></span>
           <% 4.times do  %>
-            <%= image_tag "ra1.png", alt: "", title: "" %>
+            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
           <% end %>
           <% case rating_yandex %>
           <% when 5.0 %>
-            <%= image_tag "ra1.png", alt: "", title: "" %>
+            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.9 %>
-            <%= image_tag "ra49.png", alt: "", title: "" %>
+            <%= image_tag "ra49.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.8 %>
-            <%= image_tag "ra48.png", alt: "", title: "" %>
+            <%= image_tag "ra48.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.7 %>
-            <%= image_tag "ra47.png", alt: "", title: "" %>
+            <%= image_tag "ra47.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.6 %>
-            <%= image_tag "ra46.png", alt: "", title: "" %>
+            <%= image_tag "ra46.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.5 %>
-            <%= image_tag "ra05.png", alt: "", title: "" %>
+            <%= image_tag "ra05.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.4 %>
-            <%= image_tag "ra44.png", alt: "", title: "" %>
+            <%= image_tag "ra44.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.3 %>
-            <%= image_tag "ra43.png", alt: "", title: "" %>
+            <%= image_tag "ra43.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.2 %>
-            <%= image_tag "ra42.png", alt: "", title: "" %>
+            <%= image_tag "ra42.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.1 %>
-            <%= image_tag "ra41.png", alt: "", title: "" %>
+            <%= image_tag "ra41.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.0 %>
-            <%= image_tag "ra0.png", alt: "", title: "" %>
+            <%= image_tag "ra0.png", alt: "Звезда", title: "Звезда" %>
           <% end %>
           <a href="https://yandex.ru/profile/12804442716" rel="nofollow" target="_blank">
-            <%= image_tag "rat1.png", alt: "", title: "" %>
+            <%= image_tag "rat1.png", alt: "Звезда", title: "Звезда" %>
           </a>
         </div>
         <div class="obo">
           <span><%= rating_google %></span>
           <% 4.times do  %>
-            <%= image_tag "ra1.png", alt: "", title: "" %>
+            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
           <% end %>
           <% case rating_google %>
           <% when 5.0 %>
-            <%= image_tag "ra1.png", alt: "", title: "" %>
+            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.9 %>
-            <%= image_tag "ra49.png", alt: "", title: "" %>
+            <%= image_tag "ra49.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.8 %>
-            <%= image_tag "ra48.png", alt: "", title: "" %>
+            <%= image_tag "ra48.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.7 %>
-            <%= image_tag "ra47.png", alt: "", title: "" %>
+            <%= image_tag "ra47.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.6 %>
-            <%= image_tag "ra46.png", alt: "", title: "" %>
+            <%= image_tag "ra46.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.5 %>
-            <%= image_tag "ra05.png", alt: "", title: "" %>
+            <%= image_tag "ra05.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.4 %>
-            <%= image_tag "ra44.png", alt: "", title: "" %>
+            <%= image_tag "ra44.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.3 %>
-            <%= image_tag "ra43.png", alt: "", title: "" %>
+            <%= image_tag "ra43.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.2 %>
-            <%= image_tag "ra42.png", alt: "", title: "" %>
+            <%= image_tag "ra42.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.1 %>
-            <%= image_tag "ra41.png", alt: "", title: "" %>
+            <%= image_tag "ra41.png", alt: "Звезда", title: "Звезда" %>
           <% when 4.0 %>
-            <%= image_tag "ra0.png", alt: "", title: "" %>
+            <%= image_tag "ra0.png", alt: "Звезда", title: "Звезда" %>
           <% end %>
           <a href="https://g.page/Amigorent" rel="nofollow" target="_blank">
-            <%= image_tag "rat2.png", alt: "", title: "" %>
+            <%= image_tag "rat2.png", alt: "Звезда", title: "Звезда" %>
           </a>
         </div>
         <div class="clear"></div>

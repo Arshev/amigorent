@@ -6,10 +6,10 @@
       <meta itemprop="ratingValue" content="<%= review.star.to_i %>">
       <meta itemprop="bestRating" content="5">
       <% review.star.to_i.times do  %>
-        <%= image_tag "ra1.png", alt: "", title: "" %>
+        <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
       <% end %>
       <% review.blank_stars.to_i.times do  %>
-        <%= image_tag "ra0.png", alt: "", title: "" %>
+        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
       <% end %>
     </div>
     <p itemprop="reviewBody"><%= truncate review.text, length: 300 %></p>
