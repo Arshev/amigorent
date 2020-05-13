@@ -17,14 +17,6 @@ class Booking < ApplicationRecord
 
     Telegram::Bot::Client.run(token) do |bot|
       bot.api.send_message(chat_id: 430186294, text: "#{self.firstname} авто: #{self.car} тел: #{self.phone} с #{self.start_date} до #{self.end_date}")
-      # bot.listen do |message|
-      #   case message.text
-      #   when '/start'
-      #     bot.api.send_message(chat_id: 251685098, text: "Привет, #{message.from.first_name}")
-      #   when '/stop'
-      #     bot.api.send_message(chat_id: message.chat.id, text: "Пока, #{message.from.first_name}")
-      #   end
-      # end
     end
   end
 end

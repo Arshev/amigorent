@@ -79,7 +79,7 @@
     </div>
     <div class="clear"></div>
     <div class="dopoln">
-        <div class="zg2">Дополнительные опции</div>
+        <div class="zg2" style="margin-bottom:10px;font-size:22px;">Дополнительные опции</div>
         <label>
             <input type="checkbox" id="checkbox" value=true v-model="babyChair">
             Детское кресло
@@ -88,10 +88,12 @@
             <input type="checkbox" id="checkbox" value=true v-model="navigator">
             Навигатор
         </label>
-        <div class="zg2">Подтвердите согласие<span>*</span></div>
-        <label>
+        <div class="zg2" style="margin-bottom:10px; font-size:22px;">Подтвердите согласие<span>*</span></div>
+        <label style="background-color:rgba(232, 28, 28, 0.2);">
             <input type="checkbox" id="checkbox" value="true" v-model="termsData">
-            Подтверждаю, что ознакомился с условиями аренды: <a href="/terms" target="_blank">Условия</a><br/>
+            Подтверждаю, что ознакомился с условиями аренды: <a href="/terms" target="_blank">Условия</a>
+            <br />
+            <br />
             <input type="checkbox" id="checkbox" value="true" v-model="personData">
             Даю согласие на обработку персональных данных, согласно <a href="https://base.garant.ru/12148567/" rel="nofollow">152-ФЗ</a>
         </label>

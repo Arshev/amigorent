@@ -1884,7 +1884,7 @@ ul.bxslider {
 }
 .content .bl_zakaz .dopoln label {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     display: inline-block;
     vertical-align: top;
     margin: 0 33px 0 0;
@@ -1896,7 +1896,15 @@ ul.bxslider {
     background: #33354d;
     margin: 30px 0 0;
     padding: 20px 20px 10px;
+
 }
+
+.dopoln #checkbox {
+    margin: 5px;
+    transform:scale(1.3);
+    opacity:0.9;
+}
+
 .content .bl_zakaz .nizz p {
     color: #fff;
     font-weight: 700;
