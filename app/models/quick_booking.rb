@@ -16,7 +16,7 @@ class QuickBooking < ApplicationRecord
 
     Telegram::Bot::Client.run(token) do |bot|
       begin
-        bot.api.send_message(chat_id: 251685098, text: "Новая заявка от #{self.name},#{self.phone},с #{self.start_date} до #{self.end_date} кузов: #{('Седан' if self.is_sedan) || ('Хетчбэк' if self.is_hatch) || ('Кроссовер' if self.is_cross) || ('Минивен' if self.is_minivan) || ('Универсал' if self.is_universal)}")
+        bot.api.send_message(chat_id: '@Amigorent_bot', text: "Новая заявка от #{self.name},#{self.phone},с #{self.start_date} до #{self.end_date} кузов: #{('Седан' if self.is_sedan) || ('Хетчбэк' if self.is_hatch) || ('Кроссовер' if self.is_cross) || ('Минивен' if self.is_minivan) || ('Универсал' if self.is_universal)}")
       rescue => exception
         puts exception
       end
