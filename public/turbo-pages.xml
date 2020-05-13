@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:turbo="http://turbo.yandex.ru"
+     version="2.0">
+    <channel>
+        <!-- Информация о сайте-источнике -->
+        <title>Аренда и прокат авто в Калининграде - Амиго</title>
+        <link>https://amigorent.ru</link>
+        <description>Автопрокат Амиго</description>
+        <language>ru</language>
+        <turbo:analytics type="Yandex" id="48045371"></turbo:analytics>
+        <item turbo="true">
+            <!-- Информация о странице -->
+            <link>https://amigorent.ru</link>
+            <turbo:source></turbo:source>
+            <turbo:topic></turbo:topic>
+            <pubDate>Sun, 29 Mar 2020 11:15:00 +0200</pubDate>
+            <metrics>
+                <yandex schema_identifier="main-page">
+                    <breadcrumblist>
+                        <breadcrumb url="https://amigorent.ru" text="Главная"/>
+                        <breadcrumb url="https://amigorent.ru/prices" text="Цены"/>
+                        <breadcrumb url="https://amigorent.ru/terms" text="Условия"/>
+                        <breadcrumb url="https://amigorent.ru/contacts" text="Контакты"/>
+                    </breadcrumblist>
+                </yandex>
+            </metrics>
+            <yandex:related></yandex:related>
+            <turbo:content>
+                <![CDATA[
+
+                <header>
+
+                <h1 style="text-align: center;">Автопрокат Амиго</h1>
+
+                <h2 style="text-align: center;">Аренда и прокат авто в Калининграде</h2>
+
+                <figure>
+
+                <img src="https://amigorent.ru/system/photos/images/000/000/246/original/2.jpg?1582444360">
+
+                </figure>
+
+                <menu>
+
+                <a href="https://amigorent.ru/prices">Цены</a>
+
+                <a href="https://amigorent.ru/terms">Условия</a>
+
+                <a href="https://amigorent.ru/contacts">Контакты</a>
+
+                </menu>
+
+                </header>
+
+                <p style="text-align: center;"><em>Просто честный прокат автомобилей в Калининграде!</em></p>
+                <button formaction="tel:+79217101615"
+
+                data-background-color="#f77d0a"
+
+                data-color="white"
+
+                data-primary="true">Позвонить</button>
+
+                <p style="font-weight:bold;">Обращайтесь и мы гарантируем Вам: </p>
+                    <ul>
+                        <li>низкие цены (от 700руб.) </li>
+                        <li>качественные машины </li>
+                        <li>авто застрахованы по КАСКО </li>
+                        <li>неограниченный пробег </li>
+                        <li>круглосуточная техподдержка </li>
+                        <li>высокий уровень сервиса</li>
+                    </ul>
+                <p>Подробнее - <a href="https://amigorent.ru">на нашем сайте</a>.</p>
+
+                <h2>Автомобили</h2>
+
+                <figure>
+
+                <img src="https://amigorent.ru/system/photos/images/000/000/255/original/1-min.jpg?1584015419">
+
+                <figcaption>Шевроле Спарк Промо - от 700р.</figcaption>
+
+                </figure>
+
+                <p>В нашем автопарке широкий выбор автомобилей от эконом до бизнес класса по доступным ценам.</p>
+
+                <p>Обращайтесь и убедитесь в этом сами.</p>
+
+                <button formaction="tel:+79217101615"
+
+                data-background-color="#f77d0a"
+
+                data-color="white"
+
+                data-primary="true">Заказать авто</button>
+
+                <div data-block="widget-feedback" data-stick="false">
+
+                <div data-block="chat" data-type="whatsapp" data-url="whatsapp://send?phone=+79217101615"></div>
+
+                <div data-block="chat" data-type="telegram" data-url="tg://resolve?domain=amigorent_ru"></div>
+
+                <div data-block="chat" data-type="vkontakte" data-url="https://vk.com/amigorent"></div>
+
+                <div data-block="chat" data-type="facebook" data-url="https://www.facebook.com/amigorent"></div>
+
+                <div data-block="chat" data-type="viber" data-url="viber://add?number=79217101615"></div>
+
+                </div>
+
+                <p>Наш адрес: <a href="https://yandex.ru/maps/?um=constructor%3Ad4c0ea8c9bc834ff6ecf1da1605a4a94310c734a3d41eeb07d04c40ae8c25cc7&source=constructorLink">Калининград А.Невского 36В ТЦ "Невский".</a></p>
+
+                <p>Наш инстаграм — https://www.instagram.com/amigorent/</p>
+
+                ]]>
+            </turbo:content>
+        </item>
+    </channel>
+</rss>
