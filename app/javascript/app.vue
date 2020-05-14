@@ -224,8 +224,8 @@ export default {
     }
   },
   created() {
-    axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    // axios.get("http://95.213.199.82/api/v1/cars.json").then(response => {
+    // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
+    axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
@@ -332,8 +332,8 @@ export default {
         formData.append('booking[total]', this.total);
         formData.append('booking[deposit]', this.deposit);
 
-        axios.post('https://amigorent.ru/api/v1/booking.json'
-        // axios.post('http://95.213.199.82/api/v1/booking.json'
+        // axios.post('https://amigorent.ru/api/v1/booking.json'
+        axios.post('http://localhost:3000/api/v1/booking.json'
         ,
           formData,
                 {
@@ -422,7 +422,10 @@ export default {
           this.additional_hours = Math.trunc(additionalHours)
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays()
-
+      console.log("start:", start_date_days)
+      console.log("end:", end_date_days)
+      console.log("hours:", this.additional_hours)
+      console.log("diff:", diff)
       if (!isNaN(diff)) {
         if (diff >= 2) {
           this.days = diff
@@ -504,6 +507,11 @@ export default {
           this.additional_hours = Math.trunc(additionalHours)
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
+
+      console.log("start:", start_date_days)
+      console.log("end:", end_date_days)
+      console.log("hours:", this.additional_hours)
+      console.log("diff:", diff)
       
       //let diff =  Math.floor(( Date.parse(this.dateEnd) - Date.parse(this.dateStart) ) / 86400000)
 
