@@ -4,6 +4,7 @@ class Api::V1::BookingController < ApiController
         if @booking.save
             # redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
             @booking.send_sms
+            @booking.send_tg_message
             BookingMailer.with(booking: @booking).new_booking_email.deliver_later
             render json: @booking, adapter: :json, status: :created
         else
