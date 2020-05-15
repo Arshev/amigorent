@@ -3,7 +3,7 @@ class CarReviewsController < ApplicationController
   
   def create
     @review = @car.car_reviews.new(review_params)
-    recaptcha_valid = verify_recaptcha(model: @review, action: 'create')
+    recaptcha_valid = verify_recaptcha(action: 'create')
     if recaptcha_valid
       if @review.save!
         ReviewMailer.with(review: @review).car_review_email.deliver_later
