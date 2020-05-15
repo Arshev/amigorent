@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
   end
 
   def create
-
     recaptcha_valid = verify_recaptcha(action: 'create')
     if recaptcha_valid
       @contact = {}
@@ -18,7 +17,7 @@ class ContactsController < ApplicationController
 
       ContactMailer.with(contact: @contact).contact_email.deliver_later
       redirect_to contacts_path, notice: "Сообщение отправлено!"
-        # redirect_back(fallback_location: request.referer, notice: "Сообщение отправлено!")
+        redirect_back(fallback_location: request.referer, notice: "zСообщение отправлено!")
     else 
       redirect_back(fallback_location: request.referer, alert: "Что то не так!")
     end

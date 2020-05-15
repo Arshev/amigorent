@@ -94,7 +94,7 @@
                 <%= f.check_box :fz152, required: true %>
                 Принимаю соглашение О персональных данных согласно 152-ФЗ *
               </label>
-              <%= recaptcha_tags %>
+              <%= recaptcha_v3(action: 'create') %>
               <%= f.submit "Отправить" %>
             <% end %>
         </div>
