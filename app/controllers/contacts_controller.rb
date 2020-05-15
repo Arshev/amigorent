@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   def create
     success = verify_recaptcha(action: 'create', minimum_score: 0.5)
     checkbox_success = verify_recaptcha unless success
-    if success || checkbox_success
+    if true
       @contact = {}
       @contact["name"] = params[:name]
       @contact["phone"] = params[:phone]
