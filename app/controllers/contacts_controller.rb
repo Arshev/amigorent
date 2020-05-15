@@ -7,16 +7,16 @@ class ContactsController < ApplicationController
   end
 
   def create
-    recaptcha_valid = verify_recaptcha(model: @contact, action: 'create')
-    if recaptcha_valid
+    success = verify_recaptcha(action: 'create', minimum_score: 0.5)
+    checkbox_success = verify_recaptcha unless success
+    if success || checkbox_success
       @contact = Contact.create(contact_params)
-
-      if ContactMailer.with(contact: @contact).contact_email.deliver_later
-        redirect_back(fallback_location: request.referer, notice: "Сообщение отправлено!")
-      else
-        redirect_back(fallback_location: request.referer, alert: "Что то не так!")
-      end
+      ContactMailer.with(contact: @contact).contact_email.deliver_later
+      redirect_back(fallback_location: request.referer, notice: "Сообщение отправлено!")
     else 
+      if !success
+        @show_checkbox_recaptcha = true
+      end
       redirect_back(fallback_location: request.referer, alert: "Что то не так!")
     end
   end
