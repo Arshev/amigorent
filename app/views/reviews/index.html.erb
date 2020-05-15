@@ -22,7 +22,7 @@
                     <%= f.text_area :text, placeholder: "Текст отзыва", required: true %>
                     <%= f.hidden_field :star, id:"star_counter", value:"5" %>
                     <div id="rateYo"></div>
-                    <%# recaptcha_v3(action: 'create') %>
+                    <%= recaptcha_v3(action: 'create') %>
                     <%= f.submit "Отправить отзыв" %>
                 <% end %>
             </div>

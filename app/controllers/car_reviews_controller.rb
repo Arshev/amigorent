@@ -4,16 +4,16 @@ class CarReviewsController < ApplicationController
   def create
     @review = @car.car_reviews.new(review_params)
     recaptcha_valid = verify_recaptcha(model: @review, action: 'create')
-    # if recaptcha_valid
+    if recaptcha_valid
       if @review.save!
         ReviewMailer.with(review: @review).car_review_email.deliver_later
         redirect_back(fallback_location: request.referer, notice: "Отзыв успешно создан! Он будет проверен на предмет спама и размещен.")
       else
         redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
       end
-    # else
-      # redirect_back(fallback_location: request.referer, alert: "Вы не прошли проверку на ботов!")
-    # end
+    else
+      redirect_back(fallback_location: request.referer, alert: "Вы не прошли проверку на ботов!")
+    end
   end
 
   def destroy
