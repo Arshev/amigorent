@@ -361,7 +361,8 @@
                     <div id="rateYo" style="margin:10px;"></div>
                     <%= f.text_area :text, placeholder: "Текст отзыва", required: true %>
                     <%= f.hidden_field :star, id:"star_counter", value:"5" %>
-                    <%= recaptcha_v3(action: 'create') %>
+                    <%# recaptcha_v3(action: 'create') %>
+                    <%= recaptcha_tags %>
                     <%= f.submit "Отправить отзыв" %>
                 <% end %>
                 <div class="clear"></div>
