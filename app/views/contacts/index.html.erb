@@ -85,7 +85,7 @@
     <div class="wrapper">
         <div class="bl_connt">
             <div class="zg">Помогите нам стать лучше!</div>
-            <%= form_with(model: @contact, action: "create")  do |f| %>
+            <%= form_with(action: "create")  do |f| %>
               <%= f.text_field :name, placeholder: "Имя *", required: true %>
               <%= f.text_field :email, placeholder: "Email *", required: true %>
               <%= f.text_field :phone, placeholder: "Телефон *", required: true %>

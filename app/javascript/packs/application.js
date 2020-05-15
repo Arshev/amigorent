@@ -4,8 +4,10 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "../stylesheets/application"
+import toastr from 'toastr'
+window.toastr = toastr
 
-global.toastr = require("toastr")
+// global.toastr = require("toastr")
 
 toastr.options.closeButton = true;
 toastr.options.timeOut = 100;
