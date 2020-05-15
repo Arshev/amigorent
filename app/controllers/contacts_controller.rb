@@ -10,7 +10,12 @@ class ContactsController < ApplicationController
     success = verify_recaptcha(action: 'create', minimum_score: 0.5)
     checkbox_success = verify_recaptcha unless success
     if success || checkbox_success
-      @contact = Contact.create(contact_params)
+      @contact = {}
+      @contact["name"] = params[:name]
+      @contact["phone"] = params[:phone]
+      @contact["email"] = params[:email]
+      @contact["message"] = params[:message]
+
       ContactMailer.with(contact: @contact).contact_email.deliver_later
       redirect_back(fallback_location: request.referer, notice: "Сообщение отправлено!")
     else 
@@ -20,10 +25,4 @@ class ContactsController < ApplicationController
       redirect_back(fallback_location: request.referer, alert: "Что то не так!")
     end
   end
-
-  private
-
-    def contact_params
-      params.require(:contact).permit(:name, :email, :phone, :message)
-    end
 end
