@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
-    recaptcha_valid = verify_recaptcha(action: 'create')
+    recaptcha_valid = verify_recaptcha(action: 'create', turbolinks:false)
     if recaptcha_valid
       if @review.save
         ReviewMailer.with(review: @review).review_email.deliver_later
