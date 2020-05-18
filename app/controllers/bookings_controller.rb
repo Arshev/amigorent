@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
       redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
       BookingMailer.with(booking: @booking).new_booking_email.deliver_later
       @booking.send_sms
-      @booking.send_tg_message
+      # @booking.send_tg_message
     else
       redirect_to root_path, alert: "Что то пошло не так!"
     end
