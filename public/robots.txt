@@ -2,6 +2,7 @@ User-agent: *
 Disallow: /public/uploads/
 Disallow: /users/
 Disallow: /admin/
+Disallow: /conditions
 Disallow: /public/system/
 Disallow: /bookings/new?car_id=*
 Sitemap: https://amigorent.ru/public/sitemap.xml
