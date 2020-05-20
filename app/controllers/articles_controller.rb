@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
     @articles_title = Text.first.articles_title
     @articles_description = Text.first.articles_description
+    @articles_h1 = Text.first.articles_h1
   end
 
   def create

@@ -45,7 +45,7 @@ private
       :terms_title, :terms_description, :faqs_title, :faqs_description,
       :abouts_title, :abouts_description, :services_title, :services_description, :deliveries_title, 
       :deliveries_description, :delivery_title, :delivery_description, :articles_title, 
-      :articles_description, :dop_table_worktime,
+      :articles_description, :articles_h1, :dop_table_worktime,
       :dop_table_endtime, :dop_table_city_price_worktime, :dop_table_city_price_endtime,
       :dop_table_aero_price_worktime, :dop_table_aero_price_endtime,
       :dop_table_svetlogorsk_price_worktime, :dop_table_svetlogorsk_price_endtime,
