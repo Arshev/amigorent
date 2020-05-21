@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
         @booking.send_tg_message
       rescue => exception
           puts exception
+          logger.debug exception
       end
     else
       redirect_to root_path, alert: "Что то пошло не так!"

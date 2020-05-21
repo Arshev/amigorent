@@ -8,6 +8,7 @@ class Api::V1::BookingController < ApiController
                 @booking.send_tg_message
             rescue => exception
                 puts exception
+                logger.debug exception
             end
             BookingMailer.with(booking: @booking).new_booking_email.deliver_later
             render json: @booking, adapter: :json, status: :created

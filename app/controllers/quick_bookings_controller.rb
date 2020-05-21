@@ -9,6 +9,7 @@ class QuickBookingsController < ApplicationController
         @booking.send_tg_message
       rescue => exception
           puts exception
+          logger.debug exception
       end
 
       redirect_to success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток"
