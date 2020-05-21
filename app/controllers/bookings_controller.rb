@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show, :update]
   before_action :authenticate_user!, only: [:show, :index]
 
   def create
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if Booking.update(booking_params)
+    if @booking.update(booking_params)
       flash[:notice] = "Сохранено"
     else
       flash[:alert] = "Что то не так!"
