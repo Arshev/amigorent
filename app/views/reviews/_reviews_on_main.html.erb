@@ -1,10 +1,7 @@
 <% @reviews.each do |review| %>
-  <div class="otz" itemprop="review" itemscope itemtype="http://schema.org/Review">
-    <div class="fio" itemprop="author"><%= review.name %></div>
-    <div class="rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-      <meta itemprop="worstRating" content="1">
-      <meta itemprop="ratingValue" content="<%= review.star.to_i %>">
-      <meta itemprop="bestRating" content="5">
+  <div class="otz">
+    <div class="fio"><%= review.name %></div>
+    <div class="rating">
       <% review.star.to_i.times do  %>
         <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
       <% end %>
@@ -12,6 +9,6 @@
         <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
       <% end %>
     </div>
-    <p itemprop="reviewBody"><%= truncate review.text, length: 300 %></p>
+    <p><%= truncate review.text, length: 300 %></p>
   </div>
 <% end %>
