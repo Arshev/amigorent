@@ -150,6 +150,9 @@
                       <% end %>
                       <p>Итого без залога: <%= @booking.total %>руб</p>
                       <p>Залог: <%= @booking.deposit %>руб</p>
+                      <% if @booking.note %>
+                        <p><%= @booking.note %></p>
+                      <% end %>
                     </td>
                   </tr>
                   <tr>

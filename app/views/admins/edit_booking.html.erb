@@ -49,6 +49,10 @@
                   Доп оборудование: кресло <%= f.check_box :baby_chair %> навигатор <%= f.check_box :navigator %>
                   <br>
                   Цена за сутки: <%= f.text_field :price, class: "form-control" %> Итого: <%= f.text_field :total, class: "form-control" %> Залог: <%= f.text_field :deposit, class: "form-control" %>
+                  <br>
+                  Доп информация(не обязательно)
+                  <br>
+                  <%= f.text_area :note, class: "form-control" %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
