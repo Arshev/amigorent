@@ -99,9 +99,8 @@
     </div>
 </div>
 <div class="block5">
-    <div class="wrapper" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-      <meta itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Прокат автомобилей Амиго">
+    <div class="wrapper" itemprop="itemReviewed" content="Прокат автомобилей Амиго" itemscope itemtype="http://schema.org/AggregateRating">
+      <meta itemprop="itemReviewed" itemprop="name" content="Прокат автомобилей Амиго">
       <meta itemprop="worstRating" content="1">
         <meta itemprop="bestRating" content="5">
       <meta itemprop="itemReviewed" content="Прокат автомобилей Амиго"/>
@@ -109,6 +108,8 @@
         <div style="margin-bottom: 30px;">
             Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count%></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(1) %></span>
         </div>
+        <meta itemprop="itemReviewed" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="Прокат автомобилей Амиго">
         <div class="spis_otz">
             <%= render "reviews/reviews_on_main"%>
             <div class="clear"></div>
