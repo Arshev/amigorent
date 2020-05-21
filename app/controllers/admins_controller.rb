@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
   before_action :is_authorised
   before_action :set_text, only: [:text_main, :text_other, :text_metatags, :cities, :text_pages]
   before_action :set_car, only: [:edit_car, :upload_photos]
+  before_action :set_booking, only: [:edit_booking]
   before_action :set_delivery, only: [:edit_delivery]
   before_action :set_article, only: [:edit_article]
 
@@ -16,6 +17,11 @@ class AdminsController < ApplicationController
   def bookings
     @bookings = Booking.paginate(page: params[:page])
   end
+
+  def edit_booking
+    
+  end
+  
   def new_car
     @car = current_user.cars.build
   end
@@ -58,6 +64,9 @@ class AdminsController < ApplicationController
 
     def set_car
       @car = Car.find(params[:id])
+    end
+    def set_booking
+      @booking = Booking.find(params[:id])
     end
     def set_delivery
       @delivery = Delivery.find(params[:id])

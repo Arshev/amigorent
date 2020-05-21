@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     member do
       get 'cars'
       get 'bookings'
+      get 'edit_booking'
       get 'articles'
       get 'new_article'
       get 'edit_article'
@@ -80,7 +81,7 @@ Rails.application.routes.draw do
   resources :quick_bookings, only: [:create]
   resource :rating, only: [:create, :update]
 
-  resources :bookings, only: [:create, :show, :index, :new, :destroy] do
+  resources :bookings, only: [:create, :show, :index, :new, :destroy, :update] do
     member do
       post '/accept' => "bookings#accept"
     end

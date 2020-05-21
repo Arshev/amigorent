@@ -18,6 +18,15 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def update
+    if Booking.update(booking_params)
+      flash[:notice] = "Сохранено"
+    else
+      flash[:alert] = "Что то не так!"
+    end
+    redirect_back(fallback_location: request.referer)
+  end
+
   def success
     @success_text = Text.first.success
     @main_up_text = Text.first.main_up_text
@@ -48,14 +57,12 @@ class BookingsController < ApplicationController
   def new
     @bookings_title = Text.first.bookings_title
     @bookings_description = Text.first.bookings_description
-    # @cars = Car.all
     @main_up_text = Text.first.main_up_text
     @booking = Booking.new
     if params[:car_id]
       @car = Car.find(params[:car_id])
     else
       @cars = Car.all.sort_by { |obj| obj.id }
-      # gon.cars_info = @cars
     end
   end
 
@@ -66,6 +73,6 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, :accept, :total, :deposit)
+      params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, :accept, :price, :total, :deposit)
     end
 end
