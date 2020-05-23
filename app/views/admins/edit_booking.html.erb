@@ -24,12 +24,15 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="col-12 m-b-3">
+                  <h4>Авто</h4>
+                  <%= f.text_field :car, class: "form-control" %>
                   <h4>Даты</h4>
                   Начало
                   <%= f.text_field :start_date, class: "form-control" %>
                   Окончание
                   <%= f.text_field :end_date, class: "form-control" %>
                   <br>
+                  <h4>ФИО</h4>
                   Имя
                   <%= f.text_field :firstname, class: "form-control" %>
                   Отчество
@@ -37,11 +40,13 @@
                   Фамилия
                   <%= f.text_field :lastname, class: "form-control" %>
                   <br>
+                  <h4>Контакты</h4>
                   Телефон
                   <%= f.text_field :phone, class: "form-control" %>
                   Email
                   <%= f.text_field :email, class: "form-control" %>
                   <br>
+                  <h4>Остальное</h4>
                   Место
                   <br>
                   Начало: <%= f.text_field :location_start, class: "form-control" %> Окончание: <%= f.text_field :location_end, class: "form-control" %>
