@@ -11,10 +11,12 @@
     </ol>
   </div>
   <div class="content">
-    <div class="row">
-      <%= render "booking"  %>
+    <div class="container">
+      <div class="row">
+        <%= render "booking"  %>
+      </div>
+      <%= will_paginate @bookings %>
     </div>
-    <%= will_paginate @bookings %>
   </div>
 </div>
 <%= render 'footer'  %>

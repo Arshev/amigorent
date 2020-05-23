@@ -1,47 +1,47 @@
-<div class="content">
-  <div class="row">
-    <% @bookings.each do |booking| %>
-        <div class="col-md-6 m-b-3">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="text-black m-b-0">№<%= booking.id %> <%= booking.car %></h4>
-              <p>
-                <% if !booking.accept %>
-                  <%= link_to accept_booking_path(booking), method: :post, class: "btn btn-sm btn-success" do %>
-                    Принять
-                  <% end %>
-                  <%= link_to ' Изменить', edit_booking_admin_path(action: "edit_booking", id: booking), class: "btn btn-sm btn-secondary" %>
-                  <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
-                    Удалить
-                  <% end %>
-                <% else %>
-                  <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
-                    Удалить
-                  <% end %>
+
+<div class="col-12 d-flex">
+  <% @bookings.each do |booking| %>
+      <div class="col-5 m-b-3 ">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="text-black m-b-0">№<%= booking.id %> <%= booking.car %></h4>
+            <p>
+              <% if !booking.accept %>
+                <%= link_to accept_booking_path(booking), method: :post, class: "btn btn-sm btn-success" do %>
+                  Принять
                 <% end %>
-              </p>
-              <p>
-                Даты: <%= booking.start_date %> - <%= booking.end_date %>
-              </p>
-              <p>
-                Имя: <%= booking.firstname %> <%= booking.middlename %> <%= booking.lastname %>
-              </p>
-              <p>
-                Телефон: <%= booking.phone %>, Email: <%= booking.email %>
-              </p>
-              <p>
-                Брать: <%= booking.location_start %>, Сдавать: <%= booking.location_end %>
-              </p>
-              <p>
-                Доп оборудование: <%= "детское кресло" if booking.baby_chair %> <%= "навигатор" if booking.navigator %>
-              </p>
-              <p>
-                Цена за сутки: <%= booking.price %>, Итого: <%= booking.total %>, Залог: <%= booking.deposit %>
-              </p>
-              
-            </div>
+                <%= link_to ' Изменить', edit_booking_admin_path(action: "edit_booking", id: booking), class: "btn btn-sm btn-secondary" %>
+                <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                  Удалить
+                <% end %>
+              <% else %>
+                <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                  Удалить
+                <% end %>
+              <% end %>
+            </p>
+            <p>
+              Даты: <%= booking.start_date %> - <%= booking.end_date %>
+            </p>
+            <p>
+              Имя: <%= booking.firstname %> <%= booking.middlename %> <%= booking.lastname %>
+            </p>
+            <p>
+              Телефон: <%= booking.phone %>, Email: <%= booking.email %>
+            </p>
+            <p>
+              Брать: <%= booking.location_start %>, Сдавать: <%= booking.location_end %>
+            </p>
+            <p>
+              Доп оборудование: <%= "детское кресло" if booking.baby_chair %> <%= "навигатор" if booking.navigator %>
+            </p>
+            <p>
+              Цена за сутки: <%= booking.price %>, Итого: <%= booking.total %>, Залог: <%= booking.deposit %>
+            </p>
+            
           </div>
         </div>
-    <% end %>
-  </div>
+      </div>
+  <% end %>
 </div>
+
