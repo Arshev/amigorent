@@ -7,8 +7,8 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact_model = QuickBooking.new()
-    recaptcha_valid = verify_recaptcha(model: @contact_model, action: 'create')
+    @contact_model = Contact.new(email: "test@test.ru", text: "text test")
+    recaptcha_valid = verify_recaptcha(model: @contact_model)
     if recaptcha_valid
       @contact = {}
       @contact["name"] = params[:name]
