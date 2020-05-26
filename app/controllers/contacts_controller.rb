@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  invisible_captcha only: [:create], honeypot: :subtitle, on_spam: :spam_callback
   def index
     @main_up_text = Text.first.main_up_text
 
@@ -8,8 +9,8 @@ class ContactsController < ApplicationController
 
   def create
     # @contact_model = Contact.new(email: "test@test.ru", text: "text test")
-    recaptcha_valid = verify_recaptcha(action: 'demo_a', minimum_score: 0.2)
-    if recaptcha_valid
+    # recaptcha_valid = verify_recaptcha(action: 'demo_a', minimum_score: 0.2)
+    # if recaptcha_valid
       @contact = {}
       @contact["name"] = params[:name]
       @contact["phone"] = params[:phone]
@@ -17,11 +18,18 @@ class ContactsController < ApplicationController
       @contact["message"] = params[:message]
 
       ContactMailer.with(contact: @contact).contact_email.deliver_later
-      redirect_to contacts_path
+      redirect_to contacts_path, notice: "Сообщение отправлено!"
         # redirect_back(fallback_location: request.referer, notice: "Сообщение отправлено!")
-    else 
-      redirect_to contacts_path
-      # redirect_back(fallback_location: request.referer, alert: "Что то не так!")
-    end
+    # else 
+    #   redirect_to contacts_path, alert: "Что то не так!"
+    #   # redirect_back(fallback_location: request.referer, alert: "Что то не так!")
+    # end
   end
+
+  private
+
+  def spam_callback
+    redirect_to contacts_path, alert: "Вы похожи на робота!"
+  end
+  
 end
