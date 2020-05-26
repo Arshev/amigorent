@@ -17,10 +17,10 @@ class ContactsController < ApplicationController
       @contact["message"] = params[:message]
 
       ContactMailer.with(contact: @contact).contact_email.deliver_later
-      redirect_to contacts_path, notice: "Сообщение отправлено!"
+      redirect_to contacts_path
         # redirect_back(fallback_location: request.referer, notice: "Сообщение отправлено!")
     else 
-      redirect_to contacts_path, alert: "Что то не так!"
+      redirect_to contacts_path
       # redirect_back(fallback_location: request.referer, alert: "Что то не так!")
     end
   end
