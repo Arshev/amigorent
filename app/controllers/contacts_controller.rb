@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
 
   def create
     # @contact_model = Contact.new(email: "test@test.ru", text: "text test")
-    recaptcha_valid = verify_recaptcha(action: 'demo_a', minimum_score: 0.5)
+    recaptcha_valid = verify_recaptcha(action: 'demo_a', minimum_score: 0.2)
     if recaptcha_valid
       @contact = {}
       @contact["name"] = params[:name]
