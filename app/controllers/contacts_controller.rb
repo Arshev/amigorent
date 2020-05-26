@@ -7,7 +7,8 @@ class ContactsController < ApplicationController
   end
 
   def create
-    recaptcha_valid = verify_recaptcha(action: 'create')
+    @contact_model = Contact.new()
+    recaptcha_valid = verify_recaptcha(model: @contact_model, action: 'create')
     if recaptcha_valid
       @contact = {}
       @contact["name"] = params[:name]
