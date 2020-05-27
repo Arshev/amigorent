@@ -26,7 +26,7 @@
                 <% end %>
               </div>
               <br>
-              <%= form_with model: @car, html: { multipart: true } do |f| %>
+              <%= form_for(@car, url: car_path(@car, locale: I18n.locale), html: { multipart: true }) do |f| %>
                 <h4 class="text-black text-center">Главное фото </h4>
                 <div class="form-group text-center" >
                   <span class="btn btn-default btn-file text-babu">
@@ -63,7 +63,7 @@
               </div>
               <br>
               <% if !@car.images? %>
-                <%= form_for @car, html: {multipart: true} do |f| %>
+                <%= form_for(@car, url: car_path(@car, locale: I18n.locale), html: { multipart: true }) do |f| %>
                   <h4 class="text-black text-center">Остальные фото </h4>
                   <div class="form-group text-center" >
                     <span class="btn btn-default btn-file text-babu">
@@ -76,7 +76,7 @@
                   </div>
                 <% end %>
               <% else %>
-                <%= form_for @car, url: car_images_path(@car), method: :post do |f| %>
+                <%= form_for(@car, url: car_path(@car, locale: I18n.locale), html: { multipart: true }) do |f| %>
                   <% @car.images.each do |image| %>
                     <%= hidden_field :images, multiple: true, value: image.identifier %>
                   <% end %>
