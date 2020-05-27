@@ -14,11 +14,11 @@
             <% end %>
           </div>
           <% if current_user && current_user.is_admin %>
-            <%= link_to car_car_review_path(@car.id, review.id), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
+            <%= link_to car_car_review_path(@car.id, review.id,locale: I18n.locale), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
               Удалить
             <% end %>
             <% if !(review.active?) %>
-              <%= link_to approve_car_car_review_path(@car, review), method: :post do %>
+              <%= link_to approve_car_car_review_path(@car, review,locale: I18n.locale), method: :post do %>
                 Принять
               <% end %>
             <% end %>

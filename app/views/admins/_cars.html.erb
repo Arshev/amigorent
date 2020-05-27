@@ -37,7 +37,7 @@
                     <%= f.submit "Снять с публикации", id: "unpublish_button", class: "btn btn-sm btn-info", disabled: !is_active %>
                   <% end %>
                 <% end %>
-                <%= link_to car_path(car), remote: true, method: :delete, data: {confirm: "Уверены?"} do %>
+                <%= link_to car_path(car,locale: I18n.locale), remote: true, method: :delete, data: {confirm: "Уверены?"} do %>
                   <%= image_tag 'trash.png', class: 'm-t-1' %>
                 <% end %>
               </div>
