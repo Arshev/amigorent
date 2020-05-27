@@ -7,17 +7,40 @@ Rails.application.routes.draw do
   end
 
   # get '/:locale' => 'main#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :cars, only: [:index, :show]
+      resources :booking, only: [:create]
+    end
+  end
+
+  resource :admin, except: [:edit, :new, :create] do
+    member do
+      get 'cars'
+      get 'bookings'
+      get 'edit_booking'
+      get 'articles'
+      get 'new_article'
+      get 'edit_article'
+      get 'new_car'
+      get 'deliveries'
+      get 'new_delivery'
+      get 'edit_delivery'
+      get 'upload_photos'
+      get 'edit_car'
+      get 'text_main'
+      get 'text_other'
+      get 'text_metatags'
+      get 'text_pages'
+      get 'cities'
+      get 'reviews' => "admins#reviews"
+    end
+  end
   
   scope "(:locale)", locale: /en|ru/, defaults: { locale: ''} do
     root 'main#index'
 
-
-    namespace :api do
-      namespace :v1 do
-        resources :cars, only: [:index, :show]
-        resources :booking, only: [:create]
-      end
-    end
 
     resources :cars, except: [:edit] do
       resources :images, :only => [:create, :destroy]
@@ -52,29 +75,6 @@ Rails.application.routes.draw do
     get 'payment-methods', action: :payment, controller: 'main'
     get 'transportnyi-autsorsing', action: :outsours, controller: 'main'
     get 'full-insurance', action: :full_insurance, controller: 'main'
-
-    resource :admin, except: [:edit, :new, :create] do
-      member do
-        get 'cars'
-        get 'bookings'
-        get 'edit_booking'
-        get 'articles'
-        get 'new_article'
-        get 'edit_article'
-        get 'new_car'
-        get 'deliveries'
-        get 'new_delivery'
-        get 'edit_delivery'
-        get 'upload_photos'
-        get 'edit_car'
-        get 'text_main'
-        get 'text_other'
-        get 'text_metatags'
-        get 'text_pages'
-        get 'cities'
-        get 'reviews' => "admins#reviews"
-      end
-    end
 
     resources :reviews, only: [:create, :index, :destroy, :approve] do
       member do

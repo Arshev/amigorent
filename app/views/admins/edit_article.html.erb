@@ -13,7 +13,7 @@
     </div>
     <div class="content">
       <div class="row">
-        <%= form_for @article do |f| %>
+        <%= form_for(@article, url: article_path(@article, locale: I18n.locale)) do |f| %>
           <div class="col-12">
             <div class="card m-t-3">
               <div class="card-body">

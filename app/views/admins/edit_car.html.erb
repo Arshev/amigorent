@@ -19,7 +19,7 @@
     <!-- Main content -->
     <div class="content">
       <div class="row">
-        <%= form_for @car do |f| %>
+        <%= form_for(@car, url: car_path(@car, locale: I18n.locale)) do |f| %>
           <div class="col-12">
             <div class="card m-t-3">
               <div class="card-body">
