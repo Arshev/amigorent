@@ -7,12 +7,13 @@
     </div>
     <div class="privet"><%= @main_up_text.html_safe %></div>
     <div class="transl">
-      <a href="" onclick="return false">
+      <%= link_to root_path(locale: :en) do %>
         <%= image_tag "tr1.png", alt: "English", title: "English" %>
+      <% end %>
       </a>
-      <a href="" onclick="return false">
+      <%= link_to root_path do %>
         <%= image_tag "tr2.png", alt: "Русский", title: "Русский" %>
-      </a>
+      <% end %>
     </div>
     <div class="clear"></div>
   </div>
@@ -27,92 +28,91 @@
     </div>
       <% if current_page?(controller: 'main', action: 'index') %>
         <a href="" onclick="return false" id="logo">
-          <%= image_tag "logo.png", alt: "Автопрокат Амиго", title: "Автопрокат Амиго" %>
-          <h3>Прокат автомобилей</h3>
+          <%= image_tag "logo.png", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}" %>
+          <h3><%= t 'header.logo' %></h3>
         </a>
       <% else %>
         <%= link_to root_path, id: "logo" do %>
-          <%= image_tag "logo.png", alt: "Автопрокат Амиго", title: "Автопрокат Амиго" %>
-          <h3>Прокат автомобилей</h3>
+          <%= image_tag "logo.png", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}" %>
+          <h3><%= t 'header.logo' %></h3>
         <% end %>
       <% end%>
       <div class="addr">
-        Невского 36В, 3 этаж
-        <b>Калининград</b>
+        <%= t 'header.address_html' %>
       </div>
       <div class="phone">
         <a href="tel:+7 (921) 710-16-15">+7 (921) 710-16-15</a>
         <b><a href="tel:8 (800) 100-39-73">8 (800) 100-39-73</a></b>
       </div>
       <div class="vrem">
-        Пн - Вс:
+        <%= t 'header.days' %>
         <b>09:00 ~ 19:00</b>
       </div>
       <div class="rating">
         <div class="obo">
           <span><%= rating_yandex %></span>
           <% 4.times do  %>
-            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra1.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% end %>
           <% case rating_yandex %>
           <% when 5.0 %>
-            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra1.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.9 %>
-            <%= image_tag "ra49.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra49.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.8 %>
-            <%= image_tag "ra48.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra48.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.7 %>
-            <%= image_tag "ra47.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra47.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.6 %>
-            <%= image_tag "ra46.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra46.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.5 %>
-            <%= image_tag "ra05.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra05.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.4 %>
-            <%= image_tag "ra44.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra44.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.3 %>
-            <%= image_tag "ra43.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra43.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.2 %>
-            <%= image_tag "ra42.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra42.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.1 %>
-            <%= image_tag "ra41.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra41.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.0 %>
-            <%= image_tag "ra0.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra0.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% end %>
           <a href="https://yandex.ru/profile/12804442716" rel="nofollow" target="_blank">
-            <%= image_tag "rat1.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "rat1.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           </a>
         </div>
         <div class="obo">
           <span><%= rating_google %></span>
           <% 4.times do  %>
-            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra1.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% end %>
           <% case rating_google %>
           <% when 5.0 %>
-            <%= image_tag "ra1.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra1.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.9 %>
-            <%= image_tag "ra49.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra49.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.8 %>
-            <%= image_tag "ra48.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra48.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.7 %>
-            <%= image_tag "ra47.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra47.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.6 %>
-            <%= image_tag "ra46.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra46.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.5 %>
-            <%= image_tag "ra05.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra05.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.4 %>
-            <%= image_tag "ra44.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra44.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.3 %>
-            <%= image_tag "ra43.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra43.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.2 %>
-            <%= image_tag "ra42.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra42.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.1 %>
-            <%= image_tag "ra41.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra41.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% when 4.0 %>
-            <%= image_tag "ra0.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "ra0.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           <% end %>
           <a href="https://g.page/Amigorent" rel="nofollow" target="_blank">
-            <%= image_tag "rat2.png", alt: "Звезда", title: "Звезда" %>
+            <%= image_tag "rat2.png", alt: "#{t 'header.star'}", title: "#{t 'header.star'}" %>
           </a>
         </div>
         <div class="clear"></div>
@@ -120,83 +120,257 @@
       <div class="clear"></div>
       <ul class="menu_top">
         <li>
-            <%= link_to "Главная", root_path %>
+          <% if I18n.locale == :en %>
+            <%= link_to root_path(locale: I18n.locale) do %>
+              <%= t 'header.home' %>
+            <% end %>
+          <% else %>
+            <%= link_to root_path do %>
+              <%= t 'header.home' %>
+            <% end %>
+          <% end %>
         </li>
         <li class="<%= active_class?(cars_path) %>">
-            <%= link_to cars_path do %>
-              Автомобили
+          <% if I18n.locale == :en %>
+            <%= link_to cars_path(locale: I18n.locale) do %>
+              <%= t 'header.cars' %>
             <% end %>
+          <% else %>
+            <%= link_to cars_path do %>
+              <%= t 'header.cars' %>
+            <% end %>
+          <% end %>
         </li>
         <li class="<%= active_class?(prices_path) %>">
-          <%= link_to "Цены", prices_path %>
+          <% if I18n.locale == :en %>
+            <%= link_to prices_path(locale: I18n.locale) do %>
+              <%= t 'header.prices' %>
+            <% end %>
+          <% else %>
+            <%= link_to prices_path do %>
+              <%= t 'header.prices' %>
+            <% end %>
+          <% end %>
         </li>
         <li class="<%= active_class?(contacts_path) %>">
-          <%= link_to "Контакты", contacts_path %>
+          <% if I18n.locale == :en %>
+            <%= link_to contacts_path(locale: I18n.locale) do %>
+              <%= t 'header.contacts' %>
+            <% end %>
+          <% else %>
+            <%= link_to contacts_path do %>
+              <%= t 'header.contacts' %>
+            <% end %>
+          <% end %>
         </li>
         <li class="<%= active_class?(new_booking_path) %>">
-          <%= link_to "Заказать", new_booking_path %>
+          <% if I18n.locale == :en %>
+            <%= link_to new_booking_path(locale: I18n.locale) do %>
+              <%= t 'header.booking' %>
+            <% end %>
+          <% else %>
+            <%= link_to new_booking_path do %>
+              <%= t 'header.booking' %>
+            <% end %>
+          <% end %>
         </li>
         <li class="<%= active_class?(reviews_path) %>">
-          <%= link_to "Отзывы", reviews_path %>
+          <% if I18n.locale == :en %>
+            <%= link_to reviews_path(locale: I18n.locale) do %>
+              <%= t 'header.reviews' %>
+            <% end %>
+          <% else %>
+            <%= link_to reviews_path do %>
+              <%= t 'header.reviews' %>
+            <% end %>
+          <% end %>
         </li>
         <li class="<%= active_class?(terms_path) %>">
-          <%= link_to "Условия", terms_path %>
+          <% if I18n.locale == :en %>
+            <%= link_to terms_path(locale: I18n.locale) do %>
+              <%= t 'header.terms' %>
+            <% end %>
+          <% else %>
+            <%= link_to terms_path do %>
+              <%= t 'header.terms' %>
+            <% end %>
+          <% end %>
         </li>
         <li class="<%= active_class?(deliveries_path) %>">
-          <%= link_to deliveries_path do %>
-            Города
-            <span>&#9660;</span>
+          <% if I18n.locale == :en %>
+            <%= link_to deliveries_path(locale: I18n.locale) do %>
+              <%= t 'header.cites_html' %>
+            <% end %>
+          <% else %>
+            <%= link_to deliveries_path do %>
+              <%= t 'header.cites_html' %>
+            <% end %>
           <% end %>
           <ul>
               <li class="<%= active_class?(arenda_avto_aeroport_hrabrovo_path) %>">
-                <%= link_to "Аэропорт Храброво", arenda_avto_aeroport_hrabrovo_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_aeroport_hrabrovo_path(locale: I18n.locale) do %>
+                    <%= t 'header.aeroport' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_aeroport_hrabrovo_path do %>
+                    <%= t 'header.aeroport' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(arenda_avto_zelenogradsk_path) %>">
-                <%= link_to "Зеленоградск", arenda_avto_zelenogradsk_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_zelenogradsk_path(locale: I18n.locale) do %>
+                    <%= t 'header.zelenogradsk' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_zelenogradsk_path do %>
+                    <%= t 'header.zelenogradsk' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(arenda_avto_svetlogorsk_path) %>">
-                <%= link_to "Светлогорск", arenda_avto_svetlogorsk_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_svetlogorsk_path(locale: I18n.locale) do %>
+                    <%= t 'header.svetlogorsk' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_svetlogorsk_path do %>
+                    <%= t 'header.svetlogorsk' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(arenda_avto_yantarnyi_path) %>">
-                <%= link_to "Янтарный", arenda_avto_yantarnyi_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_yantarnyi_path(locale: I18n.locale) do %>
+                    <%= t 'header.yantarnyi' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_yantarnyi_path do %>
+                    <%= t 'header.yantarnyi' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(arenda_avto_baltyisk_path) %>">
-                <%= link_to "Балтийск", arenda_avto_baltyisk_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_baltyisk_path(locale: I18n.locale) do %>
+                    <%= t 'header.baltyisk' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_baltyisk_path do %>
+                    <%= t 'header.baltyisk' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(arenda_avto_pionerskyi_path) %>">
-                <%= link_to "Пионерский", arenda_avto_pionerskyi_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_pionerskyi_path(locale: I18n.locale) do %>
+                    <%= t 'header.pionerskyi' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_pionerskyi_path do %>
+                    <%= t 'header.pionerskyi' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(arenda_avto_chernyahovsk_path) %>">
-                <%= link_to "Черняховск", arenda_avto_chernyahovsk_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_chernyahovsk_path(locale: I18n.locale) do %>
+                    <%= t 'header.chernyahovsk' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_chernyahovsk_path do %>
+                    <%= t 'header.chernyahovsk' %>
+                  <% end %>
+                <% end %>
               </li>
             </ul>
         </li>
         <li>
           <a>
-            Ещё
-            <span>&#9660;</span>
+            <% if I18n.locale == :en %>
+                <%= t 'header.more_html' %>
+            <% else %>
+                <%= t 'header.more_html' %>
+            <% end %>
           </a>
             <ul>
               <li class="<%= active_class?(articles_path) %>">
-                <%= link_to "Новости и акции", articles_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to articles_path(locale: I18n.locale) do %>
+                    <%= t 'header.articles' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to articles_path do %>
+                    <%= t 'header.articles' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(abouts_path) %>">
-                <%= link_to "О нас", abouts_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to abouts_path(locale: I18n.locale) do %>
+                    <%= t 'header.abouts' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to abouts_path do %>
+                    <%= t 'header.abouts' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(transportnyi_autsorsing_path) %>">
-                <%= link_to "Транспортный аутсорсинг", transportnyi_autsorsing_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to transportnyi_autsorsing_path(locale: I18n.locale) do %>
+                    <%= t 'header.outsorce' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to transportnyi_autsorsing_path do %>
+                    <%= t 'header.outsorce' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(car_sharing_path) %>">
-                <%= link_to "Каршеринг", car_sharing_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to car_sharing_path(locale: I18n.locale) do %>
+                    <%= t 'header.carsharing' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to car_sharing_path do %>
+                    <%= t 'header.carsharing' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(arenda_avto_s_voditelem_path) %>">
-                <%= link_to "Авто с водителем", arenda_avto_s_voditelem_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to arenda_avto_s_voditelem_path(locale: I18n.locale) do %>
+                    <%= t 'header.avto_s_vod' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to arenda_avto_s_voditelem_path do %>
+                    <%= t 'header.avto_s_vod' %>
+                  <% end %>
+                <% end %>
               </li>
               <li class="<%= active_class?(faqs_path) %>">
-                <%= link_to "Вопросы", faqs_path %>
+                <% if I18n.locale == :en %>
+                  <%= link_to faqs_path(locale: I18n.locale) do %>
+                    <%= t 'header.faqs' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to faqs_path do %>
+                    <%= t 'header.faqs' %>
+                  <% end %>
+                <% end %>
               </li>
-              <li class="<%= active_class?(car_sharing_path) %>">
-                <%= link_to "КАСКО", casko_path %>
+              <li class="<%= active_class?(casko_path) %>">
+                <% if I18n.locale == :en %>
+                  <%= link_to casko_path(locale: I18n.locale) do %>
+                    <%= t 'header.casko' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to casko_path do %>
+                    <%= t 'header.casko' %>
+                  <% end %>
+                <% end %>
               </li>
             </ul>
         </li>
