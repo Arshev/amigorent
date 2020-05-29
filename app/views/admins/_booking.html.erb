@@ -9,15 +9,15 @@
                 <h4 class="text-black m-b-0">№<%= booking.id %> <%= booking.car %></h4>
                 <p>
                   <% if !booking.accept %>
-                    <%= link_to accept_booking_path(booking,locale: I18n.locale), method: :post, class: "btn btn-sm btn-success" do %>
+                    <%= link_to accept_booking_path(booking), method: :post, class: "btn btn-sm btn-success" do %>
                       Принять
                     <% end %>
                     <%= link_to ' Изменить', edit_booking_admin_path(action: "edit_booking", id: booking), class: "btn btn-sm btn-secondary" %>
-                    <%= link_to booking_path(booking.id,locale: I18n.locale), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                    <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
                       Удалить
                     <% end %>
                   <% else %>
-                    <%= link_to booking_path(booking.id,locale: I18n.locale), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                    <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
                       Удалить
                     <% end %>
                   <% end %>

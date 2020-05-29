@@ -46,6 +46,7 @@ gem 'whenever', '~> 1.0.0', require: false
 gem 'carrierwave', '~> 2.1.0'
 gem 'mini_magick', '~> 4.10.1'
 gem 'rails-i18n', '~> 6.0.0'
+gem 'route_translator', '~> 8.0.0'
 gem 'invisible_captcha', '~> 1.0.1'
 
 group :development, :test do

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'     
   end
 
-  # get '/:locale' => 'main#index'
-
+  root 'main#index'
+  
   namespace :api do
     namespace :v1 do
       resources :cars, only: [:index, :show]
@@ -39,10 +39,8 @@ Rails.application.routes.draw do
   end
   
   # scope "(:locale)", locale: /en|ru/, defaults: { locale: ''} do
-    scope "(:locale)", locale: /en|ru/ do
-    root 'main#index'
-
-
+    # scope "(:locale)", locale: /en|ru/ do
+  localized do
     resources :cars, except: [:edit] do
       resources :images, :only => [:create, :destroy]
       member do
