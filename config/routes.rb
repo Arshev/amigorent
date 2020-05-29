@@ -38,7 +38,8 @@ Rails.application.routes.draw do
     end
   end
   
-  scope "(:locale)", locale: /en|ru/, defaults: { locale: ''} do
+  # scope "(:locale)", locale: /en|ru/, defaults: { locale: ''} do
+    scope "(:locale)", locale: /en|ru/ do
     root 'main#index'
 
 
