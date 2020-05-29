@@ -91,7 +91,7 @@
         <div class="zag">Найдём машину для каждого!</div>
         <div class="podzag">У нас большой ассортимент автомобилей.</div>
         <div class="spis_avto" >
-          <%= render "cars" %>
+          <%= render "cars", cached: true %>
         </div>
         <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
         <div class="clear"></div>
@@ -110,7 +110,7 @@
         <meta itemprop="itemReviewed" itemscope itemtype="http://schema.org/Organization">
         <meta itemprop="name" content="Прокат автомобилей Амиго">
         <div class="spis_otz">
-            <%= render "reviews/reviews_on_main"%>
+            <%= render "reviews/reviews_on_main", cached: true %>
             <div class="clear"></div>
         </div>
         <%= link_to reviews_path, class:"all" do %>

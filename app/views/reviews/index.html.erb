@@ -11,7 +11,7 @@
                 <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
                     Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
                 </div>
-                <%= render "review" %>
+                <%= render "review", cached: true %>
             </div>
             <div class="col_r">
                 <div class="zg">Оставить отзыв</div>
