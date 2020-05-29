@@ -7,11 +7,11 @@
       <meta itemprop="datePublished" content="<%= review.created_at.strftime("%Y-%m-%d") %>">
       <div class="data"><%= review.created_at.strftime("%d-%m-%Y") %></div>
       <% if current_user && current_user.is_admin %>
-        <%= link_to review_path(review.id,locale: I18n.locale), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
+        <%= link_to review_path(review.id), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
           Удалить
         <% end %>
         <% if !(review.active?) %>
-          <%= link_to approve_review_path(review,locale: I18n.locale), method: :post do %>
+          <%= link_to approve_review_path(review), method: :post do %>
             Принять
           <% end %>
         <% end %>
