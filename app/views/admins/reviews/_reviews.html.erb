@@ -6,11 +6,11 @@
         <p><%= review.text %></p>
       </div>
       <div class="text-center">
-        <%= link_to car_car_review_path(review.car.id, review.id,locale: I18n.locale), method: :delete, data: {confirm: "Уверены?"} do %>
+        <%= link_to car_car_review_path(review.car.id, review.id), method: :delete, data: {confirm: "Уверены?"} do %>
           <button class="btn btn-outline-danger">Удалить</button>
         <% end %>
         <% if !(review.active?) %>
-          <%= link_to approve_car_car_review_path(review.car.id, review.id,locale: I18n.locale), method: :post do %>
+          <%= link_to approve_car_car_review_path(review.car.id, review.id), method: :post do %>
             <button class="btn btn-outline-success">Принять</button>
           <% end %>
         <% end %>
