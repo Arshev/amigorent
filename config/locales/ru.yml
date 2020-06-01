@@ -58,3 +58,22 @@ ru:
     faqs: "Вопрос-Ответ"
     reviews: "Отзывы"
     driver: "Аренда авто с водителем"
+
+  cars:
+    from: "от"
+    rub_per_day: "руб/сутки"
+    more: "Подробнее"
+    manual: "Механика"
+    auto: "Автомат"
+    year: "г."
+    litr: "л."
+    transmission: "Коробка передач"
+    fuel: "Топливо"
+    year_full: "Год"
+    car_type: "Тип кузова"
+    engine_capacity: "Объем двигателя"
+    air: "Кондиционер"
+    is_air: "Есть"
+    review: "Рейтинг"
+    share: "Поделиться"
+  

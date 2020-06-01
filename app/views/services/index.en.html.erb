@@ -1,0 +1,39 @@
+<% title @services_title %>
+<% description @services_description %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+    <%= render 'shared/bread'%>
+    <div class="bl_dop">
+        <h1>BASIC TYPES OF SERVICES WHICH AMIGO CAR RENTAL OFFERS: </h1>
+        <ul>
+            <li>car hire;</li>
+            <li>car rental;</li>
+            <li><%= link_to "transport outsourcing", transportnyi_autsorsing_path, style:"color:#5c63fd;" %>;</li>
+            <li>rental of additional equipment;</li>
+        </ul>
+        <br />
+        <p>You can watch the prices for these services in the <%= link_to "Prices", prices_path %> section.</p>
+        <ul>
+            <li>delivery of cars to the client anywhere in the Kaliningrad region;</li>
+        </ul>
+        <br />
+        <p>Read more about the cost of this service in the <%= link_to "Delivery", deliveries_path %> section.</p>
+
+        <h2>Additional types of services: </h2>
+        <ul>
+            <li>car sharing, or short-term car rental, lasting from one hour;</li>
+        </ul>
+        <br />
+        <p>For details and rates, see the <%= link_to "Car sharing", car_sharing_path %> section.</p>
+        <ul>
+            <li>car rental with a driver;</li>
+        </ul>
+        <br />
+        <p>Read more about the service in the corresponding section – <%= link_to "Auto with a driver", arenda_avto_s_voditelem_path %></p>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>

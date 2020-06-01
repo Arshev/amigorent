@@ -1,0 +1,30 @@
+<% title @bookings_title %>
+<% description @bookings_description %>
+<%= render 'shared/header' %>
+<div class="content">
+  <div class="wrapper">
+    <%= render 'shared/bread'%>
+    <div class="bl_zakaz">
+      <%# content_tag :div,
+        id: "booking",
+        data: {
+          allCarsFromView: @cars
+        }.to_json do %>
+      <%# end %>
+      <div id='booking'>
+        <app>
+        </app>
+      </div>
+      <div class="nizz">
+        <p>Delivery prices are indicated during working hours, check with our managers for the possibility and prices of delivery outside working hours.</p>
+        <p>Issuing and receiving a car in the office during off hours from 19-00 to 9-00 is 400 rubles.</p>
+        <p>Car receiving in the city on weekends and holidays during working hours - 300 rubles.</p>
+        <p>Issuance and receiving of a car in the city after hours from 19-00 to 9-00 is 500 rubles. </p>
+        <p>Issuing and receiving a car at the airport during off hours from 19-00 to 9-00 is 700 rubles.</p>
+      </div>
+      <div class="clear"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>

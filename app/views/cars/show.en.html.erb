@@ -1,0 +1,390 @@
+<% title "Car rent " + @car.car_name + " in Kaliningrad | Amigo" %>
+<% description "✔️ To rent #{@car.car_name} in Kaliningrad. Car rental #{@car.car_name} Amigo in Kaliningrad. Book online." %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+    <div class="wrapper">
+        <%= render 'shared/bread'%>
+        <div class="bl_avto">
+            <div class="pol1" id="side-block">
+                <h1><%= @car.car_name %></h1>
+                <div class="bir"><%= @car.car_class %></div>
+                <div class="bl_full" style="margin-top: 100px;">
+                    <% if @car.old_price_1 %>
+                        <div class="badge">
+                            <%= image_tag "badge.png", alt: "Sales", title: "Sales" %>
+                        </div>
+                    <% end %>
+                    <div class="fotorama" data-nav="thumbs" data-thumbwidth="100" data-thumbheight="100">
+                        <%= image_tag @car.main_image.url, alt: @car.car_name, title: @car.car_name if @car.main_image? %>
+                        <% @car.images.each do |image| %>
+                            <%= image_tag image.url, alt: @car.car_name, title: @car.car_name %>
+                        <% end %>
+                    </div>
+                    <%= link_to "Previous", car_previous, style: "float:left;" %> <%= link_to "Next", car_next, style: "float:right;" %>
+                </div>
+            </div>
+            <div class="pol2">
+                <div class="zg">Спецификация:</div>
+                <div class="rating">
+                    Рейтинг модели:
+                    <% case car_rating(@car.id) %>
+                    <% when 5.0 %>
+                        <% 5.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                    <% when 4.5 %>
+                        <% 4.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 4.0 %>
+                        <% 4.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 3.5 %>
+                        <% 3.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 3.0 %>
+                        <% 3.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 2.5 %>
+                        <% 2.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 2.0 %>
+                        <% 2.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 1.5 %>
+                        <% 1.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 1.0 %>
+                        <% 1.times do %>
+                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <% end %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% when 0.5 %>
+                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+                    <% end %>
+                </div>
+                <p>
+                    <%= image_tag "i1.png", alt: "Коробка передач", title: "Коробка передач" %>
+                    Коробка передач:
+                    <span><%= @car.transmission %></span>
+                </p>
+                <p>
+                    <%= image_tag "i2.png", alt: "Цвет кузова", title: "Цвет кузова" %>
+                    Цвет кузова:
+                    <span><%= @car.color %></span>
+                </p>
+                <p>
+                    <%= image_tag "i3.png", alt: "Вид топлива", title: "Вид топлива" %>
+                    Вид топлива:
+                    <span><%= @car.fuel %></span>
+                </p>
+                <p>
+                    <%= image_tag "i4.png", alt: "Год выпуска", title: "Год выпуска" %>
+                    Год выпуска:
+                    <span><%= @car.year %></span>
+                </p>
+                <p>
+                    <%= image_tag "i5.png", alt: "Объем двигателя", title: "Объем двигателя" %>
+                    Объем двигателя:
+                    <span><%= @car.engine_capacity %>л</span>
+                </p>
+                <p>
+                    <%= image_tag "i6.png", alt: "Тип кузова", title: "Тип кузова" %>
+                    Тип кузова:
+                    <span><%= @car.car_type %></span>
+                </p>
+                <p>
+                    <%= image_tag "i7.png", alt: "Количество дверей", title: "Количество дверей" %>
+                    Количество дверей:
+                    <span><%= @car.number_doors %></span>
+                </p>
+                <p>
+                    <%= image_tag "i8.png", alt: "Кондиционер", title: "Кондиционер" %>
+                    Кондиционер:
+                    <% if @car.is_air %>
+                        <span>Есть</span>
+                    <% else %>
+                        <span>Нет</span>
+                    <% end %>
+                </p>
+                <p>
+                    <%= image_tag "i9.png", alt: "Электропакет", title: "Электропакет" %>
+                    Электропакет:
+                    <% if @car.is_electropackage %>
+                        <span>Есть</span>
+                    <% else %>
+                        <span>Нет</span>
+                    <% end %>
+                </p>
+                <div class="price">от <b><%= @car.price_main %></b> руб/сутки</div>
+                <%= link_to "Забронировать", new_booking_path(car_id: @car.id), class:"bron" %>
+            </div>
+            <div class="clear"></div>
+            <div class="perek active" id="pere1">
+                <h3>Цены</h3>
+                <div class="table-wrap-tth">
+                    <table class="blueTable" style="font-size: 1em;">
+                        <thead>
+                            <tr>
+                                <th>до 3 суток</th>
+                                <th>4-7 суток</th>
+                                <th>8-14 суток</th>
+                                <th>15-30 суток</th>
+                                <th>> 30 суток</th>
+                                <th>Залог</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="<%= @car.old_price_1 ? "color: red;" : "" %>">
+                                        <%= @car.price_1 %>
+                                    </div>
+                                    <% if @car.old_price_1 %>
+                                        <div>
+                                            <s><small><%= @car.old_price_1 %></s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <div style="<%= @car.old_price_2 ? "color: red;" : "" %>">
+                                        <%= @car.price_2 %>
+                                    </div>
+                                    <% if @car.old_price_2 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_2 %></s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <div style="<%= @car.old_price_3 ? "color: red;" : "" %>">
+                                        <%= @car.price_3 %>
+                                    </div>
+                                    <% if @car.old_price_3 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_3 %></s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <div style="<%= @car.old_price_4 ? "color: red;" : "" %>">
+                                        <%= @car.price_4 %>
+                                    </div>
+                                    <% if @car.old_price_4 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_4 %></s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <div style="<%= @car.old_price_5 ? "color: red;" : "" %>">
+                                        <%= @car.price_5 %>
+                                    </div>
+                                    <% if @car.old_price_5 %>
+                                        <div>
+                                            <small><s><%= @car.old_price_5 %></s></small>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <div>
+                                        <%= @car.deposit %>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><%= @car.description %></p>
+                <% if @car.youtube && @car.youtube != "" %>
+                    <div style="text-align:center;">
+                        <h3>Видео об автомобиле</h3>
+                        <div class="thumb-wrap">
+                            <iframe width="800" height="400" src="<%= @car.youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                <% end %>
+                <div class="table-wrap-tth">
+                    <table class="table-tth" style="margin:auto;">
+                    <!--Table head-->
+                    <thead>
+                      <tr>
+                        <th colspan="2">Технические данные</th>
+                        <th colspan="2">Комфорт</th>
+                      </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody style="text-align:left;">
+                      <tr style="border: 1px solid black;">
+                        <th>Вид топлива</th>
+                        <td><%= @car.fuel_type %></td>
+                        <th>Количество мест</th>
+                        <td><%= @car.number_seats %></td>
+                      </tr>
+                      <tr>
+                        <th>Объем двигателя</th>
+                        <td><%= @car.engine_capacity %></td>
+                        <th>Электрорегулировка сидений</th>
+                        <td><%= @car.power_seats ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Мощность</th>
+                        <td><%= @car.power %></td>
+                        <th>Электропривод зеркал</th>
+                        <td><%= @car.mirror ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Расход (трасса/смешан/город)</th>
+                        <td><%= @car.consumption %></td>
+                        <th>Электростеклоподъёмники передние</th>
+                        <td><%= @car.power_window_front ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Привод</th>
+                        <td><%= @car.drive_unit %></td>
+                        <th>Электростеклоподъёмники задние</th>
+                        <td><%= @car.power_window_back ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Клиренс</th>
+                        <td><%= @car.clearance %></td>
+                        <th>Регулировка руля по высоте</th>
+                        <td><%= @car.steering_wheel_height ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Длина</th>
+                        <td><%= @car.length %></td>
+                        <th>Регулировка руля по выносу</th>
+                        <td><%= @car.steering_wheel_adjustment ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Ширина</th>
+                        <td><%= @car.width %></td>
+                        <th>Управление климатом</th>
+                        <td><%= @car.climat %></td>
+                      </tr>
+                      <tr>
+                        <th>Высота</th>
+                        <td><%= @car.height %></td>
+                        <th>Подогрев сидений</th>
+                        <td><%= @car.hot_seats ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Объем топливного бака</th>
+                        <td><%= @car.tank_capacity %></td>
+                        <th>Центральный замок</th>
+                        <td><%= @car.central_locking ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Объем багажника</th>
+                        <td><%= @car.trunk_volume %></td>
+                        <th>Radio</th>
+                        <td><%= @car.radio ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Снаряженная масса</th>
+                        <td><%= @car.mass %></td>
+                        <th>USB</th>
+                        <td><%= @car.usb ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Коробка</th>
+                        <td><%= @car.transmission %></td>
+                        <th>AUX</th>
+                        <td><%= @car.aux ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Количество передач</th>
+                        <td><%= @car.number_gears %></td>
+                        <th>CD</th>
+                        <td><%= @car.cd ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Максимальная скорость</th>
+                        <td><%= @car.max_speed %></td>
+                        <th>Video</th>
+                        <td><%= @car.video ? "Есть" : "Нет" %></td>
+                      </tr>
+                      <tr>
+                        <th>Разгон до 100км/ч</th>
+                        <td><%= @car.racing %></td>
+                        <th>Количество дверей</th>
+                        <td><%= @car.number_doors %></td>
+                      </tr>
+                      <tr>
+                    </tbody>
+                    <!--Table body-->
+                  </table>
+                  <div style="text-align:center;">
+                    <%= @car.tth_note %>
+                  </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="bl_ostav">
+                <div class="zg">Заполните данные чтобы оставить отзыв</div>
+                <%= form_with(model: @new_review, url: [@car, @new_review], local: true) do |f| %>
+                    <%= f.text_field :fullname, placeholder: "Имя *", required: true %>
+                    <%= f.text_field :phone, placeholder: "Телефон", required: true %>
+                    <%= f.text_field :email, placeholder: "Email *", required: true %>
+                    <div class="clear"></div>
+                    <div id="rateYo" style="margin:10px;"></div>
+                    <%= f.text_area :text, placeholder: "Текст отзыва", required: true %>
+                    <%= f.hidden_field :star, id:"star_counter", value:"5" %>
+                    <%# recaptcha_v3(action: 'create') %>
+                    <%= recaptcha_tags %>
+                    <%= f.submit "Отправить отзыв" %>
+                <% end %>
+                <div class="clear"></div>
+            </div>
+            <div class="bl_otz">
+                <div class="zag">Отзывы</div>
+                <%= render "review" %>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#rateYo").rateYo({
+            rating: 5,
+        fullStar: true,
+        onChange: function (rating, rateYoInstance) {
+            document.getElementById('star_counter').value = rating
+        }
+    })
+});
+</script>
+<%= render 'shared/footer', cached: true %>

@@ -7,10 +7,10 @@
           <div class="data"><%= review.created_at.strftime("%d-%m-%Y") %></div>
           <div class="rating">
             <% review.star.to_i.times do  %>
-              <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
+              <%= image_tag "ra1.png", alt: "#{t 'cars.review'}", title: "#{t 'cars.review'}" %>
             <% end %>
             <% review.blank_stars.to_i.times do  %>
-              <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
+              <%= image_tag "ra0.png", alt: "#{t 'cars.review'}", title: "#{t 'cars.review'}" %>
             <% end %>
           </div>
           <% if current_user && current_user.is_admin %>
@@ -28,6 +28,10 @@
       <% end %>
     <% end %>
   <% else %>
-  <h2>Ваш отзыв будет первым!</h2>
+    <% if I18n.locale == :en %>
+      <h2>Your review will be the first!</h2>
+    <% else %>
+      <h2>Ваш отзыв будет первым!</h2>
+    <% end %>
   <% end %>
 </div>
