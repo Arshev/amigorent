@@ -1,5 +1,5 @@
-<% title "Car rent " + @car.car_name + " in Kaliningrad | Amigo" %>
-<% description "✔️ To rent #{@car.car_name} in Kaliningrad. Car rental #{@car.car_name} Amigo in Kaliningrad. Book online." %>
+<% title @text.car_title_en + " " + @car.car_name + " in Kaliningrad | Amigo" %>
+<% description @text.car_description_en + " " + @car.car_name + "in Kaliningrad. Car rental #{@car.car_name} Amigo in Kaliningrad. Book online." %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
@@ -7,7 +7,23 @@
         <div class="bl_avto">
             <div class="pol1" id="side-block">
                 <h1><%= @car.car_name %></h1>
-                <div class="bir"><%= @car.car_class %></div>
+                <div class="bir">
+                    <% if @car.car_class == "Эконом" %>
+                        Economy
+                    <% elsif @car.car_class == "Средний" %>
+                        Middle
+                    <% elsif @car.car_class == "Минивены" %>
+                        Minivans
+                    <% elsif @car.car_class == "Кроссоверы" %>
+                        Crossovers
+                    <% elsif @car.car_class == "Бизнес" %>
+                        Business
+                    <% elsif @car.car_class == "Коммерческий" %>
+                        Commercial vehicle
+                    <% else %>
+                        <%= @car.car_class %>
+                    <% end %>
+                </div>
                 <div class="bl_full" style="margin-top: 100px;">
                     <% if @car.old_price_1 %>
                         <div class="badge">
@@ -24,9 +40,9 @@
                 </div>
             </div>
             <div class="pol2">
-                <div class="zg">Спецификация:</div>
+                <div class="zg">Specification:</div>
                 <div class="rating">
-                    Рейтинг модели:
+                    Model rating:
                     <% case car_rating(@car.id) %>
                     <% when 5.0 %>
                         <% 5.times do %>
@@ -93,74 +109,100 @@
                     <% end %>
                 </div>
                 <p>
-                    <%= image_tag "i1.png", alt: "Коробка передач", title: "Коробка передач" %>
-                    Коробка передач:
-                    <span><%= @car.transmission %></span>
+                    <%= image_tag "i1.png", alt: "Transmission", title: "Transmission" %>
+                    Transmission:
+                    <% if @car.transmission == 'Механика' %>
+                        <span>Manual</span>
+                    <% elsif @car.transmission == 'Автомат' %>
+                        <span>Automatic</span>
+                    <% else %>
+                        <span><%= @car.transmission %></span>
+                    <% end %>
                 </p>
                 <p>
-                    <%= image_tag "i2.png", alt: "Цвет кузова", title: "Цвет кузова" %>
-                    Цвет кузова:
+                    <%= image_tag "i2.png", alt: "Color", title: "Color" %>
+                    Color:
                     <span><%= @car.color %></span>
                 </p>
                 <p>
-                    <%= image_tag "i3.png", alt: "Вид топлива", title: "Вид топлива" %>
-                    Вид топлива:
-                    <span><%= @car.fuel %></span>
+                    <%= image_tag "i3.png", alt: "Fuel Type", title: "Fuel Type" %>
+                    Fuel Type:
+                    <% if @car.fuel == 'Бензин' %>
+                        <span>Gasoline</span>
+                    <% elsif @car.fuel == 'Дизель' %>
+                        <span>Dizel</span>
+                    <% else %>
+                        <span><%= @car.fuel %></span>
+                    <% end %>
                 </p>
                 <p>
-                    <%= image_tag "i4.png", alt: "Год выпуска", title: "Год выпуска" %>
-                    Год выпуска:
+                    <%= image_tag "i4.png", alt: "Year of release", title: "Year of release" %>
+                    Year of release:
                     <span><%= @car.year %></span>
                 </p>
                 <p>
-                    <%= image_tag "i5.png", alt: "Объем двигателя", title: "Объем двигателя" %>
-                    Объем двигателя:
-                    <span><%= @car.engine_capacity %>л</span>
+                    <%= image_tag "i5.png", alt: "Engine capacity", title: "Engine capacity" %>
+                    Engine capacity:
+                    <span><%= @car.engine_capacity %>l</span>
                 </p>
                 <p>
-                    <%= image_tag "i6.png", alt: "Тип кузова", title: "Тип кузова" %>
-                    Тип кузова:
-                    <span><%= @car.car_type %></span>
+                    <%= image_tag "i6.png", alt: "Body type", title: "Body type" %>
+                    Body type:
+                    <% if @car.car_type == "Хэтчбек" %>
+                        <span>Hatchback</span>
+                    <% elsif @car.car_type == "Седан" %>
+                        <span>Sedan</span>
+                    <% elsif @car.car_type == "Универсал" %>
+                        <span>Touring</span>
+                    <% elsif @car.car_type == "Минивен" %>
+                        <span>Minivan</span>
+                    <% elsif @car.car_type == "Кроссовер" %>
+                        <span>Crossover</span>
+                    <% elsif @car.car_type == "Купе" %>
+                        <span>Coupe</span>
+                    <% else %>
+                        <span><%= @car.car_type %></span>
+                    <% end %>
                 </p>
                 <p>
-                    <%= image_tag "i7.png", alt: "Количество дверей", title: "Количество дверей" %>
-                    Количество дверей:
+                    <%= image_tag "i7.png", alt: "Number of Doors", title: "Number of Doors" %>
+                    Number of Doors:
                     <span><%= @car.number_doors %></span>
                 </p>
                 <p>
-                    <%= image_tag "i8.png", alt: "Кондиционер", title: "Кондиционер" %>
-                    Кондиционер:
+                    <%= image_tag "i8.png", alt: "Air conditioning", title: "Air conditioning" %>
+                    Air conditioning:
                     <% if @car.is_air %>
-                        <span>Есть</span>
+                        <span>Yes</span>
                     <% else %>
-                        <span>Нет</span>
+                        <span>No</span>
                     <% end %>
                 </p>
                 <p>
-                    <%= image_tag "i9.png", alt: "Электропакет", title: "Электропакет" %>
-                    Электропакет:
+                    <%= image_tag "i9.png", alt: "Electrical package", title: "Electrical package" %>
+                    Electrical package:
                     <% if @car.is_electropackage %>
-                        <span>Есть</span>
+                        <span>Yes</span>
                     <% else %>
-                        <span>Нет</span>
+                        <span>No</span>
                     <% end %>
                 </p>
-                <div class="price">от <b><%= @car.price_main %></b> руб/сутки</div>
-                <%= link_to "Забронировать", new_booking_path(car_id: @car.id), class:"bron" %>
+                <div class="price">от <b><%= @car.price_main %></b> rubles/day</div>
+                <%= link_to "Book now", new_booking_path(car_id: @car.id), class:"bron" %>
             </div>
             <div class="clear"></div>
             <div class="perek active" id="pere1">
-                <h3>Цены</h3>
+                <h3>Prices</h3>
                 <div class="table-wrap-tth">
                     <table class="blueTable" style="font-size: 1em;">
                         <thead>
                             <tr>
-                                <th>до 3 суток</th>
-                                <th>4-7 суток</th>
-                                <th>8-14 суток</th>
-                                <th>15-30 суток</th>
-                                <th>> 30 суток</th>
-                                <th>Залог</th>
+                                <th>up to 3 days</th>
+                                <th>4-7 days</th>
+                                <th>8-14 days</th>
+                                <th>15-30 days</th>
+                                <th>> 30 days</th>
+                                <th>Deposit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -227,7 +269,7 @@
                 <p><%= @car.description %></p>
                 <% if @car.youtube && @car.youtube != "" %>
                     <div style="text-align:center;">
-                        <h3>Видео об автомобиле</h3>
+                        <h3>Video about the car</h3>
                         <div class="thumb-wrap">
                             <iframe width="800" height="400" src="<%= @car.youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -238,107 +280,115 @@
                     <!--Table head-->
                     <thead>
                       <tr>
-                        <th colspan="2">Технические данные</th>
-                        <th colspan="2">Комфорт</th>
+                        <th colspan="2">Technical Data</th>
+                        <th colspan="2">Comfort</th>
                       </tr>
                     </thead>
                     <!--Table head-->
                     <!--Table body-->
                     <tbody style="text-align:left;">
                       <tr style="border: 1px solid black;">
-                        <th>Вид топлива</th>
+                        <th>Type of fuel</th>
                         <td><%= @car.fuel_type %></td>
-                        <th>Количество мест</th>
+                        <th>Seats</th>
                         <td><%= @car.number_seats %></td>
                       </tr>
                       <tr>
-                        <th>Объем двигателя</th>
+                        <th>Engine capacity</th>
                         <td><%= @car.engine_capacity %></td>
-                        <th>Электрорегулировка сидений</th>
-                        <td><%= @car.power_seats ? "Есть" : "Нет" %></td>
+                        <th>Electrically adjustable seats</th>
+                        <td><%= @car.power_seats ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Мощность</th>
+                        <th>Power</th>
                         <td><%= @car.power %></td>
-                        <th>Электропривод зеркал</th>
-                        <td><%= @car.mirror ? "Есть" : "Нет" %></td>
+                        <th>Power mirrors</th>
+                        <td><%= @car.mirror ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Расход (трасса/смешан/город)</th>
+                        <th>Consumption (highway / mixed / city)</th>
                         <td><%= @car.consumption %></td>
-                        <th>Электростеклоподъёмники передние</th>
-                        <td><%= @car.power_window_front ? "Есть" : "Нет" %></td>
+                        <th>Front power windows</th>
+                        <td><%= @car.power_window_front ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Привод</th>
+                        <th>Drive</th>
                         <td><%= @car.drive_unit %></td>
-                        <th>Электростеклоподъёмники задние</th>
-                        <td><%= @car.power_window_back ? "Есть" : "Нет" %></td>
+                        <th>Back power windows</th>
+                        <td><%= @car.power_window_back ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Клиренс</th>
+                        <th>Ground clearance</th>
                         <td><%= @car.clearance %></td>
-                        <th>Регулировка руля по высоте</th>
-                        <td><%= @car.steering_wheel_height ? "Есть" : "Нет" %></td>
+                        <th>Steering wheel adjustment</th>
+                        <td><%= @car.steering_wheel_height ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Длина</th>
+                        <th>Length</th>
                         <td><%= @car.length %></td>
-                        <th>Регулировка руля по выносу</th>
-                        <td><%= @car.steering_wheel_adjustment ? "Есть" : "Нет" %></td>
+                        <th>Outrigger steering</th>
+                        <td><%= @car.steering_wheel_adjustment ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Ширина</th>
+                        <th>Width</th>
                         <td><%= @car.width %></td>
-                        <th>Управление климатом</th>
+                        <th>Climate control</th>
                         <td><%= @car.climat %></td>
                       </tr>
                       <tr>
-                        <th>Высота</th>
+                        <th>Height</th>
                         <td><%= @car.height %></td>
-                        <th>Подогрев сидений</th>
-                        <td><%= @car.hot_seats ? "Есть" : "Нет" %></td>
+                        <th>Seat heating</th>
+                        <td><%= @car.hot_seats ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Объем топливного бака</th>
+                        <th>Volume of the fuel tank</th>
                         <td><%= @car.tank_capacity %></td>
-                        <th>Центральный замок</th>
-                        <td><%= @car.central_locking ? "Есть" : "Нет" %></td>
+                        <th>Central locking</th>
+                        <td><%= @car.central_locking ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Объем багажника</th>
+                        <th>Trunk volume</th>
                         <td><%= @car.trunk_volume %></td>
                         <th>Radio</th>
-                        <td><%= @car.radio ? "Есть" : "Нет" %></td>
+                        <td><%= @car.radio ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Снаряженная масса</th>
+                        <th>Curb weight</th>
                         <td><%= @car.mass %></td>
                         <th>USB</th>
-                        <td><%= @car.usb ? "Есть" : "Нет" %></td>
+                        <td><%= @car.usb ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Коробка</th>
-                        <td><%= @car.transmission %></td>
+                        <th>Transmission</th>
+                        <td>
+                            <% if @car.transmission == 'Механика' %>
+                                Manual
+                            <% elsif @car.transmission == 'Автомат' %>
+                                Automatic
+                            <% else %>
+                                <%= @car.transmission %>
+                            <% end %>
+                        </td>
                         <th>AUX</th>
-                        <td><%= @car.aux ? "Есть" : "Нет" %></td>
+                        <td><%= @car.aux ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Количество передач</th>
+                        <th>Number of gears</th>
                         <td><%= @car.number_gears %></td>
                         <th>CD</th>
-                        <td><%= @car.cd ? "Есть" : "Нет" %></td>
+                        <td><%= @car.cd ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Максимальная скорость</th>
+                        <th>Maximum speed</th>
                         <td><%= @car.max_speed %></td>
                         <th>Video</th>
-                        <td><%= @car.video ? "Есть" : "Нет" %></td>
+                        <td><%= @car.video ? "Yes" : "No" %></td>
                       </tr>
                       <tr>
-                        <th>Разгон до 100км/ч</th>
+                        <th>Acceleration to 100km</th>
                         <td><%= @car.racing %></td>
-                        <th>Количество дверей</th>
+                        <th>Number of doors</th>
                         <td><%= @car.number_doors %></td>
                       </tr>
                       <tr>
@@ -346,29 +396,29 @@
                     <!--Table body-->
                   </table>
                   <div style="text-align:center;">
-                    <%= @car.tth_note %>
+                    <%# @car.tth_note %>
                   </div>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="bl_ostav">
-                <div class="zg">Заполните данные чтобы оставить отзыв</div>
+                <div class="zg">Fill in the form to leave a review</div>
                 <%= form_with(model: @new_review, url: [@car, @new_review], local: true) do |f| %>
-                    <%= f.text_field :fullname, placeholder: "Имя *", required: true %>
-                    <%= f.text_field :phone, placeholder: "Телефон", required: true %>
+                    <%= f.text_field :fullname, placeholder: "Name *", required: true %>
+                    <%= f.text_field :phone, placeholder: "Phone", required: true %>
                     <%= f.text_field :email, placeholder: "Email *", required: true %>
                     <div class="clear"></div>
                     <div id="rateYo" style="margin:10px;"></div>
-                    <%= f.text_area :text, placeholder: "Текст отзыва", required: true %>
+                    <%= f.text_area :text, placeholder: "Review text", required: true %>
                     <%= f.hidden_field :star, id:"star_counter", value:"5" %>
                     <%# recaptcha_v3(action: 'create') %>
                     <%= recaptcha_tags %>
-                    <%= f.submit "Отправить отзыв" %>
+                    <%= f.submit "Send" %>
                 <% end %>
                 <div class="clear"></div>
             </div>
             <div class="bl_otz">
-                <div class="zag">Отзывы</div>
+                <div class="zag">Reviews</div>
                 <%= render "review" %>
             </div>
             <div class="clear"></div>

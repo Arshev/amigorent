@@ -3,7 +3,7 @@
 <%= render 'shared/header', cached: true %>
 <div class="block1">
     <div class="wrapper">
-        <h1 class="text1"><%= @main_h1_text.html_safe %></h1>
+        <h1 class="text1"><%= @text.main_h1_text_en.html_safe %></h1>
         <div class="text2">You are always at the helm with us!</div>
         <div class="text3"><a href="tel:+79217101615">+7 (921) 710-16-15</a></div>
         <%= link_to "Rental prices", prices_en_path, class: "zakaz" %>
@@ -13,7 +13,7 @@
 <div class="block2">
     <div class="wrapper">
         <div class="zag">QUICK BOOKING</div>
-        <div class="podzag"><%= @main_quick_booking_text.html_safe %></div>
+        <div class="podzag"><%= @text.main_quick_booking_text_en.html_safe %></div>
         <div class="perekl">
             <label>
                 <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
@@ -125,7 +125,7 @@
         <div class="podzag">Car rental Amigo provides car rental services and rental cars of various classes without a driver <br />and with a driver in Kaliningrad and the region. We deliver the car directly to the client.</div>
         <div class="col1">
             <div class="zg">Our Mission</div>
-            <div class="podp"><%= @main_mission_text.html_safe %></div>
+            <div class="podp"><%= @text.main_mission_text_en.html_safe %></div>
             <div class="pre">
               <%= image_tag "pr1.png", alt: "Customer is our friend", title: "Customer is our friend" %>
               Customer is our friend!
@@ -153,7 +153,7 @@
         </div>
         <div class="col1">
             <div class="zg">Our advantages</div>
-            <div class="podp"><%= @main_edge_text.html_safe %></div>
+            <div class="podp"><%= @text.main_edge_text_en.html_safe %></div>
             <div class="pere opened">
                 <div class="za">
                   <%= image_tag "pe1.png", alt: "выгодные условия по КАСКО", title: "выгодные условия по КАСКО" %>

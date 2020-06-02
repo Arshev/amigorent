@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
   before_action :authenticate_user!
   before_action :is_authorised
-  before_action :set_text, only: [:text_main, :text_other, :text_metatags, :cities, :text_pages]
+  before_action :set_text, only: [:text_main, :text_other, :text_metatags, :cities, :text_pages, :translations]
   before_action :set_car, only: [:edit_car, :upload_photos]
   before_action :set_booking, only: [:edit_booking]
   before_action :set_delivery, only: [:edit_delivery]
@@ -59,6 +59,9 @@ class AdminsController < ApplicationController
     @reviews = CarReview.all
     render 'admins/reviews/index'
   end
+  def translations
+  end
+  
 
   private
 

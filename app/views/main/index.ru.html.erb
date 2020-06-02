@@ -1,9 +1,9 @@
-<% title @main_title %>
-<% description @main_description %>
+<% title @text.main_title %>
+<% description @text.main_description %>
 <%= render 'shared/header', cached: true %>
 <div class="block1">
     <div class="wrapper">
-        <h1 class="text1"><%= @main_h1_text.html_safe %></h1>
+        <h1 class="text1"><%= @text.main_h1_text.html_safe %></h1>
         <div class="text2">С нами ты всегда у руля!</div>
         <div class="text3"><a href="tel:+79217101615">+7 (921) 710-16-15</a></div>
         <%= link_to "Цены на аренду", prices_path, class: "zakaz" %>
@@ -13,7 +13,7 @@
 <div class="block2">
     <div class="wrapper">
         <div class="zag">Быстрая заявка</div>
-        <div class="podzag"><%= @main_quick_booking_text.html_safe %></div>
+        <div class="podzag"><%= @text.main_quick_booking_text.html_safe %></div>
         <div class="perekl">
             <label>
                 <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
@@ -125,7 +125,7 @@
         <div class="podzag">Автопрокат Амиго предоставляет услуги по прокату авто и аренде автомобилей различных классов без водителя <br />и с водителем в Калининграде и области. Мы осуществляем доставку машины прямо к клиенту.</div>
         <div class="col1">
             <div class="zg">Наша Миссия</div>
-            <div class="podp"><%= @main_mission_text.html_safe %></div>
+            <div class="podp"><%= @text.main_mission_text.html_safe %></div>
             <div class="pre">
               <%= image_tag "pr1.png", alt: "Клиент наш друг", title: "Клиент наш друг" %>
               Клиент наш друг!
@@ -153,7 +153,7 @@
         </div>
         <div class="col1">
             <div class="zg">Наши Преимущества</div>
-            <div class="podp"><%= @main_edge_text.html_safe %></div>
+            <div class="podp"><%= @text.main_edge_text.html_safe %></div>
             <div class="pere opened">
                 <div class="za">
                   <%= image_tag "pe1.png", alt: "выгодные условия по КАСКО", title: "выгодные условия по КАСКО" %>

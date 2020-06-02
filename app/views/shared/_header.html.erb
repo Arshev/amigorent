@@ -5,7 +5,13 @@
       <span></span>
       <span></span>
     </div>
-    <div class="privet"><%= @main_up_text.html_safe %></div>
+    <div class="privet">
+      <% if I18n.locale == :en %>
+        <%= @text.main_up_text_en.html_safe %>
+      <% else %>
+        <%= @text.main_up_text.html_safe %>
+      <% end %>
+    </div>
     <div class="transl">
       <%= link_to root_path(locale: :en) do %>
         <%= image_tag "tr1.png", alt: "English", title: "English" %>

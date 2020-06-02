@@ -1,13 +1,11 @@
 class CarsController < ApplicationController
   before_action :set_car, except: [:index, :new, :create]
+  before_action :set_text, only: [:index, :show]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :update, :destroy]
 
   def index
     @cars = Car.where(active: true)
-    @main_up_text = Text.first.main_up_text
-    @cars_title = Text.first.cars_title
-    @cars_description = Text.first.cars_description
   end
 
   def new
@@ -32,10 +30,6 @@ class CarsController < ApplicationController
   end
 
   def show
-    @main_up_text = Text.first.main_up_text
-    @car_title = Text.first.car_title + " " + @car.car_name
-    @car_description = Text.first.car_description + " " + @car.car_name
-
     @reviews = @car.car_reviews.limit(10)
     @new_review = CarReview.new
   end
@@ -76,6 +70,10 @@ class CarsController < ApplicationController
 
     def is_ready_car
       !@car.active && !@car.price_1.blank? && !@car.price_2.blank? && !@car.price_3.blank? && !@car.price_4.blank? && !@car.price_5.blank? && !@car.price_hour.blank? && !@car.price_main.blank? && !@car.car_name.blank? && @car.images?
+    end
+
+    def set_text
+      @text = Text.first
     end
 
     def car_params

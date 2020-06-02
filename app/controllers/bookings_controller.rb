@@ -2,26 +2,24 @@ class BookingsController < ApplicationController
 
   before_action :set_booking, only: [:show, :update]
   before_action :authenticate_user!, only: [:show, :index]
+  before_action :set_text, only: [:success, :new]
 
-  def create
-    @booking = Booking.new(booking_params)
-    if @booking.valid? && @booking.save
-      redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
-      BookingMailer.with(booking: @booking).new_booking_email.deliver_later
-      @booking.send_sms
-      begin
-        @booking.send_tg_message
-      rescue => exception
-          puts exception
-          logger.debug exception
-      end
-    else
-      redirect_to root_path, alert: "Что то пошло не так!"
-    end
-  end
-
-  def show
-  end
+  # def create
+  #   @booking = Booking.new(booking_params)
+  #   if @booking.valid? && @booking.save
+  #     redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
+  #     BookingMailer.with(booking: @booking).new_booking_email.deliver_later
+  #     @booking.send_sms
+  #     begin
+  #       @booking.send_tg_message
+  #     rescue => exception
+  #         puts exception
+  #         logger.debug exception
+  #     end
+  #   else
+  #     redirect_to root_path, alert: "Что то пошло не так!"
+  #   end
+  # end
 
   def update
     if @booking.update(booking_params)
@@ -33,8 +31,6 @@ class BookingsController < ApplicationController
   end
 
   def success
-    @success_text = Text.first.success
-    @main_up_text = Text.first.main_up_text
   end
 
   def accept
@@ -60,9 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @bookings_title = Text.first.bookings_title
-    @bookings_description = Text.first.bookings_description
-    @main_up_text = Text.first.main_up_text
     @booking = Booking.new
     if params[:car_id]
       @car = Car.find(params[:car_id])
@@ -72,6 +65,9 @@ class BookingsController < ApplicationController
   end
 
   private
+    def set_text
+      @text = Text.first
+    end
 
     def set_booking
       @booking = Booking.find(params[:id])

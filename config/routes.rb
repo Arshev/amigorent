@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get 'text_pages'
       get 'cities'
       get 'reviews' => "admins#reviews"
+      get 'translations'
     end
   end
   

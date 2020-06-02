@@ -1,5 +1,5 @@
-<% title @terms_title %>
-<% description @terms_description %>
+<% title @text.terms_title_en %>
+<% description @text.terms_description_en %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
@@ -8,37 +8,37 @@
       <div class="bl_usloviya">
           <div class="bl_uslo">
               <div class="zg">The main ones:</div>
-              <%= @text.term_common.html_safe %>
+              <%= @text.term_common_en.html_safe %>
         </div>
           <div class="bl_uslo">
               <div class="zg">Documents:</div>
-              <%= @text.term_docs.html_safe %>
+              <%= @text.term_docs_en.html_safe %>
           </div>
           <div class="bl_uslo">
               <div class="zg">For foreign citizens:</div>
-              <%= @text.term_gringo.html_safe %>
+              <%= @text.term_gringo_en.html_safe %>
           </div>
           <div class="bl_uslo">
               <div class="zg">For organizations:</div>
-              <%= @text.term_companies.html_safe %>
+              <%= @text.term_companies_en.html_safe %>
           </div>
           <div class="bl_uslo">
               <div class="zg">Everything for the client:</div>
-              <%= @text.term_clients.html_safe %>
+              <%= @text.term_clients_en.html_safe %>
           </div>
           <div class="bl_uslo">
               <div class="zg">Conditions for providing a car without a franchise for insurance - option <br />"Full guarantee" (Full insurance):</div>
-              <%= @text.term_no_franchise.html_safe %>
+              <%= @text.term_no_franchise_en.html_safe %>
           </div>
           <div class="bl_uslo">
               <div class="zg">Other conditions:</div>
-              <%= @text.term_other.html_safe %>
+              <%= @text.term_other_en.html_safe %>
           </div>
           <div class="bl_uslo">
               <div class="zg">Conditions for issuing a car abroad:</div>
-              <%= @text.term_abroad.html_safe %>
+              <%= @text.term_abroad_en.html_safe %>
           </div>
-          <p class="niz"><%= @text.term_bottom.html_safe %></p>
+          <p class="niz"><%= @text.term_bottom_en.html_safe %></p>
           <div class="clear"></div>
       </div>
       <div class="clear"></div>

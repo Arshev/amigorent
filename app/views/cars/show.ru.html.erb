@@ -1,5 +1,5 @@
-<% title "Аренда автомобиля " + @car.car_name + " в Калининграде | Амиго" %>
-<% description "✔️ Взять в аренду #{@car.car_name} в Калининграде. Прокат автомобиля #{@car.car_name} в автопрокате Амиго в Калининграде. Бронируйте на сайте." %>
+<% title @text.car_title + " " + @car.car_name + " в Калининграде | Амиго" %>
+<% description @text.car_description + " " + "#{@car.car_name} в Калининграде. Прокат автомобиля #{@car.car_name} в автопрокате Амиго в Калининграде. Бронируйте на сайте." %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">

@@ -3,8 +3,13 @@
   <div class="wrapper">
         <%= render 'shared/bread'%>
     <div class="bl_full_statya" style="color: black;">
-        <h1>Пользовательское соглашение</h1>
-        <%= @conditions_text.html_safe %>
+        <% if I18n.locale == :en %>
+          <h1>Terms of Use</h1>
+          <%= @text.conditions_en.html_safe %>
+        <% else %>
+          <h1>Пользовательское соглашение</h1>
+          <%= @text.conditions.html_safe %>
+        <% end %>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>

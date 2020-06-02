@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+
+  before_action :set_text, only: [:index]
+
   def create
     @review = Review.new(review_params)
     recaptcha_valid = verify_recaptcha(model:@review)
@@ -16,11 +19,6 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.paginate(page: params[:page])
-
-    @main_up_text = Text.first.main_up_text
-    
-    @reviews_title = Text.first.reviews_title
-    @reviews_description = Text.first.reviews_description
   end
 
   def destroy
@@ -41,5 +39,8 @@ class ReviewsController < ApplicationController
   private
     def review_params
       params.require(:review).permit(:text, :star, :active, :name, :email)
+    end
+    def set_text
+      @text = Text.first
     end
 end

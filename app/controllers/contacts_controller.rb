@@ -1,5 +1,8 @@
 class ContactsController < ApplicationController
+  before_action :set_text, only: [:index]
+
   invisible_captcha only: [:create], honeypot: :subtitle, on_spam: :spam_callback
+
   def index
     @main_up_text = Text.first.main_up_text
 
@@ -30,6 +33,9 @@ class ContactsController < ApplicationController
 
   def spam_callback
     redirect_to contacts_path, alert: "Вы похожи на робота!"
+  end
+  def set_text
+    @text = Text.first
   end
   
 end

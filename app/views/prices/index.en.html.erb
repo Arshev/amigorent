@@ -1,12 +1,12 @@
-<% title @prices_title %>
-<% description @prices_description %>
+<% title @text.prices_title_en %>
+<% description @text.prices_description_en %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
         <%= render 'shared/bread'%>
         <div class="bl_ceny">
             <h1>Prices</h1>
-            <div class="podp"><%= @prices_text.html_safe %></div>
+            <div class="podp"><%= @text.prices_text_en.html_safe %></div>
             <table class="lipkaya">
                 <thead>
                     <tr>
@@ -511,7 +511,7 @@
                   <% end %>
                 </tbody>
             </table>
-            <p class="niz"><%= @prices_bottom_text.html_safe %></p>
+            <p class="niz"><%= @text.prices_bottom_text_en.html_safe %></p>
             <div>
               <a name="dop-table"></a>
               <div class="bl_dop">
@@ -527,17 +527,17 @@
                     <tbody>
                         <tr>
                             <td>Child seat / booster</td>
-                            <td><%= @dop_table_kreslo_dayprice %></td>
-                            <td><%= @dop_table_kreslo_allprice %></td>
+                            <td><%= @text.dop_table_kreslo_dayprice %></td>
+                            <td><%= @text.dop_table_kreslo_allprice %></td>
                         </tr>
                         <tr>
                             <td>GPS navigator</td>
-                            <td><%= @dop_table_navigator_dayprice %></td>
-                            <td><%= @dop_table_navigator_dayprice %></td>
+                            <td><%= @text.dop_table_navigator_dayprice %></td>
+                            <td><%= @text.dop_table_navigator_dayprice %></td>
                         </tr>
                     </tbody>
                 </table>
-                <p><%= @dop_table_downtext.html_safe %></p>
+                <p><%= @text.dop_table_downtext_en.html_safe %></p>
                 <div class="clear"></div>
             </div>
             </div>
