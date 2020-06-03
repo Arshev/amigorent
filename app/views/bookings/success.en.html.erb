@@ -1,0 +1,47 @@
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+        <%= render 'shared/bread'%>
+    <div class="success_page" style="text-align:center;">
+        <h1 style="text-align:center;">Вы успешно подали заявку на бронирование автомобиля</h1>
+        <p style="text-align:center;">
+          <%= image_tag "galka.png", style: "width:100px;", alt: "Галочка", title: "Галочка" %>
+        </p>
+        <p>Мы свяжемся с вами в ближайщее время, если этого не произойдет, позвоните нам!</p>
+        <p>Чтобы процесс оформления договора аренды был быстрее, пришлите нам фото паспорта (первая страница и прописка) и водительского удостоверения.</p>
+        <p>На почту: <a href="mailto:amigorent@ya.ru">amigorent@ya.ru</a></p>
+        <p>Мессенджеры:
+          <a href="https://wa.me/79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
+            <%= image_tag "whatsapp.png", style: "width:30px;", alt: "whatsapp", title: "whatsapp" %>
+          </a>
+          <a href="https://viber.click/79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
+            <%= image_tag "viber.png", style: "width:30px;", alt: "viber", title: "viber" %>
+          </a>
+          <a href="https://t.me/amigorent_ru" style="text-decoration: none;" rel="nofollow" target="_blank">
+            <%= image_tag "telegram.png", style: "width:30px;", alt: "telegram", title: "telegram" %>
+          </a>
+        </p>
+        <h2>
+            Чтобы быть в курсе актуальных новостей, акций и спецпредложений, подпишитесь на нас в соцсетях:
+        </h2>
+        <div class="social">
+            <a href="https://instagram.com/amigorent" style="text-decoration: none;" rel="nofollow" target="_blank">
+              <%= image_tag "s1.png", alt: "instagram", title: "instagram" %>
+            </a>
+            <a href="https://vk.com/amigorent" style="text-decoration: none;" target="_blank" rel="nofollow" >
+              <%= image_tag "s2.png", alt: "vk", title: "vk"  %>
+            </a>
+            <a href="https://www.facebook.com/amigorent" style="text-decoration: none;" target="_blank" rel="nofollow" >
+              <%= image_tag "s3.png", alt: "facebook", title: "facebook"  %>
+            </a>
+            <a href="https://www.youtube.com/c/amigorent" style="text-decoration: none;" rel="nofollow" target="_blank">
+              <%= image_tag "s4.png", style: "wigth:25px;height:25px;", alt: "youtube", title: "youtube" %>
+            </a>
+        </div>
+        <%= @text.success_en.html_safe %>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>
