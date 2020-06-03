@@ -3,14 +3,10 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_authorised, only: [:update, :destroy]
+  before_action :set_text, only: [:index, :show]
 
   def index
     @articles = Article.paginate(page: params[:page])
-    @main_up_text = Text.first.main_up_text
-
-    @articles_title = Text.first.articles_title
-    @articles_description = Text.first.articles_description
-    @articles_h1 = Text.first.articles_h1
   end
 
   def create
@@ -32,7 +28,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @main_up_text = Text.first.main_up_text
   end
 
   def destroy
@@ -44,6 +39,10 @@ class ArticlesController < ApplicationController
   private
     def article_params
       params.require(:article).permit(:text, :title, :description, :image)
+    end
+
+    def set_text
+      @text = Text.first
     end
 
     def set_article

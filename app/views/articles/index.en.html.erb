@@ -1,9 +1,9 @@
-<% title @articles_title %>
-<% description @articles_description %>
+<% title @text.articles_title_en %>
+<% description @text.articles_description_en %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
-        <div class="zagoll_news"><%= @articles_h1 %></div>
+        <div class="zagoll_news"><%= @text.articles_h1_en %></div>
         <%= render 'shared/bread'%>
         <h1>News and Promotions</h1>
         <div class="bl_news">

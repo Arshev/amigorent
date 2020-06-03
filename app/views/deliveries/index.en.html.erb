@@ -1,32 +1,32 @@
-<% title @text.deliveries_title %>
-<% description @text.deliveries_description %>
+<% title @text.deliveries_title_en %>
+<% description @text.deliveries_description_en %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
         <%= render 'shared/bread'%>
         <div class="bl_dop">
-            <h1>Цены на доставку/возврат вне офиса</h1>
+            <h1>Delivery / Return outside office prices</h1>
             <table class="var2">
                 <thead>
                     <tr>
-                        <td rowspan="2">Пункт доставки/возврата</td>
-                        <td colspan="2">Цена, руб.</td>
+                        <td rowspan="2">Delivery / Return Point</td>
+                        <td colspan="2">Price, rub.</td>
                     </tr>
                     <tr>
-                        <td><%= @dop_table_worktime %></td>
-                        <td><%= @dop_table_endtime %></td>
+                        <td><%= @text.dop_table_worktime %></td>
+                        <td><%= @text.dop_table_endtime %></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Калининград (до окружной)</td>
-                        <td><%= @dop_table_city_price_worktime %></td>
-                        <td><%= @dop_table_city_price_endtime %></td>
+                        <td>Kaliningrad (to the district)</td>
+                        <td><%= @text.dop_table_city_price_worktime %></td>
+                        <td><%= @text.dop_table_city_price_endtime %></td>
                     </tr>
                     <tr>
                         <td>
                             <%= link_to arenda_avto_aeroport_hrabrovo_path do %>
-                                Аэропорт Храброво
+                                Khrabrovo Airport
                             <% end %>
                         </td>
                         <td><%= @text.aeroport_price %></td>
@@ -35,7 +35,7 @@
                     <tr>
                         <td>
                             <%= link_to arenda_avto_zelenogradsk_path do %>
-                                Зеленоградск
+                                Zelenogradsk
                             <% end %>
                         </td>
                         <td><%= @text.zelenogradsk_price %></td>
@@ -44,7 +44,7 @@
                     <tr>
                         <td>
                             <%= link_to arenda_avto_svetlogorsk_path do %>
-                                Светлогорск
+                                Svetlogorsk
                             <% end %>
                         </td>
                         <td><%= @text.svetlogorsk_price %></td>
@@ -53,7 +53,7 @@
                     <tr>
                         <td>
                             <%= link_to arenda_avto_yantarnyi_path do %>
-                                Янтарный
+                                Yantarniy
                             <% end %>
                         </td>
                         <td><%= @text.yantarnyi_price %></td>
@@ -62,7 +62,7 @@
                     <tr>
                         <td>
                             <%= link_to arenda_avto_baltyisk_path do %>
-                                Балтийск
+                                Baltiysk
                             <% end %>
                         </td>
                         <td><%= @text.baltyisk_price %></td>
@@ -71,7 +71,7 @@
                     <tr>
                         <td>
                             <%= link_to arenda_avto_pionerskyi_path do %>
-                                Пионерский
+                                Pionerskiy
                             <% end %>
                         </td>
                         <td><%= @text.pionerskyi_price %></td>
@@ -80,7 +80,7 @@
                     <tr>
                         <td>
                             <%= link_to arenda_avto_chernyahovsk_path do %>
-                                Черняховск
+                                Chernyakhovsk
                             <% end %>
                         </td>
                         <td><%= @text.chernyahovsk_price %></td>
@@ -89,7 +89,7 @@
                 </tbody>
             </table>
             <p>
-                Доставка арендованного автомобиля осуществляется в любую точку города Калининграда и Калининградской области. Стоимость доставки зависит от расстояния и времени суток. Если вы заказали доставку машины заблаговременно, то мы готовы доставить авто к вам и выдать в прокат в любое время суток. С ценами доставки автомобиля в разные города Калининградской области можете ознакомиться в таблице выше. Если вас интересует доставка в другой населенный пункт – звоните, и мы рассчитаем стоимость. Автопрокат Амиго – это максимально комфортные для клиента услуги и условия. 
+                The rental car may be delivered to anywhere in Kaliningrad and  Kaliningrad region. Delivery cost depends on the distance and time of  the day. If you ordered the delivery of the car in advance, then we are ready to deliver the car to you and rent it out at any time of the day. You can find the prices for delivering a car to different cities of the Kaliningrad region in the table above. If you are interested in delivery to another locality - call and we will calculate the cost. Car rental Amigo is the most comfortable  services and conditions for the client.  
             </p>
             <div class="clear"></div>
         </div>

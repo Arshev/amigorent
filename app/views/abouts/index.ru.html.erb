@@ -1,5 +1,5 @@
-<% title @abouts_title %>
-<% description @abouts_description %>
+<% title @text.abouts_title %>
+<% description @text.abouts_description %>
 <%= render 'shared/header' %>
 <div class="content">
     <div class="wrapper">
@@ -7,7 +7,7 @@
         <h1>О нас</h1>
         <div class="bl_about">
             <div class="text">
-                <%= @about_text.html_safe %>
+                <%= @text.about_text.html_safe %>
             </div>
             <h1>Наши партнеры:</h1>
             <div class="spis_partn">

@@ -1,5 +1,4 @@
 class TermsController < ApplicationController
-
   before_action :set_text
 
   def index
