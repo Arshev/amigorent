@@ -1,0 +1,57 @@
+<% title @text.pionerskyi_title_en %>
+<% description @text.pionerskyi_description_en %>
+<%= render 'shared/header', cached: true %>
+  <div class="bl_topp" style="background:url(<%= asset_path("bg_zelenogradsk.jpg")%>) no-repeat center top transparent;">
+    <div class="wrapper">
+      <h1><%= @text.pionerskyi_h1_en %></h1>
+      <%= render 'advantages' %>
+    </div>
+  </div>
+  <div class="content">
+      <div class="wrapper">
+          <div class="bread">
+              <a href="/">Главная /</a> Пионерский
+          </div>
+          <div class="bl_dop">
+              <h1>Цены на доставку в Пионерский</h1>
+              <table class="var2">
+                  <thead>
+                      <tr>
+                          <td rowspan="2">Пункт доставки/возврата</td>
+                          <td colspan="2">Цена, руб.</td>
+                      </tr>
+                      <tr>
+                          <td>09:00 - 19:00</td>
+                          <td>19:00 - 09:00</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Пионерский</td>
+                          <td><%= @text.pionerskyi_price %></td>
+                          <td><%= @text.pionerskyi_price_unwork %></td>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="clear"></div>
+          </div>
+          <div class="bl_full_text">
+              <%= @text.pionerskyi_text_en.html_safe %>
+              <div class="clear"></div>
+          </div>
+          <br />
+          <div class="block4">
+              <div class="wrapper">
+                  <div class="zag"><%= @text.pionerskyi_avto_en %></div>
+                  <div class="spis_avto">
+                      <%= render "cars"%>
+                      <div class="clear"></div>
+                  </div>
+                  <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
+                  <div class="clear"></div>
+              </div>
+          </div>
+          <div class="clear"></div>
+      </div>
+  </div>
+<%= render 'shared/footer', cached: true %>

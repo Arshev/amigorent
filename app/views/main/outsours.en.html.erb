@@ -1,0 +1,17 @@
+<% title @text.outsours_title_en %>
+<% description @text.outsours_description_en %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+        <%= render 'shared/bread'%>
+    <div class="bl_dop">
+        <h1><%= @text.outsours_h1_en %></h1>
+        <div>
+          <%= @text.outsours_text_en.html_safe %>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>
