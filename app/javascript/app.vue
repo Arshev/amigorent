@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <div class="pol1">
-      <div class="zg">Выбранный автомобиль</div>
+      <div class="zg" v-if="locale=='en'">Selected car</div>
+      <div class="zg" v-else >Выбранный автомобиль</div>
         <template v-if="carId === ''">
             <select v-model="carName" class="select_booking_form">
-              <option class="select_booking_form" disabled value="" >Выберите автомобиль</option>
+              <option class="select_booking_form" disabled value="" v-if="locale=='en'" >Select car</option>
+              <option class="select_booking_form" disabled value="" v-else >Выберите автомобиль</option>
               <option v-for="name in carNames" :key="name.index" class="select_booking_form">{{ name }}</option>
             </select>
           </template>
@@ -14,55 +16,92 @@
             </select>
           </template>
       <div class="cha1">
-          <div class="zg">Имя<span>*</span></div>
+          <div class="zg" v-if="locale=='en'">Name<span>*</span></div>
+          <div class="zg" v-else >Имя<span>*</span></div>
           <span style="color: tomato;" v-if="!$v.nameClient.minLength"> - должно содержать минимум {{$v.nameClient.$params.minLength.min}} буквы</span>
           <span style="color: tomato;" v-if="!$v.nameClient.maxLength"> - должно содержать максимум {{$v.nameClient.$params.maxLength.max}} букв</span>
-          <input type="text" v-model.trim.lazy="$v.nameClient.$model" placeholder="Введите имя" v-bind:class="{ 'error-input': nameError }" required>
+          <input type="text" v-if="locale=='en'" v-model.trim.lazy="$v.nameClient.$model" placeholder="Input name" v-bind:class="{ 'error-input': nameError }" required>
+          <input type="text" v-else v-model.trim.lazy="$v.nameClient.$model" placeholder="Введите имя" v-bind:class="{ 'error-input': nameError }" required>
       </div>
       <div class="cha1">
-          <div class="zg">Фамилия<span>*</span></div>
+          <div class="zg" v-if="locale=='en'">Lastname<span>*</span></div>
+          <div class="zg" v-else >Фамилия<span>*</span></div>
           <span style="color: tomato;" v-if="!$v.lastnameClient.minLength"> - должна содержать минимум {{$v.lastnameClient.$params.minLength.min}} буквы</span>
           <span style="color: tomato;" v-if="!$v.lastnameClient.minLength"> - должна содержать минимум {{$v.lastnameClient.$params.minLength.min}} буквы</span>
-          <input v-model.trim.lazy="$v.lastnameClient.$model" placeholder="Введите фамилию" v-bind:class="{ 'error-input': lastnameError }" >
+          <input v-if="locale=='en'" v-model.trim.lazy="$v.lastnameClient.$model" placeholder="Input lastname" v-bind:class="{ 'error-input': lastnameError }" >
+          <input v-else v-model.trim.lazy="$v.lastnameClient.$model" placeholder="Введите фамилию" v-bind:class="{ 'error-input': lastnameError }" >
       </div>
       <div class="clear"></div>
       <div class="cha1">
           <div class="zg">Email<span>*</span></div>
           <span style="color: tomato;" v-if="!$v.emailClient.email"> - неправильный Email</span>
-          <input v-model.trim.lazy="$v.emailClient.$model" placeholder="Введите email" v-bind:class="{ 'error-input': emailError }" >
+          <input v-if="locale=='en'" v-model.trim.lazy="$v.emailClient.$model" placeholder="Input email" v-bind:class="{ 'error-input': emailError }" >
+          <input v-else v-model.trim.lazy="$v.emailClient.$model" placeholder="Введите email" v-bind:class="{ 'error-input': emailError }" >
       </div>
       <div class="cha1">
-          <div class="zg">Телефон<span>*</span></div>
+          <div class="zg" v-if="locale=='en'" >Phone<span>*</span></div>
+          <div class="zg" v-else >Телефон<span>*</span></div>
           <span style="color: tomato;" v-if="!$v.phoneClient.minLength"> - неправильный телефон</span>
-          <input v-model.trim.lazy="$v.phoneClient.$model" type="tel" placeholder="Введите телефон" class="form-control" v-bind:class="{ 'error-input': phoneError }">
+          <input v-if="locale=='en'" v-model.trim.lazy="$v.phoneClient.$model" type="tel" placeholder="Input phone" class="form-control" v-bind:class="{ 'error-input': phoneError }">
+          <input v-else v-model.trim.lazy="$v.phoneClient.$model" type="tel" placeholder="Введите телефон" class="form-control" v-bind:class="{ 'error-input': phoneError }">
       </div>
       <div class="clear"></div>
       <div class="cha1">
-          <div class="zg">Дата и время начала аренды<span>*</span></div>
-          <flat-pickr v-model="dateStart" :config="configStart" placeholder="Дата и время начала аренды" id="startDate" v-bind:class="{ 'error-input': dateStartError }"></flat-pickr>
+          <div class="zg" v-if="locale=='en'" >Date and time of rental start<span>*</span></div>
+          <div class="zg" v-else >Дата и время начала аренды<span>*</span></div>
+          <flat-pickr v-if="locale=='en'" v-model="dateStart" :config="configStart" placeholder="Date and time of rental start" id="startDate" v-bind:class="{ 'error-input': dateStartError }"></flat-pickr>
+          <flat-pickr v-else v-model="dateStart" :config="configStart" placeholder="Дата и время начала аренды" id="startDate" v-bind:class="{ 'error-input': dateStartError }"></flat-pickr>
       </div>
       <div class="cha1">
-          <div class="zg">Окончание аренды<span>*</span></div>
-          <flat-pickr v-model="dateEnd" :config="configEnd" placeholder="Дата и время окончания аренды" required></flat-pickr>
+          <div class="zg" v-if="locale=='en'" >Rental end<span>*</span></div>
+          <div class="zg" v-else >Окончание аренды<span>*</span></div>
+          <flat-pickr v-if="locale=='en'" v-model="dateEnd" :config="configEnd" placeholder="Date and time of rental end" required></flat-pickr>
+          <flat-pickr v-else v-model="dateEnd" :config="configEnd" placeholder="Дата и время окончания аренды" required></flat-pickr>
+
       </div>
       <div class="clear"></div>
       <div class="cha1">
-          <div class="zg">Место получения авто<span>*</span></div>
-          <select v-model="locationStart" class="select_booking_form" >
+          <div class="zg" v-if="locale=='en'" >Place of car<span>*</span></div>
+          <div class="zg" v-else >Место получения авто<span>*</span></div>
+          <select v-if="locale=='en'" v-model="locationStart" class="select_booking_form" >
+            <option value="Офис">Office (free)</option>
+            <option v-for="location in locations_en" :key="location.index" >{{ location }}</option>
+          </select>
+          <select v-else v-model="locationStart" class="select_booking_form" >
             <option value="Офис">Офис (бесплатно)</option>
             <option v-for="location in locations" :key="location.index" >{{ location }}</option>
           </select>
       </div>
       <div class="cha1">
-          <div class="zg">Место возврата авто<span>*</span></div>
-          <select v-model="locationEnd" class="select_booking_form" >
+          <div class="zg" v-if="locale=='en'" >Place of car return<span>*</span></div>
+          <div class="zg" v-else >Место возврата авто<span>*</span></div>
+          <select v-if="locale=='en'" v-model="locationEnd" class="select_booking_form" >
+            <option value="Офис">Office (free)</option>
+            <option v-for="location in locations_en" :key="location.index" >{{ location }}</option>
+          </select>
+          <select v-else v-model="locationEnd" class="select_booking_form" >
             <option value="Офис">Офис (бесплатно)</option>
             <option v-for="location in locations" :key="location.index" >{{ location }}</option>
           </select>
       </div>
       <div class="clear"></div>
     </div>
-    <div class="pol2 sticky">
+    <div class="pol2 sticky" v-if="locale=='en'" >
+        <div class="zg">Cost</div>
+        <p>Name: <span class="booking_info">{{ carName }}</span></p>
+        <p>Cost (per day): <span class="booking_info"  v-if="price != null ">{{ price }} <small>rubles</small></span></p>
+        <p>Total days: <span class="booking_info" >{{ days }}</span></p>
+        <p v-if="(additional_hours * price_hour) > 0 && this.additional_hours * this.price_hour < this.price" >Additional hours <span class="booking_info">{{ additional_hours * price_hour }} <small>rubles</small></span></p>
+        <p v-if="(locationStartPrice + locationEndPrice) > 0" >Delivery <span class="booking_info">{{ locationStartPrice + locationEndPrice }} <small>rubles</small></span></p>
+        <p v-if="(babyChairPrice + navigatorPrice) > 0">Additional options <span class="booking_info">{{ babyChairPrice + navigatorPrice }} rubles</span></p>
+        <p class="itogo">Total: <span class="booking_info" v-if="price != null ">{{ total }} <small>rubles</small></span></p>
+        <p>Deposit: <span class="booking_info" v-if="deposit > 0">{{ deposit }} <small>rubles</small></span></p>
+        <a href="" onclick="return false;" @click="sendBooking()" class="otpr">Send Booking</a>
+        <ul id="errors">
+          <li v-for="error in errors" :key="error.index" class="errors">{{ error }}</li>
+        </ul>
+    </div>
+    <div class="pol2 sticky" v-else >
         <div class="zg">Стоимость</div>
         <p>Название: <span class="booking_info">{{ carName }}</span></p>
         <p>Цена (за сутки): <span class="booking_info"  v-if="price != null ">{{ price }} <small>руб</small></span></p>
@@ -79,17 +118,35 @@
     </div>
     <div class="clear"></div>
     <div class="dopoln">
-        <div class="zg2" style="margin-bottom:10px;font-size:22px;">Дополнительные опции</div>
-        <label>
+        <div v-if="locale=='en'" class="zg2" style="margin-bottom:10px;font-size:22px;">Additional options</div>
+        <div v-else class="zg2" style="margin-bottom:10px;font-size:22px;">Дополнительные опции</div>
+        <label v-if="locale=='en'">
+            <input type="checkbox" id="checkbox" value=true v-model="babyChair">
+            Baby chair
+        </label>
+        <label v-else>
             <input type="checkbox" id="checkbox" value=true v-model="babyChair">
             Детское кресло
         </label>
-        <label>
+        <label v-if="locale=='en'">
+            <input type="checkbox" id="checkbox" value=true v-model="navigator">
+            GPS navigator
+        </label>
+        <label v-else>
             <input type="checkbox" id="checkbox" value=true v-model="navigator">
             Навигатор
         </label>
-        <div class="zg2" style="margin-bottom:10px; font-size:22px;">Подтвердите согласие<span>*</span></div>
-        <label style="background-color:rgba(232, 28, 28, 0.2);">
+        <div v-if="locale=='en'" class="zg2" style="margin-bottom:10px; font-size:22px;">Confirm consent<span>*</span></div>
+        <div v-else class="zg2" style="margin-bottom:10px; font-size:22px;">Подтвердите согласие<span>*</span></div>
+        <label v-if="locale=='en'" style="background-color:rgba(232, 28, 28, 0.2);">
+            <input type="checkbox" id="checkbox" value="true" v-model="termsData">
+            I confirm that I have read the rental conditions: <a href="/terms" target="_blank">Terms</a>
+            <br />
+            <br />
+            <input type="checkbox" id="checkbox" value="true" v-model="personData">
+            I consent to the processing of personal data, according to <a href="https://base.garant.ru/12148567/" rel="nofollow">152-ФЗ</a>
+        </label>
+        <label v-else style="background-color:rgba(232, 28, 28, 0.2);">
             <input type="checkbox" id="checkbox" value="true" v-model="termsData">
             Подтверждаю, что ознакомился с условиями аренды: <a href="/terms" target="_blank">Условия</a>
             <br />
@@ -118,7 +175,7 @@ import moment from 'moment'
 flatpickr.localize(Russian);
 
 export default {
-  // props: ["allCarsFromView"],
+  props: ["locale"],
   data: function() {
     return {
       cars: [],
@@ -179,6 +236,13 @@ export default {
         'Зеленоградск', 
         'Другой адрес в Калининграде',
         'Офис'
+      ],
+      locations_en: [
+        'Airport', 
+        'Svetlogorsk', 
+        'Zelenogradsk', 
+        'Another address in Kaliningrad',
+        'Office'
       ],
       locationStart: 'Офис',
       locationEnd: 'Офис',
@@ -603,6 +667,26 @@ export default {
           this.locationStartPrice = 300
           this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           break;
+        case 'Office':
+          this.locationStartPrice = 0
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Airport':
+          this.locationStartPrice = 400
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Zelenogradsk':
+          this.locationStartPrice = 800
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Svetlogorsk':
+          this.locationStartPrice = 1000
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Another address in Kaliningrad':
+          this.locationStartPrice = 300
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
       }
     },
     locationEnd () {
@@ -624,6 +708,26 @@ export default {
           this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           break;
         case 'Другой адрес в Калининграде':
+          this.locationEndPrice = 300
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Office':
+          this.locationEndPrice = 0
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Airport':
+          this.locationEndPrice = 400
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Zelenogradsk':
+          this.locationEndPrice = 800
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Svetlogorsk':
+          this.locationEndPrice = 1000
+          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          break;
+        case 'Another address in Kaliningrad':
           this.locationEndPrice = 300
           this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           break;
