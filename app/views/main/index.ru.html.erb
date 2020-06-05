@@ -105,7 +105,7 @@
       <meta itemprop="itemReviewed" content="Прокат автомобилей Амиго"/>
         <div class="zag">Отзывы</div>
         <div style="margin-bottom: 30px;">
-            Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count%></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(1) %></span>
+            Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
         </div>
         <meta itemprop="itemReviewed" itemscope itemtype="http://schema.org/Organization">
         <meta itemprop="name" content="Прокат автомобилей Амиго">
