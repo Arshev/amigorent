@@ -13,11 +13,25 @@ module ApplicationHelper
   end
 
   def car_next
-    Car.where('id > ? and active = ?', params[:id], true ).first
+    car = Car.find(params[:id])
+    if car.sort && car.sort >= 0 && car.sort < Car.maximum(:sort)
+      Car.where('sort > ? and active = ?', car.sort, true ).first
+    elsif car.sort == Car.maximum(:sort)
+      Car.where(sort: Car.minimum(:sort)).first
+    else
+      Car.where('id > ? and active = ?', car.id, true ).first
+    end
   end
 
   def car_previous
-    Car.where('id < ? and active = ?', params[:id], true ).last
+    car = Car.find(params[:id])
+    if car.sort && car.sort >= 0 && car.sort > Car.minimum(:sort)
+      Car.where('sort < ? and active = ?', car.sort, true ).first
+    elsif car.sort == Car.minimum(:sort)
+      Car.where(sort: Car.maximum(:sort)).first
+    else
+      Car.where('id < ? and active = ?', car.id, true ).first
+    end
   end
 
   def car_rating(car_id)
