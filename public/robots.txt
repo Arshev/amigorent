@@ -2,7 +2,6 @@ User-agent: *
 Disallow: /public/uploads/
 Disallow: /users/
 Disallow: /admin/
-Disallow: /en/*
 Disallow: /conditions
 Disallow: /public/system/
 Disallow: /bookings/new?car_id=*
