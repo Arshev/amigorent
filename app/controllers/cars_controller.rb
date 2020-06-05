@@ -80,7 +80,7 @@ class CarsController < ApplicationController
       params.require(:car).permit(:car_name, :year, :color, :transmission, :is_air, :engine_capacity, 
       :is_electropackage, :car_class, :car_type, :price_1, :price_2, :price_3, :price_4, :price_5, 
       :old_price_1, :old_price_2, :old_price_3, :old_price_4, :old_price_5, :price_hour, :price_main, 
-      :deposit, :description, :fuel, :number_doors, :active, :sort, :show_on_main, :youtube, :main_image, 
+      :deposit, :description, :description_en, :fuel, :number_doors, :active, :sort, :show_on_main, :youtube, :main_image, 
       :power, :fuel_type, :drive_unit, :tth_note, :consumption, :number_seats, :clearance, :length, :width, :height, 
       :tank_capacity, :trunk_volume, :mass, :number_gears, :max_speed, :racing, :climat, :mirror, 
       :power_window_front, :power_window_back, :steering_wheel_height, :steering_wheel_adjustment, 

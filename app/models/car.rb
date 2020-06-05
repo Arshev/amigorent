@@ -8,6 +8,7 @@ class Car < ApplicationRecord
   mount_uploaders :images, ImagesUploader
 
   has_rich_text :description
+  has_rich_text :description_en
 
   default_scope {order('sort')}
 

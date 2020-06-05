@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_095941) do
+ActiveRecord::Schema.define(version: 2020_06_05_095153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_095941) do
     t.string "fuel_type", default: "empty"
     t.string "drive_unit", default: "empty"
     t.text "tth_note", default: "empty"
+    t.text "description_en", default: "empty"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
