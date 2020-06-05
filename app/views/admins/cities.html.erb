@@ -12,184 +12,263 @@
       </ol>
     </div>
     <div class="content">
-      <div class="row">
-        <%= form_for @text do |f| %>
-          <div class="col-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <h4 class="text-black">Аэропорт</h4>
-                <h3>Title</h3>
-                <%= f.text_field :aeroport_title, class: "form-control" %>
-                <h3>Description</h3>
-                <%= f.text_field :aeroport_description, class: "form-control" %>
-                <h3>Н1</h3>
-                <%= f.text_field :aeroport_h1, class: "form-control" %>
-                <h3>Над автомобилями</h3>
-                <%= f.text_field :aeroport_avto, class: "form-control" %>
-                <h3>Цена в рабочее время</h3>
-                <%= f.text_field :aeroport_price, class: "form-control" %>
-                <h3>Цена в нерабочее время</h3>
-                <%= f.text_field :aeroport_price_unwork, class: "form-control" %>
-                <h3>Текст</h3>
-                <%= f.cktext_area :aeroport_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+      <div class="container">
+        <div class="row">
+          <%= form_for @text do |f| %>
+            <div class="col-12">
+              <div class="card m-t-3">
+                <div class="card-body">
+                  <h4 class="text-black">Аэропорт</h4>
+                  <h3>Title</h3>
+                  <%= f.text_field :aeroport_title, class: "form-control" %>
+                  <h3>Description</h3>
+                  <%= f.text_field :aeroport_description, class: "form-control" %>
+                  <h3>Н1</h3>
+                  <%= f.text_field :aeroport_h1, class: "form-control" %>
+                  <h3>Над автомобилями</h3>
+                  <%= f.text_field :aeroport_avto, class: "form-control" %>
+                  <h3>Цена в рабочее время</h3>
+                  <%= f.text_field :aeroport_price, class: "form-control" %>
+                  <h3>Цена в нерабочее время</h3>
+                  <%= f.text_field :aeroport_price_unwork, class: "form-control" %>
+                  <h3>Текст</h3>
+                  <%= f.cktext_area :aeroport_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <hr>
+                  <h3>Title En</h3>
+                  <%= f.text_field :aeroport_title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :aeroport_description_en, class: "form-control" %>
+                  <h3>Н1 EN</h3>
+                  <%= f.text_field :aeroport_h1_en, class: "form-control" %>
+                  <h3>Над автомобилями EN</h3>
+                  <%= f.text_field :aeroport_avto_en, class: "form-control" %>
+                  <h3>Текст EN</h3>
+                  <%= f.cktext_area :aeroport_text_en, ckeditor: { language: 'en'}, class: "form-control" %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+                </div>
+                <br>
               </div>
-              <div class="text-center">
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-              <br>
             </div>
-          </div>
-          <div class="col-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <h4 class="text-black">Зеленоградск</h4>
-                <h3>Title</h3>
-                <%= f.text_field :zelenogradsk_title, class: "form-control" %>
-                <h3>Description</h3>
-                <%= f.text_field :zelenogradsk_description, class: "form-control" %>
-                <h3>Н1</h3>
-                <%= f.text_field :zelenogradsk_h1, class: "form-control" %>
-                <h3>Над автомобилями</h3>
-                <%= f.text_field :zelenogradsk_avto, class: "form-control" %>
-                <h3>Цена в рабочее время</h3>
-                <%= f.text_field :zelenogradsk_price, class: "form-control" %>
-                <h3>Цена в нерабочее время</h3>
-                <%= f.text_field :zelenogradsk_price_unwork, class: "form-control" %>
-                <h3>Текст</h3>
-                <%= f.cktext_area :zelenogradsk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+            <div class="col-12">
+              <div class="card m-t-3">
+                <div class="card-body">
+                  <h4 class="text-black">Зеленоградск</h4>
+                  <h3>Title</h3>
+                  <%= f.text_field :zelenogradsk_title, class: "form-control" %>
+                  <h3>Description</h3>
+                  <%= f.text_field :zelenogradsk_description, class: "form-control" %>
+                  <h3>Н1</h3>
+                  <%= f.text_field :zelenogradsk_h1, class: "form-control" %>
+                  <h3>Над автомобилями</h3>
+                  <%= f.text_field :zelenogradsk_avto, class: "form-control" %>
+                  <h3>Цена в рабочее время</h3>
+                  <%= f.text_field :zelenogradsk_price, class: "form-control" %>
+                  <h3>Цена в нерабочее время</h3>
+                  <%= f.text_field :zelenogradsk_price_unwork, class: "form-control" %>
+                  <h3>Текст</h3>
+                  <%= f.cktext_area :zelenogradsk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <hr>
+                  <h3>Title En</h3>
+                  <%= f.text_field :zelenogradsk_title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :zelenogradsk_description_en, class: "form-control" %>
+                  <h3>Н1 EN</h3>
+                  <%= f.text_field :zelenogradsk_h1_en, class: "form-control" %>
+                  <h3>Над автомобилями EN</h3>
+                  <%= f.text_field :zelenogradsk_avto_en, class: "form-control" %>
+                  <h3>Текст EN</h3>
+                  <%= f.cktext_area :zelenogradsk_text_en, ckeditor: { language: 'en'}, class: "form-control" %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+                </div>
+                <br>
               </div>
-              <div class="text-center">
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-              <br>
             </div>
-          </div>
-          <div class="col-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <h4 class="text-black">Светлогорск</h4>
-                <h3>Title</h3>
-                <%= f.text_field :svetlogorsk_title, class: "form-control" %>
-                <h3>Description</h3>
-                <%= f.text_field :svetlogorsk_description, class: "form-control" %>
-                <h3>Н1</h3>
-                <%= f.text_field :svetlogorsk_h1, class: "form-control" %>
-                <h3>Над автомобилями</h3>
-                <%= f.text_field :svetlogorsk_avto, class: "form-control" %>
-                <h3>Цена в рабочее время</h3>
-                <%= f.text_field :svetlogorsk_price, class: "form-control" %>
-                <h3>Цена в нерабочее время</h3>
-                <%= f.text_field :svetlogorsk_price_unwork, class: "form-control" %>
-                <h3>Текст</h3>
-                <%= f.cktext_area :svetlogorsk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+            <div class="col-12">
+              <div class="card m-t-3">
+                <div class="card-body">
+                  <h4 class="text-black">Светлогорск</h4>
+                  <h3>Title</h3>
+                  <%= f.text_field :svetlogorsk_title, class: "form-control" %>
+                  <h3>Description</h3>
+                  <%= f.text_field :svetlogorsk_description, class: "form-control" %>
+                  <h3>Н1</h3>
+                  <%= f.text_field :svetlogorsk_h1, class: "form-control" %>
+                  <h3>Над автомобилями</h3>
+                  <%= f.text_field :svetlogorsk_avto, class: "form-control" %>
+                  <h3>Цена в рабочее время</h3>
+                  <%= f.text_field :svetlogorsk_price, class: "form-control" %>
+                  <h3>Цена в нерабочее время</h3>
+                  <%= f.text_field :svetlogorsk_price_unwork, class: "form-control" %>
+                  <h3>Текст</h3>
+                  <%= f.cktext_area :svetlogorsk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <hr>
+                  <h3>Title En</h3>
+                  <%= f.text_field :svetlogorsk_title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :svetlogorsk_description_en, class: "form-control" %>
+                  <h3>Н1 EN</h3>
+                  <%= f.text_field :svetlogorsk_h1_en, class: "form-control" %>
+                  <h3>Над автомобилями EN</h3>
+                  <%= f.text_field :svetlogorsk_avto_en, class: "form-control" %>
+                  <h3>Текст EN</h3>
+                  <%= f.cktext_area :svetlogorsk_text_en, ckeditor: { language: 'en'}, class: "form-control" %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+                </div>
+                <br>
               </div>
-              <div class="text-center">
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-              <br>
             </div>
-          </div>
-          <div class="col-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <h4 class="text-black">Янтарный</h4>
-                <h3>Title</h3>
-                <%= f.text_field :yantarnyi_title, class: "form-control" %>
-                <h3>Description</h3>
-                <%= f.text_field :yantarnyi_description, class: "form-control" %>
-                <h3>Н1</h3>
-                <%= f.text_field :yantarnyi_h1, class: "form-control" %>
-                <h3>Над автомобилями</h3>
-                <%= f.text_field :yantarnyi_avto, class: "form-control" %>
-                <h3>Цена в рабочее время</h3>
-                <%= f.text_field :yantarnyi_price, class: "form-control" %>
-                <h3>Цена в нерабочее время</h3>
-                <%= f.text_field :yantarnyi_price_unwork, class: "form-control" %>
-                <h3>Текст</h3>
-                <%= f.cktext_area :yantarnyi_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+            <div class="col-12">
+              <div class="card m-t-3">
+                <div class="card-body">
+                  <h4 class="text-black">Янтарный</h4>
+                  <h3>Title</h3>
+                  <%= f.text_field :yantarnyi_title, class: "form-control" %>
+                  <h3>Description</h3>
+                  <%= f.text_field :yantarnyi_description, class: "form-control" %>
+                  <h3>Н1</h3>
+                  <%= f.text_field :yantarnyi_h1, class: "form-control" %>
+                  <h3>Над автомобилями</h3>
+                  <%= f.text_field :yantarnyi_avto, class: "form-control" %>
+                  <h3>Цена в рабочее время</h3>
+                  <%= f.text_field :yantarnyi_price, class: "form-control" %>
+                  <h3>Цена в нерабочее время</h3>
+                  <%= f.text_field :yantarnyi_price_unwork, class: "form-control" %>
+                  <h3>Текст</h3>
+                  <%= f.cktext_area :yantarnyi_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <hr>
+                  <h3>Title En</h3>
+                  <%= f.text_field :yantarnyi_title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :yantarnyi_description_en, class: "form-control" %>
+                  <h3>Н1 EN</h3>
+                  <%= f.text_field :yantarnyi_h1_en, class: "form-control" %>
+                  <h3>Над автомобилями EN</h3>
+                  <%= f.text_field :yantarnyi_avto_en, class: "form-control" %>
+                  <h3>Текст EN</h3>
+                  <%= f.cktext_area :yantarnyi_text_en, ckeditor: { language: 'en'}, class: "form-control" %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+                </div>
+                <br>
               </div>
-              <div class="text-center">
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-              <br>
             </div>
-          </div>
-          <div class="col-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <h4 class="text-black">Балтийск</h4>
-                <h3>Title</h3>
-                <%= f.text_field :baltyisk_title, class: "form-control" %>
-                <h3>Description</h3>
-                <%= f.text_field :baltyisk_description, class: "form-control" %>
-                <h3>Н1</h3>
-                <%= f.text_field :baltyisk_h1, class: "form-control" %>
-                <h3>Над автомобилями</h3>
-                <%= f.text_field :baltyisk_avto, class: "form-control" %>
-                <h3>Цена в рабочее время</h3>
-                <%= f.text_field :baltyisk_price, class: "form-control" %>
-                <h3>Цена в нерабочее время</h3>
-                <%= f.text_field :baltyisk_price_unwork, class: "form-control" %>
-                <h3>Текст</h3>
-                <%= f.cktext_area :baltyisk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+            <div class="col-12">
+              <div class="card m-t-3">
+                <div class="card-body">
+                  <h4 class="text-black">Балтийск</h4>
+                  <h3>Title</h3>
+                  <%= f.text_field :baltyisk_title, class: "form-control" %>
+                  <h3>Description</h3>
+                  <%= f.text_field :baltyisk_description, class: "form-control" %>
+                  <h3>Н1</h3>
+                  <%= f.text_field :baltyisk_h1, class: "form-control" %>
+                  <h3>Над автомобилями</h3>
+                  <%= f.text_field :baltyisk_avto, class: "form-control" %>
+                  <h3>Цена в рабочее время</h3>
+                  <%= f.text_field :baltyisk_price, class: "form-control" %>
+                  <h3>Цена в нерабочее время</h3>
+                  <%= f.text_field :baltyisk_price_unwork, class: "form-control" %>
+                  <h3>Текст</h3>
+                  <%= f.cktext_area :baltyisk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <hr>
+                  <h3>Title En</h3>
+                  <%= f.text_field :baltyisk_title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :baltyisk_description_en, class: "form-control" %>
+                  <h3>Н1 EN</h3>
+                  <%= f.text_field :baltyisk_h1_en, class: "form-control" %>
+                  <h3>Над автомобилями EN</h3>
+                  <%= f.text_field :baltyisk_avto_en, class: "form-control" %>
+                  <h3>Текст EN</h3>
+                  <%= f.cktext_area :baltyisk_text_en, ckeditor: { language: 'en'}, class: "form-control" %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+                </div>
+                <br>
               </div>
-              <div class="text-center">
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-              <br>
             </div>
-          </div>
-          <div class="col-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <h4 class="text-black">Пионерский</h4>
-                <h3>Title</h3>
-                <%= f.text_field :pionerskyi_title, class: "form-control" %>
-                <h3>Description</h3>
-                <%= f.text_field :pionerskyi_description, class: "form-control" %>
-                <h3>Н1</h3>
-                <%= f.text_field :pionerskyi_h1, class: "form-control" %>
-                <h3>Над автомобилями</h3>
-                <%= f.text_field :pionerskyi_avto, class: "form-control" %>
-                <h3>Цена в рабочее время</h3>
-                <%= f.text_field :pionerskyi_price, class: "form-control" %>
-                <h3>Цена в нерабочее время</h3>
-                <%= f.text_field :pionerskyi_price_unwork, class: "form-control" %>
-                <h3>Текст</h3>
-                <%= f.cktext_area :pionerskyi_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+            <div class="col-12">
+              <div class="card m-t-3">
+                <div class="card-body">
+                  <h4 class="text-black">Пионерский</h4>
+                  <h3>Title</h3>
+                  <%= f.text_field :pionerskyi_title, class: "form-control" %>
+                  <h3>Description</h3>
+                  <%= f.text_field :pionerskyi_description, class: "form-control" %>
+                  <h3>Н1</h3>
+                  <%= f.text_field :pionerskyi_h1, class: "form-control" %>
+                  <h3>Над автомобилями</h3>
+                  <%= f.text_field :pionerskyi_avto, class: "form-control" %>
+                  <h3>Цена в рабочее время</h3>
+                  <%= f.text_field :pionerskyi_price, class: "form-control" %>
+                  <h3>Цена в нерабочее время</h3>
+                  <%= f.text_field :pionerskyi_price_unwork, class: "form-control" %>
+                  <h3>Текст</h3>
+                  <%= f.cktext_area :pionerskyi_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <hr>
+                  <h3>Title En</h3>
+                  <%= f.text_field :pionerskyi_title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :pionerskyi_description_en, class: "form-control" %>
+                  <h3>Н1 EN</h3>
+                  <%= f.text_field :pionerskyi_h1_en, class: "form-control" %>
+                  <h3>Над автомобилями EN</h3>
+                  <%= f.text_field :pionerskyi_avto_en, class: "form-control" %>
+                  <h3>Текст EN</h3>
+                  <%= f.cktext_area :pionerskyi_text_en, ckeditor: { language: 'en'}, class: "form-control" %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+                </div>
+                <br>
               </div>
-              <div class="text-center">
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-              <br>
             </div>
-          </div>
-          <div class="col-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <h4 class="text-black"> Черняховск</h4>
-                <h3>Title</h3>
-                <%= f.text_field :chernyahovsk_title, class: "form-control" %>
-                <h3>Description</h3>
-                <%= f.text_field :chernyahovsk_description, class: "form-control" %>
-                <h3>Н1</h3>
-                <%= f.text_field :chernyahovsk_h1, class: "form-control" %>
-                <h3>Над автомобилями</h3>
-                <%= f.text_field :chernyahovsk_avto, class: "form-control" %>
-                <h3>Цена в рабочее время</h3>
-                <%= f.text_field :chernyahovsk_price, class: "form-control" %>
-                <h3>Цена в нерабочее время</h3>
-                <%= f.text_field :chernyahovsk_price_unwork, class: "form-control" %>
-                <h3>Текст</h3>
-                <%= f.cktext_area :chernyahovsk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+            <div class="col-12">
+              <div class="card m-t-3">
+                <div class="card-body">
+                  <h4 class="text-black"> Черняховск</h4>
+                  <h3>Title</h3>
+                  <%= f.text_field :chernyahovsk_title, class: "form-control" %>
+                  <h3>Description</h3>
+                  <%= f.text_field :chernyahovsk_description, class: "form-control" %>
+                  <h3>Н1</h3>
+                  <%= f.text_field :chernyahovsk_h1, class: "form-control" %>
+                  <h3>Над автомобилями</h3>
+                  <%= f.text_field :chernyahovsk_avto, class: "form-control" %>
+                  <h3>Цена в рабочее время</h3>
+                  <%= f.text_field :chernyahovsk_price, class: "form-control" %>
+                  <h3>Цена в нерабочее время</h3>
+                  <%= f.text_field :chernyahovsk_price_unwork, class: "form-control" %>
+                  <h3>Текст</h3>
+                  <%= f.cktext_area :chernyahovsk_text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <hr>
+                  <h3>Title En</h3>
+                  <%= f.text_field :chernyahovsk_title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :chernyahovsk_description_en, class: "form-control" %>
+                  <h3>Н1 EN</h3>
+                  <%= f.text_field :chernyahovsk_h1_en, class: "form-control" %>
+                  <h3>Над автомобилями EN</h3>
+                  <%= f.text_field :chernyahovsk_avto_en, class: "form-control" %>
+                  <h3>Текст EN</h3>
+                  <%= f.cktext_area :chernyahovsk_text_en, ckeditor: { language: 'en'}, class: "form-control" %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+                </div>
+                <br>
               </div>
-              <div class="text-center">
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-              <br>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

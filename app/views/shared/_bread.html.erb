@@ -1,51 +1,105 @@
-<div class="bread">
-  <% if current_page?(controller: 'cars', action: 'index')%>
-    <a href="/">Главная /</a> Автомобили
-  <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
-    <a href="/">Главная /</a><%= link_to "Автомобили", cars_path %> / <%= @car.car_name%>
-  <% elsif current_page?(controller: 'prices', action: 'index')%>
-    <a href="/">Главная /</a> Цены
-  <% elsif current_page?(controller: 'contacts', action: 'index')%>
-    <a href="/">Главная /</a> Контакты
-  <% elsif current_page?(controller: 'main', action: 'conditions')%>
-    <a href="/">Главная /</a> Пользовательское соглашение
-  <% elsif current_page?(controller: 'bookings', action: 'new')%>
-    <a href="/">Главная /</a> Заказать
-  <% elsif current_page?(controller: 'bookings', action: 'success')%>
-    <a href="/">Главная /</a> Успешная заявка
-  <% elsif current_page?(controller: 'reviews', action: 'index')%>
-    <a href="/">Главная /</a> Отзывы
-  <% elsif current_page?(controller: 'terms', action: 'index')%>
-    <a href="/">Главная /</a> Условия
-  <% elsif current_page?(controller: 'faqs', action: 'index')%>
-    <a href="/">Главная /</a> Вопросы
-  <% elsif current_page?(controller: 'abouts', action: 'index')%>
-    <a href="/">Главная /</a> О нас
-  <% elsif current_page?(controller: 'services', action: 'index')%>
-    <a href="/">Главная /</a> Дополнительные услуги
-  <% elsif current_page?(controller: 'deliveries', action: 'index')%>
-    <a href="/">Главная /</a> Доставка
-  <% elsif current_page?(controller: 'main', action: 'casko')%>
-    <a href="/">Главная /</a> Страховка КАСКО
-  <% elsif current_page?(controller: 'main', action: 's_voditelem')%>
-    <a href="/">Главная /</a> Аренда авто с водителем
-  <% elsif current_page?(controller: 'main', action: 'car_sharing')%>
-    <a href="/">Главная /</a> Каршеринг
-  <% elsif current_page?(controller: 'main', action: 'corporate')%>
-    <a href="/">Главная /</a> Корпоративным клиентам
-  <% elsif current_page?(controller: 'main', action: 'sales')%>
-    <a href="/">Главная /</a> Система скидок
-  <% elsif current_page?(controller: 'main', action: 'payment')%>
-    <a href="/">Главная /</a> Методы оплаты
-  <% elsif current_page?(controller: 'main', action: 'outsours')%>
-    <a href="/">Главная /</a> Транспортный аутсорсинг
-  <% elsif current_page?(controller: 'main', action: 'full_insurance')%>
-    <a href="/">Главная /</a> Полная страховка
-  <% elsif current_page?(controller: 'articles', action: 'index')%>
-    <a href="/">Главная /</a> Новости и акции
-  <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
-    <a href="/">Главная /</a><%= link_to "Статьи", articles_path %> / <%= @article.title%>
-  <% else %>
-    <a href="/">Главная /</a>
-  <% end %>
-</div>
+<% if I18n.locale == :en %>  
+  <div class="bread">
+    <% if current_page?(controller: 'cars', action: 'index')%>
+      <a href="/">Main /</a> Cars
+    <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
+      <a href="/">Main /</a><%= link_to "Cars", cars_path %> / <%= @car.car_name%>
+    <% elsif current_page?(controller: 'prices', action: 'index')%>
+      <a href="/">Main /</a> Prices
+    <% elsif current_page?(controller: 'contacts', action: 'index')%>
+      <a href="/">Main /</a> Contacts
+    <% elsif current_page?(controller: 'main', action: 'conditions')%>
+      <a href="/">Main /</a> Terms of use
+    <% elsif current_page?(controller: 'bookings', action: 'new')%>
+      <a href="/">Main /</a> Booking
+    <% elsif current_page?(controller: 'bookings', action: 'success')%>
+      <a href="/">Main /</a> Success
+    <% elsif current_page?(controller: 'reviews', action: 'index')%>
+      <a href="/">Main /</a> Reviews
+    <% elsif current_page?(controller: 'terms', action: 'index')%>
+      <a href="/">Main /</a> Terms
+    <% elsif current_page?(controller: 'faqs', action: 'index')%>
+      <a href="/">Main /</a> FAQs
+    <% elsif current_page?(controller: 'abouts', action: 'index')%>
+      <a href="/">Main /</a> About us
+    <% elsif current_page?(controller: 'services', action: 'index')%>
+      <a href="/">Main /</a> Additional Services
+    <% elsif current_page?(controller: 'deliveries', action: 'index')%>
+      <a href="/">Main /</a> Delivery
+    <% elsif current_page?(controller: 'main', action: 'casko')%>
+      <a href="/">Main /</a> Hull Insurance
+    <% elsif current_page?(controller: 'main', action: 's_voditelem')%>
+      <a href="/">Main /</a> Car Hire
+    <% elsif current_page?(controller: 'main', action: 'car_sharing')%>
+      <a href="/">Main /</a> Car Sharing
+    <% elsif current_page?(controller: 'main', action: 'corporate')%>
+      <a href="/">Main /</a> Corporate Clients
+    <% elsif current_page?(controller: 'main', action: 'sales')%>
+      <a href="/">Main /</a> Sales System
+    <% elsif current_page?(controller: 'main', action: 'payment')%>
+      <a href="/">Main /</a> Payment Methods
+    <% elsif current_page?(controller: 'main', action: 'outsours')%>
+      <a href="/">Main /</a> Transport Outsourcing
+    <% elsif current_page?(controller: 'main', action: 'full_insurance')%>
+      <a href="/">Main /</a> Full Insurance
+    <% elsif current_page?(controller: 'articles', action: 'index')%>
+      <a href="/">Main /</a> News and Promotions
+    <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
+      <a href="/">Main /</a><%= link_to "Статьи", articles_path %> / <%= @article.title%>
+    <% else %>
+      <a href="/">Main /</a>
+    <% end %>
+  </div>
+<% else %>
+  <div class="bread">
+    <% if current_page?(controller: 'cars', action: 'index')%>
+      <a href="/">Главная /</a> Автомобили
+    <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
+      <a href="/">Главная /</a><%= link_to "Автомобили", cars_path %> / <%= @car.car_name%>
+    <% elsif current_page?(controller: 'prices', action: 'index')%>
+      <a href="/">Главная /</a> Цены
+    <% elsif current_page?(controller: 'contacts', action: 'index')%>
+      <a href="/">Главная /</a> Контакты
+    <% elsif current_page?(controller: 'main', action: 'conditions')%>
+      <a href="/">Главная /</a> Пользовательское соглашение
+    <% elsif current_page?(controller: 'bookings', action: 'new')%>
+      <a href="/">Главная /</a> Заказать
+    <% elsif current_page?(controller: 'bookings', action: 'success')%>
+      <a href="/">Главная /</a> Успешная заявка
+    <% elsif current_page?(controller: 'reviews', action: 'index')%>
+      <a href="/">Главная /</a> Отзывы
+    <% elsif current_page?(controller: 'terms', action: 'index')%>
+      <a href="/">Главная /</a> Условия
+    <% elsif current_page?(controller: 'faqs', action: 'index')%>
+      <a href="/">Главная /</a> Вопросы
+    <% elsif current_page?(controller: 'abouts', action: 'index')%>
+      <a href="/">Главная /</a> О нас
+    <% elsif current_page?(controller: 'services', action: 'index')%>
+      <a href="/">Главная /</a> Дополнительные услуги
+    <% elsif current_page?(controller: 'deliveries', action: 'index')%>
+      <a href="/">Главная /</a> Доставка
+    <% elsif current_page?(controller: 'main', action: 'casko')%>
+      <a href="/">Главная /</a> Страховка КАСКО
+    <% elsif current_page?(controller: 'main', action: 's_voditelem')%>
+      <a href="/">Главная /</a> Аренда авто с водителем
+    <% elsif current_page?(controller: 'main', action: 'car_sharing')%>
+      <a href="/">Главная /</a> Каршеринг
+    <% elsif current_page?(controller: 'main', action: 'corporate')%>
+      <a href="/">Главная /</a> Корпоративным клиентам
+    <% elsif current_page?(controller: 'main', action: 'sales')%>
+      <a href="/">Главная /</a> Система скидок
+    <% elsif current_page?(controller: 'main', action: 'payment')%>
+      <a href="/">Главная /</a> Методы оплаты
+    <% elsif current_page?(controller: 'main', action: 'outsours')%>
+      <a href="/">Главная /</a> Транспортный аутсорсинг
+    <% elsif current_page?(controller: 'main', action: 'full_insurance')%>
+      <a href="/">Главная /</a> Полная страховка
+    <% elsif current_page?(controller: 'articles', action: 'index')%>
+      <a href="/">Главная /</a> Новости и акции
+    <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
+      <a href="/">Главная /</a><%= link_to "Статьи", articles_path %> / <%= @article.title%>
+    <% else %>
+      <a href="/">Главная /</a>
+    <% end %>
+  </div>
+<% end %>

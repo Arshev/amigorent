@@ -1,19 +1,35 @@
 <div class="blcks">
     <div class="blck">
         <%= image_tag "Strah.svg", alt:"", title:""%>
-        Старховка <br />КАСКО
+        <% if I18n.locale == :en %>
+            Hull <br />insurance
+        <% else %>
+            Старховка <br />КАСКО
+        <% end %>
     </div>
     <div class="blck">
         <%= image_tag "podderzhka.svg", alt:"", title:""%>
-        Круглосуточная поддержка
+        <% if I18n.locale == :en %>
+            Round-the-clock<br /> support
+        <% else %>
+            Круглосуточная поддержка
+        <% end %>
     </div>
     <div class="blck">
         <%= image_tag "probeg.svg", alt:"", title:""%>
-        Безлимитный <br />пробег
+        <% if I18n.locale == :en %>
+            Unlimited <br />mileage
+        <% else %>
+            Безлимитный <br />пробег
+        <% end %>
     </div>
     <div class="blck">
         <%= image_tag "vozvrat.svg", alt:"", title:""%>
-        Низкие <br />цены
+        <% if I18n.locale == :en %>
+            Low <br />prices 
+        <% else %>
+            Низкие <br />цены
+        <% end %>
     </div>
         <div class="clear"></div>
     </div>

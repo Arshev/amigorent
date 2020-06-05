@@ -9,15 +9,15 @@
     <div class="content">
         <div class="wrapper">
             <div class="bread">
-                <a href="/">Главная /</a> Аэропорт Храброво
+                <a href="/">Main /</a> Khrabrovo Airport
             </div>
             <div class="bl_dop">
-                <h1>Цены на доставку в Аэропорт Храброво</h1>
+                <h1>Prices for delivery to Khrabrovo Airport</h1>
                 <table class="var2">
                     <thead>
                         <tr>
-                            <td rowspan="2">Пункт доставки/возврата</td>
-                            <td colspan="2">Цена, руб.</td>
+                            <td rowspan="2">Delivery / Return Point</td>
+                            <td colspan="2">Price, rubles</td>
                         </tr>
                         <tr>
                             <td>09:00 - 19:00</td>
@@ -26,7 +26,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Аэропорт Храброво</td>
+                            <td>Khrabrovo Airport</td>
                             <td><%= @text.aeroport_price %></td>
                             <td><%= @text.aeroport_price_unwork %></td>
                         </tr>
@@ -42,12 +42,12 @@
                 <div class="clear"></div>
             </div>
             <div class="bl_full_text article" style="text-align:center;">
-                <%= image_tag "aero1.jpg", alt: "Аэропорт Храброво", title: "Аэропорт Храброво"  %>
-                <p>Место встречи наших клиентов в аэропорту. Автомобиль будет ждать вас под левым от выхода из терминала рекламным плакатом</p>
+                <%= image_tag "aero1.jpg", alt: "Khrabrovo Airport", title: "Khrabrovo Airport"  %>
+                <p>Meeting point for our customers at the airport. The car will be waiting for you under the left poster to the terminal exit.</p>
                 <div class="clear"></div>
             </div>
             <div class="bl_full_text article" style="text-align:center;">
-                <%= image_tag "aero2.jpg", alt: "Аэропорт Храброво", title: "Аэропорт Храброво"  %>
+                <%= image_tag "aero2.jpg", alt: "Khrabrovo Airport", title: "Khrabrovo Airport"  %>
                 <div class="clear"></div>
             </div>
             <br />
@@ -58,7 +58,7 @@
                         <%= render "cars"%>
                         <div class="clear"></div>
                     </div>
-                    <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
+                    <%= link_to "View All cars", cars_path, class: "all" %>
                     <div class="clear"></div>
                 </div>
             </div>
