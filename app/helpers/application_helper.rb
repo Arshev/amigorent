@@ -26,11 +26,11 @@ module ApplicationHelper
   def car_previous
     car = Car.find(params[:id])
     if car.sort && car.sort >= 0 && car.sort > Car.minimum(:sort)
-      Car.where('sort < ? and active = ?', car.sort, true ).first
+      Car.where('sort < ? and active = ?', car.sort, true ).last
     elsif car.sort == Car.minimum(:sort)
       Car.where(sort: Car.maximum(:sort)).first
     else
-      Car.where('id < ? and active = ?', car.id, true ).first
+      Car.where('id < ? and active = ?', car.id, true ).last
     end
   end
 
