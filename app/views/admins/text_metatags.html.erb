@@ -45,10 +45,12 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
-                  <h4>Метатеги на странице автомобиля + название авто</h4>
+                  <h4>Метатеги на странице автомобиля</h4>
+                  <p>Текст + " " + Название авто + " в Калининграде | Амиго</p>
                   <%= f.text_field :car_title, style: "min-width: 800px;" %>
                 </div>
                 <div class="click2edit m-b-3">
+                  <p>Текст + " " + Название авто + в Калининграде. Прокат автомобиля + Название авто + в автопрокате Амиго в Калининграде. Бронируйте на сайте.</p>
                   <%= f.text_area :car_description, style: "min-width: 800px;" %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
