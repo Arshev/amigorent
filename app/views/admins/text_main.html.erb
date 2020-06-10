@@ -66,6 +66,17 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
+                  <h4>Seo текст</h4>
+                  <%= f.cktext_area :main_text, style: "min-width: 800px;", rows: "7" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
                   <h4>Наши преимущества</h4>
                   <%= f.cktext_area :main_edge_text, style: "min-width: 800px;", rows: "7" %>
                 </div>

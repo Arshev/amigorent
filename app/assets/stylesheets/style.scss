@@ -548,6 +548,12 @@ table.blueTable {
     clear: both;
     margin-left: 0;
 }
+.main_text {
+    color: #707070;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 1em;
+}
 .block4 {
     background: #33354d;
     padding: 25px 0 47px;
@@ -3561,6 +3567,12 @@ li.errors {
 }
 
 @media (max-width: 767px) {
+    .main_text {
+        color: #707070;
+        font-size: 14px;
+        margin-bottom: 1em;
+        padding-top: 2em;
+    }
     .universal {
         width: 22px;
     }
@@ -3766,6 +3778,12 @@ li.errors {
 }
 
 @media (max-width: 479px) {
+    .main_text {
+        color: #707070;
+        font-size: 14px;
+        margin-bottom: 1em;
+        padding-top: 2em;
+    }
     .sticky {
         position: relative;
     }

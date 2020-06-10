@@ -102,7 +102,8 @@ private
       :term_common_en, :term_docs_en, :term_gringo_en, :term_companies_en, :term_clients_en, 
       :term_no_franchise_en, :term_other_en, :term_abroad_en, :term_bottom_en, :full_insurance_title_en, 
       :full_insurance_description_en, :full_insurance_h1_en, :full_insurance_text_en, :car_sharing_h1_en, 
-      :casko_h1_en, :corporate_h1_en, :sales_h1_en, :payment_h1_en, :outsours_h1_en, :s_voditelem_h1_en
+      :casko_h1_en, :corporate_h1_en, :sales_h1_en, :payment_h1_en, :outsours_h1_en, :s_voditelem_h1_en,
+      :main_text, :main_text_en
     )
   end
 end

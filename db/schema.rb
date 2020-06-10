@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_095153) do
+ActiveRecord::Schema.define(version: 2020_06_10_133018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -499,6 +499,8 @@ ActiveRecord::Schema.define(version: 2020_06_05_095153) do
     t.string "payment_h1_en", default: "empty"
     t.string "outsours_h1_en", default: "empty"
     t.string "s_voditelem_h1_en", default: "empty"
+    t.text "main_text", default: "empty"
+    t.text "main_text_en", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|
