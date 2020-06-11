@@ -1,8 +1,8 @@
 class CarsController < ApplicationController
-  before_action :set_car, except: [:index, :new, :create]
-  before_action :set_text, only: [:index, :show]
+  before_action :set_car, only: [:destroy, :show, :update]
+  before_action :set_text, only: [:index, :show, :economy, :middle, :minivans, :crossovers, :business, :commercial]
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :update, :destroy]
+  before_action :is_authorised, only: [:photo_upload, :update, :destroy]
 
   def index
     @cars = Car.where(active: true)
@@ -33,17 +33,27 @@ class CarsController < ApplicationController
     @reviews = @car.car_reviews.limit(10)
     @new_review = CarReview.new
   end
+
+  def economy
+    @cars = Car.where(active: true, car_class: "Эконом")
+  end
+  def middle
+    @cars = Car.where(active: true, car_class: "Средний")
+  end
+  def minivans
+    @cars = Car.where(active: true, car_class: "Минивены")
+  end
+  def crossovers
+    @cars = Car.where(active: true, car_class: "Кроссоверы")
+  end
+  def business
+    @cars = Car.where(active: true, car_class: "Бизнес")
+  end
+  def commercial
+    @cars = Car.where(active: true, car_class: "Коммерческий")
+  end
   
   def images_upload
-  end
-
-  # def remove_attachment
-  #   remove_image_at_index(params[:id].to_i)
-  #   flash[:error] = "Failed deleting image" unless @car.save
-  #   redirect_back(fallback_location: upload_photos_admin_path)
-  # end
-
-  def amenities
   end
 
   def update

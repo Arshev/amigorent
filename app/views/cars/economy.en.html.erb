@@ -1,0 +1,18 @@
+<% title @text.cars_economy_title_en %>
+<% description @text.cars_economy_description_en %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+    <%= render 'shared/bread'%>
+    <h1><%= @text.cars_economy_h1_en %></h1>
+    <div class="bl_avtomob">
+      <%= render 'cars', cached: true %>
+      <div class="clear"></div>
+      <div style="margin-top: 1em; text-align:left;">
+        <%= @text.cars_economy_text_en %>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>

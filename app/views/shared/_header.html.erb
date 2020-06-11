@@ -138,13 +138,81 @@
         <li class="<%= active_class?(cars_path) %>">
           <% if I18n.locale == :en %>
             <%= link_to cars_path(locale: I18n.locale) do %>
-              <%= t 'header.cars' %>
+              <%= t 'header.cars' %><span>&#9660;</span>
             <% end %>
           <% else %>
             <%= link_to cars_path do %>
-              <%= t 'header.cars' %>
+              <%= t 'header.cars' %><span>&#9660;</span>
             <% end %>
           <% end %>
+          <ul>
+            <li class="<%= active_class?(economy_cars_path) %>">
+              <% if I18n.locale == :en %>
+                <%= link_to economy_cars_path(locale: I18n.locale) do %>
+                  Economy class
+                <% end %>
+              <% else %>
+                <%= link_to economy_cars_path do %>
+                  Эконом-класс
+                <% end %>
+              <% end %>
+            </li>
+            <li class="<%= active_class?(middle_cars_path) %>">
+              <% if I18n.locale == :en %>
+                <%= link_to middle_cars_path(locale: I18n.locale) do %>
+                  Middle class
+                <% end %>
+              <% else %>
+                <%= link_to middle_cars_path do %>
+                  Средний-класс
+                <% end %>
+              <% end %>
+            </li>
+            <li class="<%= active_class?(minivans_cars_path) %>">
+              <% if I18n.locale == :en %>
+                <%= link_to minivans_cars_path(locale: I18n.locale) do %>
+                  Minivans
+                <% end %>
+              <% else %>
+                <%= link_to minivans_cars_path do %>
+                  Минивэны
+                <% end %>
+              <% end %>
+            </li>
+            <li class="<%= active_class?(crossovers_cars_path) %>">
+              <% if I18n.locale == :en %>
+                <%= link_to crossovers_cars_path(locale: I18n.locale) do %>
+                  Сrossovers
+                <% end %>
+              <% else %>
+                <%= link_to crossovers_cars_path do %>
+                  Кроссоверы
+                <% end %>
+              <% end %>
+            </li>
+            <li class="<%= active_class?(business_cars_path) %>">
+              <% if I18n.locale == :en %>
+                <%= link_to business_cars_path(locale: I18n.locale) do %>
+                  Business class
+                <% end %>
+              <% else %>
+                <%= link_to business_cars_path do %>
+                  Бизнес-класс
+                <% end %>
+              <% end %>
+            </li>
+            <li class="<%= active_class?(commercial_cars_path) %>">
+              <% if I18n.locale == :en %>
+                <%= link_to commercial_cars_path(locale: I18n.locale) do %>
+                  Commercial vehicle
+                <% end %>
+              <% else %>
+                <%= link_to commercial_cars_path do %>
+                  Коммерческий транспорт
+                <% end %>
+              <% end %>
+            </li>
+          </ul>
         </li>
         <li class="<%= active_class?(prices_path) %>">
           <% if I18n.locale == :en %>

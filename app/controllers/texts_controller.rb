@@ -103,7 +103,19 @@ private
       :term_no_franchise_en, :term_other_en, :term_abroad_en, :term_bottom_en, :full_insurance_title_en, 
       :full_insurance_description_en, :full_insurance_h1_en, :full_insurance_text_en, :car_sharing_h1_en, 
       :casko_h1_en, :corporate_h1_en, :sales_h1_en, :payment_h1_en, :outsours_h1_en, :s_voditelem_h1_en,
-      :main_text, :main_text_en
+      :main_text, :main_text_en, :cars_economy_title, :cars_economy_description, :cars_economy_h1, 
+      :cars_economy_text, :cars_economy_title_en, :cars_economy_description_en, :cars_economy_h1_en, 
+      :cars_economy_text_en, :cars_middle_title, :cars_middle_description, :cars_middle_h1, 
+      :cars_middle_text, :cars_middle_title_en, :cars_middle_description_en, :cars_middle_h1_en, 
+      :cars_middle_text_en, :cars_crossovers_title, :cars_crossovers_description, :cars_crossovers_h1, 
+      :cars_crossovers_text, :cars_crossovers_title_en, :cars_crossovers_description_en, 
+      :cars_crossovers_h1_en, :cars_crossovers_text_en, :cars_minivans_title, :cars_minivans_description, 
+      :cars_minivans_h1, :cars_minivans_text, :cars_minivans_title_en, :cars_minivans_description_en, 
+      :cars_minivans_h1_en, :cars_minivans_text_en, :cars_business_title, :cars_business_description, 
+      :cars_business_h1, :cars_business_text, :cars_business_title_en, :cars_business_description_en, 
+      :cars_business_h1_en, :cars_business_text_en, :cars_commercial_title, :cars_commercial_description, 
+      :cars_commercial_h1, :cars_commercial_text, :cars_commercial_title_en, 
+      :cars_commercial_description_en, :cars_commercial_h1_en, :cars_commercial_text_en 
     )
   end
 end

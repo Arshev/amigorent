@@ -44,6 +44,17 @@ Rails.application.routes.draw do
   localized do
     resources :cars, except: [:edit] do
       resources :images, :only => [:create, :destroy]
+      
+      # Class auto
+      collection do 
+        get 'economy'
+        get 'middle'
+        get 'minivans'
+        get 'crossovers'
+        get 'business'
+        get 'commercial'
+      end
+
       member do
         delete :remove_attachment
       end

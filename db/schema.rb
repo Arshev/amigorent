@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_133018) do
+ActiveRecord::Schema.define(version: 2020_06_11_131439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -501,6 +501,54 @@ ActiveRecord::Schema.define(version: 2020_06_10_133018) do
     t.string "s_voditelem_h1_en", default: "empty"
     t.text "main_text", default: "empty"
     t.text "main_text_en", default: "empty"
+    t.string "cars_economy_title", default: "empty"
+    t.string "cars_economy_description", default: "empty"
+    t.string "cars_economy_h1", default: "empty"
+    t.text "cars_economy_text", default: "empty"
+    t.string "cars_economy_title_en", default: "empty"
+    t.string "cars_economy_description_en", default: "empty"
+    t.string "cars_economy_h1_en", default: "empty"
+    t.text "cars_economy_text_en", default: "empty"
+    t.string "cars_middle_title", default: "empty"
+    t.string "cars_middle_description", default: "empty"
+    t.string "cars_middle_h1", default: "empty"
+    t.text "cars_middle_text", default: "empty"
+    t.string "cars_middle_title_en", default: "empty"
+    t.string "cars_middle_description_en", default: "empty"
+    t.string "cars_middle_h1_en", default: "empty"
+    t.text "cars_middle_text_en", default: "empty"
+    t.string "cars_minivans_title", default: "empty"
+    t.string "cars_minivans_description", default: "empty"
+    t.string "cars_minivans_h1", default: "empty"
+    t.text "cars_minivans_text", default: "empty"
+    t.string "cars_minivans_title_en", default: "empty"
+    t.string "cars_minivans_description_en", default: "empty"
+    t.string "cars_minivans_h1_en", default: "empty"
+    t.text "cars_minivans_text_en", default: "empty"
+    t.string "cars_crossovers_title", default: "empty"
+    t.string "cars_crossovers_description", default: "empty"
+    t.string "cars_crossovers_h1", default: "empty"
+    t.text "cars_crossovers_text", default: "empty"
+    t.string "cars_crossovers_title_en", default: "empty"
+    t.string "cars_crossovers_description_en", default: "empty"
+    t.string "cars_crossovers_h1_en", default: "empty"
+    t.text "cars_crossovers_text_en", default: "empty"
+    t.string "cars_business_title", default: "empty"
+    t.string "cars_business_description", default: "empty"
+    t.string "cars_business_h1", default: "empty"
+    t.text "cars_business_text", default: "empty"
+    t.string "cars_business_title_en", default: "empty"
+    t.string "cars_business_description_en", default: "empty"
+    t.string "cars_business_h1_en", default: "empty"
+    t.text "cars_business_text_en", default: "empty"
+    t.string "cars_commercial_title", default: "empty"
+    t.string "cars_commercial_description", default: "empty"
+    t.string "cars_commercial_h1", default: "empty"
+    t.text "cars_commercial_text", default: "empty"
+    t.string "cars_commercial_title_en", default: "empty"
+    t.string "cars_commercial_description_en", default: "empty"
+    t.string "cars_commercial_h1_en", default: "empty"
+    t.text "cars_commercial_text_en", default: "empty"
   end
 
   create_table "users", force: :cascade do |t|

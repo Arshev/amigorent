@@ -1,0 +1,18 @@
+<% title @text.cars_commercial_title %>
+<% description @text.cars_commercial_description %>
+<%= render 'shared/header', cached: true %>
+<div class="content">
+  <div class="wrapper">
+    <%= render 'shared/bread'%>
+    <h1><%= @text.cars_commercial_h1 %></h1>
+    <div class="bl_avtomob">
+      <%= render 'cars', cached: true %>
+      <div class="clear"></div>
+      <div style="margin-top: 1em; text-align:left;">
+        <%= @text.cars_commercial_text %>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render 'shared/footer', cached: true %>
