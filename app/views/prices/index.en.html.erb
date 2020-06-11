@@ -50,7 +50,7 @@
                                   <% if car.car_type == "Универсал" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
                                   <% end %>
-                                  <% if car.car_type == "Минивен" %>
+                                  <% if car.car_type == "Минивэн" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
                                   <% end %>
                                   <% if car.car_type == "Кроссовер" %>
@@ -131,7 +131,7 @@
                                   <% if car.car_type == "Универсал" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
                                   <% end %>
-                                  <% if car.car_type == "Минивен" %>
+                                  <% if car.car_type == "Минивэн" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
                                   <% end %>
                                   <% if car.car_type == "Кроссовер" %>
@@ -188,7 +188,7 @@
                   <tr>
                       <td colspan="9">Minivans</td>
                   </tr>
-                  <% @cars.where("car_class = 'Минивены' and active = 'true'").each do |car| %>
+                  <% @cars.where("car_class = 'Минивэны' and active = 'true'").each do |car| %>
                     <% @count += 1 %>
                     <tr class=<%= bg_active(@count) %>>
                       <td>
@@ -212,7 +212,7 @@
                                   <% if car.car_type == "Универсал" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
                                   <% end %>
-                                  <% if car.car_type == "Минивен" %>
+                                  <% if car.car_type == "Минивэн" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
                                   <% end %>
                                   <% if car.car_type == "Кроссовер" %>
@@ -293,7 +293,7 @@
                                   <% if car.car_type == "Универсал" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
                                   <% end %>
-                                  <% if car.car_type == "Минивен" %>
+                                  <% if car.car_type == "Минивэн" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
                                   <% end %>
                                   <% if car.car_type == "Кроссовер" %>
@@ -374,7 +374,7 @@
                                   <% if car.car_type == "Универсал" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
                                   <% end %>
-                                  <% if car.car_type == "Минивен" %>
+                                  <% if car.car_type == "Минивэн" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
                                   <% end %>
                                   <% if car.car_type == "Кроссовер" %>
@@ -455,7 +455,7 @@
                                   <% if car.car_type == "Универсал" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
                                   <% end %>
-                                  <% if car.car_type == "Минивен" %>
+                                  <% if car.car_type == "Минивэн" %>
                                       <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
                                   <% end %>
                                   <% if car.car_type == "Кроссовер" %>
