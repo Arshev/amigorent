@@ -3,6 +3,8 @@ Disallow: /public/uploads/
 Disallow: /users/
 Disallow: /admin/
 Disallow: /en/reviews
+Disallow: /bookings
+Disallow: /en/bookings
 Disallow: /conditions
 Disallow: /public/system/
 Disallow: /bookings/new?car_id=*

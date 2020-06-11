@@ -1,25 +1,8 @@
 class BookingsController < ApplicationController
 
-  before_action :set_booking, only: [:show, :update]
-  before_action :authenticate_user!, only: [:show, :index]
+  before_action :set_booking, only: [:update]
+  before_action :authenticate_user!, only: [:update, :accept, :destroy]
   before_action :set_text, only: [:success, :new]
-
-  # def create
-  #   @booking = Booking.new(booking_params)
-  #   if @booking.valid? && @booking.save
-  #     redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
-  #     BookingMailer.with(booking: @booking).new_booking_email.deliver_later
-  #     @booking.send_sms
-  #     begin
-  #       @booking.send_tg_message
-  #     rescue => exception
-  #         puts exception
-  #         logger.debug exception
-  #     end
-  #   else
-  #     redirect_to root_path, alert: "Что то пошло не так!"
-  #   end
-  # end
 
   def update
     if @booking.update(booking_params)
@@ -49,10 +32,6 @@ class BookingsController < ApplicationController
     if @booking.destroy
       redirect_back(fallback_location: request.referer, notice: "Бронь удалена!")
     end
-  end
-
-  def index
-    @bookings = Booking.all
   end
 
   def new
