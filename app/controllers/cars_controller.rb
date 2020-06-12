@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:destroy, :show, :update]
   before_action :set_text, only: [:index, :show, :economy, :middle, :minivans, :crossovers, :business, :commercial]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index, :economy, :middle, :minivans, :crossovers, :business, :commercial]
   before_action :is_authorised, only: [:photo_upload, :update, :destroy]
 
   def index
