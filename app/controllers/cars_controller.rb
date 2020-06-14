@@ -41,7 +41,7 @@ class CarsController < ApplicationController
     @cars = Car.where(active: true, car_class: "Средний")
   end
   def minivans
-    @cars = Car.where(active: true, car_class: "Минивены")
+    @cars = Car.where(active: true, car_class: "Минивэны")
   end
   def crossovers
     @cars = Car.where(active: true, car_class: "Кроссоверы")
