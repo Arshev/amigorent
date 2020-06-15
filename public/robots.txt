@@ -9,5 +9,5 @@ Disallow: /conditions
 Disallow: /public/system/
 Disallow: /bookings/new?car_id=*
 Disallow: /en/bookings/new?car_id=*
-Sitemap: https://amigorent.ru/public/sitemap.xml
+Sitemap: https://amigorent.ru/sitemap.xml
 Host: https://amigorent.ru
