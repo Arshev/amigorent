@@ -6,6 +6,9 @@ Disallow: /en/reviews
 Disallow: /bookings
 Disallow: /en/bookings
 Disallow: /conditions
+Disallow: /en/conditions
+Disallow: /success
+Disallow: /en/success
 Disallow: /public/system/
 Disallow: /bookings/new?car_id=*
 Disallow: /en/bookings/new?car_id=*
