@@ -50,6 +50,23 @@
               <br>
             </div>
           </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <h4 class="text-black">Изменение статьи English</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :title_en, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :description_en, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.rich_text_area :text_en, rows: 10, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
