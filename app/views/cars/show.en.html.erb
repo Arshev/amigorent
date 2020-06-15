@@ -8,20 +8,33 @@
             <div class="pol1" id="side-block">
                 <h1><%= @car.car_name %></h1>
                 <div class="bir">
-                    <% if @car.car_class == "Эконом" %>
-                        Economy
-                    <% elsif @car.car_class == "Средний" %>
-                        Middle
-                    <% elsif @car.car_class == "Минивэны" %>
-                        Minivans
-                    <% elsif @car.car_class == "Кроссоверы" %>
-                        Crossovers
-                    <% elsif @car.car_class == "Бизнес" %>
-                        Business
-                    <% elsif @car.car_class == "Коммерческий" %>
-                        Commercial vehicle
-                    <% else %>
-                        <%= @car.car_class %>
+                    <% case @car.car_class %>
+                        <% when 'Эконом' %>
+                            <%= link_to economy_cars_path do %>
+                                Economy
+                            <% end %>
+                        <% when 'Средний' %>
+                            <%= link_to middle_cars_path do %>
+                                Middle
+                            <% end %>
+                        <% when 'Минивэны' %>
+                            <%= link_to minivans_cars_path do %>
+                                Minivans
+                            <% end %>
+                        <% when 'Кроссоверы' %>
+                            <%= link_to crossovers_cars_path do %>
+                                Crossovers
+                            <% end %>
+                        <% when 'Бизнес' %>
+                            <%= link_to business_cars_path do %>
+                                Business
+                            <% end %>
+                        <% when 'Коммерческий' %>
+                            <%= link_to commercial_cars_path do %>
+                                Commercial vehicle
+                            <% end %>
+                        <% else %>
+                            <%= @car.car_class %>
                     <% end %>
                 </div>
                 <div class="bl_full" style="margin-top: 100px;">
