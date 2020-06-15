@@ -2,6 +2,18 @@
   <div class="bread">
     <% if current_page?(controller: 'cars', action: 'index')%>
       <a href="/">Main /</a> Cars
+    <% elsif current_page?(controller: 'cars', action: 'economy')%>
+      <a href="/">Главная /</a> Economy
+    <% elsif current_page?(controller: 'cars', action: 'middle')%>
+      <a href="/">Главная /</a> Middle
+    <% elsif current_page?(controller: 'cars', action: 'minivans')%>
+      <a href="/">Главная /</a> Minivans
+    <% elsif current_page?(controller: 'cars', action: 'crossovers')%>
+      <a href="/">Главная /</a> Crossovers
+    <% elsif current_page?(controller: 'cars', action: 'business')%>
+      <a href="/">Главная /</a> Business
+    <% elsif current_page?(controller: 'cars', action: 'commercial')%>
+      <a href="/">Главная /</a> Commercial vehicle
     <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
       <a href="/">Main /</a><%= link_to "Cars", cars_path %> / <%= @car.car_name%>
     <% elsif current_page?(controller: 'prices', action: 'index')%>
@@ -54,6 +66,18 @@
   <div class="bread">
     <% if current_page?(controller: 'cars', action: 'index')%>
       <a href="/">Главная /</a> Автомобили
+    <% elsif current_page?(controller: 'cars', action: 'economy')%>
+      <a href="/">Главная /</a> Автомобили Эконом-класса
+    <% elsif current_page?(controller: 'cars', action: 'middle')%>
+      <a href="/">Главная /</a> Автомобили Среднего класса
+    <% elsif current_page?(controller: 'cars', action: 'minivans')%>
+      <a href="/">Главная /</a> Минивэны
+    <% elsif current_page?(controller: 'cars', action: 'crossovers')%>
+      <a href="/">Главная /</a> Кроссоверы
+    <% elsif current_page?(controller: 'cars', action: 'business')%>
+      <a href="/">Главная /</a> Автомобили Бизнес-класса
+    <% elsif current_page?(controller: 'cars', action: 'commercial')%>
+      <a href="/">Главная /</a> Коммерческий транспорт
     <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
       <a href="/">Главная /</a><%= link_to "Автомобили", cars_path %> / <%= @car.car_name%>
     <% elsif current_page?(controller: 'prices', action: 'index')%>
