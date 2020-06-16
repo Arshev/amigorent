@@ -1,4 +1,4 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:turbo="http://turbo.yandex.ru"
      version="2.0">
     <channel>
@@ -8,7 +8,7 @@
         <description>Автопрокат Амиго</description>
         <language>ru</language>
         <turbo:analytics type="Yandex" id="48045371"></turbo:analytics>
-        <item turbo="true">
+        <item turbo="false">
             <!-- Информация о странице -->
             <link>https://amigorent.ru</link>
             <turbo:source></turbo:source>
@@ -116,4 +116,4 @@
             </turbo:content>
         </item>
     </channel>
-</rss> -->
+</rss>
