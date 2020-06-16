@@ -57,7 +57,7 @@
     <% elsif current_page?(controller: 'articles', action: 'index')%>
       <a href="/">Main /</a> News and Promotions
     <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
-      <a href="/">Main /</a><%= link_to "Статьи", articles_path %> / <%= @article.title%>
+      <a href="/">Main /</a><%= link_to "Articles", articles_en_path %> / <%= @article.title_en %>
     <% else %>
       <a href="/">Main /</a>
     <% end %>
