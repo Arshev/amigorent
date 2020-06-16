@@ -288,8 +288,8 @@ export default {
     }
   },
   created() {
-    axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    // axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
+    // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
+    axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
@@ -649,43 +649,83 @@ export default {
       switch (this.locationStart) {
         case 'Офис':
           this.locationStartPrice = 0
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Аэропорт':
           this.locationStartPrice = 400
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Зеленоградск':
           this.locationStartPrice = 800
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Светлогорск':
           this.locationStartPrice = 1000
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Другой адрес в Калининграде':
           this.locationStartPrice = 300
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Office':
           this.locationStartPrice = 0
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Airport':
           this.locationStartPrice = 400
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Zelenogradsk':
           this.locationStartPrice = 800
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Svetlogorsk':
           this.locationStartPrice = 1000
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Another address in Kaliningrad':
           this.locationStartPrice = 300
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
       }
     },
@@ -693,43 +733,83 @@ export default {
       switch (this.locationEnd) {
         case 'Офис':
           this.locationEndPrice = 0
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Аэропорт':
           this.locationEndPrice = 400
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Зеленоградск':
           this.locationEndPrice = 800
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Светлогорск':
           this.locationEndPrice = 1000
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Другой адрес в Калининграде':
           this.locationEndPrice = 300
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Office':
           this.locationEndPrice = 0
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Airport':
           this.locationEndPrice = 400
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Zelenogradsk':
           this.locationEndPrice = 800
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Svetlogorsk':
           this.locationEndPrice = 1000
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
         case 'Another address in Kaliningrad':
           this.locationEndPrice = 300
-          this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
+            this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          } else {
+            this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
+          }
           break;
       }
     },
