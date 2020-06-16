@@ -3,8 +3,6 @@ Disallow: /public/uploads/
 Disallow: /users/
 Disallow: /admin/
 Disallow: /en/reviews
-Disallow: /bookings
-Disallow: /en/bookings
 Disallow: /conditions
 Disallow: /en/conditions
 Disallow: /success
