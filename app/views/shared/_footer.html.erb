@@ -1,11 +1,14 @@
 <div class="footer">
     <div class="wrapper">
-        <div class="col1" itemscope itemtype="http://schema.org/Organization">
+        <div class="col1" itemscope itemtype="http://schema.org/LocalBusiness">
             <div class="zg"><%= t 'footer.office' %></div>
-            <meta itemprop="addressCountry" content="RU">
-            <meta itemprop="addressLocality" content="<%= t 'footer.address' %>">
-            <meta itemprop="postalCode" content="236041">
-            <div class="adr" itemprop="streetAddress"><%= t 'footer.address' %></div>
+            <meta itemprop="name" content="Прокат авто Амиго">
+            <div style="display:none;" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <span itemprop="streetAddress">Невского 36 В</span>
+                <span itemprop="addressLocality">Калининград</span>,
+                <span itemprop="addressRegion">RU</span>
+            </div>
+            <div class="adr"><%= t 'footer.address' %></div>
             <a href="tel:+7 (4012) 52-16-15" class="tel" itemprop="telephone">+7 (4012) 52-16-15</a>
             <a href="mailto:amigorent@ya.ru" class="mai">amigorent@ya.ru</a>
             <%= link_to "#{t 'footer.terms'}", conditions_path, class:"polz" %>
