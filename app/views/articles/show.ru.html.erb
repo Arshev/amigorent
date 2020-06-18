@@ -6,14 +6,15 @@
         <%= render 'shared/bread'%>
     <div class="bl_full_statya" itemscope itemtype="http://schema.org/Article">
         <h1 itemprop="name"><%= @article.title %></h1>
-        <div style="display:none;" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"> 
+        <span style="display:none;" itemprop="author">Автопрокат Амиго</span>
+        <div style="display:none;" itemprop="publisher" itemscope itemtype="http://schema.org/LocalBusiness"> 
             <meta itemprop="name" content="Прокат авто Амиго">
             <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"> 
                 <link itemprop="url" href="https://amigorent.ru/logo.png"> 
             </div>
         </div>
         <meta itemprop="datePublished" content="<%= @article.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>">
-        <meta itemprop="image" content="<%= send(:url_for, @article.image.key) %>">
+        <meta itemprop="image" content="<%= polymorphic_url(@article.image) %>">
         <meta itemprop="headline" content="<%= @article.title %>">
         <div class="data"><%= @article.updated_at.strftime("%d.%m.%Y") %></div>
         <div class="clear"></div>
