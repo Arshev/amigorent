@@ -9,7 +9,7 @@
       <%= render 'cars', cached: true %>
       <div class="clear"></div>
       <div style="margin-top: 1em; text-align:left;">
-        <%= @text.cars_minivans_text %>
+        <%= @text.cars_minivans_text.html_safe %>
       </div>
     </div>
     <div class="clear"></div>
