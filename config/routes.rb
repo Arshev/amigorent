@@ -99,6 +99,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :new, :destroy, :update] do
       member do
         post '/accept' => "bookings#accept"
+        post '/rejection_few_days' => "bookings#rejection_few_days"
+        post '/rejection_not_cars' => "bookings#rejection_not_cars"
       end
     end
 

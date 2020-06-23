@@ -27,6 +27,28 @@ class BookingsController < ApplicationController
     end
   end
 
+  def rejection_not_cars
+    @booking = Booking.find(params[:id])
+    @booking.rejection = true
+    if @booking.save
+      BookingMailer.with(booking: @booking).user_rejection_not_cars_email.deliver_later
+      redirect_back(fallback_location: request.referer, notice: "Заявка отклонена!")
+    else
+      redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
+    end
+  end
+
+  def rejection_few_days
+    @booking = Booking.find(params[:id])
+    @booking.rejection = true
+    if @booking.save
+      BookingMailer.with(booking: @booking).user_rejection_few_days_email.deliver_later
+      redirect_back(fallback_location: request.referer, notice: "Заявка отклонена!")
+    else
+      redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
+    end
+  end
+  
   def destroy
     @booking = Booking.find(params[:id])
     if @booking.destroy
@@ -53,6 +75,8 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, :accept, :price, :total, :deposit, :note)
+      params.require(:booking).permit(:start_date, :end_date, :location_start, :location_end, 
+        :firstname, :lastname, :middlename, :baby_chair, :phone, :email, :car, :navigator, 
+        :accept, :price, :total, :deposit, :note, :rejection)
     end
 end

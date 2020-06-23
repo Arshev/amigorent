@@ -10,4 +10,14 @@ class BookingMailer < ApplicationMailer
     @booking = params[:booking]
     mail(to: @booking.email, subject: 'Подтверждение заявки на бронирование')
   end
+
+  def user_rejection_not_cars_email
+    @booking = params[:booking]
+    mail(to: @booking.email, subject: 'Ваша заявка на бронирование отклонена')
+  end
+
+  def user_rejection_few_days_email
+    @booking = params[:booking]
+    mail(to: @booking.email, subject: 'Ваша заявка на бронирование отклонена')
+  end
 end

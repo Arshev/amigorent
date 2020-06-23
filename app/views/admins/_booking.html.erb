@@ -5,19 +5,27 @@
       <% @bookings.each do |booking| %>
           <div class="col-6 m-b-3 ">
             <div class="card">
-              <div class="card-body">
-                <h4 class="text-black m-b-0">№<%= booking.id %> <%= booking.car %> от <%= booking.created_at.strftime("%d.%m.%Y") %></h4>
+              <div class="card-body <%= 'bg-secondary text-white' if booking.rejection %> <%= 'bg-success text-white' if booking.accept %>">
+                <h4 class="text-black m-b-0">№<%= booking.id %> <%= booking.car %> от <%= booking.created_at.strftime("%d.%m.%Y") %> <%= '(Подтверждена)' if booking.accept %><%= '(Отказ)' if booking.rejection %></h4>
                 <p>
-                  <% if !booking.accept %>
+                  <% if !booking.accept && !booking.rejection %>
                     <%= link_to accept_booking_path(booking), method: :post, class: "btn btn-sm btn-success" do %>
                       Принять
                     <% end %>
+                    <%= link_to rejection_not_cars_booking_path(booking), method: :post, class: "btn btn-sm btn-warning" do %>
+                      Отказ (все занято)
+                    <% end %>
+                    <%= link_to rejection_few_days_booking_path(booking), method: :post, class: "btn btn-sm btn-warning" do %>
+                      Отказ (< 5 суток)
+                    <% end %>
+                    <br>
+                    <br>
                     <%= link_to ' Изменить', edit_booking_admin_path(action: "edit_booking", id: booking), class: "btn btn-sm btn-secondary" %>
-                    <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                    <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Уверен?"} do %>
                       Удалить
                     <% end %>
                   <% else %>
-                    <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-secondary", data: {confirm: "Уверен?"} do %>
+                    <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Уверен?"} do %>
                       Удалить
                     <% end %>
                   <% end %>
