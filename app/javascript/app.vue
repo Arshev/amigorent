@@ -34,8 +34,10 @@
       <div class="cha2">
           <div class="zg" v-if="locale=='en'">Middlename<span>*</span></div>
           <div class="zg" v-else >Отчество<span>*</span></div>
-          <input v-if="locale=='en'" v-model="middlenameClient" placeholder="Input middlename" >
-          <input v-else v-model="middlenameClient" placeholder="Введите отчество" >
+          <span style="color: tomato;" v-if="!$v.middlenameClient.minLength"> - должно содержать минимум {{$v.middlenameClient.$params.minLength.min}} буквы</span>
+          <span style="color: tomato;" v-if="!$v.middlenameClient.maxLength"> - должно содержать максимум {{$v.middlenameClient.$params.maxLength.max}} букв</span>
+          <input type="text" v-if="locale=='en'" v-model.trim.lazy="$v.middlenameClient.$model" placeholder="Input middlename" v-bind:class="{ 'error-input': middlenameError }" required>
+          <input type="text" v-else v-model.trim.lazy="$v.middlenameClient.$model" placeholder="Введите отчество" v-bind:class="{ 'error-input': middlenameError }" required>
       </div>
       <div class="clear"></div>
       <div class="cha1">
@@ -280,6 +282,11 @@ export default {
       minLength: minLength(3),
       maxLength: maxLength(15)
     },
+    middlenameClient: {
+      required,
+      minLength: minLength(3),
+      maxLength: maxLength(15)
+    },
     lastnameClient: {
       required,
       minLength: minLength(2),
@@ -341,6 +348,10 @@ export default {
         this.errors.push(' - Заполните имя')
         this.nameError = true
       }
+      if (this.middlenameClient === '') {
+        this.errors.push(' - Заполните отчество, если нет, введите второй раз фамилию')
+        this.nameError = true
+      }
       if (this.lastnameClient === '') {
         this.errors.push(' - Заполните фамилию')
         this.lastnameError = true
@@ -374,7 +385,7 @@ export default {
         // this.personDataError = true
       }
 
-      if (this.carError === false && this.nameError === false && this.lastnameError === false && this.emailError === false && this.phoneError === false && this.dateStartError === false && this.dateEndError === false && this.days != 'Минимум 2-е суток' && this.personDataError === false && this.termsDataError === false) {
+      if (this.carError === false && this.nameError === false && this.middlenameError === false && this.lastnameError === false && this.emailError === false && this.phoneError === false && this.dateStartError === false && this.dateEndError === false && this.days != 'Минимум 2-е суток' && this.personDataError === false && this.termsDataError === false) {
         
         var self=this;
         // this.file = this.$refs.file.files[0];
@@ -421,6 +432,7 @@ export default {
           self.locationStart = 'Офис'
           self.locationEnd = 'Офис'
           self.nameClient = ''
+          self.middlenameClient = ''
           self.lastnameClient = ''
           self.babyChair = false
           self.navigator = false
