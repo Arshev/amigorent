@@ -15,7 +15,15 @@
               <option selected :value="carNameWithId" >{{carNameWithId}}</option>
             </select>
           </template>
-      <div class="cha1">
+      <div class="cha2">
+          <div class="zg" v-if="locale=='en'">Lastname<span>*</span></div>
+          <div class="zg" v-else >Фамилия<span>*</span></div>
+          <span style="color: tomato;" v-if="!$v.lastnameClient.minLength"> - должна содержать минимум {{$v.lastnameClient.$params.minLength.min}} буквы</span>
+          <span style="color: tomato;" v-if="!$v.lastnameClient.minLength"> - должна содержать минимум {{$v.lastnameClient.$params.minLength.min}} буквы</span>
+          <input v-if="locale=='en'" v-model.trim.lazy="$v.lastnameClient.$model" placeholder="Input lastname" v-bind:class="{ 'error-input': lastnameError }" >
+          <input v-else v-model.trim.lazy="$v.lastnameClient.$model" placeholder="Введите фамилию" v-bind:class="{ 'error-input': lastnameError }" >
+      </div>
+      <div class="cha2">
           <div class="zg" v-if="locale=='en'">Name<span>*</span></div>
           <div class="zg" v-else >Имя<span>*</span></div>
           <span style="color: tomato;" v-if="!$v.nameClient.minLength"> - должно содержать минимум {{$v.nameClient.$params.minLength.min}} буквы</span>
@@ -23,13 +31,11 @@
           <input type="text" v-if="locale=='en'" v-model.trim.lazy="$v.nameClient.$model" placeholder="Input name" v-bind:class="{ 'error-input': nameError }" required>
           <input type="text" v-else v-model.trim.lazy="$v.nameClient.$model" placeholder="Введите имя" v-bind:class="{ 'error-input': nameError }" required>
       </div>
-      <div class="cha1">
-          <div class="zg" v-if="locale=='en'">Lastname<span>*</span></div>
-          <div class="zg" v-else >Фамилия<span>*</span></div>
-          <span style="color: tomato;" v-if="!$v.lastnameClient.minLength"> - должна содержать минимум {{$v.lastnameClient.$params.minLength.min}} буквы</span>
-          <span style="color: tomato;" v-if="!$v.lastnameClient.minLength"> - должна содержать минимум {{$v.lastnameClient.$params.minLength.min}} буквы</span>
-          <input v-if="locale=='en'" v-model.trim.lazy="$v.lastnameClient.$model" placeholder="Input lastname" v-bind:class="{ 'error-input': lastnameError }" >
-          <input v-else v-model.trim.lazy="$v.lastnameClient.$model" placeholder="Введите фамилию" v-bind:class="{ 'error-input': lastnameError }" >
+      <div class="cha2">
+          <div class="zg" v-if="locale=='en'">Middlename<span>*</span></div>
+          <div class="zg" v-else >Отчество<span>*</span></div>
+          <input v-if="locale=='en'" v-model="middlenameClient" placeholder="Input middlename" >
+          <input v-else v-model="middlenameClient" placeholder="Введите отчество" >
       </div>
       <div class="clear"></div>
       <div class="cha1">
@@ -196,6 +202,7 @@ export default {
       navigatorPrice: 0,
       days: null,
       nameClient: '',
+      middlenameClient: '',
       lastnameClient: '',
       emailClient: '',
       phoneClient: '',
@@ -253,6 +260,7 @@ export default {
       total: 0,
       carError: false,
       nameError: false,
+      middlenameError: false,
       lastnameError: false,
       emailError: false,
       phoneError: false,
@@ -385,6 +393,7 @@ export default {
         formData.append('booking[location_start]', this.locationStart);
         formData.append('booking[location_end]', this.locationEnd);
         formData.append('booking[firstname]', this.nameClient);
+        formData.append('booking[middlename]', this.middlenameClient);
         formData.append('booking[lastname]', this.lastnameClient);
         formData.append('booking[baby_chair]', this.babyChair);
         formData.append('booking[navigator]', this.navigator);
@@ -868,15 +877,15 @@ export default {
 </script>
 
 <style>
-li.errors {
-  color: tomato;
-  font-weight: bold;
-  list-style-type: none;
-  margin-top: 5px;
-}
-.error-input {
-  background-color: #fce4e4;
-  border: 1px solid #cc0033;
-  outline: none;
-}
+  li.errors {
+    color: tomato;
+    font-weight: bold;
+    list-style-type: none;
+    margin-top: 5px;
+  }
+  .error-input {
+    background-color: #fce4e4;
+    border: 1px solid #cc0033;
+    outline: none;
+  }
 </style>

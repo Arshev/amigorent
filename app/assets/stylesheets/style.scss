@@ -1822,6 +1822,14 @@ ul.bxslider {
     width: 370px;
     margin: 29px 0 0;
 }
+.content .bl_zakaz .pol1 .cha2 {
+    float: left;
+    width: 240px;
+    margin: 29px 8px 0;
+}
+// .content .bl_zakaz .pol1 .cha2 + .cha2 + .cha2 {
+//     float: right;
+// }
 .content .bl_zakaz .pol1 .cha1 + .cha1 {
     float: right;
 }
@@ -3305,6 +3313,10 @@ li.errors {
         padding: 0 15px;
     }
     .content .bl_zakaz .pol1 .cha1 {
+        width: 100%;
+        margin: 10px 0 0;
+    }
+    .content .bl_zakaz .pol1 .cha2 {
         width: 100%;
         margin: 10px 0 0;
     }
