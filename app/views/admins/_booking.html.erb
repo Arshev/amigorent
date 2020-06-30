@@ -22,7 +22,7 @@
               <tr class="<%= 'table-info' if !booking.accept && !booking.rejection %> <%= 'table-success' if booking.accept %> <%= 'table-secondary' if booking.rejection %>">
                 <th scope="row"><%= booking.id %></th>
                 <td><%= booking.created_at.strftime("%d.%m.%Y") %></td>
-                <td><%= booking.car %></td>
+                <td class="text-wrap" style="word-break: break-all; word-wrap:break-word;"><%= booking.car %></td>
                 <td><%= booking.start_date %><br><%= booking.end_date %></td>
                 <td><%= booking.firstname %><br><%= booking.middlename %><br><%= booking.lastname %></td>
                 <td>
