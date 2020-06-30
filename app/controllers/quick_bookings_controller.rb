@@ -3,7 +3,7 @@ class QuickBookingsController < ApplicationController
   def create
     @quick_booking = QuickBooking.create(quick_booking_params)
     if @quick_booking.save
-      @quick_booking.send_sms
+      # @quick_booking.send_sms
       begin
         @quick_booking.send_tg_message
       rescue => exception

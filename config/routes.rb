@@ -101,6 +101,7 @@ Rails.application.routes.draw do
         post '/accept' => "bookings#accept"
         post '/rejection_few_days' => "bookings#rejection_few_days"
         post '/rejection_not_cars' => "bookings#rejection_not_cars"
+        post '/toggle_rejection' => "bookings#toggle_rejection"
       end
     end
 

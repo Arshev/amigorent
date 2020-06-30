@@ -3,7 +3,7 @@ class Api::V1::BookingController < ApiController
         @booking = Booking.new(booking_params)
         if @booking.save
             # redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
-            @booking.send_sms
+            # @booking.send_sms
             begin
                 @booking.send_tg_message
             rescue => exception

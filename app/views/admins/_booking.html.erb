@@ -25,6 +25,9 @@
                       Удалить
                     <% end %>
                   <% else %>
+                    <%= link_to toggle_rejection_booking_path(booking.id), method: :post, class: "btn btn-sm btn-warning", data: {confirm: "Уверен?"} do %>
+                      Активировать
+                    <% end %>
                     <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Уверен?"} do %>
                       Удалить
                     <% end %>

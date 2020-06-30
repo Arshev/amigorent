@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :set_booking, only: [:update]
+  before_action :set_booking, only: [:update, :toggle_rejection]
   before_action :authenticate_user!, only: [:update, :accept, :destroy]
   before_action :set_text, only: [:success, :new]
 
@@ -22,6 +22,14 @@ class BookingsController < ApplicationController
     if @booking.save
       BookingMailer.with(booking: @booking).user_accept_booking_email.deliver_later
       redirect_back(fallback_location: request.referer, notice: "Заявка одобрена!")
+    else
+      redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
+    end
+  end
+
+  def toggle_rejection
+    if @booking.toggle!(:rejection)
+      redirect_back(fallback_location: request.referer, notice: "Заявка активирована!")
     else
       redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
     end
