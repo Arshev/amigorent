@@ -21,7 +21,7 @@
             <% @bookings.each do |booking| %>
               <tr class="<%= 'table-info' if !booking.accept && !booking.rejection %> <%= 'table-success' if booking.accept %> <%= 'table-secondary' if booking.rejection %>">
                 <th scope="row"><%= booking.id %></th>
-                <td><%= booking.created_at.strftime("%d.%m.%Y") %></td>
+                <td><%= booking.created_at.strftime("%d.%m.%Y") %><br><%= booking.created_at.strftime("%H:%M") %></td>
                 <td class="text-wrap" style="word-break: break-all; word-wrap:break-word;"><%= booking.car %></td>
                 <td><%= booking.start_date %><br><%= booking.end_date %></td>
                 <td><%= booking.firstname %><br><%= booking.middlename %><br><%= booking.lastname %></td>
@@ -30,7 +30,7 @@
                 </td>
                 <td><%= booking.location_start %><br><%= booking.location_end %></td>
                 <td><%= "кресло" if booking.baby_chair %> <%= "навигатор" if booking.navigator %></td>
-                <td>Цена/сутки: <%= booking.price %><br>Итого: <%= booking.total %><br>Залог: <%= booking.deposit %></td>
+                <td>Цена/сутки: <%= booking.price %><br>Итого: <%= booking.total %></td>
                 <td>
                   <% if !booking.accept && !booking.rejection %>
                     <%= link_to accept_booking_path(booking), method: :post, class: "btn btn-sm btn-outline-success", data: {confirm: "Уверен?"} do %>

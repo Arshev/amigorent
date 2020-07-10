@@ -49,6 +49,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'route_translator', '~> 8.0.0'
 gem 'invisible_captcha', '~> 1.0.1'
 gem 'dalli', '~> 2.7.10'
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

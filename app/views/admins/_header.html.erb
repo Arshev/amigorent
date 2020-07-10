@@ -8,8 +8,8 @@
     <nav class="navbar blue-bg navbar-static-top">
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <% balance = MainsmsApi::Balance.new %>
-          <li style="padding: 23px 20px 22px 20px;">Баланс смс: <%= balance.check.balance %> руб</li>
+          <%# balance = MainsmsApi::Balance.new %>
+          <%# <li style="padding: 23px 20px 22px 20px;">Баланс смс: balance.check.balance  руб</li> %>
           <li class="dropdown user user-menu p-ph-res"> 
             <%= link_to edit_user_registration_path, class:"dropdown-toggle" do %>
               <%= image_tag "dist/img/img1.jpg", class:"user-image", alt:"User Image" %> 
