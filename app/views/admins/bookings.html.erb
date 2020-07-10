@@ -14,6 +14,9 @@
       <div class="col-2">
         <%= f.text_field :lastname_cont, class: 'form-control', placeholder: "Фамилия" %>
       </div>
+      <div class="col-1">
+        <%= f.text_field :id_end, class: 'form-control', placeholder: "№" %>
+      </div>
       <div class="col-2">
         <%= f.text_field :start_date_formated_gteq, class: "form-control", placeholder: "Начало >=28-05-2020" %>
       </div>
@@ -26,7 +29,7 @@
       <div class="col-2">
         <%= f.text_field :end_date_formated_lteq, class: "form-control", placeholder: "Конец <= 28-05-2020" %>
       </div>
-      <div class="col-2">
+      <div class="col-1">
         <%= f.submit class: 'btn btn-primary btn-sm' %>
       </div>
     </div>
