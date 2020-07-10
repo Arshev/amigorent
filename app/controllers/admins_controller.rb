@@ -17,14 +17,14 @@ class AdminsController < ApplicationController
   def bookings
     # @bookings = Booking.paginate(page: params[:page])
     @q = Booking.ransack(params[:q])
-    params[:q][:start_date_lteq] =  params[:q][:start_date_lteq].to_datetime.end_of_day.strftime("%d-%m-%Y %H:%M") if !(params[:q] && params[:q][:start_date_lteq]).blank?
-    puts params[:q][:start_date_lteq] if !(params[:q] && params[:q][:start_date_lteq]).blank?
-    params[:q][:start_date_gteq] =  params[:q][:start_date_gteq].to_datetime.end_of_day.strftime("%d-%m-%Y %H:%M") if !(params[:q] && params[:q][:start_date_gteq]).blank?
-    puts params[:q][:start_date_gteq] if !(params[:q] && params[:q][:start_date_gteq]).blank?
-    params[:q][:end_date_lteq] =  params[:q][:end_date_lteq].to_datetime.end_of_day.strftime("%d-%m-%Y %H:%M") if !(params[:q] && params[:q][:end_date_lteq]).blank?
-    puts params[:q][:end_date_lteq] if !(params[:q] && params[:q][:end_date_lteq]).blank?
-    params[:q][:end_date_gteq] =  params[:q][:end_date_gteq].to_datetime.end_of_day.strftime("%d-%m-%Y %H:%M") if !(params[:q] && params[:q][:end_date_gteq]).blank?
-    puts params[:q][:end_date_gteq] if !(params[:q] && params[:q][:end_date_gteq]).blank?
+    params[:q][:start_date_formated_lteq] =  params[:q][:start_date_formated_lteq].to_datetime.end_of_day if !(params[:q] && params[:q][:start_date_formated_lteq]).blank?
+    puts params[:q][:start_date_formated_lteq] if !(params[:q] && params[:q][:start_date_formated_lteq]).blank?
+    params[:q][:start_date_formated_gteq] =  params[:q][:start_date_formated_gteq].to_datetime.end_of_day if !(params[:q] && params[:q][:start_date_formated_gteq]).blank?
+    puts params[:q][:start_date_formated_gteq] if !(params[:q] && params[:q][:start_date_formated_gteq]).blank?
+    params[:q][:end_date_formated_lteq] =  params[:q][:end_date_formated_lteq].to_datetime.end_of_day if !(params[:q] && params[:q][:end_date_formated_lteq]).blank?
+    puts params[:q][:end_date_formated_lteq] if !(params[:q] && params[:q][:end_date_formated_lteq]).blank?
+    params[:q][:end_date_formated_gteq] =  params[:q][:end_date_formated_gteq].to_datetime.end_of_day if !(params[:q] && params[:q][:end_date_formated_gteq]).blank?
+    puts params[:q][:end_date_formated_gteq] if !(params[:q] && params[:q][:end_date_formated_gteq]).blank?
     @bookings = @q.result.paginate(page: params[:page])
   end
 
