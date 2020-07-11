@@ -28,7 +28,10 @@ class BookingsController < ApplicationController
   end
 
   def toggle_rejection
-    if @booking.toggle!(:rejection) && @booking.toggle!(:accept)
+    if @booking.toggle!(:rejection)
+      if @booking.accept == true
+        @booking.toggle!(:accept)
+      end
       redirect_back(fallback_location: request.referer, notice: "Заявка активирована!")
     else
       redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
