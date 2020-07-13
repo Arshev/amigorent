@@ -50,6 +50,14 @@
                     <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-outline-danger", data: {confirm: "Уверен?"} do %>
                       Удалить
                     <% end %>
+                  <% elsif booking.accept || booking.rejection %>
+                    <%= link_to toggle_rejection_booking_path(booking.id), method: :post, class: "btn btn-sm btn-outline-warning", data: {confirm: "Уверен?"} do %>
+                      Активировать
+                    <% end %>
+                    <br>
+                    <%= link_to booking_path(booking.id), remote: true, method: :delete, class: "btn btn-sm btn-outline-danger", data: {confirm: "Уверен?"} do %>
+                      Удалить
+                    <% end %>
                   <% else %>
                     <%= link_to toggle_rejection_booking_path(booking.id), method: :post, class: "btn btn-sm btn-outline-warning", data: {confirm: "Уверен?"} do %>
                       Активировать
