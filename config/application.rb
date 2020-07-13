@@ -12,6 +12,7 @@ module Amigorent
     config.load_defaults 6.0
     config.i18n.default_locale = :ru
     config.i18n.available_locales = [:ru, :en]
+    config.time_zone = 'Kaliningrad'
 
     config.active_job.queue_adapter = :sucker_punch
 
