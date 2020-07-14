@@ -4430,7 +4430,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@^3.0.4, minimatch@~3.0.2:
+minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -4500,6 +4500,14 @@ mixin-deep@^1.2.0:
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
+
+moment-business-time@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/moment-business-time/-/moment-business-time-1.0.0.tgz#0e00c127c775eddb6c38150a61e10b5279c70543"
+  integrity sha512-KCb9e23vxPOXHijxU5LL+p9D2FmxngJXctvkgRP9DDoV3zZ1DI5NMVQMUnt17bQF80sZVEePPg3epbvIFu3YLQ==
+  dependencies:
+    minimatch "^3.0.3"
+    moment "^2.24.0"
 
 moment@^2.24.0:
   version "2.24.0"

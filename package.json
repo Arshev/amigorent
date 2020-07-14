@@ -12,6 +12,7 @@
     "@rails/webpacker": "4.2.2",
     "axios": "^0.19.2",
     "moment": "^2.24.0",
+    "moment-business-time": "^1.0.0",
     "rateyo": "^2.3.5",
     "toastr": "^2.1.4",
     "trix": "^1.0.0",

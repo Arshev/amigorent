@@ -177,8 +177,20 @@ import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
 import { required, minLength, maxLength, email, phone } from 'vuelidate/lib/validators'
 import modal from './packs/components/modal.vue'
 import moment from 'moment'
+import 'moment-business-time'
     import 'moment/locale/ru'
-    moment.locale('ru')
+    // moment.updateLocale(localeName, config)
+    moment.updateLocale('ru', {
+        workinghours: {
+            0: ['09:00:00', '19:00:00'],
+            1: ['09:00:00', '19:00:00'],
+            2: ['09:00:00', '19:00:00'],
+            3: ['09:00:00', '19:00:00'],
+            4: ['09:00:00', '19:00:00'],
+            5: ['09:00:00', '19:00:00'],
+            6: ['09:00:00', '19:00:00']
+        }
+    });
 
 flatpickr.localize(Russian);
 
@@ -303,8 +315,8 @@ export default {
     }
   },
   created() {
-    axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    // axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
+    // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
+    axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
@@ -416,8 +428,8 @@ export default {
         formData.append('booking[total]', this.total);
         formData.append('booking[deposit]', this.deposit);
 
-        axios.post('https://amigorent.ru/api/v1/booking.json'
-        // axios.post('http://localhost:3000/api/v1/booking.json'
+        // axios.post('https://amigorent.ru/api/v1/booking.json'
+        axios.post('http://localhost:3000/api/v1/booking.json'
         ,
           formData,
                 {
@@ -507,10 +519,6 @@ export default {
           this.additional_hours = Math.trunc(additionalHours)
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays()
-      console.log("start:", start_date_days)
-      console.log("end:", end_date_days)
-      console.log("hours:", this.additional_hours)
-      console.log("diff:", diff)
       if (!isNaN(diff)) {
         if (diff >= 2) {
           this.days = diff
@@ -591,12 +599,7 @@ export default {
           let additionalHours = (hours % 24)
           this.additional_hours = Math.trunc(additionalHours)
       }
-      let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
-
-      console.log("start:", start_date_days)
-      console.log("end:", end_date_days)
-      console.log("hours:", this.additional_hours)
-      console.log("diff:", diff)
+      let diff = moment.duration(end_date_days.diff(start_date_days)).asDays()
       
       //let diff =  Math.floor(( Date.parse(this.dateEnd) - Date.parse(this.dateStart) ) / 86400000)
 
@@ -667,9 +670,15 @@ export default {
       this.dateStartError = false
     },
     locationStart () {
+      let start_date = moment(this.dateStart, "DD-MM-YYYY H:mm")
       switch (this.locationStart) {
         case 'Офис':
-          this.locationStartPrice = 0
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 0
+          } else {
+            this.locationStartPrice = 400
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -677,7 +686,12 @@ export default {
           }
           break;
         case 'Аэропорт':
-          this.locationStartPrice = 400
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 400
+          } else {
+            this.locationStartPrice = 700
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -685,7 +699,12 @@ export default {
           }
           break;
         case 'Зеленоградск':
-          this.locationStartPrice = 800
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 800
+          } else {
+            this.locationStartPrice = 1300
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -693,7 +712,12 @@ export default {
           }
           break;
         case 'Светлогорск':
-          this.locationStartPrice = 1000
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 1000
+          } else {
+            this.locationStartPrice = 1500
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -701,7 +725,12 @@ export default {
           }
           break;
         case 'Другой адрес в Калининграде':
-          this.locationStartPrice = 300
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 200
+          } else {
+            this.locationStartPrice = 500
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -709,7 +738,11 @@ export default {
           }
           break;
         case 'Office':
-          this.locationStartPrice = 0
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 0
+          } else {
+            this.locationStartPrice = 400
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -717,7 +750,11 @@ export default {
           }
           break;
         case 'Airport':
-          this.locationStartPrice = 400
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 400
+          } else {
+            this.locationStartPrice = 700
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -725,7 +762,11 @@ export default {
           }
           break;
         case 'Zelenogradsk':
-          this.locationStartPrice = 800
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 800
+          } else {
+            this.locationStartPrice = 1300
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -733,7 +774,11 @@ export default {
           }
           break;
         case 'Svetlogorsk':
-          this.locationStartPrice = 1000
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 1000
+          } else {
+            this.locationStartPrice = 1500
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -741,7 +786,11 @@ export default {
           }
           break;
         case 'Another address in Kaliningrad':
-          this.locationStartPrice = 300
+          if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationStartPrice = 200
+          } else {
+            this.locationStartPrice = 500
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -753,7 +802,12 @@ export default {
     locationEnd () {
       switch (this.locationEnd) {
         case 'Офис':
-          this.locationEndPrice = 0
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 0
+          } else {
+            this.locationEndPrice = 400
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -761,7 +815,11 @@ export default {
           }
           break;
         case 'Аэропорт':
-          this.locationEndPrice = 400
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 400
+          } else {
+            this.locationEndPrice = 700
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -769,7 +827,11 @@ export default {
           }
           break;
         case 'Зеленоградск':
-          this.locationEndPrice = 800
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 800
+          } else {
+            this.locationEndPrice = 1300
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -777,7 +839,11 @@ export default {
           }
           break;
         case 'Светлогорск':
-          this.locationEndPrice = 1000
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 1000
+          } else {
+            this.locationEndPrice = 1500
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -785,7 +851,11 @@ export default {
           }
           break;
         case 'Другой адрес в Калининграде':
-          this.locationEndPrice = 300
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 200
+          } else {
+            this.locationEndPrice = 500
+          }
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -793,7 +863,12 @@ export default {
           }
           break;
         case 'Office':
-          this.locationEndPrice = 0
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 0
+          } else {
+            this.locationEndPrice = 400
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -801,7 +876,12 @@ export default {
           }
           break;
         case 'Airport':
-          this.locationEndPrice = 400
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 400
+          } else {
+            this.locationEndPrice = 700
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -809,7 +889,12 @@ export default {
           }
           break;
         case 'Zelenogradsk':
-          this.locationEndPrice = 800
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 800
+          } else {
+            this.locationEndPrice = 1300
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -817,7 +902,12 @@ export default {
           }
           break;
         case 'Svetlogorsk':
-          this.locationEndPrice = 1000
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 1000
+          } else {
+            this.locationEndPrice = 1500
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
@@ -825,7 +915,12 @@ export default {
           }
           break;
         case 'Another address in Kaliningrad':
-          this.locationEndPrice = 300
+          if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.locationEndPrice = 200
+          } else {
+            this.locationEndPrice = 500
+          }
+
           if (this.additional_hours > 0 && this.additional_hours * this.price_hour >= this.price) {
             this.total = (this.days * this.price) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           } else {
