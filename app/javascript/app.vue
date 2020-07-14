@@ -315,8 +315,8 @@ export default {
     }
   },
   created() {
-    // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
+    axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
+    // axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
@@ -428,8 +428,8 @@ export default {
         formData.append('booking[total]', this.total);
         formData.append('booking[deposit]', this.deposit);
 
-        // axios.post('https://amigorent.ru/api/v1/booking.json'
-        axios.post('http://localhost:3000/api/v1/booking.json'
+        axios.post('https://amigorent.ru/api/v1/booking.json'
+        // axios.post('http://localhost:3000/api/v1/booking.json'
         ,
           formData,
                 {
