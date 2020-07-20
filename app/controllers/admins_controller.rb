@@ -66,7 +66,7 @@ class AdminsController < ApplicationController
 
     response = http.request(request)
     # puts response.read_body
-    @clients = response.read_body
+    @clients = response.read_body.to_s
   end
   def new_article
     @article = Article.new
