@@ -5,12 +5,12 @@ class Api::V1::BookingController < ApiController
             # redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
             # @booking.send_sms
             begin
-                # @booking.send_tg_message
+                @booking.send_tg_message
             rescue => exception
                 puts exception
                 logger.debug exception
             end
-            # BookingMailer.with(booking: @booking).new_booking_email.deliver_later
+            BookingMailer.with(booking: @booking).new_booking_email.deliver_later
 
             # Create Client on RentProg.ru
             begin
