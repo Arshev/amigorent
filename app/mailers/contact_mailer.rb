@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
 
   def contact_email
     @contact = params[:contact]
-    mail(to: 'amigorent@ya.ru', subject: 'Сообщение со страницы контактов')
+    mail(to: 'amigo.rent@ya.ru', subject: 'Сообщение со страницы контактов')
   end
 end
