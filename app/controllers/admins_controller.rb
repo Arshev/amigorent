@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+  require 'uri'
+  require 'net/http'
   before_action :authenticate_user!
   before_action :is_authorised
   before_action :set_text, only: [:text_main, :text_other, :text_metatags, :cities, :text_pages, :translations]
@@ -6,6 +8,7 @@ class AdminsController < ApplicationController
   before_action :set_booking, only: [:edit_booking]
   before_action :set_delivery, only: [:edit_delivery]
   before_action :set_article, only: [:edit_article]
+
 
   def show
     @rating = Rating.first
@@ -49,6 +52,21 @@ class AdminsController < ApplicationController
   end
   def articles
     @articles = Article.all
+
+
+    url = URI("https://api.rentprog.ru/api/v1/get_clients")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(url)
+    # request["x-api-key"] = ENV["SYGIC_API_KEY"]
+    request["cache-control"] = 'no-cache'
+
+    response = http.request(request)
+    # puts response.read_body
+    @clients = response.read_body
   end
   def new_article
     @article = Article.new
