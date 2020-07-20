@@ -52,21 +52,6 @@ class AdminsController < ApplicationController
   end
   def articles
     @articles = Article.all
-
-
-    url = URI("https://api.rentprog.ru/api/v1/get_clients")
-
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-    request = Net::HTTP::Get.new(url)
-    # request["x-api-key"] = ENV["SYGIC_API_KEY"]
-    request["cache-control"] = 'no-cache'
-
-    response = http.request(request)
-    # puts response.read_body
-    @clients = response.read_body.to_s
   end
   def new_article
     @article = Article.new
