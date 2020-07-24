@@ -63,7 +63,7 @@ class BookingsController < ApplicationController
         logger.info "Faraday create client #{resp_create_client_resp.body.id} and booking #{resp_create_booking.body.id}"
       end           
       
-      # BookingMailer.with(booking: @booking).user_accept_booking_email.deliver_later
+      BookingMailer.with(booking: @booking).user_accept_booking_email.deliver_later
       redirect_back(fallback_location: request.referer, notice: "Заявка одобрена!")
     else
       redirect_back(fallback_location: request.referer, alert: "Что то пошло не так!")
