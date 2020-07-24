@@ -19,7 +19,7 @@
           </thead>
           <tbody>
             <% @bookings.each do |booking| %>
-              <tr class="<%= 'table-info' if !booking.accept && !booking.rejection %> <%= 'table-success' if booking.accept %> <%= 'table-secondary' if booking.rejection %>">
+              <tr id="booking" class="<%= 'table-info' if !booking.accept && !booking.rejection %> <%= 'table-success' if booking.accept %> <%= 'table-secondary' if booking.rejection %>">
                 <th scope="row"><%= booking.id %></th>
                 <td><%= booking.created_at.strftime("%d.%m %k:%M") %></td>
                 <td class="text-wrap" style="word-break: break-all; word-wrap:break-word;"><%= booking.car %></td>

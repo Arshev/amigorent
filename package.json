@@ -21,6 +21,7 @@
     "vue-flatpickr-component": "^8.1.5",
     "vue-loader": "^15.9.1",
     "vue-template-compiler": "^2.6.11",
+    "vue-the-mask": "^0.11.1",
     "vue-turbolinks": "^2.1.0",
     "vuelidate": "^0.7.5"
   },

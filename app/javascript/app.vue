@@ -49,9 +49,11 @@
       <div class="cha1">
           <div class="zg" v-if="locale=='en'" >Phone<span>*</span></div>
           <div class="zg" v-else >Телефон<span>*</span></div>
-          <span style="color: tomato;" v-if="!$v.phoneClient.minLength"> - неправильный телефон</span>
+          <!-- <span style="color: tomato;" v-if="!$v.phoneClient.minLength"> - неправильный телефон</span>
           <input v-if="locale=='en'" v-model.trim.lazy="$v.phoneClient.$model" type="tel" placeholder="Input phone" class="form-control" v-bind:class="{ 'error-input': phoneError }">
-          <input v-else v-model.trim.lazy="$v.phoneClient.$model" type="tel" placeholder="Введите телефон" class="form-control" v-bind:class="{ 'error-input': phoneError }">
+          <input v-else v-model.trim.lazy="$v.phoneClient.$model" type="tel" placeholder="Введите телефон" class="form-control" v-bind:class="{ 'error-input': phoneError }"> -->
+          <the-mask v-if="locale=='ru'" type="tel" v-model="phoneClient" placeholder="Введите телефон, формат 79111111111" class="form-control" v-bind:class="{ 'error-input': phoneError }" :mask="['###########']" />
+          <the-mask v-else type="tel" v-model="phoneClient" placeholder="Input phone, format 79111111111" class="form-control" v-bind:class="{ 'error-input': phoneError }" :mask="['###########', '############']" />
       </div>
       <div class="clear"></div>
       <div class="cha1">
@@ -193,6 +195,7 @@ import 'moment-business-time'
     });
 
 flatpickr.localize(Russian);
+import {TheMask} from 'vue-the-mask'
 
 export default {
   props: ["locale"],
@@ -315,8 +318,8 @@ export default {
     }
   },
   created() {
-    axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    // axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
+    // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
+    axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
@@ -428,8 +431,8 @@ export default {
         formData.append('booking[total]', this.total);
         formData.append('booking[deposit]', this.deposit);
 
-        axios.post('https://amigorent.ru/api/v1/booking.json'
-        // axios.post('http://localhost:3000/api/v1/booking.json'
+        // axios.post('https://amigorent.ru/api/v1/booking.json'
+        axios.post('http://localhost:3000/api/v1/booking.json'
         ,
           formData,
                 {
@@ -978,7 +981,8 @@ export default {
   },
   components: {
       flatPickr,
-      modal
+      modal,
+      TheMask
   }
 };
 </script>
