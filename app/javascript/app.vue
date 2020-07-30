@@ -318,8 +318,8 @@ export default {
     }
   },
   created() {
-    axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
-    // axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
+    // axios.get("https://amigorent.ru/api/v1/cars.json").then(response => {
+    axios.get("http://localhost:3000/api/v1/cars.json").then(response => {
       this.cars = response.data;
       const carsArr = []
       this.cars.forEach(function(car) {
@@ -585,6 +585,18 @@ export default {
           }
         }
       }
+      this.locationStart = 'Офис'
+      this.locationEnd = 'Офис'
+      if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+        this.locationStartPrice = 0
+      } else {
+        this.locationStartPrice = 400
+      }
+      if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+        this.locationEndPrice = 0
+      } else {
+        this.locationEndPrice = 400
+      }
       this.errors = []
       this.dateEndError = false
     },
@@ -668,6 +680,18 @@ export default {
             this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           }
         }
+      }
+      this.locationStart = 'Офис'
+      this.locationEnd = 'Офис'
+      if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
+        this.locationStartPrice = 0
+      } else {
+        this.locationStartPrice = 400
+      }
+      if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
+        this.locationEndPrice = 0
+      } else {
+        this.locationEndPrice = 400
       }
       this.errors = []
       this.dateStartError = false
