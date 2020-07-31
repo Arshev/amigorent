@@ -1,6 +1,8 @@
 class Api::V1::BookingController < ApiController
     def create
         @booking = Booking.new(booking_params)
+        @booking.start_date_formated = booking_params['start_date'].to_datetime
+        @booking.end_date_formated = booking_params['end_date'].to_datetime
         if @booking.save
             # redirect_back(fallback_location: success_path, notice: "Заявка успешно создана! Ожидайте звонка оператора. Обработка заявки производится в течение суток")
             # @booking.send_sms
