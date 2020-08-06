@@ -4,7 +4,7 @@ lock "~> 3.14.1"
 set :application, "amigorent"
 set :repo_url, "git@github.com:Arshev/amigorent.git"
 set :deploy_to, "/home/deployer/#{fetch :application}"
-set :npm_flags, '--production' # default
+# set :npm_flags, '--production' # full log
 
 require "whenever/capistrano"
 
