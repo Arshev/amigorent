@@ -39,7 +39,7 @@ class Api::V1::BookingController < ApiController
                     # Create client
                     url = 'https://api.rentprog.ru/api/v1/create_client'
                     resp = Faraday.post(url) do |req|
-                        req.body = { clients: {name: "#{@booking.firstname}", lastname: "#{@booking.lastname}", middlename: "#{@booking.middlename}", phone: "#{@booking.phone}", email: "#{@booking.email}" } }.to_json
+                        req.body = { clients: {name: "#{@booking.firstname.capitalize}", lastname: "#{@booking.lastname.capitalize}", middlename: "#{@booking.middlename.capitalize}", phone: "#{@booking.phone}", email: "#{@booking.email}" } }.to_json
                         req.headers['Content-Type'] = 'application/json'
                     end
                     logger.info "Faraday " + " resp:" + resp.body.to_s
