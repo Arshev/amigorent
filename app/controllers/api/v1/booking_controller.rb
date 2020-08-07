@@ -15,7 +15,7 @@ class Api::V1::BookingController < ApiController
             BookingMailer.with(booking: @booking).new_booking_email.deliver_later
 
             # Create Client and Booking on RentProg.ru
-            begin
+            # begin
 
                 # Get client and check
                 def check_phone(phone)
@@ -50,6 +50,8 @@ class Api::V1::BookingController < ApiController
                     resp_create_client = Faraday.post(url_create_client) do |req|
                         req.body = { clients: {name: "#{@booking.firstname.capitalize}", lastname: "#{@booking.lastname.capitalize}", middlename: "#{@booking.middlename.capitalize}", phone: "#{@booking.phone}", email: "#{@booking.email}" } }.to_json
                         req.headers['Content-Type'] = 'application/json'
+                        logger.info req
+                        logger.info req.body
                     end
                     resp_create_client_resp = JSON.parse resp_create_client.body.force_encoding("UTF-8")
                     url_create_booking = 'https://api.rentprog.ru/api/v1/create_booking'
@@ -70,10 +72,10 @@ class Api::V1::BookingController < ApiController
                     end
                     logger.info "Faraday create booking" + " resp:" + resp.body.to_s
                 end
-            rescue => exception
-                puts exception
-                logger.debug exception
-            end
+            # rescue => exception
+            #     puts exception
+            #     logger.debug exception
+            # end
 
             
             render json: @booking, adapter: :json, status: :created
