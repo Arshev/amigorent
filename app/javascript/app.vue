@@ -429,6 +429,9 @@ export default {
         formData.append('booking[car]', this.carName);
         formData.append('booking[days]', this.days);
         formData.append('booking[price]', this.price);
+        formData.append('booking[delivery]', this.locationStartPrice + this.locationEndPrice);
+        formData.append('booking[equipment]', this.babyChairPrice + this.navigatorPrice);
+        formData.append('booking[price]', this.price);
         formData.append('booking[total]', this.total);
         formData.append('booking[deposit]', this.deposit);
 
@@ -443,8 +446,12 @@ export default {
               }
         )
         .then(function (response) {
+
+          window.location.href = '/success';
+
           self.dateStart = null
           self.dateEnd = null
+          self.additional_hours = 0
           self.locationStart = 'Офис'
           self.locationEnd = 'Офис'
           self.nameClient = ''
@@ -455,12 +462,14 @@ export default {
           self.phoneClient = ''
           self.emailClient = ''
           self.days = 0
+          self.locationStartPrice = 0
+          self.locationEndPrice = 0
           self.price = 0
           self.deposit = 0
           self.total = 0
 
           // self.showModal()
-          window.location.href = '/success';
+          
         })
         .catch(function (error) {
           console.log(error);
