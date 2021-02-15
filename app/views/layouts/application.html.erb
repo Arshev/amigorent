@@ -66,6 +66,13 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-154920051-1');
+    gtag('config', 'AW-691640545');
   </script>
+  <% if request.path.include?('/success') %>
+    <!-- Event snippet for Оформление заявки conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-691640545/X7MvCP6LzvUBEOGx5skC'});
+    </script>
+  <% end %>
 </body>
 </html>
