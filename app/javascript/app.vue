@@ -258,7 +258,7 @@ export default {
         'Аэропорт', 
         'Светлогорск', 
         'Зеленоградск', 
-        'Другой адрес в Калининграде',
+        'Калининград',
         'Офис'
       ],
       locations_en: [
@@ -761,7 +761,7 @@ export default {
             this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           }
           break;
-        case 'Другой адрес в Калининграде':
+        case 'Калининград':
           if (moment(this.dateStart, "DD-MM-YYYY H:mm").isWorkingTime()) {
             this.locationStartPrice = 200
           } else {
@@ -887,7 +887,7 @@ export default {
             this.total = (this.days * this.price) + (this.additional_hours * this.price_hour) + this.babyChairPrice + this.navigatorPrice + this.locationStartPrice + this.locationEndPrice
           }
           break;
-        case 'Другой адрес в Калининграде':
+        case 'Калининград':
           if (moment(this.dateEnd, "DD-MM-YYYY H:mm").isWorkingTime()) {
             this.locationEndPrice = 200
           } else {
