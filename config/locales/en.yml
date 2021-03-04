@@ -33,7 +33,7 @@ en:
     office: "Main office"
     address: "Kaliningrad, st.A. Nevsky 36V"
     terms: "Terms of use"
-    copyright_html: "&copy; 2010-2020. Car rental Amigo."
+    copyright_html: "&copy; 2010-%{year}. Car rental Amigo."
     sections: "Sections"
     cars: "Car park"
     prices: "Prices"
