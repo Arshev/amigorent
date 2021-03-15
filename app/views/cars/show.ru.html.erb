@@ -420,4 +420,8 @@
     })
 });
 </script>
-<%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_email: @city.email, cached: true %>
+<% if @car.city != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_email: @city.email, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>
