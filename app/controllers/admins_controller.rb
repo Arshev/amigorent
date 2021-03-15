@@ -37,8 +37,12 @@ class AdminsController < ApplicationController
   
   def new_car
     @car = current_user.cars.build
+    @cities = City.all.map{|city| [city.name, city.name]}
+    @cities = @cities.push(["Калининград", "Калининград"])
   end
   def edit_car
+    @cities = City.all.map{|city| [city.name, city.name]}
+    @cities = @cities.push(["Калининград", "Калининград"])
   end
   def upload_photos
   end

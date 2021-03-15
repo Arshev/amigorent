@@ -32,6 +32,10 @@ class CarsController < ApplicationController
   def show
     @reviews = @car.car_reviews.limit(10)
     @new_review = CarReview.new
+    if @car.city
+      @main_up_text = Text.first.main_up_text
+      @city = City.find_by(name: @car.city)
+    end
   end
 
   def economy

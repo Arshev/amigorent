@@ -311,6 +311,17 @@
               </div>
             </div>
           </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Город</h4>
+                  <td><%= f.select :city, @cities, {}, {class:"form-control", id: "city"} %></td>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>

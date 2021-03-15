@@ -1,6 +1,10 @@
 <% title @text.car_title + " " + @car.car_name + " в Калининграде | Амиго" %>
 <% description @text.car_description + " " + "#{@car.car_name} в Калининграде. Прокат автомобиля #{@car.car_name} в автопрокате Амиго в Калининграде. Бронируйте на сайте." %>
-<%= render 'shared/header', cached: true %>
+<% if @car.city != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
     <div class="wrapper">
         <%= render 'shared/bread'%>
@@ -416,4 +420,4 @@
     })
 });
 </script>
-<%= render 'shared/footer', cached: true %>
+<%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_email: @city.email, cached: true %>
