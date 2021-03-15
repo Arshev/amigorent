@@ -74,6 +74,31 @@ class AdminsController < ApplicationController
   end
   def translations
   end
+
+  def add_new_city
+    @city = City.new
+  end
+
+  def add_new_town
+    @city = City.find(params[:city_id])
+    @town = @city.towns.new
+  end
+
+  def new_city
+    @city = City.find(params[:id])
+  end
+
+  def new_town
+    @town = Town.find(params[:id])
+  end
+
+  def new_cities
+    @cities = City.all
+  end
+
+  def new_towns
+    @towns = Town.all
+  end
   
 
   private

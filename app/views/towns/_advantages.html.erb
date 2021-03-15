@@ -1,0 +1,40 @@
+<div class="blcks">
+    <div class="blck">
+        <% if I18n.locale == :en %>
+            <%= image_tag "Strah.svg", alt:"Hull insurance", title:"Hull insurance" %>
+            Hull <br />insurance
+        <% else %>
+            <%= image_tag "Strah.svg", alt:"Старховка КАСКО", title:"Старховка КАСКО" %>
+            Старховка <br />КАСКО
+        <% end %>
+    </div>
+    <div class="blck">
+        <% if I18n.locale == :en %>
+            <%= image_tag "podderzhka.svg", alt:"Round-the-clock support", title:"Round-the-clock support" %>
+            Round-the-clock<br /> support
+        <% else %>
+            <%= image_tag "podderzhka.svg", alt:"Круглосуточная поддержка", title:"Круглосуточная поддержка" %>
+            Круглосуточная поддержка
+        <% end %>
+    </div>
+    <div class="blck">
+        <% if I18n.locale == :en %>
+            <%= image_tag "probeg.svg", alt:"Unlimited mileage", title:"Unlimited mileage" %>
+            Unlimited <br />mileage
+        <% else %>
+            <%= image_tag "probeg.svg", alt:"Безлимитный пробег", title:"Безлимитный пробег" %>
+            Безлимитный <br />пробег
+        <% end %>
+    </div>
+    <div class="blck">
+        <% if I18n.locale == :en %>
+            <%= image_tag "vozvrat.svg", alt:"Low prices", title:"Low prices" %>
+            Low <br />prices
+        <% else %>
+            <%= image_tag "vozvrat.svg", alt:"Низкие цены", title:"Низкие цены" %>
+            Низкие <br />цены
+        <% end %>
+    </div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+</div>

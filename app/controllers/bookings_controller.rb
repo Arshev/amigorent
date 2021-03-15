@@ -119,6 +119,7 @@ class BookingsController < ApplicationController
   private
     def set_text
       @text = Text.first
+      @cities = City.where(active: true)
     end
 
     def set_booking

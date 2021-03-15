@@ -7,5 +7,6 @@ class PricesController < ApplicationController
   private
     def set_text
       @text = Text.first
+      @cities = City.where(active: true)
     end
 end

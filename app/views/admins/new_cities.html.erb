@@ -1,0 +1,67 @@
+<%= render 'header' %>
+<%= render 'left_sidebar' %>
+<div class="content-wrapper">
+    <div class="content-header sty-one">
+        <h1>Большие города</h1>
+        <ol class="breadcrumb">
+            <li>
+                <%= link_to 'Главная', admin_path %>
+            </li>
+            <li><i class="fa fa-angle-right"></i> <%= link_to 'Статьи', articles_admin_path %></li>
+            <li><i class="fa fa-angle-right"></i> Большие города</li>
+        </ol>
+    </div>
+    <%= link_to add_new_city_admin_path do %>
+    <button class="btn btn-success btn-block mt-3">Добавить большой город</button class="btn btn-outline-secondary btn-block">
+    <% end %>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="list-group">
+                    <% @cities.each do |city| %>
+                    <li class="list-group-item">
+                        <%= link_to city.name, new_city_admin_path(id: city.id) %>
+                        <%= link_to city_path(city), method: :delete, data: {confirm: "Уверены?"} do %>
+                        <%= image_tag 'trash.png', class: 'm-2' %>
+                        <% end %>
+                        <% if !(city.active?) %>
+                          <%= link_to activate_city_path(city), method: :post do %>
+                            Активировать
+                          <% end %>
+                        <% else %>
+                          <%= link_to deactivate_city_path(city), method: :post do %>
+                            Деактивировать
+                          <% end %>
+                        <% end %>
+                        <ul class="list-group">
+                            <% city.towns.each do |town| %>
+                            <li class="list-group-item">
+                                <%= link_to town.name, new_town_admin_path(id: town.id) %>
+                                <%= link_to city_town_path(town.city_id, town.id), method: :delete, data: {confirm: "Уверены?"} do %>
+                                <%= image_tag 'trash.png', class: 'm-2' %>
+                                <% end %>
+                                <% if !(town.active?) %>
+                                <%= link_to activate_city_town_path(town.city_id, town.id), method: :post do %>
+                                Активировать
+                                <% end %>
+                                <% else %>
+                                <%= link_to deactivate_city_town_path(town.city_id, town.id), method: :post do %>
+                                Деактивировать
+                                <% end %>
+                                <% end %>
+                            </li>
+                            <% end %>
+                        </ul>
+                        <div>
+                            <%= link_to add_new_town_admin_path(city_id: city.id) do %>
+                            <button class="btn btn-outline-secondary btn-block">Добавить малый город</button class="btn btn-outline-secondary btn-block">
+                            <% end %>
+                        </div>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<%= render 'footer'  %>

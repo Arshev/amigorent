@@ -6,18 +6,25 @@ class DeliveriesController < ApplicationController
   before_action :set_text, only: [:index, :show]
 
   def aeroport
+    @cities = City.where(active: true)
   end
   def zelenogradsk
+    @cities = City.where(active: true)
   end
   def svetlogorsk
+    @cities = City.where(active: true)
   end
   def yantarnyi
+    @cities = City.where(active: true)
   end
   def baltyisk
+    @cities = City.where(active: true)
   end
   def pionerskyi
+    @cities = City.where(active: true)
   end
   def chernyahovsk
+    @cities = City.where(active: true)
   end
   
 
@@ -61,6 +68,7 @@ class DeliveriesController < ApplicationController
 
     def set_text
       @text = Text.first
+      @cities = City.where(active: true)
     end
 
     def set_city

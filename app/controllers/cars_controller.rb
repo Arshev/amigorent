@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   before_action :is_authorised, only: [:photo_upload, :update, :destroy]
 
   def index
-    @cars = Car.where(active: true)
+    @cars = Car.where(active: true, city: "Калининград")
   end
 
   def new
@@ -35,22 +35,22 @@ class CarsController < ApplicationController
   end
 
   def economy
-    @cars = Car.where(active: true, car_class: "Эконом")
+    @cars = Car.where(active: true, car_class: "Эконом", city: "Калининград")
   end
   def middle
-    @cars = Car.where(active: true, car_class: "Средний")
+    @cars = Car.where(active: true, car_class: "Средний", city: "Калининград")
   end
   def minivans
-    @cars = Car.where(active: true, car_class: "Минивэны")
+    @cars = Car.where(active: true, car_class: "Минивэны", city: "Калининград")
   end
   def crossovers
-    @cars = Car.where(active: true, car_class: "Кроссоверы")
+    @cars = Car.where(active: true, car_class: "Кроссоверы", city: "Калининград")
   end
   def business
-    @cars = Car.where(active: true, car_class: "Бизнес")
+    @cars = Car.where(active: true, car_class: "Бизнес", city: "Калининград")
   end
   def commercial
-    @cars = Car.where(active: true, car_class: "Коммерческий")
+    @cars = Car.where(active: true, car_class: "Коммерческий", city: "Калининград")
   end
   
   def images_upload
@@ -84,6 +84,7 @@ class CarsController < ApplicationController
 
     def set_text
       @text = Text.first
+      @cities = City.where(active: true)
     end
 
     def car_params
@@ -94,6 +95,6 @@ class CarsController < ApplicationController
       :power, :fuel_type, :drive_unit, :tth_note, :consumption, :number_seats, :clearance, :length, :width, :height, 
       :tank_capacity, :trunk_volume, :mass, :number_gears, :max_speed, :racing, :climat, :mirror, 
       :power_window_front, :power_window_back, :steering_wheel_height, :steering_wheel_adjustment, 
-      :power_seats, :hot_seats, :central_locking, :radio, :usb, :aux, :cd, :video, images: [])
+      :power_seats, :hot_seats, :central_locking, :radio, :usb, :aux, :cd, :video, :city, images: [])
     end
 end

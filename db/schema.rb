@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_103049) do
+ActiveRecord::Schema.define(version: 2021_03_15_150138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,7 +167,26 @@ ActiveRecord::Schema.define(version: 2020_08_07_103049) do
     t.string "drive_unit", default: "empty"
     t.text "tth_note", default: "empty"
     t.text "description_en", default: "empty"
+    t.string "city", default: "Калининград"
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "url_name"
+    t.string "title"
+    t.string "description"
+    t.string "h1"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "phone", default: "empty"
+    t.string "email", default: "empty"
+    t.string "address", default: "empty"
+    t.string "work_time", default: "empty"
+    t.text "text", default: "empty"
+    t.float "yandex", default: 1.0
+    t.float "google", default: 1.0
+    t.boolean "active", default: false
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -560,6 +579,26 @@ ActiveRecord::Schema.define(version: 2020_08_07_103049) do
     t.text "cars_commercial_text_en", default: "empty"
   end
 
+  create_table "towns", force: :cascade do |t|
+    t.string "name"
+    t.string "url_name"
+    t.string "title"
+    t.string "description"
+    t.string "h1"
+    t.bigint "city_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "phone", default: "empty"
+    t.string "email", default: "empty"
+    t.string "address", default: "empty"
+    t.string "work_time", default: "empty"
+    t.text "text", default: "empty"
+    t.float "yandex", default: 1.0
+    t.float "google", default: 1.0
+    t.boolean "active", default: false
+    t.index ["city_id"], name: "index_towns_on_city_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -589,4 +628,5 @@ ActiveRecord::Schema.define(version: 2020_08_07_103049) do
   add_foreign_key "bookings", "users"
   add_foreign_key "car_reviews", "cars"
   add_foreign_key "cars", "users"
+  add_foreign_key "towns", "cities"
 end

@@ -36,6 +36,12 @@ Rails.application.routes.draw do
       get 'cities'
       get 'reviews' => "admins#reviews"
       get 'translations'
+      get 'add_new_city'
+      get 'add_new_town'
+      get 'new_city' => "admins#new_city"
+      get 'new_town' => "admins#new_town"
+      get 'new_cities'
+      get 'new_towns'
     end
   end
   
@@ -115,4 +121,20 @@ Rails.application.routes.draw do
     resources :services, only: [:index]
     resources :articles
   end
+  resources :cities do
+    member do
+      post '/activate' => "cities#activate"
+      post '/deactivate' => "cities#deactivate"
+    end
+    resources :towns do
+      member do
+        post '/activate' => "towns#activate"
+        post '/deactivate' => "towns#deactivate"
+      end
+    end
+  end
+  
+  get '/russia', to: 'main#index'
+  get '/russia/:city_name', to: 'cities#address_city'
+  get '/russia/:city_name/:town_name', to: 'towns#address_town'
 end

@@ -6,19 +6,15 @@
             <span></span>
         </div>
         <div class="privet">
-            <% if I18n.locale == :en %>
-            <%= @text.main_up_text_en.html_safe %>
-            <% else %>
-            <%= @text.main_up_text.html_safe %>
-            <% end %>
+            <%= @main_up_text.html_safe %>
         </div>
         <div class="transl">
-            <%= link_to root_path(locale: :en) do %>
-            <%= image_tag "tr1.png", alt: "English", title: "English" %>
-            <% end %>
-            <%= link_to root_path do %>
-            <%= image_tag "tr2.png", alt: "Русский", title: "Русский" %>
-            <% end %>
+            <%# link_to root_path(locale: :en) do %>
+            <%# image_tag "tr1.png", alt: "English", title: "English" %>
+            <%# end %>
+            <%# link_to root_path do %>
+            <%# image_tag "tr2.png", alt: "Русский", title: "Русский" %>
+            <%# end %>
         </div>
         <div class="clear"></div>
     </div>
@@ -43,15 +39,15 @@
         <% end %>
         <% end%>
         <div class="addr">
-            <%= t 'header.address_html' %>
+            <%= city_address %> <b><%= city_name %></b>
         </div>
         <div class="phone">
-            <a href="tel:+7 (921) 710-16-15">+7 (921) 710-16-15</a>
+            <a href="tel:<%= city_phone %>"><%= city_phone %></a>
             <b><a href="tel:8 (800) 100-39-73">8 (800) 100-39-73</a></b>
         </div>
         <div class="vrem">
             <%= t 'header.days' %>
-            <b>09:00 ~ 19:00</b>
+            <b><%= city_work_time %></b>
         </div>
         <div class="rating">
             <div class="obo">
@@ -151,7 +147,7 @@
                 <% if I18n.locale == :en %>
                 <% if current_page?(cars_path) %>
                 <a href="" onclick="return false">
-                    <%= t 'header.cars' %> <span>&#9660;</span>
+                    <%= t 'header.cars' %><span>&#9660;</span>
                 </a>
                 <% else %>
                 <%= link_to cars_path(locale: I18n.locale) do %>
@@ -628,16 +624,16 @@
                     Города <span>&#9660;</span>
                 </a>
                 <% else %>
-                <a href="" onclick="return false">
+                <%= link_to deliveries_path do %>
                 Города <span>&#9660;</span>
-                </a>
+                <% end %>
                 <% end%>
                 <% end %>
                 <ul>
                     <% @cities.each do |city| %>
-                      <li>
-                          <%= link_to city.name, "/russia/#{city.url_name}" %>
-                      </li>
+                    <li>
+                        <%= link_to city.name, "/russia/#{city.url_name}" %>
+                    </li>
                     <% end %>
                 </ul>
             </li>
