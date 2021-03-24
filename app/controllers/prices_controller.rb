@@ -1,7 +1,7 @@
 class PricesController < ApplicationController
   before_action :set_text
   def index
-    @cars = Car.all
+    @cars = Car.all.where(active: true, city: "Калининград")
   end
 
   private
