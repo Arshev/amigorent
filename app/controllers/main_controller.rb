@@ -4,7 +4,7 @@ class MainController < ApplicationController
     @quick_booking = QuickBooking.new
     @reviews = Review.where(active: :true).limit(3)
 
-    @cars = Car.all.where(active: true, city: "Калининград").sample(3)
+    @cars = Car.all.where(active: true, city: "Калининград").limit(3)
   end
 
   def conditions
