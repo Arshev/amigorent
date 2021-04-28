@@ -38,7 +38,7 @@ class CarsController < ApplicationController
         @city = City.find_by(name: @car.city)
       end
     else
-      raise ActionController::RoutingError.new('Not Found')
+      render file: "#{Rails.root}/public/404.html", layout: false, status: 404
     end
   end
 
