@@ -37,6 +37,8 @@ class CarsController < ApplicationController
         @main_up_text = Text.first.main_up_text
         @city = City.find_by(name: @car.city)
       end
+    else
+      raise ActionController::RoutingError.new('Not Found')
     end
   end
 
