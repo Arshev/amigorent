@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+  mount Ckeditor::Engine => "/ckeditor"
   devise_for :users
 
-  devise_scope :user do  
-    get '/users/sign_out' => 'devise/sessions#destroy'     
+  devise_scope :user do
+    get "/users/sign_out" => "devise/sessions#destroy"
   end
 
-  root 'main#index'
-  
+  mount PgHero::Engine, at: "pghero"
+  ENV["PGHERO_USERNAME"] = "erosanin"
+  ENV["PGHERO_PASSWORD"] = "UUsn9dcz!"
+
+  root "main#index"
+
   namespace :api do
     namespace :v1 do
       resources :cars, only: [:index, :show]
@@ -17,48 +21,48 @@ Rails.application.routes.draw do
 
   resource :admin, except: [:edit, :new, :create] do
     member do
-      get 'cars'
-      get 'bookings'
-      get 'edit_booking'
-      get 'articles'
-      get 'new_article'
-      get 'edit_article'
-      get 'new_car'
-      get 'deliveries'
-      get 'new_delivery'
-      get 'edit_delivery'
-      get 'upload_photos'
-      get 'edit_car'
-      get 'text_main'
-      get 'text_other'
-      get 'text_metatags'
-      get 'text_pages'
-      get 'cities'
-      get 'reviews' => "admins#reviews"
-      get 'translations'
-      get 'add_new_city'
-      get 'add_new_town'
-      get 'new_city' => "admins#new_city"
-      get 'new_town' => "admins#new_town"
-      get 'new_cities'
-      get 'new_towns'
+      get "cars"
+      get "bookings"
+      get "edit_booking"
+      get "articles"
+      get "new_article"
+      get "edit_article"
+      get "new_car"
+      get "deliveries"
+      get "new_delivery"
+      get "edit_delivery"
+      get "upload_photos"
+      get "edit_car"
+      get "text_main"
+      get "text_other"
+      get "text_metatags"
+      get "text_pages"
+      get "cities"
+      get "reviews" => "admins#reviews"
+      get "translations"
+      get "add_new_city"
+      get "add_new_town"
+      get "new_city" => "admins#new_city"
+      get "new_town" => "admins#new_town"
+      get "new_cities"
+      get "new_towns"
     end
   end
-  
+
   # scope "(:locale)", locale: /en|ru/, defaults: { locale: ''} do
-    # scope "(:locale)", locale: /en|ru/ do
+  # scope "(:locale)", locale: /en|ru/ do
   localized do
     resources :cars, except: [:edit] do
       resources :images, :only => [:create, :destroy]
-      
+
       # Class auto
-      collection do 
-        get 'economy'
-        get 'middle'
-        get 'minivans'
-        get 'crossovers'
-        get 'business'
-        get 'commercial'
+      collection do
+        get "economy"
+        get "middle"
+        get "minivans"
+        get "crossovers"
+        get "business"
+        get "commercial"
       end
 
       member do
@@ -66,36 +70,36 @@ Rails.application.routes.draw do
       end
       resources :car_reviews, only: [:create, :new, :destroy, :approve] do
         member do
-          post '/approve' => "car_reviews#approve"
+          post "/approve" => "car_reviews#approve"
         end
       end
     end
 
     resource :text
 
-    get 'conditions', action: :conditions, controller: 'main'
-    get 'success', action: :success, controller: 'bookings'
+    get "conditions", action: :conditions, controller: "main"
+    get "success", action: :success, controller: "bookings"
 
-    get 'arenda-avto-aeroport-hrabrovo', action: :aeroport, controller: 'deliveries'
-    get 'arenda-avto-zelenogradsk', action: :zelenogradsk, controller: 'deliveries'
-    get 'arenda-avto-svetlogorsk', action: :svetlogorsk, controller: 'deliveries'
-    get 'arenda-avto-yantarnyi', action: :yantarnyi, controller: 'deliveries'
-    get 'arenda-avto-baltyisk', action: :baltyisk, controller: 'deliveries'
-    get 'arenda-avto-pionerskyi', action: :pionerskyi, controller: 'deliveries'
-    get 'arenda-avto-chernyahovsk', action: :chernyahovsk, controller: 'deliveries'
+    get "arenda-avto-aeroport-hrabrovo", action: :aeroport, controller: "deliveries"
+    get "arenda-avto-zelenogradsk", action: :zelenogradsk, controller: "deliveries"
+    get "arenda-avto-svetlogorsk", action: :svetlogorsk, controller: "deliveries"
+    get "arenda-avto-yantarnyi", action: :yantarnyi, controller: "deliveries"
+    get "arenda-avto-baltyisk", action: :baltyisk, controller: "deliveries"
+    get "arenda-avto-pionerskyi", action: :pionerskyi, controller: "deliveries"
+    get "arenda-avto-chernyahovsk", action: :chernyahovsk, controller: "deliveries"
 
-    get 'arenda-avto-s-voditelem', action: :s_voditelem, controller: 'main'
-    get 'car-sharing', action: :car_sharing, controller: 'main'
-    get 'casko', action: :casko, controller: 'main'
-    get 'corporativnym-clientam', action: :corporate, controller: 'main'
-    get 'sales-system', action: :sales, controller: 'main'
-    get 'payment-methods', action: :payment, controller: 'main'
-    get 'transportnyi-autsorsing', action: :outsours, controller: 'main'
-    get 'full-insurance', action: :full_insurance, controller: 'main'
+    get "arenda-avto-s-voditelem", action: :s_voditelem, controller: "main"
+    get "car-sharing", action: :car_sharing, controller: "main"
+    get "casko", action: :casko, controller: "main"
+    get "corporativnym-clientam", action: :corporate, controller: "main"
+    get "sales-system", action: :sales, controller: "main"
+    get "payment-methods", action: :payment, controller: "main"
+    get "transportnyi-autsorsing", action: :outsours, controller: "main"
+    get "full-insurance", action: :full_insurance, controller: "main"
 
     resources :reviews, only: [:create, :index, :destroy, :approve] do
       member do
-        post '/approve' => "reviews#approve"
+        post "/approve" => "reviews#approve"
       end
     end
 
@@ -104,10 +108,10 @@ Rails.application.routes.draw do
 
     resources :bookings, only: [:create, :new, :destroy, :update] do
       member do
-        post '/accept' => "bookings#accept"
-        post '/rejection_few_days' => "bookings#rejection_few_days"
-        post '/rejection_not_cars' => "bookings#rejection_not_cars"
-        post '/toggle_rejection' => "bookings#toggle_rejection"
+        post "/accept" => "bookings#accept"
+        post "/rejection_few_days" => "bookings#rejection_few_days"
+        post "/rejection_not_cars" => "bookings#rejection_not_cars"
+        post "/toggle_rejection" => "bookings#toggle_rejection"
       end
     end
 
@@ -123,18 +127,18 @@ Rails.application.routes.draw do
   end
   resources :cities do
     member do
-      post '/activate' => "cities#activate"
-      post '/deactivate' => "cities#deactivate"
+      post "/activate" => "cities#activate"
+      post "/deactivate" => "cities#deactivate"
     end
     resources :towns do
       member do
-        post '/activate' => "towns#activate"
-        post '/deactivate' => "towns#deactivate"
+        post "/activate" => "towns#activate"
+        post "/deactivate" => "towns#deactivate"
       end
     end
   end
-  
-  get '/russia', to: 'main#index'
-  get '/russia/:city_name', to: 'cities#address_city'
-  get '/russia/:city_name/:town_name', to: 'towns#address_town'
+
+  get "/russia", to: "main#index"
+  get "/russia/:city_name", to: "cities#address_city"
+  get "/russia/:city_name/:town_name", to: "towns#address_town"
 end
