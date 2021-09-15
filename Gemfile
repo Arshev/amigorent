@@ -36,7 +36,7 @@ gem "image_processing", "~> 1.2"
 gem "mainsms_api", "~> 0.0.9"
 gem "mailgun-ruby", "~> 1.2.0"
 gem "sucker_punch", "~> 2.1.2"
-gem "telegram-bot-ruby", "~> 0.12.0"
+gem "telegram-bot-ruby"
 gem "recaptcha", "~> 5.2.1"
 gem "will_paginate", "~> 3.3.0"
 gem "ckeditor", "~> 5.1.0"
@@ -74,6 +74,7 @@ group :development do
   gem "capistrano-rails", "~> 1.4.0", require: false
   gem "capistrano-passenger", "~> 0.2.0", require: false
   gem "capistrano-rails-console", "~> 2.3.0", require: false
+  gem "capistrano-db-tasks", "~> 0.6", require: false
   gem "capistrano-npm", "~> 1.0.3", require: false
 end
 

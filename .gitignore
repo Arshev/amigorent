@@ -34,3 +34,4 @@ yarn-debug.log*
 database.yml
 # My mistake
 /db/migrate/20200505151022_add_to_cars.rb
+/db/*.sql
