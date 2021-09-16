@@ -14,36 +14,11 @@
   <%= csp_meta_tag %>
 <% if !request.path.include?('admin') %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application' %>
-  <%= javascript_pack_tag 'counters' %>
   <%= stylesheet_link_tag 'actiontext' %>
-  <%= javascript_pack_tag 'mob_menu' %>
 
   <meta name="viewport" content="width=device-width" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap&subset=cyrillic" rel="stylesheet">
-  <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
-  <% unless request.path.include?('/prices') || request.path.include?('/bookings/new') || request.path.include?('admin') %>
-    <%= javascript_pack_tag 'scripts', 'data-turbolinks-track': 'reload' %>
-  <% end %>
-
-    <% if request.path.include?('/cars/') %>
-        <%= javascript_pack_tag 'fotorama', 'data-turbolinks-track': 'reload' %>
-        <%= stylesheet_link_tag 'fotorama', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <% end %>
-    <% if request.path.include?('/bookings/new') %>
-      <%= javascript_pack_tag 'vue-app' %>
-      <%= stylesheet_pack_tag 'vue-app' %>
-    <% end %>
-    <% if request.path.include?('/reviews') || request.path.include?('/cars/') %>
-      <%= javascript_pack_tag 'rateyo', 'data-turbolinks-track': 'reload' %>
-      <%= stylesheet_link_tag 'jquery.rateyo.min', 'data-turbolinks-track': 'reload' %>
-    <% end %>
-
 <% else %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'actiontext', 'data-turbolinks-track': 'reload' %>
-    <%# javascript_pack_tag 'jquery', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'admins_panel', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%# javascript_pack_tag 'adminkit', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
@@ -51,12 +26,11 @@
 <% end %>
 <%= favicon_link_tag 'favicon.ico' %>
 </head>
-<body>
+<body class="home">
   <header itemscope itemtype="http://schema.org/WPHeader">
     <meta itemprop="headline" content="Прокат автомобилей Амиго">
     <meta itemprop="description" content="✔️ Честный прокат автомобилей в Калининграде. Дружественное отношение к клиенту, низкие цены на аренду авто, от 700₽, страховка КАСКО. Обращайтесь!">
   </header>
-    <%= toastr_flash %>
     <%= yield %>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154920051-1"></script>
