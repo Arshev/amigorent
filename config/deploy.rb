@@ -10,10 +10,10 @@ set :deploy_to, "/home/deployer/#{fetch :application}"
 set :use_sudo, true #try fix Cleaning stale instance directory /tmp/passenger.fvb84h1 01     Warning: Operation not permitted @ rb_file_chown
 
 # if you want to remove the local dump file after loading
-set :db_local_clean, true
+set :db_local_clean, false
 
 # if you want to remove the dump file from the server after downloading
-set :db_remote_clean, false
+set :db_remote_clean, true
 
 # configure location where the dump file should be created
 set :db_dump_dir, -> { File.join(current_path, "db") }
