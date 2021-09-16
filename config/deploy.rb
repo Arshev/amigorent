@@ -16,7 +16,7 @@ set :db_local_clean, true
 set :db_remote_clean, true
 
 # configure location where the dump file should be created
-set :db_dump_dir, "./db"
+set :db_dump_dir, -> { File.join(current_path, "db") }
 
 # if you prefer bzip2/unbzip2 instead of gzip
 set :compressor, :bzip2
