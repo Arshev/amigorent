@@ -200,7 +200,7 @@
       margin: 0;
       padding: 130px 0 50px;
       text-align: center;
-      background: url("block1.png") no-repeat center -300px transparent;
+      background: url(asset_path("block1.png")) no-repeat center -300px transparent;
       /* background-size: auto 100%; */
   }
   .block1 span {
@@ -278,7 +278,7 @@
       box-sizing: border-box;
       border: none;
       outline: none;
-      background: url("cale.png") no-repeat 20px center #fff;
+      background: url(asset_path("cale.png")) no-repeat 20px center #fff;
       font-weight: 300;
       height: 56px;
       width: 390px;
@@ -432,7 +432,7 @@
   .block4 .spis_avto .avto1 .badge {
       position: absolute;
       z-index: 3;
-      background: url("badge.png") no-repeat 0 0 transparent;
+      background: url(asset_path("badge.png")) no-repeat 0 0 transparent;
       padding: 23px 50px 75px 0px;
       clip-path: polygon(0 0, 100% 0, 0% 100%, 0 100%);
   }
@@ -522,7 +522,7 @@
       color: #fff;
   }
   .block5 {
-      background: url("block5.png") no-repeat center top transparent;
+      background: url(asset_path("block5.png")) no-repeat center top transparent;
       background-size: cover;
       padding: 80px 0 0;
   }
@@ -556,7 +556,7 @@
       line-height: 27px;
   }
   .block5 .pol1 .fio {
-      background: url("fio.png") no-repeat right top transparent;
+      background: url(asset_path("fio.png")) no-repeat right top transparent;
       margin: 36px 10px 0 0;
       padding: 49px 0 60px;
       color: #fff;
@@ -793,7 +793,7 @@
       cursor: pointer;
       position: relative;
       padding: 0 0 0 71px;
-      background: url("zz1.png") no-repeat right center transparent;
+      background: url(asset_path("zz1.png")) no-repeat right center transparent;
   }
   .block8 .cha1 .spis_prei .prei p {
     display: none;
@@ -809,7 +809,7 @@
       bottom: -30px;
   }
   .block8 .cha1 .spis_prei .prei .zz.opened {
-      background: url("zz2.png") no-repeat right center transparent;
+      background: url(asset_path("zz2.png")) no-repeat right center transparent;
   }
   .footer {
       background: #141414;
@@ -1376,7 +1376,7 @@
       text-decoration: none;
   }
   .header .menu_top li.parent > a {
-      background: url("down.png") no-repeat right 4px transparent;
+      background: url(asset_path("down.png")) no-repeat right 4px transparent;
       background-size: 19px;
       padding-right: 26px;
   }
@@ -1480,7 +1480,7 @@
       color: #fff;
       text-transform: uppercase;
       font-weight: 700;
-      background: url("akci.png") no-repeat center top transparent;
+      background: url(asset_path("akci.png")) no-repeat center top transparent;
       font-size: 19px;
       letter-spacing: 4px;
       line-height: 34px;
@@ -1666,7 +1666,7 @@
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 3px;
-    background: url("filt.png") no-repeat right center transparent;
+    background: url(asset_path("filt.png")) no-repeat right center transparent;
     border: none;
     outline: none;
     width: 123px;
@@ -1728,21 +1728,21 @@
   .content.for_spis .filter .vid_spis .vid1 {
       float: left;
       width: 55px;
-      background: url("vid11.png") no-repeat center center transparent;
+      background: url(asset_path("vid11.png")) no-repeat center center transparent;
       height: 55px;
   }
   .content.for_spis .filter .vid_spis .vid2 {
-      background: url("vid2.png") no-repeat center center transparent;
+      background: url(asset_path("vid2.png")) no-repeat center center transparent;
       float: left;
       width: 55px;
       height: 55px;
       margin: 0 0 0 21px;
   }
   .content.for_spis .filter .vid_spis .vid1.active {
-      background: url("vid1.png") no-repeat center center transparent;
+      background: url(asset_path("vid1.png")) no-repeat center center transparent;
   }
   .content.for_spis .filter .vid_spis .vid2.active {
-      background: url("vid21.png") no-repeat center center transparent;
+      background: url(asset_path("vid21.png")) no-repeat center center transparent;
   }
   .block_vopros {
       margin: -10px 0 0;
@@ -1775,13 +1775,13 @@
   .block_vopros .vopros .vop span {
       width: 39px;
       height: 39px;
-      background: url("span2.png") no-repeat center center transparent;
+      background: url(asset_path("span2.png")) no-repeat center center transparent;
       position: absolute;
       top: 31px;
       right: 45px;
   }
   .block_vopros .vopros .vop.active span {
-      background: url("span1.png") no-repeat center center transparent;
+      background: url(asset_path("span1.png")) no-repeat center center transparent;
   }
   .block_vopros .vopros .otv {
     display: none;
@@ -1832,16 +1832,16 @@
       line-height: 28px;
   }
   .block4 .spis_avto .avto1 .hara .hr2.i1 {
-      background: url("i1.png") no-repeat left center transparent;
+      background: url(asset_path("i1.png")) no-repeat left center transparent;
   }
   .block4 .spis_avto .avto1 .hara .hr2.i2 {
-      background: url("i2.png") no-repeat left center transparent;
+      background: url(asset_path("i2.png")) no-repeat left center transparent;
   }
   .block4 .spis_avto .avto1 .hara .hr2.i3 {
-      background: url("i3.png") no-repeat left center transparent;
+      background: url(asset_path("i3.png")) no-repeat left center transparent;
   }
   .block4 .spis_avto .avto1 .hara .hr2.i4 {
-      background: url("i4.png") no-repeat left center transparent;
+      background: url(asset_path("i4.png")) no-repeat left center transparent;
   }
   .block4 .spis_avto#spis2 .avto1 .texx p {
       font-weight: 300;
@@ -1849,7 +1849,7 @@
       font-size: 24px;
       line-height: 29px;
       margin: 22px 0 -11px;
-      background: url("pp.png") no-repeat left center transparent;
+      background: url(asset_path("pp.png")) no-repeat left center transparent;
   }
   .block4 .spis_avto#spis2 .avto1 .price {
       float: left;
@@ -2008,7 +2008,7 @@
       width: 20px;
       height: 20px;
       margin: -10px 0 0;
-      background: url("stre.png") no-repeat left center transparent;
+      background: url(asset_path("stre.png")) no-repeat left center transparent;
   }
   .cartochka .bx-wrapper .bx-next {
       display: block;
@@ -2019,7 +2019,7 @@
       width: 20px;
       height: 20px;
       margin: -10px 0 0;
-      background: url("stre.png") no-repeat right center transparent;
+      background: url(asset_path("stre.png")) no-repeat right center transparent;
   }
   .cartochka .bx-wrapper .bx-prev:hover,
   .cartochka .bx-wrapper .bx-next:hover {
@@ -2033,7 +2033,7 @@
       cursor: pointer;
       display: inline-block;
       vertical-align: top;
-      background: url("hara.png") no-repeat right center transparent;
+      background: url(asset_path("hara.png")) no-repeat right center transparent;
       padding: 0 62px 0 0;
   }
   .content .cartochka .video {
@@ -2284,7 +2284,7 @@
       padding: 80px 0 1px;
   }
   .block_price {
-    background: url("block_price.png") no-repeat center top transparent;
+    background: url(asset_path("block_price.png")) no-repeat center top transparent;
     background-size: cover;
     padding: 115px 0 111px;
     text-align: center;
@@ -2435,12 +2435,12 @@
       outline: none;
   }
   .content .page_zakaz .pol1 input.inp1 {
-      background: url("inp1.png") no-repeat 20px center #fff;
+      background: url(asset_path("inp1.png")) no-repeat 20px center #fff;
       padding: 0 55px;
   }
   .content .page_zakaz .pol1 input.inp2 {
       padding: 0 55px;
-      background: url("inp2.png") no-repeat 20px center #fff;
+      background: url(asset_path("inp2.png")) no-repeat 20px center #fff;
   }
   ::-webkit-calendar-picker-indicator {
     display: none;
