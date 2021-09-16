@@ -2,211 +2,503 @@
 <% description @text.main_description %>
 <%= render 'shared/header', cached: true %>
 <div class="block1">
-    <div class="wrapper">
-        <h1 class="text1"><%= @text.main_h1_text.html_safe %></h1>
-        <div class="text2">С нами ты всегда у руля!</div>
-        <!--<div class="text3"><a href="tel:+79217101615">+7 (921) 710-16-15</a></div>-->
-        <%= link_to "Цены на аренду", prices_path, class: "zakaz" %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block2">
-    <div class="wrapper">
-        <div class="zag">Быстрая заявка</div>
-        <div class="podzag"><%= @text.main_quick_booking_text.html_safe %></div>
-        <div class="perekl">
-            <label>
-                <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
-                <span>Седан</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_hatch]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_hatch]" id="quick_booking_is_hatch">
-                <span>Хэтчбэк</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_cross]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_cross]" id="quick_booking_is_cross">
-                <span>Кроссовер</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_minivan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_minivan]" id="quick_booking_is_minivan">
-                <span>Минивэн</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_universal]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_universal]" id="quick_booking_is_universal">
-                <span>Универсал</span>
-            </label>
-        </div>
-        <%= form_for @quick_booking do |f| %>
-          <%= f.text_field :name, placeholder: "Ваше имя", class: "inp1 bs" %>
-          <%= f.text_field :phone, placeholder: "Ваш телефон", class: "inp2" %>
-          <%= f.text_field :email, placeholder: "Ваш E-mail", class: "inp3" %>
-          <%= f.date_field :start_date, placeholder: "Дата начала", class: "inp4 bs" %>
-          <%= f.date_field :end_date, placeholder: "Дата окончания", class: "inp4" %>
-          <%= f.submit "Отправить заявку" %>
-          <div class="clear"></div>
-        <% end %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block3">
-  <div class="wrapper">
-    <div class="spis_bl">
-      <div class="blck">
-        <%= image_tag "b1.png", alt: "Страховка Каско", title: "Страховка Каско" %>
-        <div class="zg">Страховка Каско</div>
-        <p>Все авто застрахованы по КАСКО: минимальная ответственность клиента даже при происшествиях по его вине.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b2.png", alt: "Неограниченный пробег", title: "Неограниченный пробег" %>
-        <div class="zg">Неограниченный пробег</div>
-        <p>Ограничение суточного пробега и штраф за несоблюдение нашими условиями не предусмотрены.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b3.png", alt: "Немедленный возврат залога", title: "Немедленный возврат залога" %>
-        <div class="zg">Немедленный возврат залога</div>
-        <p>Возвращаем залоговую сумму непосредственно после осмотра и приема автомобиля.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b4.png", alt: "Гарантия лучшей цены", title: "Гарантия лучшей цены" %>
-        <div class="zg">Гарантия лучшей цены</div>
-        <p>Если вы найдете машину дешевле, с аналогичными условиями аренды — мы снизим цену для Вас!</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b5.png", alt: "Поддержка 24/7", title: "Поддержка 24/7" %>
-        <div class="zg">Поддержка 24/7</div>
-        <p>Круглосуточная поддержка клиента по всем вопросам, связанным с арендой автомобиля.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b6.png", alt: "Дружественное отношение", title: "Дружественное отношение" %>
-        <div class="zg">Дружественное отношение</div>
-        <p>Мы ценим своих клиентов и не придираемся к мелким недостаткам при приеме автомобиля.</p>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</div>
-<div class="block4">
-    <div class="wrapper">
-        <div class="zag">Найдём машину для каждого!</div>
-        <div class="podzag">У нас большой ассортимент автомобилей.</div>
-        <div class="spis_avto" >
-          <%= render "cars", cached: true %>
-        </div>
-        <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block5">
-    <div class="wrapper" itemprop="itemReviewed" content="Прокат автомобилей Амиго" itemscope itemtype="http://schema.org/AggregateRating">
-      <meta itemprop="itemReviewed" itemprop="name" content="Прокат автомобилей Амиго">
-      <meta itemprop="worstRating" content="1">
-        <meta itemprop="bestRating" content="5">
-      <meta itemprop="itemReviewed" content="Прокат автомобилей Амиго"/>
-        <div class="zag">Отзывы</div>
-        <div style="margin-bottom: 30px;">
-            Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
-        </div>
-        <meta itemprop="itemReviewed" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Прокат автомобилей Амиго">
-        <div class="spis_otz">
-            <%= render "reviews/reviews_on_main", cached: true %>
+        <div class="wrapper">
+            <span></span>
+            <div class="text1">C нами ты всегда у руля!</div>
+            <div class="text2"><h1><b>Аренда автомобилей</b> в Калининграде</h1></div>
+            <a href="#" class="price">Цены на аренду</a>
+            <%= image_tag("bmw.png") %>
             <div class="clear"></div>
         </div>
-        <%= link_to reviews_path, class:"all" do %>
-          Посмотреть все отзывы
-        <% end %>
-        <div class="clear"></div>
     </div>
-</div>
-<div class="block6">
-    <div class="wrapper">
-        <div class="zag">Что мы предлагаем?</div>
-        <div class="podzag">Автопрокат Амиго предоставляет следующие услуги: <br>аренда авто в Калининграде, каршеринг и прокат авто в Калининграде и аэропорту Храброво.</div>
-        <div class="main_text"><%= @text.main_text.html_safe %></div>
-        <div class="col1">
-            <div class="zg">Наша Миссия</div>
-            <div class="podp"><%= @text.main_mission_text.html_safe %></div>
-            <div class="pre">
-              <%= image_tag "pr1.png", alt: "Клиент наш друг", title: "Клиент наш друг" %>
-              Клиент наш друг!
-            </div>
-            <div class="pre">
-              <%= image_tag "pr2.png", alt: "Справедливость", title: "Справедливость" %>
-              Всегда стараемся справедливо урегулировать все спорные моменты.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr3.png", alt: "парк машин в хорошем состоянии", title: "парк машин в хорошем состоянии" %>
-              Содержим парк машин в хорошем состоянии.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr4.png", alt: "Договор без подводных камней", title: "Договор без подводных камней" %>
-              Договор без подводных камней.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr5.png", alt: "Большие скидки при долгосрочной аренде", title: "Большие скидки при долгосрочной аренде" %>
-              Большие скидки при долгосрочной аренде.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr6.png", alt: "Многолетний опыт работы", title: "Многолетний опыт работы" %>
-              Многолетний опыт работы.
-            </div>
+    <div class="block2">
+        <div class="wrapper">
+          <div class="zagol">Подобрать и заказать автомобиль</div>
+          <form>
+              <div class="obol">
+                  <input type="text" value="" placeholder="Дата начала аренды" name="" />
+                  <select>
+                      <option>11:00</option>
+                      <option>12:00</option>
+                      <option>13:00</option>
+                  </select>
+                  <div class="clear"></div>
+              </div>
+              <div class="obol">
+                  <input type="text" value="" placeholder="Дата конца аренды" name="" />
+                  <select>
+                      <option>11:00</option>
+                      <option>12:00</option>
+                      <option>13:00</option>
+                  </select>
+                  <div class="clear"></div>
+              </div>
+              <button>Поиск</button>
+              <div class="clear"></div>
+          </form>
+          <div class="clear"></div>
         </div>
-        <div class="col1">
-            <div class="zg">Наши Преимущества</div>
-            <div class="podp"><%= @text.main_edge_text.html_safe %></div>
-            <div class="pere opened">
-                <div class="za">
-                  <%= image_tag "pe1.png", alt: "выгодные условия по КАСКО", title: "выгодные условия по КАСКО" %>
-                  Самые выгодные условия по КАСКО
-                  <span></span>
-                </div>
-                <div class="skrito" style="display: block;">
-                  <p>Договором аренды предусмотрена самая низкая в Калининграде франшиза по страховке.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe2.png", alt: "Круглосуточная поддержка 24/7", title: "Круглосуточная поддержка 24/7" %>
-                  Круглосуточная поддержка 24/7
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>В любой ситуации, касаемой автомобиля, мы готовы помочь 24 часа в сутки.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe3.png", alt: "Низкие залоги", title: "Низкие залоги" %>
-                  Низкие залоги
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>Низкие залоговые суммы, начинаются от 3000 рублей.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe4.png", alt: "Есть почасовая оплата", title: "Есть почасовая оплата" %>
-                  Есть почасовая оплата
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>Мы не берем стоимость аренды за сутки при опоздании или аренде на неполные сутки. На большинство автомобилей плата за час составляет 150 рублей.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe5.png", alt: "Справедливая топливная политика", title: "Справедливая топливная политика" %>
-                  Справедливая топливная политика
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
     </div>
-</div>
+    <div class="block3">
+        <div class="wrapper">
+            <div class="prei">
+                <span>01</span>
+                <div class="zg">у нас есть страховка <b>каско</b></div>
+                <p>Все наши авто застрахованы по КАСКО минимальная ответственность клиента даже при происшествиях по его вине.</p>
+            </div>
+            <div class="prei">
+                <span>02</span>
+                <div class="zg">Мы <b>не ограничеваем</b> вам пробег</div>
+                <p>Ограничение суточного пробега и штраф за несоблюдение нашими условиями не предусмотрены.</p>
+            </div>
+            <div class="prei">
+                <span>03</span>
+                <div class="zg">НЕМЕДЛЕННЫЙ <b>ВОЗВРАТ ЗАЛОГА</b></div>
+                <p>Возвращаем залоговую сумму непосредственно после осмотра и приема автомобиля.</p>
+            </div>
+            <div class="prei">
+                <span>04</span>
+                <div class="zg">А еще мы очень <b>заботимся 24/7</b></div>
+                <p>Круглосуточная поддержка клиента по всем вопросам, связанным с арендой автомобиля.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4">
+        <div class="wrapper">
+            <div class="zagol">Найдем машину для каждого</div>
+            <div class="podzag">У нас большой ассортимент автомобилей</div>
+            <div class="spis_avto">
+                <div class="avto1">
+                    <div class="badge"><span>Акция</span></div>
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="avto1">
+                    <div class="bl_img" style="background-image: url(<%= image_path("avto.png")%>);"></div>
+                    <a href="#" class="zg">Huyndai solaris</a>
+                    <div class="hara">
+                        <div class="hr">
+                            <span>объем</span>
+                            1.6 л
+                        </div>
+                        <div class="hr">
+                            <span>КПП</span>
+                            Автомат
+                        </div>
+                        <div class="hr">
+                            <span>Кондиционер</span>
+                            Есть
+                        </div>
+                        <div class="hr">
+                            <span>Год</span>
+                            2013 г.
+                        </div>
+                    </div>
+                    <div class="price">
+                        Стоимость:
+                        <span>от <b>1 300 ₽/сутки</b></span>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="more">Подробнее</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="btn">
+                <a href="#">Посмотреть все автомобили</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block5">
+        <div class="wrapper">
+            <div class="zagol">Обращение к нашим клиентам</div>
+            <div class="podzag">Немного о нас словами нашего генерального директора</div>
+            <div class="pol1">
+                <p>Мы предоставляем широкий выбор автомобилей в аренду. Машины эконом, среднего и бизнес класса, минивэны и кроссоверы, а также аренда коммерческого транспорта. Основная наша услуга аренда автомобиля без водителя в Калининграде, других городах Калининградской области и аэропорту Храброво. Дополнительно оказываем услуги по аренде и прокату автомобилей с водителем.<br />Доставляем арендованную машину в любую точку региона. Наша визитная карточка клиентоориентированность, а также низкие цены на аренду авто, гибкая система скидок и высокая безопасность клиента, благодаря полной страховке КАСКО.</p>
+                <div class="fio">
+                    Генеральный директор amigorent
+                    <span>Соколов А.В.</span>
+                </div>
+            </div>
+            <%= image_tag("block5_img.png") %>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block6">
+        <div class="wrapper">
+            <div class="zagol">Отзывы</div>
+            <div class="spis_img">
+                <%= image_tag("o1.png") %>
+                <%= image_tag("o2.png") %>
+            </div>
+            <div class="spis_ot">
+                <div class="ot1">
+                    <div class="bl_img" style="background-image: <%= image_path("o.png")%>;"></div>
+                    <div class="fio">Андрей</div>
+                    <div class="zvezd">
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                    </div>
+                    <p>Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
+                    <a href="#" class="more">Посмотреть еще</a>
+                    <p class="moree">Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
+                </div>
+                <div class="ot1">
+                    <div class="bl_img" style="background-image: <%= image_path("o.png")%>;"></div>
+                    <div class="fio">Андрей</div>
+                    <div class="zvezd">
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                    </div>
+                    <p>Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
+                    <a href="#" class="more">Посмотреть еще</a>
+                    <p class="moree">Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
+                </div>
+                <div class="ot1">
+                    <div class="bl_img" style="background-image: <%= image_path("o.png")%>;"></div>
+                    <div class="fio">Андрей</div>
+                    <div class="zvezd">
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                        <%= image_tag("z.png") %>
+                    </div>
+                    <p>Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
+                    <a href="#" class="more">Посмотреть еще</a>
+                    <p class="moree">Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="btn">
+                <a href="#">Посмотреть все отзывы</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block7">
+        <div class="wrapper">
+            <div class="zagol">Часто задаваемые вопросы</div>
+            <div class="zag">Чем отличается аренда автомобиля от проката?</div>
+            <p>если авто планируется использовать в коммерческих целях, а оформляется оно на юридическое лицо и на срок свыше года, то лучше выбрать аренду. Если же машина нужна только для того. чтобы встретить дорогого гостя в аэропорту или на вокзале или отправиться за город на выходных, оптимально подойдет прокат.</p>
+            <div class="zag">Что такое каршеринг?</div>
+            <p>Каршеринг — это кратковременная аренда автомобиля с поминутной, почасовой и редко — с суточной тарификацией. Данная услуга становится все более популярной, особенно среди людей, ценящих свое время и комфорт передвижения. Вы можете использовать каршеринговое авто для поездок на работу, путешествий и прочих целей, за исключением коммерческих.</p>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block8">
+        <div class="wrapper">
+            <div class="zagol">Что мы предлагаем?</div>
+            <div class="podzag">Автопрокат Амиго предоставляет следующие услуги: <br />аренда авто в Калининграде, каршеринг и прокат авто в Калининграде и аэропорту Храброво.</div>
+            <%= image_tag("block8_img.png") %>
+            <div class="pol2">
+                <div class="zag">Аренда авто в калининграде</div>
+                <p>Мы предоставляем широкий выбор автомобилей в аренду. Машины эконом, среднего и бизнес класса, минивэны и кроссоверы, а также аренда коммерческого транспорта. Основная наша услуга аренда автомобиля без водителя в Калининграде, других городах Калининградской области и аэропорту Храброво. Дополнительно оказываем услуги по аренде и прокату автомобилей с водителем.<br />Доставляем арендованную машину в любую точку региона. Наша визитная карточка клиентоориентированность, а также низкие цены на аренду авто, гибкая система скидок и высокая безопасность клиента, благодаря полной страховке КАСКО.</p>
+                <div class="zag">Прокат и аренда автомобилей, каршеринг в Калининграде</div>
+                <p>Низкие цены на прокат авто и каршеринг – это автопрокат Амиго. Ознакомьтесь с ценами и убедитесь в этом сами. Мы стараемся минимизировать время простоя наших машин, поэтому держим цены самыми низкими в Калининградской области. При этом гарантируем высокое качество услуг по аренде автомобилей. Все машины проходят регулярное техническое обслуживание и предоставляются напрокат со страховкой КАСКО, что гарантирует защиту клиента в непредвиденных случаях.</p>
+                <div class="zag">Автопрокат Амиго – <br />лучший прокат авто в Калининграде</div>
+                <p>Автопрокат Амиго - более 10 лет на рынке аренды автомобилей в Калининграде, более 50.000 благодарных клиентов, более 1.000 хороших отзывов в интернете. Это лучший прокат автомобилей в Калининграде, с высоким рейтингом и деловой репутацией, по независимым оценкам, подробнее об этом в разделе "О нас". Берите машины в аренду у нас и убедитесь в этом сами!</p>
+            </div>
+            <div class="clear"></div>
+            <div class="cha1">
+                <div class="zag">Наша миссия</div>
+                <p>Построение бизнеса нового поколения, основанного на принципе: «К клиенту — с душой!» <br />Стать прокатом автомобилей мирового уровня, лучшим в России. Миссия компании Амиго — развитие рынка доступной, удобной и качественной аренды автомобилей. Наше название символ того, что клиент - наш друг!</p>
+                <div class="spis_mis">
+                    <div class="mis">
+                        <%= image_tag("m1.png") %>
+                        Клиент наш друг!
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m2.png") %>
+                        Всегда стараемся справедливо урегулировать все спорные моменты.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m3.png") %>
+                        Содержим парк машин<br />в хорошем состоянии.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m4.png") %>
+                        Договор <br />без подводных камней.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m5.png") %>
+                        Большие скидки <br />при долгосрочной аренде.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m6.png") %>
+                        Многолетний опыт работы.
+                    </div>
+                </div>
+            </div>
+            <div class="cha1">
+                <div class="zag">Наши приемущества</div>
+                <p>Главное отличие автопроката Амиго – <br />честный подход и дружеское отношение к каждому клиенту. Мы стараемся использовать в нашей работе самые передовые достижения и мировой опыт аренды автомобилей, постоянно расширять спектр и повышать качество оказываемых услуг.</p>
+                <div class="spis_prei">
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m1.png") %>
+                            Самые выгодные условия по КАСКО
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m7.png") %>
+                            Круглосуточная поддержка 24/7
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m8.png") %>
+                            Низкие залоги
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m9.png") %>
+                            Есть почасовая оплата
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz opened">
+                            <%= image_tag("m10.png") %>
+                            Справедливая топливная политика
+                        </div>
+                        <p style="display: block;">Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
 <%= render 'shared/footer', cached: true %>
