@@ -13,7 +13,7 @@ set :use_sudo, true #try fix Cleaning stale instance directory /tmp/passenger.fv
 set :db_local_clean, true
 
 # if you want to remove the dump file from the server after downloading
-set :db_remote_clean, true
+set :db_remote_clean, false
 
 # configure location where the dump file should be created
 set :db_dump_dir, -> { File.join(current_path, "db") }
