@@ -149,25 +149,25 @@
             </li>
             <li style="margin: 0 10px;" class="<%= active_class?(cars_path) %>">
                 <% if I18n.locale == :en %>
-                <% if current_page?(cars_path) %>
-                <a href="" onclick="return false">
-                    <%= t 'header.cars' %> <span>&#9660;</span>
-                </a>
-                <% else %>
-                <%= link_to cars_path(locale: I18n.locale) do %>
-                <%= t 'header.cars' %><span>&#9660;</span>
-                <% end %>
-                <% end%>
-                <% else %>
-                <% if current_page?(cars_path) %>
-                <a href="" onclick="return false">
+                    <% if current_page?(cars_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.cars' %> <span>&#9660;</span>
+                    </a>
+                    <% else %>
+                    <%= link_to cars_path(locale: I18n.locale) do %>
                     <%= t 'header.cars' %><span>&#9660;</span>
-                </a>
-                <% else %>
-                <%= link_to cars_path do %>
-                <%= t 'header.cars' %><span>&#9660;</span>
-                <% end %>
+                    <% end %>
                 <% end%>
+                <% else %>
+                    <% if current_page?(cars_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.cars' %><span>&#9660;</span>
+                    </a>
+                    <% else %>
+                    <%= link_to cars_path do %>
+                    <%= t 'header.cars' %><span>&#9660;</span>
+                    <% end %>
+                    <% end%>
                 <% end %>
                 <ul>
                     <li class="<%= active_class?(economy_cars_path) %>">
