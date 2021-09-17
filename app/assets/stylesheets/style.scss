@@ -98,7 +98,7 @@
       float: left;
       list-style: none;
       font-size: 0;
-      margin: 28px 0 0 73px;
+      margin: 28px 0 0 30px;
   }
   .header .menu_top li {
       display: inline-block;
@@ -150,7 +150,7 @@
   .header .gorod {
       float: left;
       text-align: right;
-      margin: 14px 0 0 30px;
+      margin: 14px 0 0 5px;
       width: 200px;
       position: relative;
   }
@@ -185,12 +185,21 @@
       margin: 23px 0 0;
       letter-spacing: 3.5px;
   }
-  .header .lang span {}
-  .header .lang a {
-      color: #ef7f1a;
-      text-decoration: none;
-      font-weight: 700;
+  .header .lang span {
+    color: #fff;
+    text-decoration: none;
+    // font-weight: 700;
   }
+  // .header .lang a {
+  //     color: #ef7f1a;
+  //     text-decoration: none;
+  //     font-weight: 700;
+  // }
+  .header .lang .active {
+    color: #ef7f1a;
+    text-decoration: none;
+    font-weight: 700;
+}
   .header .lang a:hover {
     text-decoration: underline;
   }
