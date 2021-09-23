@@ -9,11 +9,11 @@
         <div class="wrapper">
             <% if current_page?(controller: 'main', action: 'index') %>
               <a href="" onclick="return false" id="logo">
-                  <%= image_tag("logo.png", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
+                  <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
               </a>
             <% else %>
               <%= link_to root_path, id: "logo" do %>
-                <%= image_tag("logo.png", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
+                <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
               <% end %>
             <% end %>
             <div id="menu_tg2">
