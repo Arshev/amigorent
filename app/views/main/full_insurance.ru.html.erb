@@ -3,15 +3,14 @@
 <%= render 'shared/header', cached: true %>
 <div class="content">
   <div class="wrapper">
-        <%= render 'shared/bread'%>
-    <div class="bl_dop">
-        <h1><%= @text.full_insurance_h1 %></h1>
-        <div>
+      <div class="bread">
+          <%= render 'shared/bread'%>
+      </div>
+      <div class="textt">
+          <div class="zagol"><%= @text.full_insurance_h1 %></div>
           <%= @text.full_insurance_text.html_safe %>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
   </div>
 </div>
 <%= render 'shared/footer', cached: true %>

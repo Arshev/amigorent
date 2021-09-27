@@ -3,53 +3,54 @@
 <%= render 'shared/header', cached: true %>
 <div class="content">
   <div class="wrapper">
-        <%= render 'shared/bread'%>
-    <div class="bl_dop">
-        <h1><%= @text.s_voditelem_h1 %></h1>
-        <table class="table-carshearing var2">
-          <tbody>
-            <tr>
-              <td></td>
-              <td colspan="3">Стоимость (руб. в час) <sup>*</sup></td>
-            </tr>
-            <tr>
-              <td>Длительность</td>
-              <td>Эконом</td>
-              <td>Средний</td>
-              <td>Бизнес</td>
-            </tr>
-            <tr>
-              <td>от 4х часов </td>
-              <td>700</td>
-              <td>1000</td>
-              <td>1500</td>
-            </tr>
-            <tr>
-              <td>от 8ми часов </td>
-              <td>600</td>
-              <td>800</td>
-              <td>1300</td>
-            </tr>
-            <tr>
-              <td>от 7ми дней</td>
-              <td>500</td>
-              <td>600</td>
-              <td>1100</td>
-            </tr>
-            <tr>
-              <td>от 1 мес </td>
-              <td>400</td>
-              <td>500</td>
-              <td>1000</td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
+      <div class="bread">
+          <%= render 'shared/bread'%>
+      </div>
+      <div class="textt">
+          <div class="zagol"><%= @text.s_voditelem_h1 %></div>
+          <div class="pricee">
+            <table class="article_table">
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td colspan="3">Стоимость (руб. в час) <sup>*</sup></td>
+                </tr>
+                <tr>
+                  <td>Длительность</td>
+                  <td>Эконом</td>
+                  <td>Средний</td>
+                  <td>Бизнес</td>
+                </tr>
+                <tr>
+                  <td>от 4х часов </td>
+                  <td>700</td>
+                  <td>1000</td>
+                  <td>1500</td>
+                </tr>
+                <tr>
+                  <td>от 8ми часов </td>
+                  <td>600</td>
+                  <td>800</td>
+                  <td>1300</td>
+                </tr>
+                <tr>
+                  <td>от 7ми дней</td>
+                  <td>500</td>
+                  <td>600</td>
+                  <td>1100</td>
+                </tr>
+                <tr>
+                  <td>от 1 мес </td>
+                  <td>400</td>
+                  <td>500</td>
+                  <td>1000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <%= @text.s_voditelem_text.html_safe %>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
   </div>
 </div>
 <%= render 'shared/footer', cached: true %>

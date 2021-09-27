@@ -1,37 +1,37 @@
-<% title @text.reviews_title %>
-<% description @text.reviews_description %>
+<% title @text.reviews_title + " - Страница #{params[:page]}" %>
+<% description @text.reviews_description + " - Страница #{params[:page]}" %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
-        <%= render 'shared/bread'%>
-        <div class="bl_otziv" itemscope itemtype="http://schema.org/Product">
-            <div class="col_l">
-                <meta itemprop="name" content="Прокат автомобилей Амиго">
-                <h1>Отзывы наших клиентов</h1>
-                <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
-                    Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
-                </div>
-                <%= render "review", cached: true %>
+        <div class="bl_otzyvy" itemscope itemtype="http://schema.org/Product">
+            <div class="zagol">Отзывы наших клиентов</div>
+            <meta itemprop="name" content="Прокат автомобилей Амиго">
+            <div class="reviews_podzag" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
+                Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
             </div>
-            <div class="col_r">
-                <div class="zg">Оставить отзыв</div>
-                <div class="podzg">Заполните форму ниже</div>
+            <%= render "review", cached: true %>
+            <div class="col2">
+                <div class="zg">Оставьте отзыв</div>
                 <%= form_for @review do |f| %>
                     <%= f.text_field :name, placeholder: "Имя *", required: true %>
                     <%= f.text_field :email, placeholder: "Email *", required: true %>
                     <%= f.text_area :text, placeholder: "Текст отзыва", required: true %>
                     <%= f.hidden_field :star, id:"star_counter", value:"5" %>
-                    <div id="rateYo"></div>
+                    
                     <%# recaptcha_v3(action: 'create') %>
                     <%= f.invisible_captcha :subtitle %>
-                    <%= f.submit "Отправить отзыв" %>
+                    <div class="ocen">
+                        Оценка
+                        <div class="spis_zv" id="rateYo"></div>
+                    </div>
+                    <%= button_tag("Отправить отзыв", type: "submit") %>
+                    <div class="clear"></div>
                 <% end %>
             </div>
             <div class="clear"></div>
             <div class="pagin">
                 <%= will_paginate @reviews %>
             </div>
-            <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>

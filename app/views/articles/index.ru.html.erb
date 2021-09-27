@@ -3,15 +3,16 @@
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
-        <div class="zagoll_news"><%= @text.articles_h1 %></div>
-        <%= render 'shared/bread'%>
-        <h1>Новости и акции</h1>
-        <div class="bl_news">
+        <div class="bread">
+            <%= render 'shared/bread'%>
+        </div>
+        <div class="zagol">Новости и акции</div>
+        <div class="spis_new">
             <%= render "article" %>
-            <div class="pagin">
-                <%= will_paginate @articles %>
-            </div>
             <div class="clear"></div>
+        </div>
+        <div class="pagin">
+            <%= will_paginate @articles %>
         </div>
         <div class="clear"></div>
     </div>

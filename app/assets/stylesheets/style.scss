@@ -103,7 +103,7 @@
   .header .menu_top li {
       display: inline-block;
       vertical-align: top;
-      margin: 0 41px 0 0;
+      margin: 0 25px 0 0;
       position: relative;
   }
   .header .menu_top li a {
@@ -1142,7 +1142,17 @@
       max-width: 100%;
       height: auto;
   }
-  .content2 img.alignleft {
+  .content2 .trix-content div {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 19px;
+}
+  .content2 .trix-content img {
+      max-width: 100%;
+      height: auto;
+  }
+    .content2 img.alignleft {
     float: left;
     margin: 0px 49px 25px 0;
   }
@@ -1216,15 +1226,15 @@
   .content .bl_contact .zag {
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 28px;
-      line-height: 34px;
+      font-size: 24px;
+      line-height: 30px;
       letter-spacing: 7.5px;
       margin: 0 0 10px;
   }
   .content .bl_contact .pol1 {
       float: left;
       width: 685px;
-      margin: 75px 0 0;
+      margin: 10px 0 0;
   }
   .content .bl_contact p {
       font-weight: 300;
@@ -1241,8 +1251,8 @@
   .content .bl_contact iframe {
       float: right;
       width: 688px;
-      height: 685px;
-      margin: 30px 0 81px;
+      height: 780px;
+      margin: 5px 0 81px;
   }
   .content .bl_contact .video {
       float: left;
@@ -1273,7 +1283,7 @@
       margin: 45px 0 0;
   }
   .content .bl_contact .pol1 p + .zag {
-      margin: 38px 0 11px;
+      margin: 15px 0 11px;
   }
   .bl_contact2 {
       background: #fff;
@@ -1482,6 +1492,18 @@
       line-height: 30px;
       text-align: center;
   }
+  .content .pricee .article_table td {
+    border-left: 1px solid #ef7f1a;
+    padding: 10px;
+    vertical-align: middle;
+    max-width: 340px;
+    min-width: 101px;
+    font-weight: 300;
+    font-size: 23px;
+    background: #fff;
+    line-height: 30px;
+    text-align: center;
+}
   .content .pricee table td:last-child {
       border-right: 1px solid #ef7f1a;
   }
@@ -2199,9 +2221,37 @@
       font-size: 16px;
       letter-spacing: 3px;
   }
+  .reviews_podzag {
+    font-size: 18px;
+    margin: 5px 0 20px;
+    line-height: 21px;
+    text-align: center;
+    font-weight: 300;
+  }
+  .content .pagin {
+    margin: 20px 0 0;
+  }
   .content .bl_otzyvy .col2 form button:hover {
       background: #ef7f1a;
       color: #fff;
+  }
+  .content .pagin {
+    text-align: center;
+    font-family: 'Georgia', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 39px 0 0;
+  }
+  .content .pagin a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      font-family: 'Georgia', sans-serif;
+  }
+  .content .pagin a:hover,
+  .content .pagin a.active {
+      text-decoration: underline;
+      color: #f77d0a;
   }
   .content .bl_otzyvy .col2 form .ocen {
       float: left;

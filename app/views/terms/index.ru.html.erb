@@ -3,45 +3,48 @@
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
-      <%= render 'shared/bread'%>
-      <h1>Условия аренды</h1>
-      <div class="bl_usloviya">
-          <div class="bl_uslo">
-              <div class="zg">Основные:</div>
-              <%= @text.term_common.html_safe %>
+        <div class="bread">
+            <a href="#">Главная</a> / Условия аренды
         </div>
-          <div class="bl_uslo">
-              <div class="zg">Документы:</div>
-              <%= @text.term_docs.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Для иностранных граждан:</div>
-              <%= @text.term_gringo.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Для организаций:</div>
-              <%= @text.term_companies.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Все для клиента:</div>
-              <%= @text.term_clients.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Условия предоставления автомобиля без франшизы по страховке - опция <br />"Полная гарантия"(Full insurance):</div>
-              <%= @text.term_no_franchise.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Прочие условия:</div>
-              <%= @text.term_other.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Условия выдачи автомобиля заграницу:</div>
-              <%= @text.term_abroad.html_safe %>
-          </div>
-          <p class="niz"><%= @text.term_bottom.html_safe %></p>
-          <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
+        <div class="uslovi">
+            <div class="zagol">Условия аренды</div>
+            <div class="obol">
+                <div class="zz">Основные:</div>
+                <%= @text.term_common.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Документы:</div>
+                <%= @text.term_docs.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Для иностранных граждан:</div>
+                <%= @text.term_gringo.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Для организаций:</div>
+                <%= @text.term_companies.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Все для клиента:</div>
+                <%= @text.term_clients.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Условия предоставления автомобиля без франшизы по страховке - опция <br />"Полная гарантия"(Full insurance):</div>
+                <%= @text.term_no_franchise.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Прочие условия:</div>
+                <%= @text.term_other.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Условия выдачи автомобиля заграницу:</div>
+                <%= @text.term_abroad.html_safe %>
+            </div>
+            <div class="obol">
+                <p class="niz"><%= @text.term_bottom.html_safe %></p>
+            </div>
+        </div>
+        <div class="clear"></div>
     </div>
 </div>
 <%= render 'shared/footer', cached: true %>

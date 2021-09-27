@@ -1,807 +1,835 @@
-<div class="polosa">
-        <div class="wrapper">
-            <p><%= @text.main_up_text %></p>
-            <a href="#" class="zaya">Оставить заявку</a>
-            <div class="clear"></div>
-        </div>
+
+<% if current_page?(controller: 'main', action: 'index') %>
+  <div class="polosa">
+    <div class="wrapper">
+        <p><%= @text.main_up_text %></p>
+        <a href="#" class="zaya">Оставить заявку</a>
+        <div class="clear"></div>
     </div>
-    <div class="header">
-        <div class="wrapper">
-            <% if current_page?(controller: 'main', action: 'index') %>
-              <a href="" onclick="return false" id="logo">
-                  <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
-              </a>
-            <% else %>
-              <%= link_to root_path, id: "logo" do %>
-                <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
+  </div>
+<% end %>
+<div class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <meta itemprop="headline" content="Прокат автомобилей Амиго">
+    <meta itemprop="description" content="✔️ Честный прокат автомобилей в Калининграде. Дружественное отношение к клиенту, низкие цены на аренду авто, от 700₽, страховка КАСКО. Обращайтесь!">
+    <div class="wrapper">
+        <% if current_page?(controller: 'main', action: 'index') %>
+          <a href="" onclick="return false" id="logo">
+              <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
+          </a>
+        <% else %>
+          <%= link_to root_path, id: "logo" do %>
+            <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
+          <% end %>
+        <% end %>
+        <div id="menu_tg2">
+            <span></span>
+            <span></span>
+            Меню
+        </div>
+        <ul class="menu_mob">
+            <li class="parent">
+              <% if I18n.locale == :en %>
+                <% if current_page?(cars_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.cars' %>
+                  </a>
+                <% else %>
+                  <%= link_to cars_path(locale: I18n.locale) do %>
+                    <%= t 'header.cars' %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if current_page?(cars_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.cars' %>
+                  </a>
+                  <% else %>
+                    <%= link_to cars_path do %>
+                      <%= t 'header.cars' %>
+                    <% end %>
+                <% end %>
               <% end %>
-            <% end %>
-            <div id="menu_tg2">
-                <span></span>
-                <span></span>
-                Меню
-            </div>
-            <ul class="menu_mob">
-                <li class="parent">
-                  <% if I18n.locale == :en %>
-                    <% if current_page?(cars_path) %>
-                      <a href="" onclick="return false">
-                        <%= t 'header.cars' %>
-                      </a>
-                    <% else %>
-                      <%= link_to cars_path(locale: I18n.locale) do %>
-                        <%= t 'header.cars' %>
-                      <% end %>
-                    <% end %>
-                  <% else %>
-                    <% if current_page?(cars_path) %>
-                      <a href="" onclick="return false">
-                        <%= t 'header.cars' %>
-                      </a>
-                      <% else %>
-                        <%= link_to cars_path do %>
-                          <%= t 'header.cars' %>
-                        <% end %>
-                    <% end %>
-                  <% end %>
-                    <ul>
-                        <li>
-                            <% if I18n.locale == :en %>
-                              <% if current_page?(economy_cars_path) %>
+                <ul>
+                    <li>
+                        <% if I18n.locale == :en %>
+                          <% if current_page?(economy_cars_path) %>
+                            <a href="" onclick="return false">
+                              Economy class
+                            </a>
+                          <% else %>
+                            <%= link_to economy_cars_path(locale: I18n.locale) do %>
+                              Economy class
+                            <% end %>
+                          <% end%>
+                        <% else %>
+                            <% if current_page?(economy_cars_path) %>
                                 <a href="" onclick="return false">
-                                  Economy class
-                                </a>
-                              <% else %>
-                                <%= link_to economy_cars_path(locale: I18n.locale) do %>
-                                  Economy class
-                                <% end %>
-                              <% end%>
-                            <% else %>
-                                <% if current_page?(economy_cars_path) %>
-                                    <a href="" onclick="return false">
-                                        Эконом-класс
-                                    </a>
-                                <% else %>
-                                    <%= link_to economy_cars_path do %>
                                     Эконом-класс
-                                    <% end %>
-                                <% end%>
-                            <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(middle_cars_path) %>
-                              <a href="" onclick="return false">
-                                  Middle class
-                              </a>
-                            <% else %>
-                              <%= link_to middle_cars_path(locale: I18n.locale) do %>
-                              Middle class
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                          <% if current_page?(middle_cars_path) %>
-                            <a href="" onclick="return false">
-                                Средний-класс
-                            </a>
-                            <% else %>
-                              <%= link_to middle_cars_path do %>
-                                Средний-класс
-                              <% end %>
-                            <% end%>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(minivans_cars_path) %>
-                              <a href="" onclick="return false">
-                                Minivans
-                              </a>
-                            <% else %>
-                              <%= link_to minivans_cars_path(locale: I18n.locale) do %>
-                                Minivans
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                            <% if current_page?(minivans_cars_path) %>
-                              <a href="" onclick="return false">
-                                Минивэны
-                              </a>
-                            <% else %>
-                              <%= link_to minivans_cars_path do %>
-                                Минивэны
-                              <% end %>
-                            <% end %>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(crossovers_cars_path) %>
-                              <a href="" onclick="return false">
-                                Сrossovers
-                              </a>
-                            <% else %>
-                              <%= link_to crossovers_cars_path(locale: I18n.locale) do %>
-                                Сrossovers
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                            <% if current_page?(crossovers_cars_path) %>
-                              <a href="" onclick="return false">
-                                Кроссоверы
-                              </a>
-                            <% else %>
-                              <%= link_to crossovers_cars_path do %>
-                                Кроссоверы
-                              <% end %>
-                            <% end %>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(business_cars_path) %>
-                              <a href="" onclick="return false">
-                                Business class
-                              </a>
-                            <% else %>
-                              <%= link_to business_cars_path(locale: I18n.locale) do %>
-                                Business class
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                          <% if current_page?(business_cars_path) %>
-                            <a href="" onclick="return false">
-                              Бизнес-класс
-                            </a>
-                            <% else %>
-                              <%= link_to business_cars_path do %>
-                                Бизнес-класс
-                              <% end %>
-                            <% end%>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(commercial_cars_path) %>
-                              <a href="" onclick="return false">
-                                Commercial vehicle
-                              </a>
-                            <% else %>
-                              <%= link_to commercial_cars_path(locale: I18n.locale) do %>
-                                Commercial vehicle
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                            <% if current_page?(commercial_cars_path) %>
-                              <a href="" onclick="return false">
-                                  Коммерческий транспорт
-                              </a>
-                            <% else %>
-                              <%= link_to commercial_cars_path do %>
-                                Коммерческий транспорт
-                              <% end %>
-                            <% end%>
-                          <% end %>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Цены</a>
-                </li>
-                <li>
-                    <a href="#">Отзывы</a>
-                </li>
-                <li>
-                    <a href="#">Заказать</a>
-                </li>
-                <li>
-                    <a href="#">Контакты</a>
-                </li>
-            </ul>
-            <ul class="menu_top">
-                <li class="parent">
-                    <% if I18n.locale == :en %>
-                      <% if current_page?(cars_path) %>
-                        <a href="" onclick="return false">
-                          <%= t 'header.cars' %>
-                        </a>
-                      <% else %>
-                        <%= link_to cars_path(locale: I18n.locale) do %>
-                          <%= t 'header.cars' %>
-                        <% end %>
-                      <% end %>
-                    <% else %>
-                      <% if current_page?(cars_path) %>
-                        <a href="" onclick="return false">
-                          <%= t 'header.cars' %>
-                        </a>
-                        <% else %>
-                          <%= link_to cars_path do %>
-                            <%= t 'header.cars' %>
-                          <% end %>
-                      <% end %>
-                    <% end %>
-                    <ul>
-                        <li>
-                            <% if I18n.locale == :en %>
-                              <% if current_page?(economy_cars_path) %>
-                                <a href="" onclick="return false">
-                                  Economy class
                                 </a>
-                              <% else %>
-                                <%= link_to economy_cars_path(locale: I18n.locale) do %>
-                                  Economy class
+                            <% else %>
+                                <%= link_to economy_cars_path do %>
+                                Эконом-класс
                                 <% end %>
-                              <% end%>
-                            <% else %>
-                                <% if current_page?(economy_cars_path) %>
-                                    <a href="" onclick="return false">
-                                        Эконом-класс
-                                    </a>
-                                <% else %>
-                                    <%= link_to economy_cars_path do %>
-                                    Эконом-класс
-                                    <% end %>
-                                <% end%>
-                            <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(middle_cars_path) %>
-                              <a href="" onclick="return false">
-                                  Middle class
-                              </a>
-                            <% else %>
-                              <%= link_to middle_cars_path(locale: I18n.locale) do %>
+                            <% end%>
+                        <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(middle_cars_path) %>
+                          <a href="" onclick="return false">
                               Middle class
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                          <% if current_page?(middle_cars_path) %>
-                            <a href="" onclick="return false">
-                                Средний-класс
-                            </a>
-                            <% else %>
-                              <%= link_to middle_cars_path do %>
-                                Средний-класс
-                              <% end %>
-                            <% end%>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(minivans_cars_path) %>
-                              <a href="" onclick="return false">
-                                Minivans
-                              </a>
-                            <% else %>
-                              <%= link_to minivans_cars_path(locale: I18n.locale) do %>
-                                Minivans
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                            <% if current_page?(minivans_cars_path) %>
-                              <a href="" onclick="return false">
-                                Минивэны
-                              </a>
-                            <% else %>
-                              <%= link_to minivans_cars_path do %>
-                                Минивэны
-                              <% end %>
-                            <% end %>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(crossovers_cars_path) %>
-                              <a href="" onclick="return false">
-                                Сrossovers
-                              </a>
-                            <% else %>
-                              <%= link_to crossovers_cars_path(locale: I18n.locale) do %>
-                                Сrossovers
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                            <% if current_page?(crossovers_cars_path) %>
-                              <a href="" onclick="return false">
-                                Кроссоверы
-                              </a>
-                            <% else %>
-                              <%= link_to crossovers_cars_path do %>
-                                Кроссоверы
-                              <% end %>
-                            <% end %>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(business_cars_path) %>
-                              <a href="" onclick="return false">
-                                Business class
-                              </a>
-                            <% else %>
-                              <%= link_to business_cars_path(locale: I18n.locale) do %>
-                                Business class
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                          <% if current_page?(business_cars_path) %>
-                            <a href="" onclick="return false">
-                              Бизнес-класс
-                            </a>
-                            <% else %>
-                              <%= link_to business_cars_path do %>
-                                Бизнес-класс
-                              <% end %>
-                            <% end%>
-                          <% end %>
-                        </li>
-                        <li>
-                          <% if I18n.locale == :en %>
-                            <% if current_page?(commercial_cars_path) %>
-                              <a href="" onclick="return false">
-                                Commercial vehicle
-                              </a>
-                            <% else %>
-                              <%= link_to commercial_cars_path(locale: I18n.locale) do %>
-                                Commercial vehicle
-                              <% end %>
-                            <% end%>
-                          <% else %>
-                            <% if current_page?(commercial_cars_path) %>
-                              <a href="" onclick="return false">
-                                  Коммерческий транспорт
-                              </a>
-                            <% else %>
-                              <%= link_to commercial_cars_path do %>
-                                Коммерческий транспорт
-                              <% end %>
-                            <% end%>
-                          <% end %>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                  <% if I18n.locale == :en %>
-                    <% if current_page?(prices_path) %>
-                      <a href="" onclick="return false">
-                        <%= t 'header.prices' %>
-                      </a>
-                      <% else %>
-                        <%= link_to prices_path(locale: I18n.locale) do %>
-                          <%= t 'header.prices' %>
-                        <% end %>
-                      <% end %>
-                    <% else %>
-                    <% if current_page?(prices_path) %>
-                      <a href="" onclick="return false">
-                        <%= t 'header.prices' %>
-                      </a>
-                      <% else %>
-                        <%= link_to prices_path do %>
-                          <%= t 'header.prices' %>
-                        <% end %>
-                    <% end %>
-                  <% end %>
-                </li>
-                <li>
-                  <% if I18n.locale == :en %>
-                    <% if current_page?(reviews_path) %>
-                      <a href="" onclick="return false">
-                          <%= t 'header.reviews' %>
-                      </a>
-                      <% else %>
-                        <%= link_to reviews_path(locale: I18n.locale) do %>
-                          <%= t 'header.reviews' %>
-                        <% end %>
-                      <% end %>
-                    <% else %>
-                      <% if current_page?(reviews_path) %>
-                        <a href="" onclick="return false">
-                            <%= t 'header.reviews' %>
-                        </a>
-                      <% else %>
-                        <%= link_to reviews_path do %>
-                          <%= t 'header.reviews' %>
-                        <% end %>
-                    <% end %>
-                  <% end %>
-                </li>
-                <li>
-                  <% if I18n.locale == :en %>
-                    <% if current_page?(contacts_path) %>
-                      <a href="" onclick="return false">
-                        <%= t 'header.contacts' %>
-                      </a>
-                    <% else %>
-                      <%= link_to contacts_path(locale: I18n.locale) do %>
-                        <%= t 'header.contacts' %>
-                      <% end %>
-                    <% end %>
-                    <% else %>
-                      <% if current_page?(contacts_path) %>
-                        <a href="" onclick="return false">
-                            <%= t 'header.contacts' %>
-                        </a>
-                      <% else %>
-                        <%= link_to contacts_path do %>
-                          <%= t 'header.contacts' %>
-                        <% end %>
-                    <% end %>
-                  <% end %>
-                </li>
-                <li class="parent">
-                  <% if I18n.locale == :en %>
-                    <% if current_page?(deliveries_path) %>
-                      <a href="" onclick="return false">
-                        <%= t 'header.cites' %>
-                      </a>
-                    <% else %>
-                      <%= link_to deliveries_path(locale: I18n.locale) do %>
-                        <%= t 'header.cites' %>
-                      <% end %>
-                    <% end%>
-                  <% else %>
-                    <% if current_page?(deliveries_path) %>
-                      <a href="" onclick="return false">
-                        <%= t 'header.cites' %>
-                      </a>
-                    <% else %>
-                      <%= link_to deliveries_path do %>
-                        <%= t 'header.cites' %>
-                      <% end %>
-                    <% end%>
-                  <% end %>
-                  <ul>
-                    <li class="<%= active_class?(arenda_avto_aeroport_hrabrovo_path) %>">
-                      <% if I18n.locale == :en %>
-                        <% if current_page?(arenda_avto_aeroport_hrabrovo_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.aeroport' %>
                           </a>
                         <% else %>
-                          <%= link_to arenda_avto_aeroport_hrabrovo_path(locale: I18n.locale) do %>
-                            <%= t 'header.aeroport' %>
-                          <% end %>
-                        <% end %>
-                      <% else %>
-                        <% if current_page?(arenda_avto_aeroport_hrabrovo_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.aeroport' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_aeroport_hrabrovo_path do %>
-                            <%= t 'header.aeroport' %>
-                          <% end %>
-                        <% end %>
-                      <% end %>
-                    </li>
-                    <li class="<%= active_class?(arenda_avto_zelenogradsk_path) %>">
-                      <% if I18n.locale == :en %>
-                        <% if current_page?(arenda_avto_zelenogradsk_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.zelenogradsk' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_zelenogradsk_path(locale: I18n.locale) do %>
-                            <%= t 'header.zelenogradsk' %>
+                          <%= link_to middle_cars_path(locale: I18n.locale) do %>
+                          Middle class
                           <% end %>
                         <% end%>
                       <% else %>
-                        <% if current_page?(arenda_avto_zelenogradsk_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.zelenogradsk' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_zelenogradsk_path do %>
-                            <%= t 'header.zelenogradsk' %>
-                          <% end %>
-                        <% end %>
-                      <% end %>
-                    </li>
-                    <li class="<%= active_class?(arenda_avto_svetlogorsk_path) %>">
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(arenda_avto_svetlogorsk_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.svetlogorsk' %>
-                            </a>
-                          <% else %>
-                            <%= link_to arenda_avto_svetlogorsk_path(locale: I18n.locale) do %>
-                              <%= t 'header.svetlogorsk' %>
-                            <% end %>
-                          <% end %>
-                        <% else %>
-                          <% if current_page?(arenda_avto_svetlogorsk_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.svetlogorsk' %>
-                            </a>
-                          <% else %>
-                            <%= link_to arenda_avto_svetlogorsk_path do %>
-                              <%= t 'header.svetlogorsk' %>
-                            <% end %>
-                          <% end%>
-                        <% end %>
-                    </li>
-                    <li class="<%= active_class?(arenda_avto_yantarnyi_path) %>">
-                      <% if I18n.locale == :en %>
-                        <% if current_page?(arenda_avto_yantarnyi_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.yantarnyi' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_yantarnyi_path(locale: I18n.locale) do %>
-                            <%= t 'header.yantarnyi' %>
-                          <% end %>
-                        <% end %>
-                      <% else %>
-                        <% if current_page?(arenda_avto_yantarnyi_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.yantarnyi' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_yantarnyi_path do %>
-                            <%= t 'header.yantarnyi' %>
-                          <% end %>
-                        <% end %>
-                      <% end %>
-                    </li>
-                    <li class="<%= active_class?(arenda_avto_baltyisk_path) %>">
-                      <% if I18n.locale == :en %>
-                        <% if current_page?(arenda_avto_baltyisk_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.baltyisk' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_baltyisk_path(locale: I18n.locale) do %>
-                            <%= t 'header.baltyisk' %>
-                          <% end %>
-                        <% end %>
-                      <% else %>
-                        <% if current_page?(arenda_avto_baltyisk_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.baltyisk' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_baltyisk_path do %>
-                            <%= t 'header.baltyisk' %>
-                          <% end %>
-                        <% end %>
-                      <% end %>
-                    </li>
-                    <li class="<%= active_class?(arenda_avto_pionerskyi_path) %>">
-                      <% if I18n.locale == :en %>
-                        <% if current_page?(arenda_avto_pionerskyi_path) %>
+                      <% if current_page?(middle_cars_path) %>
                         <a href="" onclick="return false">
-                            <%= t 'header.pionerskyi' %>
+                            Средний-класс
                         </a>
                         <% else %>
-                        <%= link_to arenda_avto_pionerskyi_path(locale: I18n.locale) do %>
-                        <%= t 'header.pionerskyi' %>
-                        <% end %>
-                        <% end%>
-                      <% else %>
-                        <% if current_page?(arenda_avto_pionerskyi_path) %>
-                          <a href="" onclick="return false">
-                            <%= t 'header.pionerskyi' %>
-                          </a>
-                        <% else %>
-                          <%= link_to arenda_avto_pionerskyi_path do %>
-                            <%= t 'header.pionerskyi' %>
+                          <%= link_to middle_cars_path do %>
+                            Средний-класс
                           <% end %>
                         <% end%>
                       <% end %>
                     </li>
-                    <li class="<%= active_class?(arenda_avto_chernyahovsk_path) %>">
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(arenda_avto_chernyahovsk_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.chernyahovsk' %>
-                            </a>
-                          <% else %>
-                            <%= link_to arenda_avto_chernyahovsk_path(locale: I18n.locale) do %>
-                              <%= t 'header.chernyahovsk' %>
-                            <% end %>
-                          <% end%>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(minivans_cars_path) %>
+                          <a href="" onclick="return false">
+                            Minivans
+                          </a>
                         <% else %>
-                          <% if current_page?(arenda_avto_chernyahovsk_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.chernyahovsk' %>
-                            </a>
-                          <% else %>
-                            <%= link_to arenda_avto_chernyahovsk_path do %>
-                              <%= t 'header.chernyahovsk' %>
-                            <% end %>
-                          <% end%>
-                        <% end %>
-                    </li>
-                  </ul>
-              </li>
-            </ul>
-            <div id="menu_tg">
-                <span></span>
-                <span></span>
-                Меню
-                <div id="menu_vipad">
-                    <ul class="menu_vip">
-                      <!-- 
-                      - Новости и акции 
-                      - Частые вопросы 
-                      - Транспортный аутсорсинг 
-                      - Каршеринг 
-                      - КАСКО 
-                      - Партнерская программа 
-                      - Франшиза 
-                      - Авто с водителем 
-                      - О нас -->
-                      <li>
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(articles_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.articles' %>
-                            </a>
-                          <% else %>
-                            <%= link_to articles_path(locale: I18n.locale) do %>
-                              <%= t 'header.articles' %>
-                            <% end %>
-                          <% end %>
-                        <% else %>
-                          <% if current_page?(articles_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.articles' %>
-                            </a>
-                          <% else %>
-                            <%= link_to articles_path do %>
-                              <%= t 'header.articles' %>
-                            <% end %>
-                          <% end %>
-                        <% end %>
-                      </li>
-                      <li>
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(faqs_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.faqs' %>
-                            </a>
-                          <% else %>
-                            <%= link_to faqs_path(locale: I18n.locale) do %>
-                              <%= t 'header.faqs' %>
-                            <% end %>
-                          <% end%>
-                        <% else %>
-                          <% if current_page?(faqs_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.faqs' %>
-                            </a>
-                          <% else %>
-                            <%= link_to faqs_path do %>
-                              <%= t 'header.faqs' %>
-                            <% end %>
-                          <% end %>
-                        <% end %>
-                      </li>
-                      <li>
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(transportnyi_autsorsing_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.outsorce' %>
-                            </a>
-                          <% else %>
-                            <%= link_to transportnyi_autsorsing_path(locale: I18n.locale) do %>
-                              <%= t 'header.outsorce' %>
-                            <% end %>
-                          <% end%>
-                        <% else %>
-                          <% if current_page?(transportnyi_autsorsing_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.outsorce' %>
-                            </a>
-                          <% else %>
-                            <%= link_to transportnyi_autsorsing_path do %>
-                              <%= t 'header.outsorce' %>
-                            <% end %>
+                          <%= link_to minivans_cars_path(locale: I18n.locale) do %>
+                            Minivans
                           <% end %>
                         <% end%>
-                      </li>
-                      <li>
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(car_sharing_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.carsharing' %>
-                            </a>
-                          <% else %>
-                            <%= link_to car_sharing_path(locale: I18n.locale) do %>
-                              <%= t 'header.carsharing' %>
-                            <% end %>
-                          <% end %>
+                      <% else %>
+                        <% if current_page?(minivans_cars_path) %>
+                          <a href="" onclick="return false">
+                            Минивэны
+                          </a>
                         <% else %>
-                          <% if current_page?(car_sharing_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.carsharing' %>
-                            </a>
-                          <% else %>
-                            <%= link_to car_sharing_path do %>
-                              <%= t 'header.carsharing' %>
-                            <% end %>
+                          <%= link_to minivans_cars_path do %>
+                            Минивэны
                           <% end %>
                         <% end %>
-                      </li>
-                      <li>
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(arenda_avto_s_voditelem_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.avto_s_vod' %>
-                            </a>
-                          <% else %>
-                            <%= link_to arenda_avto_s_voditelem_path(locale: I18n.locale) do %>
-                              <%= t 'header.avto_s_vod' %>
-                            <% end %>
-                          <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(crossovers_cars_path) %>
+                          <a href="" onclick="return false">
+                            Сrossovers
+                          </a>
                         <% else %>
-                          <% if current_page?(arenda_avto_s_voditelem_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.avto_s_vod' %>
-                            </a>
-                          <% else %>
-                            <%= link_to arenda_avto_s_voditelem_path do %>
-                              <%= t 'header.avto_s_vod' %>
-                            <% end %>
+                          <%= link_to crossovers_cars_path(locale: I18n.locale) do %>
+                            Сrossovers
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(crossovers_cars_path) %>
+                          <a href="" onclick="return false">
+                            Кроссоверы
+                          </a>
+                        <% else %>
+                          <%= link_to crossovers_cars_path do %>
+                            Кроссоверы
                           <% end %>
                         <% end %>
-                      </li>
-                      <li>
-                        <% if I18n.locale == :en %>
-                          <% if current_page?(abouts_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.abouts' %>
-                            </a>
-                          <% else %>
-                            <%= link_to abouts_path(locale: I18n.locale) do %>
-                              <%= t 'header.abouts' %>
-                            <% end %>
-                          <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(business_cars_path) %>
+                          <a href="" onclick="return false">
+                            Business class
+                          </a>
                         <% else %>
-                          <% if current_page?(abouts_path) %>
-                            <a href="" onclick="return false">
-                              <%= t 'header.abouts' %>
-                            </a>
-                          <% else %>
-                            <%= link_to abouts_path do %>
-                              <%= t 'header.abouts' %>
-                            <% end %>
+                          <%= link_to business_cars_path(locale: I18n.locale) do %>
+                            Business class
                           <% end %>
-                        <% end %>
-                      </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="gorod">
-                <span>Калининград</span>
-                <a href="#">Выбрать город</a>
-                <div class="vipad">
-                    <a href="#">Москва</a>
-                    <a href="#">Санкт-Петербург</a>
-                    <a href="#" class="active">Калининград</a>
-                    <a href="#">Воронеж</a>
-                </div>
-            </div>
-            <div class="lang">
-              <%= link_to root_path(locale: :en) do %>
+                        <% end%>
+                      <% else %>
+                      <% if current_page?(business_cars_path) %>
+                        <a href="" onclick="return false">
+                          Бизнес-класс
+                        </a>
+                        <% else %>
+                          <%= link_to business_cars_path do %>
+                            Бизнес-класс
+                          <% end %>
+                        <% end%>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(commercial_cars_path) %>
+                          <a href="" onclick="return false">
+                            Commercial vehicle
+                          </a>
+                        <% else %>
+                          <%= link_to commercial_cars_path(locale: I18n.locale) do %>
+                            Commercial vehicle
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(commercial_cars_path) %>
+                          <a href="" onclick="return false">
+                              Коммерческий транспорт
+                          </a>
+                        <% else %>
+                          <%= link_to commercial_cars_path do %>
+                            Коммерческий транспорт
+                          <% end %>
+                        <% end%>
+                      <% end %>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Цены</a>
+            </li>
+            <li>
+                <a href="#">Отзывы</a>
+            </li>
+            <li>
+                <a href="#">Заказать</a>
+            </li>
+            <li>
+                <a href="#">Контакты</a>
+            </li>
+        </ul>
+        <ul class="menu_top">
+            <li class="parent">
                 <% if I18n.locale == :en %>
-                  <span class="active">EN</span>
+                  <% if current_page?(cars_path) %>
+                    <a href="" onclick="return false">
+                      <%= t 'header.cars' %>
+                    </a>
+                  <% else %>
+                    <%= link_to cars_path(locale: I18n.locale) do %>
+                      <%= t 'header.cars' %>
+                    <% end %>
+                  <% end %>
                 <% else %>
-                  <span class="">EN</span>
+                  <% if current_page?(cars_path) %>
+                    <a href="" onclick="return false">
+                      <%= t 'header.cars' %>
+                    </a>
+                    <% else %>
+                      <%= link_to cars_path do %>
+                        <%= t 'header.cars' %>
+                      <% end %>
+                  <% end %>
+                <% end %>
+                <ul>
+                    <li>
+                        <% if I18n.locale == :en %>
+                          <% if current_page?(economy_cars_path) %>
+                            <a href="" onclick="return false">
+                              Economy class
+                            </a>
+                          <% else %>
+                            <%= link_to economy_cars_path(locale: I18n.locale) do %>
+                              Economy class
+                            <% end %>
+                          <% end%>
+                        <% else %>
+                            <% if current_page?(economy_cars_path) %>
+                                <a href="" onclick="return false">
+                                    Эконом-класс
+                                </a>
+                            <% else %>
+                                <%= link_to economy_cars_path do %>
+                                Эконом-класс
+                                <% end %>
+                            <% end%>
+                        <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(middle_cars_path) %>
+                          <a href="" onclick="return false">
+                              Middle class
+                          </a>
+                        <% else %>
+                          <%= link_to middle_cars_path(locale: I18n.locale) do %>
+                          Middle class
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                      <% if current_page?(middle_cars_path) %>
+                        <a href="" onclick="return false">
+                            Средний-класс
+                        </a>
+                        <% else %>
+                          <%= link_to middle_cars_path do %>
+                            Средний-класс
+                          <% end %>
+                        <% end%>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(minivans_cars_path) %>
+                          <a href="" onclick="return false">
+                            Minivans
+                          </a>
+                        <% else %>
+                          <%= link_to minivans_cars_path(locale: I18n.locale) do %>
+                            Minivans
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(minivans_cars_path) %>
+                          <a href="" onclick="return false">
+                            Минивэны
+                          </a>
+                        <% else %>
+                          <%= link_to minivans_cars_path do %>
+                            Минивэны
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(crossovers_cars_path) %>
+                          <a href="" onclick="return false">
+                            Сrossovers
+                          </a>
+                        <% else %>
+                          <%= link_to crossovers_cars_path(locale: I18n.locale) do %>
+                            Сrossovers
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(crossovers_cars_path) %>
+                          <a href="" onclick="return false">
+                            Кроссоверы
+                          </a>
+                        <% else %>
+                          <%= link_to crossovers_cars_path do %>
+                            Кроссоверы
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(business_cars_path) %>
+                          <a href="" onclick="return false">
+                            Business class
+                          </a>
+                        <% else %>
+                          <%= link_to business_cars_path(locale: I18n.locale) do %>
+                            Business class
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                      <% if current_page?(business_cars_path) %>
+                        <a href="" onclick="return false">
+                          Бизнес-класс
+                        </a>
+                        <% else %>
+                          <%= link_to business_cars_path do %>
+                            Бизнес-класс
+                          <% end %>
+                        <% end%>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(commercial_cars_path) %>
+                          <a href="" onclick="return false">
+                            Commercial vehicle
+                          </a>
+                        <% else %>
+                          <%= link_to commercial_cars_path(locale: I18n.locale) do %>
+                            Commercial vehicle
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(commercial_cars_path) %>
+                          <a href="" onclick="return false">
+                              Коммерческий транспорт
+                          </a>
+                        <% else %>
+                          <%= link_to commercial_cars_path do %>
+                            Коммерческий транспорт
+                          <% end %>
+                        <% end%>
+                      <% end %>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
+                <% if current_page?(prices_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.prices' %>
+                  </a>
+                  <% else %>
+                    <%= link_to prices_path(locale: I18n.locale) do %>
+                      <%= t 'header.prices' %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                <% if current_page?(prices_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.prices' %>
+                  </a>
+                  <% else %>
+                    <%= link_to prices_path do %>
+                      <%= t 'header.prices' %>
+                    <% end %>
                 <% end %>
               <% end %>
-              / 
-              <%= link_to root_path do %>
-                <% if I18n.locale == :ru %>
-                  <span class="active">RU</span>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
+                <% if current_page?(terms_path) %>
+                  <a href="" onclick="return false">
+                    Terms
+                  </a>
+                  <% else %>
+                    <%= link_to terms_path(locale: I18n.locale) do %>
+                      Terms
+                    <% end %>
+                  <% end %>
                 <% else %>
-                  <span class="">RU</span>
+                <% if current_page?(terms_path) %>
+                  <a href="" onclick="return false">
+                    Условия
+                  </a>
+                  <% else %>
+                    <%= link_to terms_path do %>
+                      Условия
+                    <% end %>
                 <% end %>
               <% end %>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
+                <% if current_page?(reviews_path) %>
+                  <a href="" onclick="return false">
+                      <%= t 'header.reviews' %>
+                  </a>
+                  <% else %>
+                    <%= link_to reviews_path(locale: I18n.locale) do %>
+                      <%= t 'header.reviews' %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <% if current_page?(reviews_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.reviews' %>
+                    </a>
+                  <% else %>
+                    <%= link_to reviews_path do %>
+                      <%= t 'header.reviews' %>
+                    <% end %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
+                <% if current_page?(contacts_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.contacts' %>
+                  </a>
+                <% else %>
+                  <%= link_to contacts_path(locale: I18n.locale) do %>
+                    <%= t 'header.contacts' %>
+                  <% end %>
+                <% end %>
+                <% else %>
+                  <% if current_page?(contacts_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.contacts' %>
+                    </a>
+                  <% else %>
+                    <%= link_to contacts_path do %>
+                      <%= t 'header.contacts' %>
+                    <% end %>
+                <% end %>
+              <% end %>
+            </li>
+            <li class="parent">
+              <% if I18n.locale == :en %>
+                <% if current_page?(deliveries_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.cites' %>
+                  </a>
+                <% else %>
+                  <%= link_to deliveries_path(locale: I18n.locale) do %>
+                    <%= t 'header.cites' %>
+                  <% end %>
+                <% end%>
+              <% else %>
+                <% if current_page?(deliveries_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.cites' %>
+                  </a>
+                <% else %>
+                  <%= link_to deliveries_path do %>
+                    <%= t 'header.cites' %>
+                  <% end %>
+                <% end%>
+              <% end %>
+              <ul>
+                <li class="<%= active_class?(arenda_avto_aeroport_hrabrovo_path) %>">
+                  <% if I18n.locale == :en %>
+                    <% if current_page?(arenda_avto_aeroport_hrabrovo_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.aeroport' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_aeroport_hrabrovo_path(locale: I18n.locale) do %>
+                        <%= t 'header.aeroport' %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <% if current_page?(arenda_avto_aeroport_hrabrovo_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.aeroport' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_aeroport_hrabrovo_path do %>
+                        <%= t 'header.aeroport' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </li>
+                <li class="<%= active_class?(arenda_avto_zelenogradsk_path) %>">
+                  <% if I18n.locale == :en %>
+                    <% if current_page?(arenda_avto_zelenogradsk_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.zelenogradsk' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_zelenogradsk_path(locale: I18n.locale) do %>
+                        <%= t 'header.zelenogradsk' %>
+                      <% end %>
+                    <% end%>
+                  <% else %>
+                    <% if current_page?(arenda_avto_zelenogradsk_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.zelenogradsk' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_zelenogradsk_path do %>
+                        <%= t 'header.zelenogradsk' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </li>
+                <li class="<%= active_class?(arenda_avto_svetlogorsk_path) %>">
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(arenda_avto_svetlogorsk_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.svetlogorsk' %>
+                        </a>
+                      <% else %>
+                        <%= link_to arenda_avto_svetlogorsk_path(locale: I18n.locale) do %>
+                          <%= t 'header.svetlogorsk' %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <% if current_page?(arenda_avto_svetlogorsk_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.svetlogorsk' %>
+                        </a>
+                      <% else %>
+                        <%= link_to arenda_avto_svetlogorsk_path do %>
+                          <%= t 'header.svetlogorsk' %>
+                        <% end %>
+                      <% end%>
+                    <% end %>
+                </li>
+                <li class="<%= active_class?(arenda_avto_yantarnyi_path) %>">
+                  <% if I18n.locale == :en %>
+                    <% if current_page?(arenda_avto_yantarnyi_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.yantarnyi' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_yantarnyi_path(locale: I18n.locale) do %>
+                        <%= t 'header.yantarnyi' %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <% if current_page?(arenda_avto_yantarnyi_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.yantarnyi' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_yantarnyi_path do %>
+                        <%= t 'header.yantarnyi' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </li>
+                <li class="<%= active_class?(arenda_avto_baltyisk_path) %>">
+                  <% if I18n.locale == :en %>
+                    <% if current_page?(arenda_avto_baltyisk_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.baltyisk' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_baltyisk_path(locale: I18n.locale) do %>
+                        <%= t 'header.baltyisk' %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <% if current_page?(arenda_avto_baltyisk_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.baltyisk' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_baltyisk_path do %>
+                        <%= t 'header.baltyisk' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </li>
+                <li class="<%= active_class?(arenda_avto_pionerskyi_path) %>">
+                  <% if I18n.locale == :en %>
+                    <% if current_page?(arenda_avto_pionerskyi_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.pionerskyi' %>
+                    </a>
+                    <% else %>
+                    <%= link_to arenda_avto_pionerskyi_path(locale: I18n.locale) do %>
+                    <%= t 'header.pionerskyi' %>
+                    <% end %>
+                    <% end%>
+                  <% else %>
+                    <% if current_page?(arenda_avto_pionerskyi_path) %>
+                      <a href="" onclick="return false">
+                        <%= t 'header.pionerskyi' %>
+                      </a>
+                    <% else %>
+                      <%= link_to arenda_avto_pionerskyi_path do %>
+                        <%= t 'header.pionerskyi' %>
+                      <% end %>
+                    <% end%>
+                  <% end %>
+                </li>
+                <li class="<%= active_class?(arenda_avto_chernyahovsk_path) %>">
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(arenda_avto_chernyahovsk_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.chernyahovsk' %>
+                        </a>
+                      <% else %>
+                        <%= link_to arenda_avto_chernyahovsk_path(locale: I18n.locale) do %>
+                          <%= t 'header.chernyahovsk' %>
+                        <% end %>
+                      <% end%>
+                    <% else %>
+                      <% if current_page?(arenda_avto_chernyahovsk_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.chernyahovsk' %>
+                        </a>
+                      <% else %>
+                        <%= link_to arenda_avto_chernyahovsk_path do %>
+                          <%= t 'header.chernyahovsk' %>
+                        <% end %>
+                      <% end%>
+                    <% end %>
+                </li>
+              </ul>
+          </li>
+        </ul>
+        <div id="menu_tg">
+            <span></span>
+            <span></span>
+            Меню
+            <div id="menu_vipad">
+                <ul class="menu_vip">
+                  <!-- 
+                  - Новости и акции 
+                  - Частые вопросы 
+                  - Транспортный аутсорсинг 
+                  - Каршеринг 
+                  - КАСКО 
+                  - Партнерская программа 
+                  - Франшиза 
+                  - Авто с водителем 
+                  - О нас -->
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(articles_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.articles' %>
+                        </a>
+                      <% else %>
+                        <%= link_to articles_path(locale: I18n.locale) do %>
+                          <%= t 'header.articles' %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <% if current_page?(articles_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.articles' %>
+                        </a>
+                      <% else %>
+                        <%= link_to articles_path do %>
+                          <%= t 'header.articles' %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(faqs_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.faqs' %>
+                        </a>
+                      <% else %>
+                        <%= link_to faqs_path(locale: I18n.locale) do %>
+                          <%= t 'header.faqs' %>
+                        <% end %>
+                      <% end%>
+                    <% else %>
+                      <% if current_page?(faqs_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.faqs' %>
+                        </a>
+                      <% else %>
+                        <%= link_to faqs_path do %>
+                          <%= t 'header.faqs' %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(transportnyi_autsorsing_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.outsorce' %>
+                        </a>
+                      <% else %>
+                        <%= link_to transportnyi_autsorsing_path(locale: I18n.locale) do %>
+                          <%= t 'header.outsorce' %>
+                        <% end %>
+                      <% end%>
+                    <% else %>
+                      <% if current_page?(transportnyi_autsorsing_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.outsorce' %>
+                        </a>
+                      <% else %>
+                        <%= link_to transportnyi_autsorsing_path do %>
+                          <%= t 'header.outsorce' %>
+                        <% end %>
+                      <% end %>
+                    <% end%>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(car_sharing_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.carsharing' %>
+                        </a>
+                      <% else %>
+                        <%= link_to car_sharing_path(locale: I18n.locale) do %>
+                          <%= t 'header.carsharing' %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <% if current_page?(car_sharing_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.carsharing' %>
+                        </a>
+                      <% else %>
+                        <%= link_to car_sharing_path do %>
+                          <%= t 'header.carsharing' %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(arenda_avto_s_voditelem_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.avto_s_vod' %>
+                        </a>
+                      <% else %>
+                        <%= link_to arenda_avto_s_voditelem_path(locale: I18n.locale) do %>
+                          <%= t 'header.avto_s_vod' %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <% if current_page?(arenda_avto_s_voditelem_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.avto_s_vod' %>
+                        </a>
+                      <% else %>
+                        <%= link_to arenda_avto_s_voditelem_path do %>
+                          <%= t 'header.avto_s_vod' %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(abouts_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.abouts' %>
+                        </a>
+                      <% else %>
+                        <%= link_to abouts_path(locale: I18n.locale) do %>
+                          <%= t 'header.abouts' %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <% if current_page?(abouts_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.abouts' %>
+                        </a>
+                      <% else %>
+                        <%= link_to abouts_path do %>
+                          <%= t 'header.abouts' %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                </ul>
             </div>
-            <div class="clear"></div>
         </div>
+        <div class="gorod">
+            <span>Калининград</span>
+            <a href="#">Выбрать город</a>
+            <div class="vipad">
+                <a href="#">Москва</a>
+                <a href="#">Санкт-Петербург</a>
+                <a href="#" class="active">Калининград</a>
+                <a href="#">Воронеж</a>
+            </div>
+        </div>
+        <div class="lang">
+          <%= link_to root_path(locale: :en) do %>
+            <% if I18n.locale == :en %>
+              <span class="active">EN</span>
+            <% else %>
+              <span class="">EN</span>
+            <% end %>
+          <% end %>
+          / 
+          <%= link_to root_path do %>
+            <% if I18n.locale == :ru %>
+              <span class="active">RU</span>
+            <% else %>
+              <span class="">RU</span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="clear"></div>
     </div>
+</div>

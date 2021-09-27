@@ -1,18 +1,19 @@
 <%= render 'shared/header', cached: true %>
 <div class="content">
   <div class="wrapper">
-        <%= render 'shared/bread'%>
-    <div class="bl_full_statya" style="color: black;">
-        <% if I18n.locale == :en %>
-          <h1>Terms of Use</h1>
-          <%= @text.conditions_en.html_safe %>
-        <% else %>
-          <h1>Пользовательское соглашение</h1>
-          <%= @text.conditions.html_safe %>
-        <% end %>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
+      <div class="bread">
+          <%= render 'shared/bread'%>
+      </div>
+      <div class="textt">
+          <% if I18n.locale == :en %>
+            <div class="zagol">Terms of Use</div>
+            <%= @text.conditions_en.html_safe %>
+          <% else %>
+            <div class="zagol">Пользовательское соглашение</div>
+            <%= @text.conditions.html_safe %>
+          <% end %>
+      </div>
+      <div class="clear"></div>
   </div>
 </div>
 <%= render 'shared/footer', cached: true %>

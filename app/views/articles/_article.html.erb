@@ -1,42 +1,28 @@
 <% @articles.each do |article| %>
-  <div class="new1">
-      <% if I18n.locale == :en %>
-        <% if article.image.attached? %>
-          <%= link_to article_en_path(article), class: "bl_img" do %>
-              <%= image_tag article.image.variant(resize_to_fill: [199, 143]), alt: "#{article.title_en}", title: "#{article.title_en}" %>
-          <% end %>
-        <% else %>
-          <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 199px; height: 143px;" %>
-        <% end %>
-        <div class="bl_text">
-          <%= link_to article_en_path(article), class: "zg" do %>
-            <%= article.title_en %>
-          <% end %>
-          <div class="data"><%= article.updated_at.strftime("%Y-%m-%d") %></div>
-          <p><%= truncate(strip_tags(article.text_en.to_s), length: 700) %></p>
-          <%= link_to article_en_path(article), class: "more" do %>
-            More
-          <% end %>
-        </div>
-      <% else %>
-        <% if article.image.attached? %>
-          <%= link_to article_path(article), class: "bl_img" do %>
-              <%= image_tag article.image.variant(resize_to_fill: [199, 143]), alt: "#{article.title}", title: "#{article.title}" %>
-          <% end %>
-        <% else %>
-          <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 199px; height: 143px;" %>
-        <% end %>
-        <div class="bl_text">
-          <%= link_to article_path(article), class: "zg" do %>
-            <%= article.title %>
-          <% end %>
-          <div class="data"><%= article.updated_at.strftime("%d.%m.%Y") %></div>
-          <p><%= truncate(strip_tags(article.text.to_s), length: 700) %></p>
-          <%= link_to article_path(article), class: "more" do %>
-            Читать подробнее
-          <% end %>
-        </div>
+  <% if I18n.locale == :en %>
+  <%= image_path(car.main_image.url(:show))%>)
+    <div class="new1">
+      <div class="bl_img" style="background-image: url(<%= article.image.attached? ? (image_path(article.image.variant(resize_to_fill: [384, 250]).processed.url)) : image_path("no-photo.webp") %>);"></div>
+      <div class="data"><%= article.updated_at.strftime("%d.%m.%Y") %></div>
+      <%= link_to article_en_path(article), class: "zg" do %>
+        <%= article.title_en %>
       <% end %>
-    <div class="clear"></div>
-  </div>
+      <p><%= truncate(strip_tags(article.text_en.to_s), length: 700) %></p>
+      <%= link_to article_en_path(article), class: "more" do %>
+        More
+      <% end %>
+    </div>
+  <% else %>
+    <div class="new1">
+      <div class="bl_img" style="background-image: url(<%= !article.image.attached? ? (image_path(article.image.variant(resize_to_fill: [384, 250]).processed.url)) : image_path("no-photo.webp") %>);"></div>
+      <div class="data"><%= article.updated_at.strftime("%d.%m.%Y , %H:%M") %></div>
+      <%= link_to article_path(article), class: "zg" do %>
+        <%= article.title %>
+      <% end %>
+      <p><%= truncate(strip_tags(article.text.to_s), length: 700) %></p>
+      <%= link_to article_path(article), class: "more" do %>
+        Читать подробнее
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

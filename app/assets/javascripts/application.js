@@ -1,5 +1,6 @@
 //= require turbolinks
 //= require jquery
+//= require jquery.rateyo.min
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
