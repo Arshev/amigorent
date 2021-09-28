@@ -191,16 +191,73 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Цены</a>
+              <% if I18n.locale == :en %>
+                <% if current_page?(prices_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.prices' %>
+                  </a>
+                  <% else %>
+                    <%= link_to prices_path(locale: I18n.locale) do %>
+                      <%= t 'header.prices' %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <% if current_page?(prices_path) %>
+                    <a href="" onclick="return false">
+                      <%= t 'header.prices' %>
+                    </a>
+                  <% else %>
+                    <%= link_to prices_path do %>
+                      <%= t 'header.prices' %>
+                    <% end %>
+                <% end %>
+              <% end %>
             </li>
             <li>
-                <a href="#">Отзывы</a>
+              <% if I18n.locale == :en %>
+                <% if current_page?(reviews_path) %>
+                  <a href="" onclick="return false">
+                      <%= t 'header.reviews' %>
+                  </a>
+                  <% else %>
+                    <%= link_to reviews_path(locale: I18n.locale) do %>
+                      <%= t 'header.reviews' %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <% if current_page?(reviews_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.reviews' %>
+                    </a>
+                  <% else %>
+                    <%= link_to reviews_path do %>
+                      <%= t 'header.reviews' %>
+                    <% end %>
+                <% end %>
+              <% end %>
             </li>
             <li>
-                <a href="#">Заказать</a>
-            </li>
-            <li>
-                <a href="#">Контакты</a>
+              <% if I18n.locale == :en %>
+                <% if current_page?(contacts_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.contacts' %>
+                  </a>
+                <% else %>
+                  <%= link_to contacts_path(locale: I18n.locale) do %>
+                    <%= t 'header.contacts' %>
+                  <% end %>
+                <% end %>
+                <% else %>
+                  <% if current_page?(contacts_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.contacts' %>
+                    </a>
+                  <% else %>
+                    <%= link_to contacts_path do %>
+                      <%= t 'header.contacts' %>
+                    <% end %>
+                <% end %>
+              <% end %>
             </li>
         </ul>
         <ul class="menu_top">
@@ -379,10 +436,10 @@
                     <% end %>
                   <% end %>
                 <% else %>
-                <% if current_page?(prices_path) %>
-                  <a href="" onclick="return false">
-                    <%= t 'header.prices' %>
-                  </a>
+                  <% if current_page?(prices_path) %>
+                    <a href="" onclick="return false">
+                      <%= t 'header.prices' %>
+                    </a>
                   <% else %>
                     <%= link_to prices_path do %>
                       <%= t 'header.prices' %>
@@ -652,16 +709,6 @@
             Меню
             <div id="menu_vipad">
                 <ul class="menu_vip">
-                  <!-- 
-                  - Новости и акции 
-                  - Частые вопросы 
-                  - Транспортный аутсорсинг 
-                  - Каршеринг 
-                  - КАСКО 
-                  - Партнерская программа 
-                  - Франшиза 
-                  - Авто с водителем 
-                  - О нас -->
                   <li>
                     <% if I18n.locale == :en %>
                       <% if current_page?(articles_path) %>
