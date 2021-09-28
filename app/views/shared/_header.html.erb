@@ -3,7 +3,12 @@
   <div class="polosa">
     <div class="wrapper">
         <p><%= @text.main_up_text %></p>
-        <a href="#" class="zaya">Оставить заявку</a>
+        <div id="app">
+          <a class="zaya" id="show-modal" @click="showModal = true">Оставить заявку</a>
+          <modal v-if="showModal" @close="showModal = false">
+            <h3 slot="header">custom header</h3>
+          </modal>
+        </div>
         <div class="clear"></div>
     </div>
   </div>
@@ -880,3 +885,35 @@
         <div class="clear"></div>
     </div>
 </div>
+<script type="text/x-template" id="modal-template">
+  <transition name="modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <div class="modal-body">
+            <slot name="body">
+              <div style="text-align: left;">
+                <button class="modal-default-button" @click="$emit('close')">
+                  Закрыть
+                </button>
+              </div>
+              <div class="bl_contact2_modal">
+                <div>
+                    <div class="zag">Есть вопросы? </div>
+                    <form>
+                        <input  type="text" value="" placeholder="Ваше имя" name="" />
+                        <input  type="phone" value="" placeholder="+ 7 (123) 456-78-90" name="" />
+                        <input  type="textarea" name="text" placeholder="Текст" />
+                        <input @click="alert('sfsdfsdf')" type="submit" value="Оставить заявку" />
+                        <div class="clear"></div>
+                    </form>
+                    <div class="clear"></div>
+                </div>
+              </div>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</script>
