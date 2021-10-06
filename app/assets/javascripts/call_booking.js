@@ -8,6 +8,7 @@ document.addEventListener("turbolinks:load", function() {
       showModal: false
     }
   })
+  Vue.use(VueAxios, axios)
   // register modal component
   Vue.component("modal", {
     template: "#modal-template",

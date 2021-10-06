@@ -4,15 +4,15 @@ git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 ruby "2.7.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 6.0.2", ">= 6.0.3.1"
+gem "rails", "~> 6.1.4", ">= 6.0.3.1"
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
 # Use Puma as the app server
-gem "puma", "~> 4.1"
+gem "puma", "~> 5.5.0"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-# gem "webpacker", "~> 4.0"
+gem "webpacker", "~> 5.4.3"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -40,13 +40,13 @@ gem "telegram-bot-ruby"
 gem "recaptcha", "~> 5.2.1"
 gem "will_paginate", "~> 3.3.0"
 gem "ckeditor", "~> 5.1.0"
-gem "meta-tags", "~> 2.13.0"
+gem "meta-tags", "~> 2.16.0"
 gem "sitemap_generator", "~> 6.1.0"
 gem "whenever", "~> 1.0.0", require: false
 gem "carrierwave", "~> 2.1.0"
 gem "mini_magick", "~> 4.10.1"
 gem "rails-i18n", "~> 6.0.0"
-gem "route_translator", "~> 8.0.0"
+gem "route_translator", "~> 11.0.0"
 gem "invisible_captcha", "~> 1.0.1"
 gem "dalli", "~> 2.7.10"
 gem "ransack", "~> 2.3.2"
