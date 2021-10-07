@@ -54,7 +54,7 @@
 // Then uncomment the code block below:
 //
 import TurbolinksAdapter from 'vue-turbolinks'
-import Vue from 'vue/dist/vue.esm'
+import Vue from 'vue/dist/vue.js'
 import App from '../app.vue'
 
 Vue.use(TurbolinksAdapter)
