@@ -74,3 +74,4 @@ document.addEventListener('turbolinks:load', () => {
     components: { App }
   })
 })
+Turbolinks.start()
