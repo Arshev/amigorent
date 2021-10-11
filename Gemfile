@@ -54,6 +54,7 @@ gem "faraday", "~> 1.0.1"
 gem "pghero", "~> 2.8.1"
 gem "pg_query", ">= 0.9.0"
 gem 'delayed_job_active_record', "~> 4.1.6"
+gem 'daemons', "~> 1.4.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
