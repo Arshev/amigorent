@@ -18,7 +18,8 @@
   <%= stylesheet_link_tag 'actiontext' %>
   <%= javascript_include_tag Ckeditor.cdn_url %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', rel: 'preload' %>
   <%= javascript_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
   <%= stylesheet_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
 
