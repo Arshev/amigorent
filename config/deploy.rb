@@ -21,7 +21,8 @@ set :db_dump_dir, -> { File.join(current_path, 'db') }
 
 # if you prefer bzip2/unbzip2 instead of gzip
 set :compressor, :bzip2
-# set :npm_flags, '--production' # full log
+# How many workers to start
+set :delayed_job_workers, 2
 
 require 'whenever/capistrano'
 

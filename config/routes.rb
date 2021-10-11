@@ -19,6 +19,7 @@ Rails
       namespace :v1 do
         resources :cars, only: %i[index show]
         resources :booking, only: [:create]
+        post 'call_booking', action: :call_booking, controller: 'booking'
       end
     end
 

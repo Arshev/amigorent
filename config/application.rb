@@ -14,7 +14,7 @@ module Amigorent
     config.i18n.available_locales = %i[ru en]
     config.time_zone = 'Kaliningrad'
 
-    config.active_job.queue_adapter = :sucker_punch
+    config.active_job.queue_adapter = :delayed_job
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
