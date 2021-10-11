@@ -12,5 +12,12 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 Rails.application.config.assets.precompile +=
-  %w[application.js admins_panel.scss admin.css ckeditor/config.js]
+  %w[
+    application.js
+    application.css
+    call_booking.js
+    admins_panel.scss
+    admin.css
+    ckeditor/config.js
+  ]
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
