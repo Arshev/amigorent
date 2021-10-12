@@ -11,7 +11,7 @@ default: &default
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
-  additional_paths: []
+  additional_paths: ['app/javascript/packs', 'app/javascript/images']
 
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
@@ -22,6 +22,7 @@ default: &default
   static_assets_extensions:
     - .jpg
     - .jpeg
+    - .webp
     - .png
     - .gif
     - .tiff
@@ -48,6 +49,7 @@ default: &default
     - .gif
     - .jpeg
     - .jpg
+    - .webp
 
 development:
   <<: *default
