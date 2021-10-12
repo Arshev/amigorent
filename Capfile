@@ -11,7 +11,7 @@ require 'capistrano/passenger'
 require 'capistrano/rails/console'
 require 'capistrano/sitemap_generator'
 require 'whenever/capistrano'
-require 'capistrano/npm'
+# require 'capistrano/npm'
 require 'capistrano/delayed_job'
 
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
