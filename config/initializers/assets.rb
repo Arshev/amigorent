@@ -22,5 +22,7 @@ Rails.application.config.assets.precompile +=
   ]
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
-# Rails.application.config.assets.precompile += ['node_modules/toastr/build/toastr.min.js']
-# Rails.application.config.assets.precompile += ['node_modules/toastr/build/toastr.min.css']
+Rails.application.config.assets.precompile +=
+  ['node_modules/vue-loading-overlay/dist/vue-loading.css']
+Rails.application.config.assets.precompile +=
+  ['node_modules/sweetalert2/dist/sweetalert2.min.css']
