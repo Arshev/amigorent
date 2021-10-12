@@ -16,7 +16,6 @@
       max-width: 1920px;
       padding: 0;
       box-sizing: border-box;
-      /* overflow-x: hidden; */
   }
   body h1, body h2, body h3, body h4, body h5, body h6 {
       font-size: inherit;
@@ -205,7 +204,6 @@
       padding: 130px 0 50px;
       text-align: center;
       background: url("~block1.webp") no-repeat center -300px transparent;
-      /* background-size: auto 100%; */
   }
   .block1 span {
       display: block;
@@ -3568,8 +3566,6 @@
       line-height: 34px;
     }
     .content .pricee table {
-      /* overflow-x: auto; */
-      /* display: block; */
     }
     .content .pricee table thead {
       position: relative;
