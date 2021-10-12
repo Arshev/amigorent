@@ -16,6 +16,6 @@
 // const imagePath = (name) => images(name, true)
 
 console.log('Hello World from Webpacker')
-import 'sweetalert2/src/sweetalert2.scss'
-import 'vue-loading-overlay/dist/vue-loading.css';
-import 'sweetalert2/dist/sweetalert2.min.css';
+// import 'sweetalert2/src/sweetalert2.scss'
+// import 'vue-loading-overlay/dist/vue-loading.css';
+// import 'sweetalert2/dist/sweetalert2.min.css';
