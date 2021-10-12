@@ -55,7 +55,7 @@
 // //
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.js'
-import App from '../app.vue'
+import App from '../call_booking.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueSweetalert2 from 'vue-sweetalert2';

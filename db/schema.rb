@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_092826) do
+ActiveRecord::Schema.define(version: 2021_10_12_141214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,6 +175,8 @@ ActiveRecord::Schema.define(version: 2021_10_11_092826) do
     t.text "tth_note", default: "empty"
     t.text "description_en", default: "empty"
     t.string "city", default: "Калининград"
+    t.boolean "fake", default: false
+    t.integer "ids_rentprog", array: true
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

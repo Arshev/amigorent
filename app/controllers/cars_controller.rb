@@ -25,7 +25,51 @@ class CarsController < ApplicationController
   before_action :is_authorised, only: %i[photo_upload update destroy]
 
   def index
-    @cars = Car.where(active: true, city: 'Калининград')
+    if params[:start_date] && params[:start_time] && params[:end_date] &&
+         params[:end_time] && params[:city]
+      start_date = params[:start_date] + ' ' + params[:start_time]
+      end_date = params[:end_date] + ' ' + params[:end_time]
+      if params[:city] == 'Калининград'
+        token = Rails.application.credentials.kaliningrad_rentprog_token
+      else
+        token = Rails.application.credentials.kaliningrad_rentprog_token
+      end
+
+      # Ищем в системе свободные
+      get_free_cars_url =
+        "https://api.rentprog.ru/api/v1/free_cars?start_date=#{start_date}&end_date=#{end_date}"
+      get_free_cars_resp =
+        Faraday.get(get_free_cars_url) do |req|
+          req.headers['Accept'] = 'application/json'
+          req.headers['Content-Type'] = 'application/json'
+          req.headers['Authorization'] = "Bearer #{token}"
+        end
+      get_free_cars_body = []
+
+      # Получаем ids свободных
+      if get_free_cars_resp.status == 200
+        get_free_cars_body =
+          JSON.parse(get_free_cars_resp.body.force_encoding('UTF-8'))
+        logger.info get_free_cars_body
+      else
+        logger.info 'bad response in cars index'
+      end
+
+      # Ищем тут
+      all_cars = Car.where(active: true, fake: false, city: params[:city])
+      cars_ids = []
+      if get_free_cars_body.length > 0
+        all_cars.each do |car|
+          if car.ids_rentprog &&
+               car.ids_rentprog.any? { |i| get_free_cars_body.include? i }
+            cars_ids.push(car.id)
+          end
+        end
+      end
+      @cars = Car.where(id: cars_ids)
+    else
+      @cars = Car.where(active: true, city: 'Калининград')
+    end
   end
 
   def new
