@@ -16,7 +16,6 @@
       max-width: 1920px;
       padding: 0;
       box-sizing: border-box;
-      /* overflow-x: hidden; */
   }
   body h1, body h2, body h3, body h4, body h5, body h6 {
       font-size: inherit;
@@ -189,13 +188,7 @@
   .header .lang span {
     color: #fff;
     text-decoration: none;
-    // font-weight: 700;
   }
-  // .header .lang a {
-  //     color: #ef7f1a;
-  //     text-decoration: none;
-  //     font-weight: 700;
-  // }
   .header .lang .active {
     color: #ef7f1a;
     text-decoration: none;
@@ -211,7 +204,6 @@
       padding: 130px 0 50px;
       text-align: center;
       background: url(asset_path("block1.webp")) no-repeat center -300px transparent;
-      /* background-size: auto 100%; */
   }
   .block1 span {
       display: block;
@@ -3081,15 +3073,6 @@
     .footer .col3 .social {
       margin: 40px 0 0;
     }
-    // .footer .col3 .polz {
-    //     text-decoration: underline;
-    //     color: #f77d0a;
-    //     display: inline-block;
-    //     vertical-align: top;
-    //     font-size: 16px;
-    //     line-height: 18px;
-    //     margin: 12px 0 0;
-    // }
     .content {
       padding: 100px 0 10px;
     }
@@ -3583,8 +3566,6 @@
       line-height: 34px;
     }
     .content .pricee table {
-      /* overflow-x: auto; */
-      /* display: block; */
     }
     .content .pricee table thead {
       position: relative;

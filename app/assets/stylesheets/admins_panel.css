@@ -33,7 +33,6 @@ Designed By: UXLiner
 	+ copyrights
 --------------------------------------------------------*/
 
-/* Layout */
 html, body {
 	height: 100%
 }
@@ -50,8 +49,7 @@ body {
 }
 .wrapper {
 	height: 100%;
-	position: relative;/*overflow-x: hidden;
-	overflow-y: auto*/
+	position: relative;
 }
 .wrapper:before, .wrapper:after {
 	content: " ";
@@ -910,7 +908,7 @@ ul.fa-ul {
 	width: 100%;
 	padding: 10px;
 	overflow: hidden;
-	border-bottom: solid 1px #ebebeb;/*background: url('../img/user-bg.jpg') no-repeat left top;*/
+	border-bottom: solid 1px #ebebeb;
 }
 .user-panel:before, .user-panel:after {
 	content: " ";
@@ -931,7 +929,6 @@ ul.fa-ul {
 	padding: 5px 0px;
 	line-height: 1;
 	text-align: center;
-	/*color: #FFF;*/
 	font-size: 14px;
 }
 .user-panel>.info>p {
@@ -979,8 +976,6 @@ ul.fa-ul {
 .sidebar-menu li.header {
 	padding: 10px 25px 10px 15px;
 	font-size: 12px;
-	/*border-bottom: solid 1px #404b59;
-	border-top: solid 1px #404b59;*/
 	color: #3d4757;
 	font-weight: 500;
 }
@@ -1042,10 +1037,8 @@ ul.list-inline li {
 	background-color: #fff;
 }
 .sidebar-mini.sidebar-collapse .sidebar-menu>li>a>span {
-/*border-top-right-radius: 4px*/
 }
 .sidebar-mini.sidebar-collapse .sidebar-menu>li:not(.treeview)>a>span {
-/*border-bottom-right-radius: 4px*/
 }
 .sidebar-mini.sidebar-collapse .sidebar-menu>li>.treeview-menu {
 	padding-top: 5px;
@@ -1987,7 +1980,6 @@ input[type="file"] {
 	text-decoration: none;
 	color: #f9f9f9
 }
-/*image hovers */
 .col-img-hover {
 	position: relative;
 	width: 100%;
@@ -2063,7 +2055,6 @@ input[type="file"] {
 	top: 270px;
 	transition: top .3s ease-in-out;
 }
-/*style 2*/
 .img-hover-st-2 {
 	opacity: 1;
 	width: 100%;
@@ -2163,7 +2154,6 @@ input[type="file"] {
 	left: 122px;
 	top: 110px;
 }
-/*style 3*/
 .img-hover-st-3 {
 	opacity: 1;
 	width: 100%;
@@ -2260,7 +2250,6 @@ input[type="file"] {
 	top: 136px;
 	transition: top .7s ease-in-out;
 }
-/*style 4*/
 .img-hover-st-4 {
 	position: relative;
 	width: 100%;
@@ -2316,7 +2305,6 @@ input[type="file"] {
 	border-top: 1px solid #e1e1e1;
 	padding-top: 50px;
 }
-/*style 5*/
 .img-hover-st-5 {
 	position: relative;
 	width: 100%;
@@ -5658,7 +5646,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e73f7c', endCo
 	white-space: normal !important
 }
 }
-/*----- Morris Chart -----*/
 .morris-hover {
 	position: absolute;
 	z-index: 1000
@@ -5684,7 +5671,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e73f7c', endCo
 .peity {
 	width: 100%;
 }
-/* Resets */
 .m-b-0 {
 	margin-bottom: 0px !important;
 }
@@ -5803,7 +5789,6 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e73f7c', endCo
 	margin-bottom: -10px !important;
 }
 
-/*----------------------------- RESPONSIVE STYLES ---------------------------------- */
 
 @media only screen and (min-width: 1000px) and (max-width: 1169px) {
 }
