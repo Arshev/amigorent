@@ -31,10 +31,22 @@
                       <% @cars.where(active: true).each do |car| %>
                         <tr>
                           <td>
-                            <div class="akci">Акция</div>
-                            <div class="zz"><%= car.car_name %></div>
+                            <% if car.old_price_1 %>
+                              <div class="akci">Акция</div>
+                            <% end %>
+                            <div class="zz">
+                              <%= link_to car_path(car) do %>
+                                <%= car.car_name %>
+                              <% end %>
+                            </div>
                             <%= link_to car_path(car) do %>
-                              <%= image_tag "avto.webp", alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" if !car.main_image? %>
+                            
+                            <% if car.main_image? %>
+                              <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
+                            <% else %>
+                              <%= image_tag "avto.webp", alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
+                            <% end %>
+                            
                             <% end %>
                             <div class="hara">
                               <% if car.car_type == "Хэтчбек" %>

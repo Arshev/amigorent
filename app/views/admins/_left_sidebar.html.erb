@@ -5,9 +5,6 @@
         <%= link_to admin_path, style:"text-align:center;" do %>
           <button class="btn btn-outline-secondary btn-block <%= active_class?(admin_path) %>">Главная</button>
         <% end %>
-        <%= link_to bookings_admin_path do %>
-          <button class="btn btn-outline-secondary btn-block <%= active_class?(bookings_admin_path) %>">Заявки</button class="btn btn-outline-secondary btn-block">
-         <% end %>
          <%= link_to reviews_admin_path do %>
           <button class="btn btn-outline-secondary btn-block <%= active_class?(reviews_admin_path) %>">Отзывы на авто</button class="btn btn-outline-secondary btn-block">
          <% end %>

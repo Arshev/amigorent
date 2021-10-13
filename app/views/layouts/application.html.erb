@@ -16,7 +16,7 @@
 <% if !request.path.include?('admin') %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'actiontext' %>
-  <%= javascript_include_tag Ckeditor.cdn_url %>
+  <%# javascript_include_tag Ckeditor.cdn_url %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', rel: 'preload' %>
   <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all", 'data-turbolinks-track': 'reload' %>
@@ -34,8 +34,11 @@
 
   <meta name="viewport" content="width=device-width" />
 <% else %>
-    <%= stylesheet_link_tag 'actiontext', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'admins_panel', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+  <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'bootstrap', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'actiontext', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'admins_panel', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%# javascript_pack_tag 'adminkit', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
 

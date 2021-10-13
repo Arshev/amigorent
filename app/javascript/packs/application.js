@@ -18,7 +18,10 @@ console.log("Hello World from Webpacker");
 // import 'sweetalert2/src/sweetalert2.scss'
 // import 'vue-loading-overlay/dist/vue-loading.css';
 // import 'sweetalert2/dist/sweetalert2.min.css';
-import "application.css";
+require("trix")
+require("@rails/actiontext")
+import 'bootstrap/dist/js/bootstrap';
+import "application.scss";
 const images = require.context("../images", true);
 
 document.addEventListener("turbolinks:load", function () {
@@ -130,4 +133,9 @@ document.addEventListener("turbolinks:load", function () {
     $(".menu_mob").slideToggle();
     return false;
   });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="popover"]').popover()
+  })
 });
