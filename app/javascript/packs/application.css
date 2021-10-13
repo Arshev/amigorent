@@ -3,3 +3,4 @@
 @import 'flatpickr/dist/flatpickr';
 @import './style.scss';
 @import './modal.css';
+@import './jquery.rateyo.min.css';
