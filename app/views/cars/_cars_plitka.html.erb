@@ -1,4 +1,4 @@
- <% @cars.where(active:true).each do |car| %> 
+ <%# cars.where(active:true).each do |car| %> 
   <div class="avto1">
     <% if car.old_price_1 && car.old_price_1 > 0 %>
       <% if I18n.locale == :en %>
@@ -94,4 +94,4 @@
       </div>
     <% end %>
   </div>
-<% end %>
+<%# end %>

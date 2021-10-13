@@ -67,6 +67,7 @@ class CarsController < ApplicationController
         end
       end
       @cars = Car.where(id: cars_ids)
+      @fake_cars = Car.where(ids_rentprog: nil)
     else
       @cars = Car.where(active: true, city: 'Калининград')
     end
