@@ -11,7 +11,7 @@
                   <% if car.main_image? %>
                     <%= image_tag car.main_image.url(:thumb), class: 'm-t-1', alt: car.car_name if car.main_image? %>
                   <% else %>
-                    <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 100px; height: 100px;" %>
+                    <%= image_pack_tag "media/images/no-photo.png", alt: "", title: "", style: "width: 100px; height: 100px;" %>
                   <% end %>
                 <% end %>
               </div>
@@ -38,7 +38,7 @@
                   <% end %>
                 <% end %>
                 <%= link_to car_path(car), remote: true, method: :delete, data: {confirm: "Уверены?"} do %>
-                  <%= image_tag 'trash.png', class: 'm-t-1' %>
+                  <%= image_pack_tag "media/images/trash.png", class: 'm-t-1' %>
                 <% end %>
               </div>
             </div>
