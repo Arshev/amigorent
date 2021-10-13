@@ -23,13 +23,13 @@
   
   <% if current_page?(controller: 'main', action: 'index') %>
     <%= javascript_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-    <%= stylesheet_pack_tag 'call_booking', media: "all", 'data-turbolinks-track': 'reload', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'call_booking', media: "all", 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'search_main', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-    <%= stylesheet_pack_tag 'search_main', media: "all", 'data-turbolinks-track': 'reload', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'search_main', media: "all", 'data-turbolinks-track': 'reload' %>
   <% end %>
   <% if request.path.include?('/cars') %>
-    <%= javascript_pack_tag 'search_cars', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-    <%= stylesheet_pack_tag 'search_cars', media: "all", 'data-turbolinks-track': 'reload', rel: 'preload' %>
+    <%= javascript_pack_tag 'search_cars', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'search_cars', media: "all", 'data-turbolinks-track': 'reload' %>
   <% end %>
 
   <meta name="viewport" content="width=device-width" />

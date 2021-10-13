@@ -1,4 +1,5 @@
 @import 'vue-loading-overlay/dist/vue-loading';
 @import 'sweetalert2/dist/sweetalert2.min';
+@import 'flatpickr/dist/flatpickr';
 @import './style.scss';
 @import './modal.css';
