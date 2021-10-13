@@ -104,15 +104,17 @@
 <div class="block4 var2">
   <div class="wrapper">
       <div class="spis_avto active" id="spis1">
-          <%= render 'cars', cached: true %>
+          <%# render 'cars', cached: true %>
+          <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
           <div class="clear"></div>
       </div>
       <div class="spis_avto" id="spis2">
-        <%= render 'cars_plitka', cached: true %>
+        <%= render partial: 'cars_plitka', collection: @cars, as: :car, cached: true %>
+        <%# render 'cars_plitka', cached: true %>
       </div>
-      <div class="btn">
+      <%# <div class="btn">
           <a href="#">Загрузить еще</a>
-      </div>
+      </div> %>
       <div class="clear"></div>
   </div>
 </div>
