@@ -114,7 +114,7 @@
 
 <script>
 import flatPickr from "vue-flatpickr-component";
-import "flatpickr/dist/flatpickr.css";
+// import "flatpickr/dist/flatpickr.css";
 import { Russian } from "flatpickr/dist/l10n/ru";
 import moment from "moment";
 import "moment/locale/ru";
@@ -142,10 +142,18 @@ export default {
     };
   },
   created() {
-    this.start_date = new URL(location.href).searchParams.get("start_date");
-    this.end_date = new URL(location.href).searchParams.get("end_date");
-    this.start_time = new URL(location.href).searchParams.get("start_time");
-    this.end_time = new URL(location.href).searchParams.get("end_time");
+    if (new URL(location.href).searchParams.get("start_date")) {
+      this.start_date = new URL(location.href).searchParams.get("start_date");
+    }
+    if (new URL(location.href).searchParams.get("end_date")) {
+      this.end_date = new URL(location.href).searchParams.get("end_date");
+    }
+    if (new URL(location.href).searchParams.get("start_time")) {
+      this.start_time = new URL(location.href).searchParams.get("start_time");
+    }
+    if (new URL(location.href).searchParams.get("end_time")) {
+      this.end_time = new URL(location.href).searchParams.get("end_time");
+    }
   },
   methods: {
     goToCars() {

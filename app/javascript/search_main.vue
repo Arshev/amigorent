@@ -82,7 +82,6 @@
 
 <script>
 import flatPickr from 'vue-flatpickr-component';
-import 'flatpickr/dist/flatpickr.css';
   import { Russian } from "flatpickr/dist/l10n/ru"
 import moment from 'moment'
   import 'moment/locale/ru'

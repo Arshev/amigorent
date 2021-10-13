@@ -6,6 +6,7 @@ import VueAxios from 'vue-axios'
 import VueSweetalert2 from 'vue-sweetalert2';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+import 'flatpickr/dist/flatpickr.css';
 
 
 // If you don't need the styles, do not connect

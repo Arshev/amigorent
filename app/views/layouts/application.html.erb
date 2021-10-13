@@ -20,12 +20,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', rel: 'preload' %>
   <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all", 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-  <%= stylesheet_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-  <%= javascript_pack_tag 'search_main', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-  <%= stylesheet_pack_tag 'search_main', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-  <%= javascript_pack_tag 'search_cars', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-  <%= stylesheet_pack_tag 'search_cars', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+  
+  <% if current_page?(controller: 'main', action: 'index') %>
+    <%= javascript_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+    <%= javascript_pack_tag 'search_main', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'search_main', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+  <% end %>
+  <% if request.path.include?('/cars') %>
+    <%= javascript_pack_tag 'search_cars', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'search_cars', 'data-turbolinks-track': 'reload', rel: 'preload' %>
+  <% end %>
 
   <meta name="viewport" content="width=device-width" />
 <% else %>
