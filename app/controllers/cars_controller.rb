@@ -135,7 +135,12 @@ class CarsController < ApplicationController
     new_params = car_params.merge(active: true) if is_ready_car
 
     if @car.update(new_params)
+      if car_params[:ids_rentprog]
+        ids = car_params[:ids_rentprog].gsub(' ', '').split(',')
+        @car.update(ids_rentprog: ids)
+      end
       flash[:notice] = 'Сохранено'
+      logger.info @car.ids_rentprog
     else
       flash[:notice] = 'Что то не так!'
     end
@@ -233,6 +238,8 @@ class CarsController < ApplicationController
         :cd,
         :video,
         :city,
+        :fake,
+        :ids_rentprog,
         images: [],
       )
   end

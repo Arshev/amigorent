@@ -12,13 +12,24 @@
         </div>
         <div class="cartochka">
             <div class="pl1">
-                <div class="bl_img_full" style="background-image: url(<%= image_path(@car.main_image.url)%>);"></div>
+                
+                <% if @car.main_image? %>
+                    <div class="bl_img_full" style="background-image: url(<%= image_path(@car.main_image.url) %>);"></div>
+                <% else %>
+                    <div class="bl_img_full" style="background-image: url(<%= image_path('avto.webp') %>);"></div>
+                <% end %>
+                
                 <ul class="bxslider">
                     <% @car.images.each do |image| %>
                         <li>
-                            <a href="<%= image_path(image.url)%>" style="background-image: url(<%= image_path(image.url(:thumb))%>;"></a>
+                        <% if image.url %>
+                            <a href="<%= image_path(image.url)%>" style="background-image: url(<%= image_path(image.url(:show))%>);"></a>
+                        <% else %>
+                            <a href="<%= image_url('avto.webp')%>" style="background-image: url(<%= image_url('avto.webp')%>);"></a>
+                        <% end %>
                         </li>
                     <% end %>
+                    <a href="<%= image_path(@car.main_image.url) %>" style="background-image: url(<%= image_path(@car.main_image.url) %>);"></a>
                 </ul>
             </div>
             <div class="pl2">

@@ -21,6 +21,7 @@ console.log("Hello World from Webpacker");
 require("trix")
 require("@rails/actiontext")
 import 'bootstrap/dist/js/bootstrap';
+import "./jquery.bxslider.min"
 import "application.scss";
 const images = require.context("../images", true);
 
