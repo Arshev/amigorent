@@ -1,26 +1,20 @@
-// import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.js'
-import Search from '../search_main.vue'
+import Bookings from '../bookings.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueSweetalert2 from 'vue-sweetalert2';
 import Loading from 'vue-loading-overlay';
-// import 'vue-loading-overlay/dist/vue-loading.css';
-// import 'flatpickr/dist/flatpickr.css';
-
-
-// If you don't need the styles, do not connect
-// import 'sweetalert2/dist/sweetalert2.min.css';
+import VModal from 'vue-js-modal'
 
 
 Vue.use(VueSweetalert2);
-// Vue.use(TurbolinksAdapter)
 Vue.use(VueAxios, axios)
 Vue.component("loading", Loading);
+Vue.use(VModal)
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({
-    el: '#search_main',
+    el: '#bookings',
     data: () => {
       return {
         phone: null,
@@ -29,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showModal: false
       }
     },
-    components: { Search },
+    components: { Bookings },
     methods: {
       sendBooking() {
         console.log(this.phone, this.name, this.text)
@@ -37,4 +31,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 })
-// Turbolinks.start()

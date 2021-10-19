@@ -2024,6 +2024,7 @@
       font-size: 16px;
       letter-spacing: 3px;
       border-radius: 6px;
+      cursor: pointer;
   }
   .content .cartochka .pl2 .arend:hover {
       background: #fff;
@@ -3810,6 +3811,18 @@
       position: relative!important;
       top: 0!important;
     }
+  }
+
+  .modal-close-button {
+    margin-left: auto;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #ef7f1a;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 5px;
+    cursor: pointer;
   }
   
   @media all and (max-width: 479px) {
