@@ -1,9 +1,6 @@
-// //= require turbolinks
-// //= require jquery
-// //= require jquery.rateyo.min
-// //= require_tree .
-require("trix")
-require("@rails/actiontext")
+
+// require("trix")
+// require("@rails/actiontext")
 
 // document.addEventListener("turbolinks:load", function() {
 //   // $( document ).ready(function() {

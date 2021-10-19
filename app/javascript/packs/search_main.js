@@ -1,4 +1,4 @@
-import TurbolinksAdapter from 'vue-turbolinks'
+// import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.js'
 import Search from '../search_main.vue'
 import axios from 'axios'
@@ -14,7 +14,7 @@ import Loading from 'vue-loading-overlay';
 
 
 Vue.use(VueSweetalert2);
-Vue.use(TurbolinksAdapter)
+// Vue.use(TurbolinksAdapter)
 Vue.use(VueAxios, axios)
 Vue.component("loading", Loading);
 
@@ -37,4 +37,4 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 })
-Turbolinks.start()
+// Turbolinks.start()

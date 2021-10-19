@@ -13,7 +13,7 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+// require("turbolinks").start()
 console.log("Hello World from Webpacker");
 // import 'sweetalert2/src/sweetalert2.scss'
 // import 'vue-loading-overlay/dist/vue-loading.css';
@@ -25,7 +25,8 @@ import "./jquery.bxslider.min"
 import "application.scss";
 const images = require.context("../images", true);
 
-document.addEventListener("turbolinks:load", function () {
+// document.addEventListener("turbolinks:load", function () {
+document.addEventListener("DOMContentLoaded", () => {
   var $topp = $(".header").offset().top;
   function scrl() {
     if ($(document).scrollTop() > $topp) {

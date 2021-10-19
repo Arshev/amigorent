@@ -14,32 +14,32 @@
   <%= csp_meta_tag %>
   <%# <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> %>
 <% if !request.path.include?('admin') %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= stylesheet_link_tag 'actiontext' %>
   <%# javascript_include_tag Ckeditor.cdn_url %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-  <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all", 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_pack_tag 'application', rel: 'preload' %>
+  <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all" %>
   
   <% if current_page?(root_path) %>
-    <%= javascript_pack_tag 'call_booking', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-    <%= stylesheet_pack_tag 'call_booking', media: "all", 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'search_main', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-    <%= stylesheet_pack_tag 'search_main', media: "all", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'call_booking', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'call_booking', media: "all" %>
+    <%= javascript_pack_tag 'search_main', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'search_main', media: "all" %>
   <% end %>
   <% if current_page?(cars_ru_path) || current_page?(cars_en_path) %>
-    <%= javascript_pack_tag 'search_cars', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'search_cars', media: "all", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'search_cars' %>
+    <%= stylesheet_pack_tag 'search_cars', media: "all" %>
   <% end %>
 
   <meta name="viewport" content="width=device-width" />
 <% else %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', rel: 'preload' %>
-  <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all", 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'bootstrap', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag 'actiontext', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag 'admins_panel', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%# javascript_pack_tag 'adminkit', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', rel: 'preload' %>
+  <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all" %>
+  <%= stylesheet_pack_tag 'bootstrap' %>
+  <%= stylesheet_link_tag 'actiontext' %>
+  <%= stylesheet_link_tag 'admins_panel', media: 'all' %>
+    <%# javascript_pack_tag 'adminkit' %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
 
 <% end %>

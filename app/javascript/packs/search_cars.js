@@ -1,4 +1,4 @@
-import TurbolinksAdapter from 'vue-turbolinks'
+// import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.js'
 import SearchCars from '../search_cars.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -10,9 +10,10 @@ import VueSweetalert2 from 'vue-sweetalert2';
 
 
 Vue.use(VueSweetalert2);
-Vue.use(TurbolinksAdapter)
+// Vue.use(TurbolinksAdapter)
 
-document.addEventListener('turbolinks:load', () => {
+// document.addEventListener('turbolinks:load', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({
     el: '#search_cars',
     data: () => {
@@ -26,4 +27,4 @@ document.addEventListener('turbolinks:load', () => {
     components: { "search_cars": SearchCars }
   })
 })
-Turbolinks.start()
+// Turbolinks.start()
