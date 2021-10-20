@@ -2461,10 +2461,10 @@
   }
   .content .page_zakaz .pol1 .in2 {
       float: left;
-      width: 445px;
+      width: 287px;
       margin: 0 0 20px 11px;
   }
-  .content .page_zakaz .pol1 .in2:nth-child(2n+1) {
+  .content .page_zakaz .pol1 .in2:nth-child(3n+1) {
     clear: both;
     margin-left: 0;
   }
@@ -2474,7 +2474,7 @@
       box-sizing: border-box;
       border: 2px solid #d9d9d9;
       border-radius: 4px;
-      height: 58px;
+      height: 56px;
       padding: 0 16px;
       color: #ccc;
       font-weight: 300;
@@ -2516,6 +2516,7 @@
       margin: 30px 0 0;
       box-sizing: border-box;
       padding: 26px 20px;
+      text-align: left;
   }
   .content .page_zakaz .pol2 .zag {
       text-align: center;
@@ -2529,6 +2530,7 @@
       font-weight: 300;
       font-size: 24px;
       line-height: 28px;
+      text-align: center !important;
   }
   .content .page_zakaz .pol2 .bl_img {
       height: 200px;
@@ -2543,8 +2545,9 @@
       line-height: 28px;
       font-size: 22px;
       color: #d9d9d9;
-      margin: 0 0 6px;
+      margin: 10px 0 6px;
   }
+
   .content .page_zakaz .pol2 label input {}
   .content .page_zakaz .pol2 label span {
       float: right;
@@ -2556,17 +2559,18 @@
     clear: both;
   }
   .content .page_zakaz .pol2 .price {
+      text-align: left;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 24px;
-      letter-spacing: 5px;
+      font-size: 20px;
+      letter-spacing: 3px;
       line-height: 28px;
-      margin: 32px 0 0;
+      margin: 5px 0 0;
   }
   .content .page_zakaz .pol2 .price span {
     color: #ef7f1a;
     float: right;
-    font-size: 34px;
+    font-size: 25px;
     margin: -4px 0 0;
     letter-spacing: 1px;
   }

@@ -5,12 +5,14 @@ import VueAxios from 'vue-axios'
 import VueSweetalert2 from 'vue-sweetalert2';
 import Loading from 'vue-loading-overlay';
 import VModal from 'vue-js-modal'
+import Vuelidate from 'vuelidate'
 
 
 Vue.use(VueSweetalert2);
 Vue.use(VueAxios, axios)
 Vue.component("loading", Loading);
 Vue.use(VModal)
+Vue.use(Vuelidate)
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({

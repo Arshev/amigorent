@@ -154,7 +154,7 @@
                     <div class="clear"></div>
                 </div>
                 <div style="text-align: center;" id="bookings">
-                    <bookings image_link="<%= image_path(@car.main_image.url) ? image_path(@car.main_image.url) : image_path('avto.webp') %>"></bookings>
+                    <bookings locale="ru" :prices="[<%= @car.price_1 %>, <%= @car.price_2 %>, <%= @car.price_3 %>, <%= @car.price_4 %>, <%= @car.price_5 %>, <%= @car.price_hour %>, <%= @car.deposit %>]" image_link="<%= image_path(@car.main_image.url) ? image_path(@car.main_image.url) : image_path('avto.webp') %>"></bookings>
                     <%# link_to "Забронировать", new_booking_path(car_id: @car.id), class:"arend" %>
                 </div>
                 <div>
