@@ -1937,7 +1937,7 @@
       width: 685px;
   }
   .content .cartochka .pl2 .zagol {
-      text-align: left;
+      text-align: center;
   }
   .content .cartochka .pl2 .hara {
       margin: 29px 0 0;
@@ -2444,7 +2444,7 @@
       text-transform: uppercase;
       background: #ef7f1a;
       font-weight: 700;
-      line-height: 65px;
+      line-height: 30px;
       border-radius: 6px;
       font-size: 22px;
       letter-spacing: 6px;
@@ -2526,7 +2526,7 @@
       letter-spacing: 6px;
   }
   .content .page_zakaz .pol2 .pod {
-      margin: 46px 0 10px;
+      margin: 26px 0 10px;
       font-weight: 300;
       font-size: 24px;
       line-height: 28px;
@@ -2560,12 +2560,16 @@
   }
   .content .page_zakaz .pol2 .price {
       text-align: left;
-      font-weight: 700;
-      text-transform: uppercase;
+      // font-weight: 700;
+      // text-transform: uppercase;
       font-size: 20px;
       letter-spacing: 3px;
       line-height: 28px;
       margin: 5px 0 0;
+  }
+  .total {
+    font-weight: 700 !important;
+    text-transform: uppercase;
   }
   .content .page_zakaz .pol2 .price span {
     color: #ef7f1a;
@@ -3754,7 +3758,7 @@
       padding: 5px;
     }
     .content .zagol {
-      font-size: 22px;
+      font-size: 22px !important;
       line-height: 28px;
     }
     .content .bl_dostavka .kak_nayti img {

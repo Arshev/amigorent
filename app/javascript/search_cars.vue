@@ -155,6 +155,13 @@ export default {
       this.end_time = new URL(location.href).searchParams.get("end_time");
     }
   },
+  watch: {
+    start_date () {
+      if (this.start_date) {
+        this.configEnd.minDate = moment(this.start_date, "DD-MM-YYYY").toDate()
+      }
+    }
+  },
   methods: {
     goToCars() {
       if (

@@ -108,6 +108,13 @@ export default {
       isLoading: false
     };
   },
+  watch: {
+    start_date () {
+      if (this.start_date) {
+        this.configEnd.minDate = moment(this.start_date, "DD-MM-YYYY").toDate()
+      }
+    }
+  },
   methods: {
     goToCars () {
       if (this.start_date && this.end_date && this.start_time && this.end_time) {

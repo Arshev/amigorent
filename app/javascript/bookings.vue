@@ -10,10 +10,11 @@
 
       <modal
         name="my-first-modal"
-        :scrollable="true"
+        :scrollable="false"
         :adaptive="true"
-        :width="1446"
-        height="100%"
+        :width="1466"
+        height="auto"
+        :reset="true"
       >
         <div class="content">
           <div class="wrapper">
@@ -21,10 +22,7 @@
               <a class="modal-close-button" @click="closeDialog()"> Закрыть </a>
             </div>
             <div class="page_zakaz">
-              <div class="zagol">Бронирование автомобиля</div>
-              <div>
-                {{additional_hours}} {{prices[5]}} {{additional_hours * prices[5]}} {{days}}
-              </div>
+              <div class="zagol" style="font-size: 30px; line-height: 30px;">Бронирование автомобиля</div>
               <div class="pol1">
                 <div class="zag">Начало аренды</div>
                 <div class="obo">
@@ -65,7 +63,7 @@
                   </div>
                   <div class="clear"></div>
                 </div>
-                <div class="zag">Окончание аренда</div>
+                <div class="zag">Окончание аренды</div>
                 <div class="obo">
                   <div class="in1">
                     <flat-pickr
@@ -189,12 +187,29 @@
                   </div>
                   <div class="in2">
                     <input
-                      type="text"
-                      value=""
+                      v-model="birthday"
+                      type="date"
                       placeholder="Дата рождения"
-                      name=""
                     />
                   </div>
+                  <div class="clear"></div>
+                </div>
+                <div class="zag">Дополнительная информация</div>
+                <div class="obo">
+                  <div class="in24" style="padding-bottom: 10px;">
+                    <input
+                      v-model="description"
+                      placeholder="Примечание и другие пожелания"
+                    />
+                  </div>
+                    Возможность доставки в нерабочее время уточняйте у наших менеджеров.
+
+                    Выдача и прием автомобиля в офисе в нерабочее время с 19-00 до 9-00 составляет 400 руб.
+
+                    Выдача и прием автомобиля по городу в нерабочее время с 19-00 до 9-00 составляет 500 руб.
+
+                    Выдача и прием автомобиля в аэропорту в нерабочее время с 19-00 до 9-00 составляет 700 руб.
+
                   <div class="clear"></div>
                 </div>
               </div>
@@ -215,11 +230,13 @@
                   <i>GPS навигатор</i>
                   <span>+ 500 ₽</span>
                 </label>
+                <div class="pod">Расчёт:</div>
+                <hr style="margin: 15px 0px" />
                 <div class="price">
-                  Цена аренды: <span>{{ price * days }} ₽</span>
+                  Аренда ({{ days }} суток): <span>{{ price * days }} ₽</span>
                 </div>
                 <div class="price">
-                  Доп время: <span>{{ additional_hours * prices[5] }} ₽</span>
+                  Доп время ({{ additional_hours }} ч): <span>{{ additional_hours * prices[5] }} ₽</span>
                 </div>
                 <div class="price">
                   Доп оборудование:
@@ -232,8 +249,8 @@
                 <div class="price">
                   Залог: <span>{{ prices[6] }} ₽</span>
                 </div>
-                <hr style="margin-bottom: 15px" />
-                <div class="price">
+                <hr style="margin: 15px 0px" />
+                <div class="price total">
                   Итого: <span>{{ total }} ₽</span>
                 </div>
               </div>
@@ -307,6 +324,9 @@ export default {
     locale: {
       type: String,
     },
+    link_params: {
+      type: Object,
+    }
   },
   data: function () {
     return {
@@ -362,6 +382,8 @@ export default {
         "Another address in Kaliningrad",
         "Office",
       ],
+      birthday: null,
+      description: null,
       baby_chair_price: 0,
       navigator_price: 0,
       location_start_price: 0,
@@ -374,6 +396,14 @@ export default {
       terms_error: false,
       isLoading: false,
     };
+  },
+  created () {
+    if (this.link_params && this.link_params.start_date && this.link_params.start_time && this.link_params.end_date && this.link_params.end_time) {
+      this.start_date_no_time = this.link_params.start_date
+      this.end_date_no_time = this.link_params.end_date
+      this.start_time = this.link_params.start_time
+      this.end_time = this.link_params.end_time
+    }
   },
   watch: {
     end_date() {
@@ -541,6 +571,10 @@ export default {
       this.errors = [];
     },
     start_date() {
+      // Минимаьная дата в календаре
+      if (this.start_date_no_time) {
+        this.configEnd.minDate = moment(this.start_date_no_time, "DD-MM-YYYY").toDate()
+      }
       let start_date = moment(this.start_date, "DD-MM-YYYY H:mm");
       let end_date = moment(this.end_date, "DD-MM-YYYY H:mm");
 
