@@ -22,7 +22,9 @@
               <a class="modal-close-button" @click="closeDialog()"> Закрыть </a>
             </div>
             <div class="page_zakaz">
-              <div class="zagol" style="font-size: 30px; line-height: 30px;">Бронирование автомобиля</div>
+              <div class="zagol" style="font-size: 30px; line-height: 30px">
+                Бронирование автомобиля
+              </div>
               <div class="pol1">
                 <div class="zag">Начало аренды</div>
                 <div class="obo">
@@ -31,8 +33,12 @@
                       v-model="start_date_no_time"
                       placeholder="Дата начала"
                       :config="configStart"
+                      @input="start_date_error = false"
                       class="inp1"
                     ></flat-pickr>
+                    <span style="color: tomato" v-if="start_date_error">
+                      - заполните дату и время</span
+                    >
                   </div>
                   <div class="in1">
                     <flat-pickr
@@ -70,8 +76,12 @@
                       v-model="end_date_no_time"
                       placeholder="Дата возврата"
                       :config="configEnd"
+                      @input="end_date_error = false"
                       class="inp1"
                     ></flat-pickr>
+                    <span style="color: tomato" v-if="end_date_error">
+                      - заполните дату и время</span
+                    >
                   </div>
                   <div class="in1">
                     <flat-pickr
@@ -108,7 +118,7 @@
                     <input
                       v-model.trim.lazy="$v.lastname.$model"
                       type="text"
-                      value=""
+                      @input="lastname_error = false"
                       :placeholder="
                         locale == 'en' ? 'Input lastname' : 'Ваша фамилия'
                       "
@@ -123,12 +133,15 @@
                       - должна содержать максимум
                       {{ $v.lastname.$params.maxLength.max }} буквы</span
                     >
+                    <span style="color: tomato" v-if="lastname_error">
+                      - заполните фамилию</span
+                    >
                   </div>
                   <div class="in2">
                     <input
                       v-model.trim.lazy="$v.name.$model"
                       type="text"
-                      value=""
+                      @input="name_error = false"
                       placeholder="Ваше имя"
                       name=""
                     />
@@ -140,13 +153,16 @@
                       - должно содержать максимум
                       {{ $v.name.$params.maxLength.max }} букв</span
                     >
+                    <span style="color: tomato" v-if="name_error">
+                      - заполните имя</span
+                    >
                   </div>
                   <div class="in2">
                     <input
                       v-model.trim.lazy="$v.middlename.$model"
                       type="text"
                       placeholder="Отчество"
-                      name=""
+                      @input="middlename_error = false"
                     />
                     <span style="color: tomato" v-if="!$v.middlename.minLength">
                       - должно содержать минимум
@@ -155,6 +171,9 @@
                     <span style="color: tomato" v-if="!$v.middlename.maxLength">
                       - должно содержать максимум
                       {{ $v.middlename.$params.maxLength.max }} букв</span
+                    >
+                    <span style="color: tomato" v-if="middlename_error">
+                      - заполните отчетсво</span
                     >
                   </div>
                   <div class="in2">
@@ -165,6 +184,7 @@
                       placeholder="79111111111"
                       v-bind:class="{ 'error-input': phone_error }"
                       :mask="['###########']"
+                      @input="phone_error = false"
                     />
                     <the-mask
                       v-else
@@ -173,15 +193,19 @@
                       placeholder="79111111111"
                       v-bind:class="{ 'error-input': phone_error }"
                       :mask="['###########', '############']"
+                      @input="phone_error = false"
                     />
+                    <span style="color: tomato" v-if="phone_error">
+                      - неправильный телефон</span
+                    >
                   </div>
                   <div class="in2">
                     <input
                       v-model.trim.lazy="$v.email.$model"
                       placeholder="E-mail"
-                      name=""
+                      @input="email_error = false"
                     />
-                    <span style="color: tomato" v-if="!$v.email.email">
+                    <span style="color: tomato" v-if="!$v.email.email || email_error">
                       - неправильный Email</span
                     >
                   </div>
@@ -196,19 +220,18 @@
                 </div>
                 <div class="zag">Дополнительная информация</div>
                 <div class="obo">
-                  <div class="in24" style="padding-bottom: 10px;">
+                  <div class="in24" style="padding-bottom: 10px">
                     <input
                       v-model="description"
                       placeholder="Примечание и другие пожелания"
                     />
                   </div>
-                    Возможность доставки в нерабочее время уточняйте у наших менеджеров.
-
-                    Выдача и прием автомобиля в офисе в нерабочее время с 19-00 до 9-00 составляет 400 руб.
-
-                    Выдача и прием автомобиля по городу в нерабочее время с 19-00 до 9-00 составляет 500 руб.
-
-                    Выдача и прием автомобиля в аэропорту в нерабочее время с 19-00 до 9-00 составляет 700 руб.
+                  Возможность доставки в нерабочее время уточняйте у наших
+                  менеджеров. Выдача и прием автомобиля в офисе в нерабочее
+                  время с 19-00 до 9-00 составляет 400 руб. Выдача и прием
+                  автомобиля по городу в нерабочее время с 19-00 до 9-00
+                  составляет 500 руб. Выдача и прием автомобиля в аэропорту в
+                  нерабочее время с 19-00 до 9-00 составляет 700 руб.
 
                   <div class="clear"></div>
                 </div>
@@ -236,7 +259,8 @@
                   Аренда ({{ days }} суток): <span>{{ price * days }} ₽</span>
                 </div>
                 <div class="price">
-                  Доп время ({{ additional_hours }} ч): <span>{{ additional_hours * prices[5] }} ₽</span>
+                  Доп время ({{ additional_hours }} ч):
+                  <span>{{ additional_hours * prices[5] }} ₽</span>
                 </div>
                 <div class="price">
                   Доп оборудование:
@@ -251,14 +275,15 @@
                 </div>
                 <hr style="margin: 15px 0px" />
                 <div class="price total">
-                  Итого: <span>{{ total }} ₽</span>
+                  Итого: <span v-if="total > 0">{{ total }} + {{ prices[6] }} <small>залог</small></span>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="obol2">
                 <div class="ch1">
                   <label>
-                    <input type="checkbox" value="" name="" />
+                    <input v-model="term" type="checkbox" @input="terms_error = false" />
+
                     Подтверждаю, что ознакомился с
                     <a href="/terms" target="_blank">условиями аренды</a> и даю
                     согласие на обработку персональных данных, согласно
@@ -269,13 +294,16 @@
                       >152-ФЗ</a
                     >
                   </label>
+                  <span style="color: tomato" v-if="terms_error">
+                      - пожалуйста примите условия</span
+                    >
                   <!-- <label>
                     <input type="checkbox" value="" name="" />
                     Я соглашаюсь с уловиями политики
                     конфиденциальности
                   </label> -->
                 </div>
-                <button>Арендовать</button>
+                <button @click="sendBooking()">Арендовать</button>
                 <div class="clear"></div>
               </div>
             </div>
@@ -326,7 +354,13 @@ export default {
     },
     link_params: {
       type: Object,
-    }
+    },
+    ids_rentprog: {
+      type: Array,
+    },
+    car_name: {
+      type: String,
+    },
   },
   data: function () {
     return {
@@ -388,21 +422,31 @@ export default {
       navigator_price: 0,
       location_start_price: 0,
       location_end_price: 0,
+      term: false,
+      start_date_error: false,
+      end_date_error: false,
       name_error: false,
       middlename_error: false,
       lastname_error: false,
       email_error: false,
       phone_error: false,
       terms_error: false,
+      days_error: false,
       isLoading: false,
     };
   },
-  created () {
-    if (this.link_params && this.link_params.start_date && this.link_params.start_time && this.link_params.end_date && this.link_params.end_time) {
-      this.start_date_no_time = this.link_params.start_date
-      this.end_date_no_time = this.link_params.end_date
-      this.start_time = this.link_params.start_time
-      this.end_time = this.link_params.end_time
+  created() {
+    if (
+      this.link_params &&
+      this.link_params.start_date &&
+      this.link_params.start_time &&
+      this.link_params.end_date &&
+      this.link_params.end_time
+    ) {
+      this.start_date_no_time = this.link_params.start_date;
+      this.end_date_no_time = this.link_params.end_date;
+      this.start_time = this.link_params.start_time;
+      this.end_time = this.link_params.end_time;
     }
   },
   watch: {
@@ -573,7 +617,10 @@ export default {
     start_date() {
       // Минимаьная дата в календаре
       if (this.start_date_no_time) {
-        this.configEnd.minDate = moment(this.start_date_no_time, "DD-MM-YYYY").toDate()
+        this.configEnd.minDate = moment(
+          this.start_date_no_time,
+          "DD-MM-YYYY"
+        ).toDate();
       }
       let start_date = moment(this.start_date, "DD-MM-YYYY H:mm");
       let end_date = moment(this.end_date, "DD-MM-YYYY H:mm");
@@ -1061,62 +1108,147 @@ export default {
       this.$modal.hide("my-first-modal");
     },
     sendBooking() {
-      if (this.name && this.phone) {
-        this.isLoading = true;
-        this.axios
-          .post(
-            `/api/v1/call_booking`,
-            {
-              name: this.name,
-              phone: this.phone,
-              text: this.text,
-            },
-            {
-              headers: {
-                Authorization:
-                  "Bearer 2ed8e4a9369da6842e9d5c03fdb44b5d3e86e5b08c626529af8bd3",
+      if (this.name === "" || this.name == null) {
+        this.name_error = true;
+      }
+      if (this.middlename === "" || this.middlename == null) {
+        this.middlename_error = true;
+      }
+      if (this.lastname === "" || this.lastname == null) {
+        this.lastname_error = true;
+      }
+      if (this.email === "" || !this.$v.email.email || this.email == null) {
+        this.email_error = true;
+      }
+      if (this.phone === "" || !this.$v.phone.minLength || this.phone == null) {
+        this.phone_error = true;
+      }
+      if (this.start_date === null || this.start_date == null) {
+        this.start_date_error = true;
+      }
+      if (this.end_date === null || this.end_date == null) {
+        this.end_date_error = true;
+      }
+      if (this.term === false) {
+        this.terms_error = true;
+      }
+      if (this.days === "Минимум 2-е суток") {
+        this.days_error = true;
+      }
+      console.log(
+        this.name_error ,
+        this.middlename_error ,
+        this.lastname_error ,
+        this.email_error ,
+        this.phone_error ,
+        this.start_date_error ,
+        this.end_date_error ,
+        this.terms_error ,
+        this.days_error
+      )
+      if (
+        !this.name_error ||
+        !this.middlename_error ||
+        !this.lastname_error ||
+        !this.email_error ||
+        !this.phone_error ||
+        !this.start_date_error ||
+        !this.end_date_error ||
+        !this.terms_error ||
+        !this.days_error
+      ) {
+        if (
+          this.start_date &&
+          this.end_date &&
+          this.name &&
+          this.lastname &&
+          this.phone
+        ) {
+          this.isLoading = true;
+          this.axios
+            .post(
+              `/api/v1/amigorent_new_booking`,
+              {
+                name: this.name,
+                lastname: this.lastname,
+                middlename: this.middlename,
+                phone: this.phone,
+                email: this.email,
+                ids_rentprog: this.ids_rentprog,
+                car_name: this.car_name,
+                price: this.price,
+                start_date: this.start_date,
+                end_date: this.end_date,
+                days: this.days,
+                location_start: this.location_start,
+                location_end: this.location_end,
+                additional_hours: this.hours,
+                rental_cost: this.days * this.price,
+                hours_cost: this.additional_hours,
+                price_hour: this.prices[5],
+                delivery: this.location_start_price,
+                delivery_end: this.location_end_price,
+                equipment: this.baby_chair_price + this.navigator_price,
+                total: this.total,
+                deposit: this.deposit,
+                chair: this.baby_chair,
+                navigator: this.navigator,
+                birthday: this.birthday,
+                description: this.description,
               },
-            }
-          )
-          .then(() => {
-            this.showModal = false;
-            this.name = null;
-            this.phone = null;
-            this.text = null;
-            this.$swal({
-              type: "success",
-              title: "Заявка отправлена!",
-              text: "Пожалуйста, ожидайте ответа менеджера",
-            });
-          })
-          .catch((error) => {
-            this.$swal({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 3000,
-              type: "error",
-              title: "Ошибка при отправке!",
-              text: error,
-            });
-          })
-          .finally((this.isLoading = false));
+              {
+                headers: {
+                  Authorization:
+                    "Bearer 24b264ea58a95dc28be76f48bc",
+                },
+              }
+            )
+            .then(() => {
+              this.showModal = false;
+              this.name = null;
+              this.phone = null;
+              this.text = null;
+              this.$swal({
+                type: "success",
+                title: "Заявка отправлена!",
+                text: "Пожалуйста, ожидайте ответа менеджера",
+              });
+            })
+            .catch((error) => {
+              this.$swal({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                type: "error",
+                title: "Ошибка при отправке!",
+                text: error,
+              });
+            })
+            .finally((this.isLoading = false));
+        } else {
+          this.$swal({
+            type: "warning",
+            title: "Ошибка при отправке!",
+            text: "Пожалуйста заполните обязательные поля",
+          });
+        }
       } else {
         this.$swal({
-          type: "warning",
-          title: "Ошибка при отправке!",
-          text: "Пожалуйста заполните имя и телефон",
-        });
+            type: "warning",
+            title: "Ошибка при отправке!",
+            text: "Пожалуйста исправьте ошибки",
+          });
       }
     },
   },
   computed: {
-    start_date () {
-      return `${this.start_date_no_time} ${this.start_time}`
+    start_date() {
+      return `${this.start_date_no_time} ${this.start_time}`;
     },
-    end_date () {
-      return `${this.end_date_no_time} ${this.end_time}`
-    }
+    end_date() {
+      return `${this.end_date_no_time} ${this.end_time}`;
+    },
   },
   validations: {
     name: {
