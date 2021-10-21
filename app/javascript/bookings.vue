@@ -1204,10 +1204,7 @@ export default {
               }
             )
             .then(() => {
-              this.showModal = false;
-              this.name = null;
-              this.phone = null;
-              this.text = null;
+              this.closeDialog()
               this.$swal({
                 type: "success",
                 title: "Заявка отправлена!",
