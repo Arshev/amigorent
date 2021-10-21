@@ -1190,7 +1190,7 @@ export default {
                 delivery_end: this.location_end_price,
                 equipment: this.baby_chair_price + this.navigator_price,
                 total: this.total,
-                deposit: this.deposit,
+                deposit: this.prices[6],
                 chair: this.baby_chair,
                 navigator: this.navigator,
                 birthday: this.birthday,
