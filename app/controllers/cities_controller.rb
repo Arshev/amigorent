@@ -69,7 +69,7 @@ class CitiesController < ApplicationController
     
     private
       def city_params
-        params.require(:city).permit(:name, :url_name, :text, :h1, :title, :description, :phone, :email, :address, :text, :yandex, :google, :work_time, :background)
+        params.require(:city).permit(:name, :url_name, :text, :h1, :title, :description, :phone, :email, :address, :text, :yandex, :google, :work_time, :background, :rentprog_token)
       end
   
       def set_text
