@@ -33,7 +33,7 @@
                       v-model="start_date_no_time"
                       placeholder="Дата начала"
                       :config="configStart"
-                      @input="start_date_error = false"
+                      @input="checkFree(start_date, end_date, days), start_date_error = false"
                       class="inp1"
                     ></flat-pickr>
                     <span style="color: tomato" v-if="start_date_error">
@@ -44,6 +44,7 @@
                     <flat-pickr
                       v-model="start_time"
                       :config="configTime"
+                      @input="checkFree(start_date, end_date, days)"
                       class="inp2"
                     ></flat-pickr>
                   </div>
@@ -76,7 +77,7 @@
                       v-model="end_date_no_time"
                       placeholder="Дата возврата"
                       :config="configEnd"
-                      @input="end_date_error = false"
+                      @input="checkFree(start_date, end_date, days), end_date_error = false"
                       class="inp1"
                     ></flat-pickr>
                     <span style="color: tomato" v-if="end_date_error">
@@ -88,6 +89,7 @@
                       v-model="end_time"
                       :config="configTime"
                       class="inp2"
+                      @input="checkFree(start_date, end_date, days)"
                     ></flat-pickr>
                   </div>
                   <div class="in1">
@@ -205,7 +207,10 @@
                       placeholder="E-mail"
                       @input="email_error = false"
                     />
-                    <span style="color: tomato" v-if="!$v.email.email || email_error">
+                    <span
+                      style="color: tomato"
+                      v-if="!$v.email.email || email_error"
+                    >
                       - неправильный Email</span
                     >
                   </div>
@@ -237,7 +242,7 @@
                 </div>
               </div>
               <div class="pol2">
-                <div class="zag">Huyndai solaris</div>
+                <div class="zag">{{car_name}}</div>
                 <div
                   class="bl_img"
                   :style="`background-image: url(${image_link})`"
@@ -255,8 +260,13 @@
                 </label>
                 <div class="pod">Расчёт:</div>
                 <hr style="margin: 15px 0px" />
-                <div class="price">
-                  Аренда ({{ days }} суток): <span>{{ price * days }} ₽</span>
+                <div class="price" v-if="days != 'Минимум 2-е суток'">
+                  Аренда ({{ days }} суток):
+                  <span>{{ price * days }} ₽</span>
+                </div>
+                <div class="price" v-else>
+                  Аренда:
+                  <span>Минимум 2-е суток</span>
                 </div>
                 <div class="price">
                   Доп время ({{ additional_hours }} ч):
@@ -275,14 +285,21 @@
                 </div>
                 <hr style="margin: 15px 0px" />
                 <div class="price total">
-                  Итого: <span v-if="total > 0">{{ total }} + {{ prices[6] }} <small>залог</small></span>
+                  Итого:
+                  <span v-if="total > 0"
+                    >{{ total }} + {{ prices[6] }} <small>залог</small></span
+                  >
                 </div>
               </div>
               <div class="clear"></div>
               <div class="obol2">
                 <div class="ch1">
                   <label>
-                    <input v-model="term" type="checkbox" @input="terms_error = false" />
+                    <input
+                      v-model="term"
+                      type="checkbox"
+                      @input="terms_error = false"
+                    />
 
                     Подтверждаю, что ознакомился с
                     <a href="/terms" target="_blank">условиями аренды</a> и даю
@@ -295,8 +312,8 @@
                     >
                   </label>
                   <span style="color: tomato" v-if="terms_error">
-                      - пожалуйста примите условия</span
-                    >
+                    - пожалуйста примите условия</span
+                  >
                   <!-- <label>
                     <input type="checkbox" value="" name="" />
                     Я соглашаюсь с уловиями политики
@@ -467,6 +484,7 @@ export default {
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
+      
       if (!isNaN(diff)) {
         if (diff >= 2) {
           this.days = diff;
@@ -600,18 +618,6 @@ export default {
           }
         }
       }
-      // this.location_start = "Офис";
-      // this.location_end = "Офис";
-      // if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-      //   this.location_start_price = 0;
-      // } else {
-      //   this.location_start_price = 400;
-      // }
-      // if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-      //   this.location_end_price = 0;
-      // } else {
-      //   this.location_end_price = 400;
-      // }
       this.errors = [];
     },
     start_date() {
@@ -639,7 +645,7 @@ export default {
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
-
+      
       //let diff =  Math.floor(( Date.parse(this.end_date) - Date.parse(this.start_date) ) / 86400000)
       if (!isNaN(diff)) {
         if (diff >= 2) {
@@ -1107,135 +1113,184 @@ export default {
     closeDialog() {
       this.$modal.hide("my-first-modal");
     },
+    checkFree(start_date, end_date, days) {
+      if (start_date && end_date && days > 0 && this.ids_rentprog && this.ids_rentprog.length > 0) {
+        this.isLoading = true;
+        let self = this
+        this.axios
+          .post(
+            `/api/v1/free_cars`,
+            {
+              start_date: start_date,
+              end_date: end_date,
+              days: days,
+            },
+            {
+              headers: {
+                Authorization: "Bearer 24b264ea58a95dc28be76f48bc",
+              },
+            }
+          )
+          .then((response) => {
+            // Получаем свободные ids
+            let free_ids = response.data;
+            if (!this.ids_rentprog.every(e => free_ids.includes(e))) {
+              this.$swal({
+                type: "warning",
+                title: "Автомобиль занят!",
+                text: "К сожалению на эти даты автомобиль занят, попробуйте выбрать другие или свяжитесь с нами",
+              });
+            }
+          })
+          .catch((error) => {
+            this.isLoading = false
+            this.$swal({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              type: "error",
+              title: "Ошибка при проверке занятости авто!",
+              text: error,
+            });
+          })
+          .finally((this.isLoading = false));
+      }
+    },
     sendBooking() {
+      let has_error = false;
       if (this.name === "" || this.name == null) {
         this.name_error = true;
+        has_error = true;
       }
       if (this.middlename === "" || this.middlename == null) {
         this.middlename_error = true;
+        has_error = true;
       }
       if (this.lastname === "" || this.lastname == null) {
         this.lastname_error = true;
+        has_error = true;
       }
       if (this.email === "" || !this.$v.email.email || this.email == null) {
         this.email_error = true;
+        has_error = true;
       }
       if (this.phone === "" || !this.$v.phone.minLength || this.phone == null) {
         this.phone_error = true;
+        has_error = true;
       }
-      if (this.start_date === null || this.start_date == null) {
+      if (this.start_date === "" || this.start_date == null) {
         this.start_date_error = true;
+        has_error = true;
       }
-      if (this.end_date === null || this.end_date == null) {
+      if (this.end_date === "" || this.end_date == null) {
         this.end_date_error = true;
+        has_error = true;
       }
       if (this.term === false) {
         this.terms_error = true;
+        has_error = true;
       }
-      if (this.days === "Минимум 2-е суток") {
+      if (this.days == "Минимум 2-е суток") {
         this.days_error = true;
+        has_error = true;
+        this.$swal({
+          type: "warning",
+          title: "Ошибка!",
+          text: "Минимумальный срок аренды 2-е суток",
+        });
       }
-      console.log(
-        this.name_error ,
-        this.middlename_error ,
-        this.lastname_error ,
-        this.email_error ,
-        this.phone_error ,
-        this.start_date_error ,
-        this.end_date_error ,
-        this.terms_error ,
-        this.days_error
-      )
-      if (
-        !this.name_error ||
-        !this.middlename_error ||
-        !this.lastname_error ||
-        !this.email_error ||
-        !this.phone_error ||
-        !this.start_date_error ||
-        !this.end_date_error ||
-        !this.terms_error ||
-        !this.days_error
-      ) {
+      if (!has_error) {
         if (
-          this.start_date &&
-          this.end_date &&
-          this.name &&
-          this.lastname &&
-          this.phone
+          !this.name_error &&
+          !this.middlename_error &&
+          !this.lastname_error &&
+          !this.email_error &&
+          !this.phone_error &&
+          !this.start_date_error &&
+          !this.end_date_error &&
+          !this.terms_error &&
+          !this.days_error
         ) {
-          this.isLoading = true;
-          this.axios
-            .post(
-              `/api/v1/amigorent_new_booking`,
-              {
-                name: this.name,
-                lastname: this.lastname,
-                middlename: this.middlename,
-                phone: this.phone,
-                email: this.email,
-                ids_rentprog: this.ids_rentprog,
-                car_name: this.car_name,
-                price: this.price,
-                start_date: this.start_date,
-                end_date: this.end_date,
-                days: this.days,
-                location_start: this.location_start,
-                location_end: this.location_end,
-                additional_hours: this.hours,
-                rental_cost: this.days * this.price,
-                hours_cost: this.additional_hours,
-                price_hour: this.prices[5],
-                delivery: this.location_start_price,
-                delivery_end: this.location_end_price,
-                equipment: this.baby_chair_price + this.navigator_price,
-                total: this.total,
-                deposit: this.prices[6],
-                chair: this.baby_chair,
-                navigator: this.navigator,
-                birthday: this.birthday,
-                description: this.description,
-              },
-              {
-                headers: {
-                  Authorization:
-                    "Bearer 24b264ea58a95dc28be76f48bc",
+          if (
+            this.start_date &&
+            this.end_date &&
+            this.name &&
+            this.lastname &&
+            this.phone
+          ) {
+            this.isLoading = true;
+            this.axios
+              .post(
+                `/api/v1/amigorent_new_booking`,
+                {
+                  name: this.name,
+                  lastname: this.lastname,
+                  middlename: this.middlename,
+                  phone: this.phone,
+                  email: this.email,
+                  ids_rentprog: this.ids_rentprog,
+                  car_name: this.car_name,
+                  price: this.price,
+                  start_date: this.start_date,
+                  end_date: this.end_date,
+                  days: this.days,
+                  location_start: this.location_start,
+                  location_end: this.location_end,
+                  additional_hours: this.hours,
+                  rental_cost: this.days * this.price,
+                  hours_cost: this.additional_hours,
+                  price_hour: this.prices[5],
+                  delivery: this.location_start_price,
+                  delivery_end: this.location_end_price,
+                  equipment: this.baby_chair_price + this.navigator_price,
+                  total: this.total,
+                  deposit: this.prices[6],
+                  chair: this.baby_chair,
+                  navigator: this.navigator,
+                  birthday: this.birthday,
+                  description: this.description,
                 },
-              }
-            )
-            .then(() => {
-              this.closeDialog()
-              this.$swal({
-                type: "success",
-                title: "Заявка отправлена!",
-                text: "Пожалуйста, ожидайте ответа менеджера",
-              });
-            })
-            .catch((error) => {
-              this.$swal({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                type: "error",
-                title: "Ошибка при отправке!",
-                text: error,
-              });
-            })
-            .finally((this.isLoading = false));
+                {
+                  headers: {
+                    Authorization: "Bearer 24b264ea58a95dc28be76f48bc",
+                  },
+                }
+              )
+              .then(() => {
+                this.closeDialog();
+                this.$swal({
+                  type: "success",
+                  title: "Заявка отправлена!",
+                  text: "Пожалуйста, ожидайте ответа менеджера",
+                });
+              })
+              .catch((error) => {
+                this.$swal({
+                  toast: true,
+                  position: "top-end",
+                  showConfirmButton: false,
+                  timer: 3000,
+                  type: "error",
+                  title: "Ошибка при отправке!",
+                  text: error,
+                });
+              })
+              .finally((this.isLoading = false));
+          } else {
+            this.$swal({
+              type: "warning",
+              title: "Ошибка при отправке!",
+              text: "Пожалуйста заполните обязательные поля",
+            });
+          }
         } else {
           this.$swal({
             type: "warning",
             title: "Ошибка при отправке!",
-            text: "Пожалуйста заполните обязательные поля",
-          });
-        }
-      } else {
-        this.$swal({
-            type: "warning",
-            title: "Ошибка при отправке!",
             text: "Пожалуйста исправьте ошибки",
           });
+        }
       }
     },
   },

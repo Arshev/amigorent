@@ -37,7 +37,7 @@ class CarsController < ApplicationController
 
       # Ищем в системе свободные
       get_free_cars_url =
-        "https://api.rentprog.ru/api/v1/free_cars?start_date=#{start_date}&end_date=#{end_date}"
+        "https://api.rentprog.ru/api/v1/get_free_cars?start_date=#{start_date}&end_date=#{end_date}"
       get_free_cars_resp =
         Faraday.get(get_free_cars_url) do |req|
           req.headers['Accept'] = 'application/json'
