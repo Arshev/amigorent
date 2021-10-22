@@ -20,6 +20,7 @@ console.log("Hello World from Webpacker");
 // import 'sweetalert2/dist/sweetalert2.min.css';
 require("trix")
 require("@rails/actiontext")
+import {} from 'jquery-ujs'
 import 'bootstrap/dist/js/bootstrap';
 import "./jquery.bxslider.min"
 import "application.scss";
@@ -54,8 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".header .gorod .vipad").slideUp();
     $(".header .gorod .vipad a").removeClass("active");
     $(this).addClass("active");
-    $(".header .gorod span").text($(this).text());
-    return false;
+    // $(".header .gorod span").text($(this).text());
+    // return false;
   });
 
   $(".content .pricee .txt .more, .block6 .spis_ot .ot1 .more").click(

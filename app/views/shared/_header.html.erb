@@ -197,7 +197,7 @@
                     <%= t 'header.prices' %>
                   </a>
                   <% else %>
-                    <%= link_to prices_path(locale: I18n.locale) do %>
+                    <%= link_to prices_path(locale: I18n.locale, city: "Калининград") do %>
                       <%= t 'header.prices' %>
                     <% end %>
                   <% end %>
@@ -207,7 +207,7 @@
                       <%= t 'header.prices' %>
                     </a>
                   <% else %>
-                    <%= link_to prices_path do %>
+                    <%= link_to prices_path(city: "Калининград") do %>
                       <%= t 'header.prices' %>
                     <% end %>
                 <% end %>
@@ -431,7 +431,7 @@
                     <%= t 'header.prices' %>
                   </a>
                   <% else %>
-                    <%= link_to prices_path(locale: I18n.locale) do %>
+                    <%= link_to prices_path(locale: I18n.locale, city: "Калининград") do %>
                       <%= t 'header.prices' %>
                     <% end %>
                   <% end %>
@@ -441,7 +441,7 @@
                       <%= t 'header.prices' %>
                     </a>
                   <% else %>
-                    <%= link_to prices_path do %>
+                    <%= link_to prices_path(city: "Калининград") do %>
                       <%= t 'header.prices' %>
                     <% end %>
                 <% end %>
@@ -854,10 +854,10 @@
             <span>Калининград</span>
             <a href="#">Выбрать город</a>
             <div class="vipad">
-                <a href="#">Москва</a>
-                <a href="#">Санкт-Петербург</a>
-                <a href="#" class="active">Калининград</a>
-                <a href="#">Воронеж</a>
+              <% cities_list.each do |city| %>
+                <a href="/russia/<%= city.url_name %>" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                <%# <a href="#" class="active">Калининград</a> %>
+              <% end %>
             </div>
         </div>
         <div class="lang">

@@ -154,7 +154,7 @@
                     <div class="clear"></div>
                 </div>
                 <div style="text-align: center;" id="bookings">
-                    <bookings :link_params="<%= request.query_parameters.to_json %>" :ids_rentprog="<%= @car.ids_rentprog ? @car.ids_rentprog : [] %>" car_name="<%= @car.car_name %>" locale="<%= I18n.locale == :en ? 'en' : 'ru' %>" :prices="[<%= @car.price_1 %>, <%= @car.price_2 %>, <%= @car.price_3 %>, <%= @car.price_4 %>, <%= @car.price_5 %>, <%= @car.price_hour %>, <%= @car.deposit %>]" image_link="<%= image_path(@car.main_image.url) ? image_path(@car.main_image.url) : image_path('avto.webp') %>"></bookings>
+                    <bookings rentprog_token="<%= @rentprog_token %>" :link_params="<%= request.query_parameters.to_json %>" :ids_rentprog="<%= @car.ids_rentprog ? @car.ids_rentprog : [] %>" car_name="<%= @car.car_name %>" locale="<%= I18n.locale == :en ? 'en' : 'ru' %>" :prices="[<%= @car.price_1 %>, <%= @car.price_2 %>, <%= @car.price_3 %>, <%= @car.price_4 %>, <%= @car.price_5 %>, <%= @car.price_hour %>, <%= @car.deposit %>]" image_link="<%= image_path(@car.main_image.url) ? image_path(@car.main_image.url) : image_path('avto.webp') %>"></bookings>
                     <%# link_to "Забронировать", new_booking_path(car_id: @car.id), class:"arend" %>
                 </div>
                 <div>

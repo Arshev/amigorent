@@ -378,6 +378,9 @@ export default {
     car_name: {
       type: String,
     },
+    rentprog_token: {
+      type: String,
+    },
   },
   data: function () {
     return {
@@ -1127,7 +1130,7 @@ export default {
             },
             {
               headers: {
-                Authorization: "Bearer 24b264ea58a95dc28be76f48bc",
+                Authorization: `Bearer ${this.rentprog_token}`,
               },
             }
           )
@@ -1253,7 +1256,7 @@ export default {
                 },
                 {
                   headers: {
-                    Authorization: "Bearer 24b264ea58a95dc28be76f48bc",
+                    Authorization: `Bearer ${this.rentprog_token}`,
                   },
                 }
               )
@@ -1262,7 +1265,9 @@ export default {
                 this.$swal({
                   type: "success",
                   title: "Заявка отправлена!",
-                  text: "Пожалуйста, ожидайте ответа менеджера",
+                  text: `Обращаем ваше внимание, что оформление заявки не является бронированием! 
+                    По результатам обработки заявки, ответ придет на вашу электронную почту или WhatsApp. 
+                    (не забудьте проверить нежелательную почту)`,
                 });
               })
               .catch((error) => {

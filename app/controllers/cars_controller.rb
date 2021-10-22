@@ -32,7 +32,8 @@ class CarsController < ApplicationController
       if params[:city] == 'Калининград'
         token = Rails.application.credentials.kaliningrad_rentprog_token
       else
-        token = Rails.application.credentials.kaliningrad_rentprog_token
+        city = City.find_by(name: params[:city])
+        token = city.rentprog_token
       end
 
       # Ищем в системе свободные
@@ -96,7 +97,10 @@ class CarsController < ApplicationController
 
   def show
     if @car.active
-      @cars = Car.where(active: true, city: 'Калининград').sample(3)
+      @city = City.find_by(name: @car.city)
+      @cars = Car.where(active: true, city: @car.city).sample(3)
+      
+      @rentprog_token = @city ? @city.rentprog_token : Rails.application.credentials.kaliningrad_rentprog_token
       # @new_review = CarReview.new
       # if @car.city
       #   @main_up_text = Text.first.main_up_text

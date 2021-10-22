@@ -6,7 +6,7 @@
             <span></span>
             <div class="text1">C нами ты всегда у руля!</div>
             <div class="text2"><h1><b>Аренда автомобилей</b> в Калининграде</h1></div>
-            <%= link_to prices_path(locale: I18n.locale), class: "price" do %>
+            <%= link_to prices_path(locale: I18n.locale, city: "Калининград"), class: "price" do %>
                 Цены на аренду
             <% end %>
             <%= image_tag("bmw.webp") %>
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div id="search_main">
-        <search></search>
+        <search city="Калининград"></search>
         <%# <div class="block2">
             <div class="wrapper">
             <div class="zagol">Подобрать и заказать автомобиль</div>

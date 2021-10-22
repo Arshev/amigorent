@@ -27,6 +27,10 @@
     <%= javascript_pack_tag 'search_main', rel: 'preload' %>
     <%= stylesheet_pack_tag 'search_main', media: "all" %>
   <% end %>
+  <% if request.path.include?('/russia/') %>
+    <%= javascript_pack_tag 'search_main', rel: 'preload' %>
+    <%= stylesheet_pack_tag 'search_main', media: "all" %>
+  <% end %>
   <% if current_page?(cars_ru_path) || current_page?(cars_en_path) %>
     <%= javascript_pack_tag 'search_cars' %>
     <%= stylesheet_pack_tag 'search_cars', media: "all" %>

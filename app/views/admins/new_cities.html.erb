@@ -22,7 +22,7 @@
                     <li class="list-group-item">
                         <%= link_to city.name, new_city_admin_path(id: city.id) %>
                         <%= link_to city_path(city), method: :delete, data: {confirm: "Уверены?"} do %>
-                        <%= image_pack_tag "media/images/trash.png", class: 'm-2' %>
+                            <%= image_pack_tag "media/images/trash.png", class: 'm-2' %>
                         <% end %>
                         <% if !(city.active?) %>
                           <%= link_to activate_city_path(city), method: :post do %>

@@ -29,6 +29,7 @@ class CitiesController < ApplicationController
   
     def destroy
         @city = City.find(params[:id])
+        logger.info @city.name
       if @city.destroy
         redirect_to new_cities_admin_path, notice: "Удалено"
       else
@@ -37,6 +38,7 @@ class CitiesController < ApplicationController
     end
   
     def show
+      @cars = Car.where(active: true, city: @city.name).sample(3)
     end
 
     def activate
@@ -62,7 +64,7 @@ class CitiesController < ApplicationController
       @main_up_text = Text.first.main_up_text
       @city = City.find_by(url_name: params[:city_name])
       @towns = @city.towns
-      @cars = Car.where(active: true, city: @city.name).sample(9)
+      @cars = Car.where(active: true, city: @city.name).limit(9)
     end
     
     private

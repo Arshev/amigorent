@@ -1,424 +1,407 @@
 <div class="footer">
-    <div class="wrapper">
-        <div class="col1" itemscope itemtype="http://schema.org/LocalBusiness">
-            <div class="zg"><%= t 'footer.office' %></div>
+        <div class="wrapper" itemscope itemtype="http://schema.org/LocalBusiness">
             <meta itemprop="name" content="Прокат авто Амиго">
             <div style="display:none;" itemprop="image" itemscope itemtype="http://schema.org/ImageObject"> 
                 <link itemprop="url" href="https://amigorent.ru/logo.png"> 
             </div>
             <div style="display:none;" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                <span itemprop="streetAddress"><%= city_address %></span>
-                <span itemprop="addressLocality"><%= city_name %></span>,
+                <span itemprop="streetAddress">Невского 36 В</span>
+                <span itemprop="addressLocality">Калининград</span>,
                 <span itemprop="addressRegion">RU</span>
-                <span itemprop="telephone"><%= city_phone %></span>
+                <span itemprop="telephone">+7 (4012) 52-16-15</span>
             </div>
-            <div class="adr"><%= city_name %>, <%= city_address %></div>
-            <a href="tel:<%= city_phone %>" class="tel"><%= city_phone %></a>
-            <a href="mailto:<%= city_email %>" class="mai"><%= city_email %></a>
-            <%= link_to "#{t 'footer.terms'}", conditions_path, class:"polz" %>
-            <p class="copy"><%= t 'footer.copyright_html', year: Time.now.year %></p>
-        </div>
-        <div class="col2">
-            <div class="zg"><%= t 'footer.sections' %></div>
-            <ul>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(cars_path) %>
+            <div class="col1">
+                <a href="/" id="logo2">
+                  <%= image_tag("logo.webp")%>
+                </a>
+                <p><%= t 'footer.copyright_html', year: Time.now.year %></p>
+            </div>
+            <div class="col2">
+                <div class="zag">Разделы сайта</div>
+                <ul>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(cars_path) %>
                             <a href="" onclick="return false">
-                                <%= t 'footer.cars' %>
+                                <%= t 'header.cars' %>
                             </a>
-                        <% else %>
+                            <% else %>
                             <%= link_to cars_path(locale: I18n.locale) do %>
-                                <%= t 'footer.cars' %>
+                                <%= t 'header.cars' %>
                             <% end %>
-                        <% end%>
+                            <% end %>
                         <% else %>
-                        <% if current_page?(cars_path) %>
+                            <% if current_page?(cars_path) %>
                             <a href="" onclick="return false">
-                                <%= t 'footer.cars' %>
+                                <%= t 'header.cars' %>
                             </a>
-                        <% else %>
-                            <%= link_to cars_path do %>
-                                <%= t 'footer.cars' %>
+                            <% else %>
+                                <%= link_to cars_path do %>
+                                <%= t 'header.cars' %>
+                                <% end %>
                             <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(prices_path) %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(prices_path) %>
                             <a href="" onclick="return false">
-                                <%= t 'footer.prices' %>
+                                <%= t 'header.prices' %>
                             </a>
-                        <% else %>
-                            <%= link_to prices_path(locale: I18n.locale) do %>
-                                <%= t 'footer.prices' %>
+                            <% else %>
+                                <%= link_to prices_path(locale: I18n.locale) do %>
+                                <%= t 'header.prices' %>
+                                <% end %>
                             <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(prices_path) %>
+                            <% else %>
+                            <% if current_page?(prices_path) %>
+                                <a href="" onclick="return false">
+                                <%= t 'header.prices' %>
+                                </a>
+                            <% else %>
+                                <%= link_to prices_path do %>
+                                <%= t 'header.prices' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(casko_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.casko' %>
+                                </a>
+                            <% else %>
+                                <%= link_to casko_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.casko' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(casko_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.casko' %>
+                                </a>
+                            <% else %>
+                                <%= link_to casko_path do %>
+                                    <%= t 'footer.casko' %>
+                                <% end %>
+                            <% end%>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(full_insurance_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.insurance' %>
+                                </a>
+                            <% else %>
+                                <%= link_to full_insurance_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.insurance' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(full_insurance_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.insurance' %>
+                                </a>
+                            <% else %>
+                                <%= link_to full_insurance_path do %>
+                                    <%= t 'footer.insurance' %>
+                                <% end %>
+                            <% end%>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(deliveries_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.delivery' %>
+                                </a>
+                            <% else %>
+                                <%= link_to deliveries_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.delivery' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(deliveries_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.delivery' %>
+                                </a>
+                            <% else %>
+                                <%= link_to deliveries_path do %>
+                                    <%= t 'footer.delivery' %>
+                                <% end %>
+                            <% end%>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(abouts_path) %>
+                                <a href="" onclick="return false">
+                                <%= t 'header.abouts' %>
+                                </a>
+                            <% else %>
+                                <%= link_to abouts_path(locale: I18n.locale) do %>
+                                <%= t 'header.abouts' %>
+                                <% end %>
+                            <% end %>
+                            <% else %>
+                            <% if current_page?(abouts_path) %>
+                                <a href="" onclick="return false">
+                                <%= t 'header.abouts' %>
+                                </a>
+                            <% else %>
+                                <%= link_to abouts_path do %>
+                                <%= t 'header.abouts' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                </ul>
+            </div>
+            <div class="col2">
+                <div class="zag"><%= t 'footer.clients' %></div>
+                <ul>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(services_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.services' %>
+                                </a>
+                            <% else %>
+                                <%= link_to services_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.services' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(services_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.services' %>
+                                </a>
+                            <% else %>
+                                <%= link_to services_path do %>
+                                    <%= t 'footer.services' %>
+                                <% end %>
+                            <% end%>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to "#{t 'footer.equipment'}", prices_url(:anchor => "dop-table") %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(sales_system_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.sales' %>
+                                </a>
+                            <% else %>
+                                <%= link_to sales_system_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.sales' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(sales_system_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.sales' %>
+                                </a>
+                            <% else %>
+                                <%= link_to sales_system_path do %>
+                                    <%= t 'footer.sales' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(corporativnym_clientam_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.corp' %>
+                                </a>
+                            <% else %>
+                                <%= link_to corporativnym_clientam_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.corp' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(corporativnym_clientam_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.corp' %>
+                                </a>
+                            <% else %>
+                                <%= link_to corporativnym_clientam_path do %>
+                                    <%= t 'footer.corp' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(payment_methods_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.payments' %>
+                                </a>
+                            <% else %>
+                                <%= link_to payment_methods_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.payments' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(payment_methods_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.payments' %>
+                                </a>
+                            <% else %>
+                                <%= link_to payment_methods_path do %>
+                                    <%= t 'footer.payments' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(terms_path) %>
                             <a href="" onclick="return false">
-                                <%= t 'footer.prices' %>
+                                Terms
                             </a>
-                        <% else %>
-                            <%= link_to prices_path do %>
-                                <%= t 'footer.prices' %>
+                            <% else %>
+                                <%= link_to terms_path(locale: I18n.locale) do %>
+                                Terms
+                                <% end %>
                             <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(casko_path) %>
+                            <% else %>
+                            <% if current_page?(terms_path) %>
                             <a href="" onclick="return false">
-                                <%= t 'footer.casko' %>
+                                Условия
                             </a>
-                        <% else %>
-                            <%= link_to casko_path(locale: I18n.locale) do %>
-                                <%= t 'footer.casko' %>
+                            <% else %>
+                                <%= link_to terms_path do %>
+                                Условия
+                                <% end %>
                             <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(casko_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.casko' %>
-                            </a>
-                        <% else %>
-                            <%= link_to casko_path do %>
-                                <%= t 'footer.casko' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(full_insurance_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.insurance' %>
-                            </a>
-                        <% else %>
-                            <%= link_to full_insurance_path(locale: I18n.locale) do %>
-                                <%= t 'footer.insurance' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(full_insurance_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.insurance' %>
-                            </a>
-                        <% else %>
-                            <%= link_to full_insurance_path do %>
-                                <%= t 'footer.insurance' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(deliveries_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.delivery' %>
-                            </a>
-                        <% else %>
-                            <%= link_to deliveries_path(locale: I18n.locale) do %>
-                                <%= t 'footer.delivery' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(deliveries_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.delivery' %>
-                            </a>
-                        <% else %>
-                            <%= link_to deliveries_path do %>
-                                <%= t 'footer.delivery' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(abouts_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.about' %>
-                            </a>
-                        <% else %>
-                            <%= link_to abouts_path(locale: I18n.locale) do %>
-                                <%= t 'footer.about' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(abouts_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.about' %>
-                            </a>
-                        <% else %>
-                            <%= link_to abouts_path do %>
-                                <%= t 'footer.about' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-            </ul>
-        </div>
-        <div class="col3">
-            <div class="zg"><%= t 'footer.clients' %></div>
-            <ul>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(services_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.services' %>
-                            </a>
-                        <% else %>
-                            <%= link_to services_path(locale: I18n.locale) do %>
-                                <%= t 'footer.services' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(services_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.services' %>
-                            </a>
-                        <% else %>
-                            <%= link_to services_path do %>
-                                <%= t 'footer.services' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to "#{t 'footer.equipment'}", prices_url(:anchor => "dop-table") %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(sales_system_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.sales' %>
-                            </a>
-                        <% else %>
-                            <%= link_to sales_system_path(locale: I18n.locale) do %>
-                                <%= t 'footer.sales' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(sales_system_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.sales' %>
-                            </a>
-                        <% else %>
-                            <%= link_to sales_system_path do %>
-                                <%= t 'footer.sales' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(corporativnym_clientam_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.corp' %>
-                            </a>
-                        <% else %>
-                            <%= link_to corporativnym_clientam_path(locale: I18n.locale) do %>
-                                <%= t 'footer.corp' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(corporativnym_clientam_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.corp' %>
-                            </a>
-                        <% else %>
-                            <%= link_to corporativnym_clientam_path do %>
-                                <%= t 'footer.corp' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(payment_methods_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.payments' %>
-                            </a>
-                        <% else %>
-                            <%= link_to payment_methods_path(locale: I18n.locale) do %>
-                                <%= t 'footer.payments' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(payment_methods_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.payments' %>
-                            </a>
-                        <% else %>
-                            <%= link_to payment_methods_path do %>
-                                <%= t 'footer.payments' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-                <li>
-                    <% if I18n.locale == :en %>
-                        <% if current_page?(terms_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.terms_rent' %>
-                            </a>
-                        <% else %>
-                            <%= link_to terms_path(locale: I18n.locale) do %>
-                                <%= t 'footer.terms_rent' %>
-                            <% end %>
-                        <% end%>
-                        <% else %>
-                        <% if current_page?(terms_path) %>
-                            <a href="" onclick="return false">
-                                <%= t 'footer.terms_rent' %>
-                            </a>
-                        <% else %>
-                            <%= link_to terms_path do %>
-                                <%= t 'footer.terms_rent' %>
-                            <% end %>
-                        <% end%>
-                    <% end %>
-                </li>
-            </ul>
-        </div>
-        <div class="col4">
-            <div class="col41">
-                <div class="zg"><%= t 'footer.useful' %></div>
+                        <% end %>
+                    </li>
+                </ul>
+            </div>
+            <div class="col3">
+                <div class="zag">Полезное</div>
                 <ul>
                     <li>
                         <% if I18n.locale == :en %>
                             <% if current_page?(articles_path) %>
                                 <a href="" onclick="return false">
-                                    <%= t 'footer.news' %>
+                                <%= t 'header.articles' %>
                                 </a>
                             <% else %>
                                 <%= link_to articles_path(locale: I18n.locale) do %>
-                                    <%= t 'footer.news' %>
+                                <%= t 'header.articles' %>
                                 <% end %>
-                            <% end%>
+                            <% end %>
                             <% else %>
                             <% if current_page?(articles_path) %>
                                 <a href="" onclick="return false">
-                                    <%= t 'footer.news' %>
+                                <%= t 'header.articles' %>
                                 </a>
                             <% else %>
                                 <%= link_to articles_path do %>
-                                    <%= t 'footer.news' %>
+                                <%= t 'header.articles' %>
                                 <% end %>
-                            <% end%>
+                            <% end %>
                         <% end %>
                     </li>
                     <li>
                         <% if I18n.locale == :en %>
                             <% if current_page?(faqs_path) %>
                                 <a href="" onclick="return false">
-                                    <%= t 'footer.faqs' %>
+                                <%= t 'header.faqs' %>
                                 </a>
                             <% else %>
                                 <%= link_to faqs_path(locale: I18n.locale) do %>
-                                    <%= t 'footer.faqs' %>
+                                <%= t 'header.faqs' %>
                                 <% end %>
                             <% end%>
                             <% else %>
                             <% if current_page?(faqs_path) %>
                                 <a href="" onclick="return false">
-                                    <%= t 'footer.faqs' %>
+                                <%= t 'header.faqs' %>
                                 </a>
                             <% else %>
                                 <%= link_to faqs_path do %>
-                                    <%= t 'footer.faqs' %>
+                                <%= t 'header.faqs' %>
                                 <% end %>
-                            <% end%>
-                        <% end %>
+                            <% end %>
+                            <% end %>
                     </li>
                     <li>
                         <% if I18n.locale == :en %>
                             <% if current_page?(reviews_path) %>
-                                <a href="" onclick="return false">
-                                    <%= t 'footer.reviews' %>
-                                </a>
+                            <a href="" onclick="return false">
+                                <%= t 'header.reviews' %>
+                            </a>
                             <% else %>
                                 <%= link_to reviews_path(locale: I18n.locale) do %>
-                                    <%= t 'footer.reviews' %>
+                                <%= t 'header.reviews' %>
                                 <% end %>
-                            <% end%>
-                        <% else %>
+                            <% end %>
+                            <% else %>
                             <% if current_page?(reviews_path) %>
                                 <a href="" onclick="return false">
-                                    <%= t 'footer.reviews' %>
+                                    <%= t 'header.reviews' %>
                                 </a>
                             <% else %>
                                 <%= link_to reviews_path do %>
-                                    <%= t 'footer.reviews' %>
+                                <%= t 'header.reviews' %>
                                 <% end %>
-                            <% end%>
+                            <% end %>
                         <% end %>
                     </li>
                     <li>
                         <% if I18n.locale == :en %>
                             <% if current_page?(arenda_avto_s_voditelem_path) %>
                                 <a href="" onclick="return false">
-                                    <%= t 'footer.driver' %>
+                                <%= t 'header.avto_s_vod' %>
                                 </a>
                             <% else %>
                                 <%= link_to arenda_avto_s_voditelem_path(locale: I18n.locale) do %>
-                                    <%= t 'footer.driver' %>
+                                <%= t 'header.avto_s_vod' %>
                                 <% end %>
-                            <% end%>
-                        <% else %>
+                            <% end %>
+                            <% else %>
                             <% if current_page?(arenda_avto_s_voditelem_path) %>
                                 <a href="" onclick="return false">
-                                    <%= t 'footer.driver' %>
+                                <%= t 'header.avto_s_vod' %>
                                 </a>
                             <% else %>
                                 <%= link_to arenda_avto_s_voditelem_path do %>
-                                    <%= t 'footer.driver' %>
+                                <%= t 'header.avto_s_vod' %>
                                 <% end %>
-                            <% end%>
+                            <% end %>
                         <% end %>
+                    </li>
+                    <li>
+                        <p class="copy">Мы используем <%= link_to "CRM RentProg", "https://rentprog.ru", class:"polz", style: "color: #f77d0a; margin: 0; text-align: center;"%></p>
                     </li>
                 </ul>
             </div>
-            <div class="col42">
-                <a href="https://www.youtube.com/c/amigorent" rel="nofollow" target="_blank">
-                  <%= image_tag "youtube.png", alt: "youtube", title: "youtube" %>
-                </a>
-                <a href="https://instagram.com/amigorent" rel="nofollow" target="_blank">
-                  <%= image_tag "sc2.png", alt: "instagram", title: "instagram" %>
-                </a>
-                <a href="https://vk.com/amigorent" target="_blank" rel="nofollow" >
-                  <%= image_tag "sc3.png", alt: "vk", title: "vk" %>
-                </a>
-                <a href="https://www.facebook.com/amigorent" target="_blank" rel="nofollow" >
-                  <%= image_tag "sc4.png", alt: "facebook", title: "facebook" %>
-                </a>
+            <div class="col3">
+                <div class="zag">Контакты</div>
+                <p>г. Калинингоад,<br />ул. А. Невского 36Б</p>
+                <p><a href="tel:+79020371122">+7 (902) 037-11-22</a></p>
+                <p><a href="mailto:amigorent@ya.ru">amigorent@ya.ru</a></p>
+                <div class="social">
+                    <a href="https://www.youtube.com/c/amigorent" rel="nofollow" target="_blank">
+                        <%= image_tag "soc1.webp", alt: "youtube", title: "youtube" %>
+                    </a>
+                    <a href="https://instagram.com/amigorent" rel="nofollow" target="_blank">
+                        <%= image_tag "soc2.webp", alt: "instagram", title: "instagram" %>
+                    </a>
+                    <a href="https://vk.com/amigorent" target="_blank" rel="nofollow" >
+                        <%= image_tag "soc3.webp", alt: "vk", title: "vk" %>
+                    </a>
+                    <a href="https://www.facebook.com/amigorent" target="_blank" rel="nofollow" >
+                        <%= image_tag "soc4.webp", alt: "facebook", title: "facebook" %>
+                    </a>
+                </div>
             </div>
             <div class="clear"></div>
-            <% if I18n.locale == :en %>
-                <% if current_page?(root_path) %>
-                    <a href="" onclick="return false" >
-                        <%= image_tag "logo2.png", alt: "Car rental Amigo", title: "Car rental Amigo" %>
-                    </a>
-                <% else %>
-                    <a href="/?locale=en" id="logo2">
-                        <%= image_tag "logo2.png", alt: "Car rental Amigo", title: "Car rental Amigo" %>
-                    </a>
-                <% end%>
-            <% else %>
-                <% if current_page?(root_path) %>
-                    <a href="" onclick="return false" >
-                        <%= image_tag "logo2.png", alt: "Car rental Amigo", title: "Car rental Amigo" %>
-                    </a>
-                <% else %>
-                    <a href="/" id="logo2">
-                        <%= image_tag "logo2.png", alt: "Автопрокат Амиго", title: "Автопрокат Амиго" %>
-                    </a>
-                <% end%>
-            <% end %>
         </div>
-        <div class="clear"></div>
     </div>
-</div>

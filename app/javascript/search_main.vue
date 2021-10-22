@@ -87,6 +87,11 @@ import moment from 'moment'
   import 'moment/locale/ru'
 flatpickr.localize(Russian);
 export default {
+  props: {
+    city: {
+      type: String,
+    },
+  },
   data: function () {
     return {
       start_date: null,
@@ -117,9 +122,9 @@ export default {
   },
   methods: {
     goToCars () {
-      if (this.start_date && this.end_date && this.start_time && this.end_time) {
+      if (this.start_date && this.end_date && this.start_time && this.end_time && this.city) {
         if (moment(this.start_date, "DD-MM-YYYY").isSameOrBefore(moment(this.end_date, "DD-MM-YYYY"))) {
-          window.location.replace(`/cars?start_date=${this.start_date}&start_time=${this.start_time}&end_date=${this.end_date}&end_time=${this.end_time}&city=Калининград`)
+          window.location.replace(`/cars?start_date=${this.start_date}&start_time=${this.start_time}&end_date=${this.end_date}&end_time=${this.end_time}&city=${this.city}`)
         } else {
           this.$swal({
             type: "warning",
