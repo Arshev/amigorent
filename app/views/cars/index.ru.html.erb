@@ -15,8 +15,8 @@
 </div>
 <div class="block2 var2">
     <div class="wrapper" id="search_cars">
-        <div class="zagol"><h1><%= @text.cars_middle_h1 %></h1></div>
-        <search_cars city="<% params[:city] ? params[:city] : 'Калининград' %>"></search_cars>
+        <div class="zagol"><h1>Автомобили</h1></div>
+        <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>"></search_cars>
         <div class="clear"></div>
     </div>
 </div>
@@ -24,11 +24,18 @@
 <% if @cars && @cars.length > 0 %>
     <div class="content for_spis">
         <div class="wrapper">
-            <div class="text1">
-                <div class="zagol">Мгновенное бронирование</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus, ligula quis volutpat varius, nibh nisl commodo ex, vitae ullamcorper metus odio id enim. Nulla scelerisque, purus id condimentum vestibulum, lectus ex tincidunt nibh, semper commodo neque dui eget ligula.</p>
-                <div class="zagol">Результаты</div>
-            </div>
+            <% if params[:start_date] && params[:end_date] %>
+                <div class="text1">
+                    <div class="zagol">Мгновенное бронирование</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus, ligula quis volutpat varius, nibh nisl commodo ex, vitae ullamcorper metus odio id enim. Nulla scelerisque, purus id condimentum vestibulum, lectus ex tincidunt nibh, semper commodo neque dui eget ligula.</p>
+                    <div class="zagol">Результаты</div>
+                </div>
+            <% else %>
+                <div class="text1">
+                    <div class="zagol">Какой то текст</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus, ligula quis volutpat varius, nibh nisl commodo ex, vitae ullamcorper metus odio id enim. Nulla scelerisque, purus id condimentum vestibulum, lectus ex tincidunt nibh, semper commodo neque dui eget ligula.</p>
+                </div>
+            <% end %>
             <div class="filter">
                 <select>
                     <option>Тип автомобиля</option>
