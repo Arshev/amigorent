@@ -136,6 +136,10 @@
     </div>
 </div>
 <div class="content for_spis">
-  <%= @text.cars_crossovers_text.html_safe %>
+    <div class="wrapper">
+        <div class="text1">
+            <%= @text.cars_crossovers_text.html_safe %>
+        </div>
+    </div>
 </div>
 <%= render 'shared/footer', cached: true %>
