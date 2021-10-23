@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-    before_action :authenticate_user!, except: [:show, :index]
+    # before_action :authenticate_user!, except: [:show, :index]
     before_action :is_authorised, only: [:update, :destroy]
     before_action :set_text, only: [:index, :show]
     before_action :set_city, only: [:show]

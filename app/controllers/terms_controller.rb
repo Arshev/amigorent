@@ -5,8 +5,10 @@ class TermsController < ApplicationController
   end
 
   private
-    def set_text
-      @text = Text.first
-      @cities = City.where(active: true)
-    end
+
+  def set_text
+    @text = Text.first
+    @city = City.find_by(name: params[:city])
+    @cities = City.where(active: true)
+  end
 end

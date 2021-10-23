@@ -850,16 +850,17 @@
                 </ul>
             </div>
         </div>
-        <div class="gorod">
-            <span>Калининград</span>
-            <a href="#">Выбрать город</a>
-            <div class="vipad">
-              <% cities_list.each do |city| %>
-                <a href="/russia/<%= city.url_name %>" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
-                <%# <a href="#" class="active">Калининград</a> %>
-              <% end %>
-            </div>
-        </div>
+        <% if I18n.locale != :en %>
+          <div class="gorod">
+              <span>Калининград</span>
+              <a href="#">Выбрать город</a>
+              <div class="vipad">
+                <% cities_list.each do |city| %>
+                  <a href="/russia/<%= city.url_name %>" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
         <div class="lang">
           <%= link_to root_path(locale: :en) do %>
             <% if I18n.locale == :en %>

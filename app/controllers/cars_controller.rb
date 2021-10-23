@@ -32,8 +32,8 @@ class CarsController < ApplicationController
       if params[:city] == 'Калининград'
         token = Rails.application.credentials.kaliningrad_rentprog_token
       else
-        city = City.find_by(name: params[:city])
-        token = city.rentprog_token
+        @city = City.find_by(name: params[:city])
+        token = @city.rentprog_token
       end
 
       # Ищем в системе свободные
@@ -68,9 +68,12 @@ class CarsController < ApplicationController
         end
       end
       @cars = Car.where(id: cars_ids)
-      @fake_cars = Car.where(ids_rentprog: nil)
+      @fake_cars = Car.where(active: true, city: params[:city] ? params[:city] : 'Калининград', ids_rentprog: nil)
     else
-      @cars = Car.where(active: true, city: 'Калининград')
+      if params[:city] && params[:city] != 'Калининград'
+        @city = City.find_by(name: params[:city])
+      end
+      @cars = Car.where(active: true, city: params[:city] ? params[:city] : 'Калининград')
     end
   end
 

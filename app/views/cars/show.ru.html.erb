@@ -1,6 +1,6 @@
 <% title @text.car_title + " " + @car.car_name + " в Калининграде | Амиго" %>
 <% description @text.car_description + " " + "#{@car.car_name} в Калининграде. Прокат автомобиля #{@car.car_name} в автопрокате Амиго в Калининграде. Бронируйте на сайте." %>
-<% if @car.city != 'Калининград' %>
+<% if @car.city != 'Калининград' || (params[:city] && params[:city] != 'Калининград') %>
     <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
 <% else %>
     <%= render 'shared/header', cached: true %>

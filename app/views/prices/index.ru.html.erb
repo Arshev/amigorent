@@ -1,734 +1,200 @@
 <% title @text.prices_title %>
 <% description @text.prices_description %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
-        <div class="wrapper">
-            <%= render 'shared/bread'%>
-            <div class="pricee">
-                <div class="zagol">О ценовой политике Нашей компании</div>
-                <div class="txt">
-                    <p>Ознакомьтесь с актуальным прайс-листом с ценами на аренду автомобилей. Чем более длительный срок аренды, тем ниже суточная стоимость автомобиля. Следите за обновлениями, у нас регулярно предлагаются большие скидки, проводятся акции по снижению цен на все или отдельные виды автомобилей, в зависимости от сезонности и загруженности автопарка. Периодически появляются спецпредолжения на отдельные модели автомобилей. Постоянным клиентам предоставляются скидки до 10% от суточной арендной платы. Так же предоставляем скидки по картам других прокатных компаний. Во всех случаях осуществляем индивидуальный подход к клиенту и можем предоставить дополнительную скидку при длительном сроке аренды. Звоните и мы вас проконсультируем. Дополнительным преимуществом клиента является полная открытость наших тарифов, всё честно, никаких скрытых комиссий и дополнительных платежей в суточную арендную плату не включается. Страховка КАСКО уже входит в стоимость</p>
-                    <a href="#" class="more">Показать еще</a>
-                    <p class="moree">Ознакомьтесь с актуальным прайс-листом с ценами на аренду автомобилей. Чем более длительный срок аренды, тем ниже суточная стоимость автомобиля. Следите за обновлениями, у нас регулярно предлагаются большие скидки, проводятся акции по снижению цен на все или отдельные виды автомобилей, в зависимости от сезонности и загруженности автопарка. Периодически появляются спецпредолжения на отдельные модели автомобилей. Постоянным клиентам предоставляются скидки до 10% от суточной арендной платы. Так же предоставляем скидки по картам других прокатных компаний. Во всех случаях осуществляем индивидуальный подход к клиенту и можем предоставить дополнительную скидку при длительном сроке аренды. Звоните и мы вас проконсультируем. Дополнительным преимуществом клиента является полная открытость наших тарифов, всё честно, никаких скрытых комиссий и дополнительных платежей в суточную арендную плату не включается. Страховка КАСКО уже входит в стоимость</p>
-                </div>
-                <div class="zagol">Цены</div>
-                <div class="podzag">Страховка автомобиля по КАСКО включена в стоимость</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Марка, модель автомобиля</th>
-                            <th>до 3</th>
-                            <th>4 - 7</th>
-                            <th>8 - 14</th>
-                            <th>15 - 30</th>
-                            <th>> 30</th>
-                            <th>Залог</th>
-                            <th>В час<br />>1сут.</th>
-                            <th>Заказать</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <% @cars.where(active: true).each do |car| %>
-                        <tr>
-                          <td>
-                            <% if car.old_price_1 %>
-                              <div class="akci">Акция</div>
-                            <% end %>
-                            <div class="zz">
-                              <%= link_to car_path(car) do %>
-                                <%= car.car_name %>
-                              <% end %>
-                            </div>
-                            <%= link_to car_path(car) do %>
-                            
-                            <% if car.main_image? %>
-                              <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
-                            <% else %>
-                              <%= image_tag "avto.webp", alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
-                            <% end %>
-                            
-                            <% end %>
-                            <div class="hara">
-                              <% if car.car_type == "Хэтчбек" %>
-                                <div class="hr">
-                                  <span>Кузов</span>
-                                  Хэтчбек
-                                </div>
-                              <% end %>
-                              <% if car.car_type == "Седан" %>
-                                <div class="hr">
-                                  <span>Кузов</span>
-                                  Седан
-                                </div>
-                              <% end %>
-                              <% if car.car_type == "Универсал" %>
-                                <div class="hr">
-                                  <span>Кузов</span>
-                                  Универсал
-                                </div>
-                              <% end %>
-                              <% if car.car_type == "Минивэн" %>
-                                <div class="hr">
-                                  <span>Кузов</span>
-                                  Минивэн
-                                </div>
-                              <% end %>
-                              <% if car.car_type == "Кроссовер" %>
-                                <div class="hr">
-                                  <span>Кузов</span>
-                                  Кроссовер
-                                </div>
-                              <% end %>
-                              <% if car.car_type == "Купе" %>
-                                <div class="hr">
-                                  <span>Кузов</span>
-                                  Купе
-                                </div>
-                              <% end %>
-                              <% if car.is_air %>
-                                <div class="hr">
-                                  <span>Кондиционер</span>
-                                  Есть
-                                </div>
-                              <% else %>
-                                <div class="hr">
-                                  <span>Кондиционер</span>
-                                  Нет
-                                </div>
-                              <% end %>
-                              <% if car.transmission == 'Механика'%>
-                                <div class="hr">
-                                  <span>КПП</span>
-                                  Механика
-                                </div>
-                              <% else %>
-                                <div class="hr">
-                                  <span>КПП</span>
-                                  Автомат
-                                </div>
-                              <% end %>
-                            </div>
-                          </td>
-                          <td>
-                            <%= car.price_1 %> ₽ 
-                            <% if car.old_price_1 %>
-                              <div class="old"><%= car.old_price_1 %> ₽ </div>
-                            <% end %>
-                          </td>
-                          <td>
-                            <%= car.price_2 %> ₽ 
-                            <% if car.old_price_2 %>
-                              <div class="old"><%= car.old_price_2 %> ₽ </div>
-                            <% end %>
-                          </td>
-                          <td>
-                            <%= car.price_3 %> ₽ 
-                            <% if car.old_price_3 %>
-                              <div class="old"><%= car.old_price_3 %> ₽ </div>
-                            <% end %>
-                          </td>
-                          <td>
-                            <%= car.price_4 %> ₽ 
-                            <% if car.old_price_4 %>
-                              <div class="old"><%= car.old_price_4 %> ₽ </div>
-                            <% end %>
-                          </td>
-                          <td>
-                            <%= car.price_5 %> ₽ 
-                            <% if car.old_price_5 %>
-                              <div class="old"><%= car.old_price_5 %> ₽ </div>
-                            <% end %>
-                          </td>
-                          <td><%= car.deposit %> ₽ </td>
-                          <td><%= car.price_hour %> ₽ </td>
-                          <td class="btn_price">
-                            <%= link_to new_booking_path(car_id: car.id) do %>
-                              Арендовать
-                            <% end %>
-                          </td>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                </table>
-                <p class="tex">Цены на доставку вне офиса смотрите в разделе <a href="#">"Доставка"</a></p>
-                <div class="zagol">ЦЕНЫ НА ДОПОЛНИТЕЛЬНОЕ ОБОРУДОВАНИЕ</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Оборудование</th>
-                            <th>Стоимость в сутки</th>
-                            <th>За весь срок до 15 суток</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="zz">Детское кресло</div>
-                            </td>
-                            <td>1 700 ₽ </td>
-                            <td>1 700 ₽ </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="zz">GPS навигатор</div>
-                            </td>
-                            <td>1 700 ₽ </td>
-                            <td>1 700 ₽ </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="tex">По вашей просьбе может быть предоставлен более широкий набор дополнительного оборудования.<br />Зарядные устройства, держатели для телефона, FM-трансмиттеры, провода для AUX даем бесплатно, по запросу</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-<%
-=begin%>
- <div class="content">
     <div class="wrapper">
         <%= render 'shared/bread'%>
-        <div class="bl_ceny">
-            <h1>Цены</h1>
-            <div class="podp"><%= @text.prices_text.html_safe %></div>
-            <table class="lipkaya">
+        <div class="pricee">
+            <div class="zagol">О ценовой политике Нашей компании</div>
+            <div class="txt">
+                <p>Ознакомьтесь с актуальным прайс-листом с ценами на аренду автомобилей. Чем более длительный срок аренды, тем ниже суточная стоимость автомобиля. Следите за обновлениями, у нас регулярно предлагаются большие скидки, проводятся акции по снижению цен на все или отдельные виды автомобилей, в зависимости от сезонности и загруженности автопарка. Периодически появляются спецпредолжения на отдельные модели автомобилей. Постоянным клиентам предоставляются скидки до 10% от суточной арендной платы. Так же предоставляем скидки по картам других прокатных компаний. Во всех случаях осуществляем индивидуальный подход к клиенту и можем предоставить дополнительную скидку при длительном сроке аренды. Звоните и мы вас проконсультируем. Дополнительным преимуществом клиента является полная открытость наших тарифов, всё честно, никаких скрытых комиссий и дополнительных платежей в суточную арендную плату не включается. Страховка КАСКО уже входит в стоимость</p>
+                <a href="#" class="more">Показать еще</a>
+                <p class="moree">Ознакомьтесь с актуальным прайс-листом с ценами на аренду автомобилей. Чем более длительный срок аренды, тем ниже суточная стоимость автомобиля. Следите за обновлениями, у нас регулярно предлагаются большие скидки, проводятся акции по снижению цен на все или отдельные виды автомобилей, в зависимости от сезонности и загруженности автопарка. Периодически появляются спецпредолжения на отдельные модели автомобилей. Постоянным клиентам предоставляются скидки до 10% от суточной арендной платы. Так же предоставляем скидки по картам других прокатных компаний. Во всех случаях осуществляем индивидуальный подход к клиенту и можем предоставить дополнительную скидку при длительном сроке аренды. Звоните и мы вас проконсультируем. Дополнительным преимуществом клиента является полная открытость наших тарифов, всё честно, никаких скрытых комиссий и дополнительных платежей в суточную арендную плату не включается. Страховка КАСКО уже входит в стоимость</p>
+            </div>
+            <div class="zagol">Цены</div>
+            <div class="podzag">Страховка автомобиля по КАСКО включена в стоимость</div>
+            <table>
                 <thead>
                     <tr>
-                        <th>Марка,<br />модель автомобиля</th>
-                        <th><nobr>до 3-х</nobr><br />суток</th>
-                        <th>4-7<br />суток</th>
-                        <th>8-14<br />суток</th>
-                        <th>15-30<br />суток</th>
-                        <th>> 30<br />суток</th>
-                        <th>Почасовая<br />оплата<br />(>1сут.)</th>
+                        <th>Марка, модель автомобиля</th>
+                        <th>до 3</th>
+                        <th>4 - 7</th>
+                        <th>8 - 14</th>
+                        <th>15 - 30</th>
+                        <th>> 30</th>
                         <th>Залог</th>
+                        <th>В час<br />>1сут.</th>
                         <th>Заказать</th>
                     </tr>
                 </thead>
                 <tbody>
-                  <% @count = 0 %>
-                  <tr>
-                      <td colspan="9">Эконом</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Эконом' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
+                  <% @cars.where(active: true).each do |car| %>
+                    <tr>
                       <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Механика", title: "Механика" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Автомат", title: "Автомат" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "Седан", title: "Тип кузова авто Седан" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Универсал" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Минивэн" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Кросовер", title: "Тип кузова авто Кросовер" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Купе", title: "Тип кузова авто Купе" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "Кондиционер", title: "В автомобиле есть кондиционер" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
                         <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
+                          <div class="akci">Акция</div>
                         <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
+                        <div class="zz">
+                          <%= link_to car_path(car) do %>
+                            <%= car.car_name %>
+                          <% end %>
+                        </div>
+                        <%= link_to car_path(car) do %>
+                        
+                        <% if car.main_image? %>
+                          <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
+                        <% else %>
+                          <%= image_tag "avto.webp", alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
                         <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
+                        
                         <% end %>
+                        <div class="hara">
+                          <% if car.car_type == "Хэтчбек" %>
+                            <div class="hr">
+                              <span>Кузов</span>
+                              Хэтчбек
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Седан" %>
+                            <div class="hr">
+                              <span>Кузов</span>
+                              Седан
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Универсал" %>
+                            <div class="hr">
+                              <span>Кузов</span>
+                              Универсал
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Минивэн" %>
+                            <div class="hr">
+                              <span>Кузов</span>
+                              Минивэн
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Кроссовер" %>
+                            <div class="hr">
+                              <span>Кузов</span>
+                              Кроссовер
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Купе" %>
+                            <div class="hr">
+                              <span>Кузов</span>
+                              Купе
+                            </div>
+                          <% end %>
+                          <% if car.is_air %>
+                            <div class="hr">
+                              <span>Кондиционер</span>
+                              Есть
+                            </div>
+                          <% else %>
+                            <div class="hr">
+                              <span>Кондиционер</span>
+                              Нет
+                            </div>
+                          <% end %>
+                          <% if car.transmission == 'Механика'%>
+                            <div class="hr">
+                              <span>КПП</span>
+                              Механика
+                            </div>
+                          <% else %>
+                            <div class="hr">
+                              <span>КПП</span>
+                              Автомат
+                            </div>
+                          <% end %>
+                        </div>
                       </td>
                       <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Заказать
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Средний</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Средний' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Механика", title: "Механика" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Автомат", title: "Автомат" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "Седан", title: "Тип кузова авто Седан" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Универсал" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Минивэн" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Кросовер", title: "Тип кузова авто Кросовер" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Купе", title: "Тип кузова авто Купе" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "Кондиционер", title: "В автомобиле есть кондиционер" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
+                        <%= car.price_1 %> ₽ 
                         <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
+                          <div class="old"><%= car.old_price_1 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_2 %>
+                        <%= car.price_2 %> ₽ 
                         <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
+                          <div class="old"><%= car.old_price_2 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_3 %>
+                        <%= car.price_3 %> ₽ 
                         <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
+                          <div class="old"><%= car.old_price_3 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_4 %>
+                        <%= car.price_4 %> ₽ 
                         <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
+                          <div class="old"><%= car.old_price_4 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_5 %>
+                        <%= car.price_5 %> ₽ 
                         <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
+                          <div class="old"><%= car.old_price_5 %> ₽ </div>
                         <% end %>
                       </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Заказать
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Минивэны</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Минивэны' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Механика", title: "Механика" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Автомат", title: "Автомат" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "Седан", title: "Тип кузова авто Седан" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Универсал" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Минивэн" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Кросовер", title: "Тип кузова авто Кросовер" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Купе", title: "Тип кузова авто Купе" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "Кондиционер", title: "В автомобиле есть кондиционер" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Заказать
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Кроссоверы</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Кроссоверы' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Механика", title: "Механика" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Автомат", title: "Автомат" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "Седан", title: "Тип кузова авто Седан" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Универсал" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Минивэн" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Кросовер", title: "Тип кузова авто Кросовер" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Купе", title: "Тип кузова авто Купе" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "Кондиционер", title: "В автомобиле есть кондиционер" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Заказать
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Бизнес</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Бизнес' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Механика", title: "Механика" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Автомат", title: "Автомат" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "Седан", title: "Тип кузова авто Седан" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Универсал" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Минивэн" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Кросовер", title: "Тип кузова авто Кросовер" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Купе", title: "Тип кузова авто Купе" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "Кондиционер", title: "В автомобиле есть кондиционер" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Заказать
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Коммерческий транспорт</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Коммерческий' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Механика", title: "Механика" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Автомат", title: "Автомат" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "Хэтчбек", title: "Тип кузова авто Хэтчбек" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "Седан", title: "Тип кузова авто Седан" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Универсал" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Универсал", title: "Тип кузова авто Минивэн" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Кросовер", title: "Тип кузова авто Кросовер" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Купе", title: "Тип кузова авто Купе" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "Кондиционер", title: "В автомобиле есть кондиционер" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Заказать
+                      <td><%= car.deposit %> ₽ </td>
+                      <td><%= car.price_hour %> ₽ </td>
+                      <td class="btn_price">
+                        <%= link_to new_booking_path(car_id: car.id) do %>
+                          Арендовать
                         <% end %>
                       </td>
                     </tr>
                   <% end %>
                 </tbody>
             </table>
-            <p class="niz"><%= @text.prices_bottom_text.html_safe %></p>
-            <div>
-              <a name="dop-table"></a>
-              <div class="bl_dop">
-                <h2>Цены на доп. оборудование</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Оборудование</td>
-                            <td>За сутки, руб</td>
-                            <td>За весь срок до 15 суток, руб</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Детское кресло/бустер</td>
-                            <td><%= @text.dop_table_kreslo_dayprice %></td>
-                            <td><%= @text.dop_table_kreslo_allprice %></td>
-                        </tr>
-                        <tr>
-                            <td>GPS навигатор</td>
-                            <td><%= @text.dop_table_navigator_dayprice %></td>
-                            <td><%= @text.dop_table_navigator_dayprice %></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p><%= @text.dop_table_downtext.html_safe %></p>
-                <div class="clear"></div>
-            </div>
-            </div>
-            <div class="clear"></div>
+            
+            <% unless params[:city] && params[:city] != 'Калининград' %>
+              <p class="tex">Цены на доставку вне офиса смотрите в разделе 
+              <%= link_to deliveries_path(locale: I18n.locale) do %>
+                "Доставка"
+              <% end %></p>
+            <% end %>
+            
+            <div class="zagol">ЦЕНЫ НА ДОПОЛНИТЕЛЬНОЕ ОБОРУДОВАНИЕ</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Оборудование</th>
+                        <th>Стоимость в сутки</th>
+                        <th>За весь срок до 15 суток</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="zz">Детское кресло</div>
+                        </td>
+                        <td>1 700 ₽ </td>
+                        <td>1 700 ₽ </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="zz">GPS навигатор</div>
+                        </td>
+                        <td>1 700 ₽ </td>
+                        <td>1 700 ₽ </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="tex">По вашей просьбе может быть предоставлен более широкий набор дополнительного оборудования.<br />Зарядные устройства, держатели для телефона, FM-трансмиттеры, провода для AUX даем бесплатно, по запросу</p>
         </div>
         <div class="clear"></div>
     </div>
-</div> 
-<%
-=end%>
-<%= render 'shared/footer', cached: true %>
+</div>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>
