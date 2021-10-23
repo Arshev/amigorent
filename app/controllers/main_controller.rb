@@ -11,20 +11,44 @@ class MainController < ApplicationController
   end
 
   def s_voditelem
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
   def car_sharing
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
   def casko
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
   def corporate
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
   def sales
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
   def payment
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
   def outsours
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
   def full_insurance
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
 
   private

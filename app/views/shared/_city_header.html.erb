@@ -156,6 +156,29 @@
             </li>
             <li>
               <% if I18n.locale == :en %>
+                <% if current_page?(reviews_path) %>
+                  <a href="" onclick="return false">
+                      <%= t 'header.reviews' %>
+                  </a>
+                  <% else %>
+                    <%= link_to reviews_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                      <%= t 'header.reviews' %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <% if current_page?(reviews_path) %>
+                    <a href="" onclick="return false">
+                        <%= t 'header.reviews' %>
+                    </a>
+                  <% else %>
+                    <%= link_to reviews_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                      <%= t 'header.reviews' %>
+                    <% end %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
                 <% if current_page?(contacts_path) %>
                   <a href="" onclick="return false">
                     <%= t 'header.contacts' %>
@@ -171,11 +194,200 @@
                         <%= t 'header.contacts' %>
                     </a>
                   <% else %>
-                    <%= link_to contacts_path(city:  (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= link_to contacts_path(city: (params[:city] ? params[:city] : @city.name)) do %>
                       <%= t 'header.contacts' %>
                     <% end %>
                 <% end %>
               <% end %>
+            </li>
+            <li class="parent">
+              <a>Ещё</a>
+                <ul>
+                  <li>
+                    <% if I18n.locale == :en %>
+                        <% if current_page?(casko_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.casko' %>
+                            </a>
+                        <% else %>
+                            <%= link_to casko_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.casko' %>
+                            <% end %>
+                        <% end%>
+                        <% else %>
+                        <% if current_page?(casko_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.casko' %>
+                            </a>
+                        <% else %>
+                            <%= link_to casko_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.casko' %>
+                            <% end %>
+                        <% end%>
+                    <% end %>
+                </li>
+                <li>
+                    <% if I18n.locale == :en %>
+                        <% if current_page?(full_insurance_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.insurance' %>
+                            </a>
+                        <% else %>
+                            <%= link_to full_insurance_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.insurance' %>
+                            <% end %>
+                        <% end%>
+                        <% else %>
+                        <% if current_page?(full_insurance_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.insurance' %>
+                            </a>
+                        <% else %>
+                            <%= link_to full_insurance_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.insurance' %>
+                            <% end %>
+                        <% end%>
+                    <% end %>
+                </li>
+                  <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(transportnyi_autsorsing_path) %>
+                          <a href="" onclick="return false">
+                            <%= t 'header.outsorce' %>
+                          </a>
+                        <% else %>
+                          <%= link_to transportnyi_autsorsing_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                            <%= t 'header.outsorce' %>
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(transportnyi_autsorsing_path) %>
+                          <a href="" onclick="return false">
+                            <%= t 'header.outsorce' %>
+                          </a>
+                        <% else %>
+                          <%= link_to transportnyi_autsorsing_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                            <%= t 'header.outsorce' %>
+                          <% end %>
+                        <% end %>
+                      <% end%>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(car_sharing_path) %>
+                          <a href="" onclick="return false">
+                            <%= t 'header.carsharing' %>
+                          </a>
+                        <% else %>
+                          <%= link_to car_sharing_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                            <%= t 'header.carsharing' %>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <% if current_page?(car_sharing_path) %>
+                          <a href="" onclick="return false">
+                            <%= t 'header.carsharing' %>
+                          </a>
+                        <% else %>
+                          <%= link_to car_sharing_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                            <%= t 'header.carsharing' %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(arenda_avto_s_voditelem_path) %>
+                          <a href="" onclick="return false">
+                            <%= t 'header.avto_s_vod' %>
+                          </a>
+                        <% else %>
+                          <%= link_to arenda_avto_s_voditelem_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                            <%= t 'header.avto_s_vod' %>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <% if current_page?(arenda_avto_s_voditelem_path) %>
+                          <a href="" onclick="return false">
+                            <%= t 'header.avto_s_vod' %>
+                          </a>
+                        <% else %>
+                          <%= link_to arenda_avto_s_voditelem_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                            <%= t 'header.avto_s_vod' %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(sales_system_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.sales' %>
+                                </a>
+                            <% else %>
+                                <%= link_to sales_system_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.sales' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(sales_system_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.sales' %>
+                                </a>
+                            <% else %>
+                                <%= link_to sales_system_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.sales' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(corporativnym_clientam_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.corp' %>
+                                </a>
+                            <% else %>
+                                <%= link_to corporativnym_clientam_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.corp' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(corporativnym_clientam_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.corp' %>
+                                </a>
+                            <% else %>
+                                <%= link_to corporativnym_clientam_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.corp' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(payment_methods_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.payments' %>
+                                </a>
+                            <% else %>
+                                <%= link_to payment_methods_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.payments' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(payment_methods_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.payments' %>
+                                </a>
+                            <% else %>
+                                <%= link_to payment_methods_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.payments' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                </ul>
             </li>
         </ul>
         

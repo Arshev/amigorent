@@ -25,6 +25,7 @@ import 'bootstrap/dist/js/bootstrap';
 import "./jquery.bxslider.min"
 import "application.scss";
 const images = require.context("../images", true);
+import "rateyo";
 
 // document.addEventListener("turbolinks:load", function () {
 document.addEventListener("DOMContentLoaded", () => {
@@ -140,5 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
     $('[data-toggle="popover"]').popover()
+  })
+
+  $(function () {
+    
+    $("#rateYo").rateYo({
+        rating: 5,
+        fullStar: true,
+        onChange: function (rating, rateYoInstance) {
+            document.getElementById('star_counter').value = rating
+        }
+    })
   })
 });

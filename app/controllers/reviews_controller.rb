@@ -21,6 +21,9 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.paginate(page: params[:page])
     @review = Review.new
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
   end
 
   def destroy

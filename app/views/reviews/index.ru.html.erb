@@ -1,6 +1,10 @@
 <% title @text.reviews_title + " - Страница #{params[:page]}" %>
 <% description @text.reviews_description + " - Страница #{params[:page]}" %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
     <div class="wrapper">
         <div class="bl_otzyvy" itemscope itemtype="http://schema.org/Product">
@@ -36,16 +40,8 @@
         <div class="clear"></div>
     </div>
 </div>
-<script>
-    $(function () {
-    
-    $("#rateYo").rateYo({
-        rating: 5,
-        fullStar: true,
-        onChange: function (rating, rateYoInstance) {
-            document.getElementById('star_counter').value = rating
-        }
-    })
-});
-</script>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

@@ -65,6 +65,52 @@
                             <% end %>
                         <% end %>
                     </li>
+                    <li>
+                    <% if I18n.locale == :en %>
+                        <% if current_page?(casko_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.casko' %>
+                            </a>
+                        <% else %>
+                            <%= link_to casko_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.casko' %>
+                            <% end %>
+                        <% end%>
+                        <% else %>
+                        <% if current_page?(casko_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.casko' %>
+                            </a>
+                        <% else %>
+                            <%= link_to casko_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.casko' %>
+                            <% end %>
+                        <% end%>
+                    <% end %>
+                </li>
+                <li>
+                    <% if I18n.locale == :en %>
+                        <% if current_page?(full_insurance_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.insurance' %>
+                            </a>
+                        <% else %>
+                            <%= link_to full_insurance_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.insurance' %>
+                            <% end %>
+                        <% end%>
+                        <% else %>
+                        <% if current_page?(full_insurance_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'footer.insurance' %>
+                            </a>
+                        <% else %>
+                            <%= link_to full_insurance_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                <%= t 'footer.insurance' %>
+                            <% end %>
+                        <% end%>
+                    <% end %>
+                </li>
                 </ul>
             </div>
             <div class="col2">
@@ -89,6 +135,75 @@
                             <% else %>
                                 <%= link_to terms_path(city:  (params[:city] ? params[:city] : @city.name)) do %>
                                 Условия
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(sales_system_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.sales' %>
+                                </a>
+                            <% else %>
+                                <%= link_to sales_system_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.sales' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(sales_system_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.sales' %>
+                                </a>
+                            <% else %>
+                                <%= link_to sales_system_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.sales' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(corporativnym_clientam_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.corp' %>
+                                </a>
+                            <% else %>
+                                <%= link_to corporativnym_clientam_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.corp' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(corporativnym_clientam_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.corp' %>
+                                </a>
+                            <% else %>
+                                <%= link_to corporativnym_clientam_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.corp' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(payment_methods_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.payments' %>
+                                </a>
+                            <% else %>
+                                <%= link_to payment_methods_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.payments' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(payment_methods_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.payments' %>
+                                </a>
+                            <% else %>
+                                <%= link_to payment_methods_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.payments' %>
                                 <% end %>
                             <% end %>
                         <% end %>

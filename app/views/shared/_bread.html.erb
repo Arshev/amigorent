@@ -15,7 +15,7 @@
     <% elsif current_page?(controller: 'cars', action: 'commercial')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Commercial vehicle
     <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
-      <a href="<%= @car.city != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a><%= link_to "Cars", cars_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @city.name)) %> / <%= @car.car_name%>
+      <a href="<%= @car.city != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a><%= link_to "Cars", cars_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @car.city)) %> / <%= @car.car_name%>
     <% elsif current_page?(controller: 'prices', action: 'index')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Prices
     <% elsif current_page?(controller: 'contacts', action: 'index')%>
@@ -79,7 +79,7 @@
     <% elsif current_page?(controller: 'cars', action: 'commercial')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Коммерческий транспорт
     <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
-      <a href="<%= @car.city != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a><%= link_to "Автомобили", cars_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @city.name)) %> / <%= @car.car_name%>
+      <a href="<%= @car.city != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a><%= link_to "Автомобили", cars_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @car.city)) %> / <%= @car.car_name%>
     <% elsif current_page?(controller: 'prices', action: 'index')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Цены
     <% elsif current_page?(controller: 'contacts', action: 'index')%>

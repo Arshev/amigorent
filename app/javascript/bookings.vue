@@ -260,13 +260,13 @@
                 </label>
                 <div class="pod">Расчёт:</div>
                 <hr style="margin: 15px 0px" />
-                <div class="price" v-if="days != 'Минимум 2-е суток'">
+                <div class="price" v-if="days != `Минимум ${booking_limit} суток`">
                   Аренда ({{ days }} суток):
                   <span>{{ price * days }} ₽</span>
                 </div>
                 <div class="price" v-else>
                   Аренда:
-                  <span>Минимум 2-е суток</span>
+                  <span>Минимум {{booking_limit}} суток</span>
                 </div>
                 <div class="price">
                   Доп время ({{ additional_hours }} ч):
@@ -381,6 +381,9 @@ export default {
     rentprog_token: {
       type: String,
     },
+    booking_limit: {
+      type: Number,
+    },
   },
   data: function () {
     return {
@@ -492,8 +495,8 @@ export default {
         if (diff >= 2) {
           this.days = diff;
         }
-        if (diff < 2) {
-          this.days = "Минимум 2-е суток";
+        if (diff < this.booking_limit) {
+          this.days = `Минимум ${this.booking_limit} суток`;
         }
         if (diff >= 2 && diff <= 3) {
           if (
@@ -654,8 +657,8 @@ export default {
         if (diff >= 2) {
           this.days = diff;
         }
-        if (diff < 2) {
-          this.days = "Минимум 2-е суток";
+        if (diff < this.booking_limit) {
+          this.days = `Минимум ${this.booking_limit} суток`;
         }
         if (diff >= 2 && diff <= 3) {
           if (
@@ -1194,13 +1197,13 @@ export default {
         this.terms_error = true;
         has_error = true;
       }
-      if (this.days == "Минимум 2-е суток") {
+      if (this.days == `Минимум ${this.booking_limit} суток`) {
         this.days_error = true;
         has_error = true;
         this.$swal({
           type: "warning",
           title: "Ошибка!",
-          text: "Минимумальный срок аренды 2-е суток",
+          text: `Минимальный срок аренды ${this.booking_limit} суток`,
         });
       }
       if (!has_error) {

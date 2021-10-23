@@ -11,5 +11,13 @@ class Car < ApplicationRecord
   has_rich_text :description
   has_rich_text :description_en
 
-  default_scope { order('sort') }
+  default_scope { order("sort") }
+
+  # def ids_rentprog=(value)
+  #   self.ids_rentprog = value.split(",")
+  # end
+
+  # def ids_rentprog
+  #   self.ids_rentprog.to_s
+  # end
 end

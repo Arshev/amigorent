@@ -83,6 +83,9 @@ class CarsController < ApplicationController
 
   def create
     @car = current_user.cars.build(car_params)
+    if car_params[:ids_rentprog]
+      @car.ids_rentprog = car_params[:ids_rentprog].gsub(",", "").split(' ')
+    end
     if @car.save
       redirect_to cars_admin_path, notice: 'Сохранено'
     else
@@ -141,11 +144,12 @@ class CarsController < ApplicationController
     new_params = car_params
     new_params = car_params.merge(active: true) if is_ready_car
 
+    if new_params[:ids_rentprog]
+      new_params[:ids_rentprog] = new_params[:ids_rentprog].gsub(",", "").split(' ')
+    else
+      new_params[:ids_rentprog] = @car.ids_rentprog
+    end
     if @car.update(new_params)
-      if car_params[:ids_rentprog]
-        ids = car_params[:ids_rentprog].gsub(' ', '').split(',')
-        @car.update(ids_rentprog: ids)
-      end
       flash[:notice] = 'Сохранено'
       logger.info @car.ids_rentprog
     else
@@ -247,6 +251,7 @@ class CarsController < ApplicationController
         :city,
         :fake,
         :ids_rentprog,
+        :booking_limit,
         images: [],
       )
   end
