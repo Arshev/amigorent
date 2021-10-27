@@ -37,18 +37,26 @@
                 </div>
             <% end %>
             <div class="filter">
-                <select>
-                    <option>Тип автомобиля</option>
-                    <option>Седан</option>
-                    <option>Хетчбек</option>
+                <select id="car_type">
+                    <option selected value="0">Тип автомобиля</option>
+                    <option value="1">Седан</option>
+                    <option value="2">Хетчбек</option>
+                    <option value="3">Универсал</option>
+                    <option value="4">Купе</option>
+                    <option value="5">Кроссовер</option>
+                    <option value="6">Джип</option>
+                    <option value="7">Минивэн</option>
+                    <option value="8">Все автомобили</option>
                 </select>
-                <select>
-                    <option>АКПП</option>
-                    <option>Механическая КПП</option>
-                    <option>Вариатор</option>
+                <select id="car_kpp">
+                    <option selected value="0">КПП</option>
+                    <option value="1">Автоматическая КПП</option>
+                    <option value="2">Механическая КПП</option>
+                    <option value="3">Вариатор</option>
+                    <option value="4">Все автомобили</option>
                 </select>
-                <button>Показать автомобили</button>
-                <div class="vid_spis">
+                <%# <button>Показать автомобили</button> %>
+                <div class="vid_spis" id="flash_cars_vid">
                     <a href="#" class="vid1 active"></a>
                     <a href="#" class="vid2"></a>
                 </div>
@@ -57,7 +65,7 @@
             <div class="clear"></div>
         </div>
     </div>
-    <div class="block4 var2">
+    <div class="block4 var2" id="flash_cars">
         <div class="wrapper">
             <div class="spis_avto active" id="spis1">
                 <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
@@ -65,21 +73,22 @@
             </div>
             <div class="spis_avto" id="spis2">
                 <%= render partial: 'cars_plitka', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
             </div>
-            <%# <div class="btn">
-                <a href="#">Загрузить еще</a>
-            </div> %>
+            <div class="btn">
+                <a href="#">Все автомобили</a>
+            </div>
             <%# <div class="clear"></div> %>
         </div>
     </div>
-<% else %>
-    <%# <div class="content for_spis">
+<% elsif %>
+    <div class="content for_spis">
         <div class="wrapper">
             <div class="text1">
-                <div class="zagol">Свободных автомобилей нет</div>
+                <div class="zagol">Свободных автомобилей для мгновенного бронирования нет</div>
             <div class="clear"></div>
         </div>
-    </div> %>
+    </div>
 <% end %>
 <% if @fake_cars && @fake_cars.length > 0 %>
     <div class="content for_spis">
@@ -90,18 +99,25 @@
                 <div class="zagol">Результаты</div>
             </div>
             <div class="filter">
-                <select>
-                    <option>Тип автомобиля</option>
-                    <option>Седан</option>
-                    <option>Хетчбек</option>
+                <select id="not_flash_car_type">
+                    <option selected value="0">Тип автомобиля</option>
+                    <option value="1">Седан</option>
+                    <option value="2">Хетчбек</option>
+                    <option value="3">Универсал</option>
+                    <option value="4">Купе</option>
+                    <option value="5">Кроссовер</option>
+                    <option value="6">Джип</option>
+                    <option value="7">Минивэн</option>
+                    <option value="8">Все автомобили</option>
                 </select>
-                <select>
-                    <option>АКПП</option>
-                    <option>Механическая КПП</option>
-                    <option>Вариатор</option>
+                <select id="not_flash_car_kpp">
+                    <option selected value="0">КПП</option>
+                    <option value="1">Автоматическая КПП</option>
+                    <option value="2">Механическая КПП</option>
+                    <option value="3">Вариатор</option>
+                    <option value="4">Все автомобили</option>
                 </select>
-                <button>Показать автомобили</button>
-                <div class="vid_spis">
+                <div class="vid_spis" id="not_flash_cars_vid">
                     <a href="#" class="vid1 active"></a>
                     <a href="#" class="vid2"></a>
                 </div>
@@ -110,7 +126,7 @@
             <div class="clear"></div>
         </div>
     </div>
-    <div class="block4 var2">
+    <div class="block4 var2" id="not_flash_cars">
         <div class="wrapper">
             <div class="spis_avto active" id="spis1">
                 <%= render partial: 'cars', collection: @fake_cars, as: :car, cached: true %>

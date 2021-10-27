@@ -72,7 +72,8 @@
         <div class="clear"></div>
       </div>
       <button @click.prevent="goToCars()">Поиск</button>
-      <div class="filtry">Фильтры</div>
+      <div class="filtry"><a @click.prevent="goToAllCars()">Очистить</a></div>
+      <!-- <div class="filtry">Фильтры</div>
       <div class="vipad_filtr">
         <select class="var2">
           <option>Выберите тип КПП</option>
@@ -105,7 +106,7 @@
         </select>
         <a href="#" class="prime">Применить</a>
         <div class="clear"></div>
-      </div>
+      </div> -->
       <div class="clear"></div>
     </form>
     <div class="clear"></div>
@@ -197,6 +198,11 @@ export default {
           text: "Пожалуйста заполните даты и время аренды",
         });
       }
+    },
+    goToAllCars() {
+      window.location.replace(
+        `/cars?city=${this.city}`
+      );
     },
   },
   components: {

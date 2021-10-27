@@ -1699,13 +1699,16 @@
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 3px;
-    background: url("~filt.webp") no-repeat right center transparent;
+    // background: url("~filt.webp") no-repeat right center transparent;
     border: none;
     outline: none;
     width: 123px;
     font-size: 16px;
     line-height: 58px;
     cursor: pointer;
+  }
+  .block2 form .filtry a {
+    text-decoration: none;
   }
   .content.for_spis {
       padding: 78px 0 8px;
