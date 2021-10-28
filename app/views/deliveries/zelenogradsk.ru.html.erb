@@ -1,13 +1,6 @@
 <% title @text.zelenogradsk_title %>
 <% description @text.zelenogradsk_description %>
 <%= render 'shared/header', cached: true %>
-<div class="content">
-    <div class="wrapper">
-        <div class="bread">
-            <a href="/">Главная</a> / <a href="/deliveries">Доставка</a> / Зеленоградск
-        </div>
-    </div>
-</div>
 <div class="block_price">
     <div class="wrapper">
         <span></span>
@@ -20,38 +13,17 @@
         <div class="clear"></div>
     </div>
 </div>
-<div class="block2 var3">
-    <div class="wrapper">
-        <div class="zagol">Подобрать и заказать автомобиль</div>
-        <form>
-            <div class="obol">
-                <input type="text" value="" placeholder="Дата начала аренды" name="" />
-                <select>
-                    <option>11:00</option>
-                    <option>12:00</option>
-                    <option>13:00</option>
-                </select>
-                <div class="clear"></div>
-            </div>
-            <div class="obol">
-                <input type="text" value="" placeholder="Дата конца аренды" name="" />
-                <select>
-                    <option>11:00</option>
-                    <option>12:00</option>
-                    <option>13:00</option>
-                </select>
-                <div class="clear"></div>
-            </div>
-            <button>Поиск</button>
-            <div class="clear"></div>
-        </form>
+<div class="block2 var2">
+    <div class="wrapper" id="search_cars">
+        <div class="zagol" style="padding-top: 30px;"><h1>Аренда автомобилей в Зеленоградске</h1></div>
+        <search_cars city="Калининград"></search_cars>
         <div class="clear"></div>
     </div>
 </div>
 <div class="content for_price">
     <div class="wrapper">
         <div class="bl_dostavka">
-            <div class="zagol">ЦЕНЫ НА ДОСТАВКУ в Зеленоградск</div>
+            <div class="zagol"><h2>ЦЕНЫ НА ДОСТАВКУ в Зеленоградск</h2></div>
             <table>
                 <thead>
                     <tr>

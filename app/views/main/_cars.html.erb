@@ -1,93 +1,90 @@
- <% @cars.where(active:true, show_on_main: true).each do |car| %> 
-  <div class="avto1">
-    
-    <% if car.old_price_1 && car.old_price_1 > 0 %>
-      <% if I18n.locale == :en %>
-        <div class="badge"><span>Sale</span></div>
-      <% else %>
-        <div class="badge"><span>Акция</span></div>
+<div class="avto1">
+  <% if car.old_price_1 && car.old_price_1 > 0 %>
+    <% if I18n.locale == :en %>
+      <div class="badge"><span>Sale</span></div>
+    <% else %>
+      <div class="badge"><span>Акция</span></div>
+    <% end %>
+  <% end %>
+  
+    <% if car.main_image? %>
+      <div class="bl_img" style="background-image: url(<%= image_path(car.main_image.url(:show))%>);"></div>
+    <% else %>
+      <div class="bl_img" style="background-image: url(<%= image_path("avto.webp")%>);"></div>
+    <% end %>
+    <% if I18n.locale == :en %>
+      <%= link_to car_en_path(car), class: "zg" do %>
+        <%= car.car_name %>
+      <% end %>
+      <div class="hara">
+        <div class="hr">
+            <span>Capacity</span>
+            <%= car.engine_capacity %> l
+        </div>
+        <div class="hr">
+            <span>Transmission</span>
+            Automatic
+        </div>
+        <div class="hr">
+            <span>Air</span>
+            Included 
+            <% if car.is_air %>
+              Included
+            <% else %>
+              No
+            <% end %>
+        </div>
+        <div class="hr">
+            <span>Year</span>
+            <%= car.year %>
+        </div>
+      </div>
+      <div class="price">
+          Price:
+          <span>from <b>1 300 ₽/day</b></span>
+          <div class="clear"></div>
+      </div>
+      <%= link_to car_en_path(car), class: "more" do %>
+        More
+      <% end %>
+    <% else %>
+      <%= link_to car_ru_path(car), class: "zg" do %>
+        <%= car.car_name %>
+      <% end %>
+      <div class="hara">
+        <div class="hr">
+            <span>объем</span>
+            <%= car.engine_capacity %> л
+        </div>
+        <div class="hr">
+            <span>КПП</span>
+            <% if car.transmission == 'Механика'%>
+              Механика
+            <% else %>
+              Автомат
+            <% end %>
+        </div>
+        <div class="hr">
+            <span>Кондиционер</span>
+            <% if car.is_air %>
+              Есть
+            <% else %>
+              Нет
+            <% end %>
+        </div>
+        <div class="hr">
+            <span>Год</span>
+            <%= car.year %>
+        </div>
+      </div>
+      <div class="price">
+          Стоимость:
+          <span>от <b><%= number_to_currency(car.price_main, {delimiter: " ", precision: 0, unit: ''}) %> ₽/сутки</b></span>
+          <div class="clear"></div>
+      </div>
+      <%= link_to car_ru_path(car), class: "more" do %>
+        Подробнее
       <% end %>
     <% end %>
     
-      <% if car.main_image? %>
-        <div class="bl_img" style="background-image: url(<%= image_path(car.main_image.url(:show))%>);"></div>
-      <% else %>
-        <div class="bl_img" style="background-image: url(<%= image_path("avto.webp")%>);"></div>
-      <% end %>
-      <% if I18n.locale == :en %>
-        <%= link_to car_en_path(car), class: "zg" do %>
-          <%= car.car_name %>
-        <% end %>
-        <div class="hara">
-          <div class="hr">
-              <span>Capacity</span>
-              <%= car.engine_capacity %> l
-          </div>
-          <div class="hr">
-              <span>Transmission</span>
-              Automatic
-          </div>
-          <div class="hr">
-              <span>Air</span>
-              Included 
-              <% if car.is_air %>
-                Included
-              <% else %>
-                No
-              <% end %>
-          </div>
-          <div class="hr">
-              <span>Year</span>
-              <%= car.year %>
-          </div>
-        </div>
-        <div class="price">
-            Price:
-            <span>from <b>1 300 ₽/day</b></span>
-            <div class="clear"></div>
-        </div>
-        <%= link_to car_en_path(car), class: "more" do %>
-          More
-        <% end %>
-      <% else %>
-        <%= link_to car_ru_path(car), class: "zg" do %>
-          <%= car.car_name %>
-        <% end %>
-        <div class="hara">
-          <div class="hr">
-              <span>объем</span>
-              <%= car.engine_capacity %> л
-          </div>
-          <div class="hr">
-              <span>КПП</span>
-              <% if car.transmission == 'Механика'%>
-                Механика
-              <% else %>
-                Автомат
-              <% end %>
-          </div>
-          <div class="hr">
-              <span>Кондиционер</span>
-              <% if car.is_air %>
-                Есть
-              <% else %>
-                Нет
-              <% end %>
-          </div>
-          <div class="hr">
-              <span>Год</span>
-              <%= car.year %>
-          </div>
-        </div>
-        <div class="price">
-            Стоимость:
-            <span>от <b><%= number_to_currency(car.price_main, {delimiter: " ", precision: 0, unit: ''}) %> ₽/сутки</b></span>
-            <div class="clear"></div>
-        </div>
-        <%= link_to car_ru_path(car), class: "more" do %>
-          Подробнее
-        <% end %>
-      <% end %>
-      
-  </div>
-<% end %>
+</div>

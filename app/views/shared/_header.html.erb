@@ -308,6 +308,29 @@
                 <% end %>
                 <ul>
                     <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(cars_path) %>
+                          <a href="" onclick="return false">
+                            All cars
+                          </a>
+                        <% else %>
+                          <%= link_to cars_path(locale: I18n.locale) do %>
+                            All cars
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(cars_path) %>
+                          <a href="" onclick="return false">
+                              Все автомобили
+                          </a>
+                        <% else %>
+                          <%= link_to cars_path do %>
+                            Все автомобили
+                          <% end %>
+                        <% end%>
+                      <% end %>
+                    </li>
+                    <li>
                         <% if I18n.locale == :en %>
                           <% if current_page?(economy_cars_path) %>
                             <a href="" onclick="return false">
@@ -441,29 +464,6 @@
                         <% else %>
                           <%= link_to commercial_cars_path do %>
                             Коммерческий транспорт
-                          <% end %>
-                        <% end%>
-                      <% end %>
-                    </li>
-                    <li>
-                      <% if I18n.locale == :en %>
-                        <% if current_page?(cars_path) %>
-                          <a href="" onclick="return false">
-                            All cars
-                          </a>
-                        <% else %>
-                          <%= link_to cars_path(locale: I18n.locale) do %>
-                            All cars
-                          <% end %>
-                        <% end%>
-                      <% else %>
-                        <% if current_page?(cars_path) %>
-                          <a href="" onclick="return false">
-                              Все автомобили
-                          </a>
-                        <% else %>
-                          <%= link_to cars_path do %>
-                            Все автомобили
                           <% end %>
                         <% end%>
                       <% end %>
