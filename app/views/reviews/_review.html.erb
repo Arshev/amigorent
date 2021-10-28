@@ -14,7 +14,7 @@
             <%= image_tag "ra0.webp", alt: "Рейтинг", title: "Рейтинг" %>
           <% end %>
         </div>
-        <div class="fio" itemprop="author"><%= review.name %></div>
+        <div class="fio" itemprop="author"><span><%= review.created_at.strftime("%d-%m-%Y") %></span> <%= review.name %></div>
         <% if current_user && current_user.is_admin %>
           <%= link_to review_path(review.id), remote: true, method: :delete, data: {confirm: "Уверен?"} do %>
             Удалить

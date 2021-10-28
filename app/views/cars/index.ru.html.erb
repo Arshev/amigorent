@@ -76,7 +76,7 @@
                 <div class="clear"></div>
             </div>
             <div class="btn">
-                <a href="#">Все автомобили</a>
+                <a href="/cars<%= params[:city] ? ('?city=' + params[:city]) : '' %>">Все автомобили</a>
             </div>
             <%# <div class="clear"></div> %>
         </div>
