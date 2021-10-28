@@ -1,0 +1,9 @@
+<div class="ot1">
+  <div class="fio"><%= review.name %></div>
+  <div class="zvezd">
+    <% review.star.to_i.times do  %>
+      <%= image_tag("z.webp", alt: "Рейтинг", title: "Рейтинг") %>
+    <% end %>
+  </div>
+  <p><%= truncate review.text, length: 300 %></p>
+</div>

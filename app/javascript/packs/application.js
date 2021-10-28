@@ -358,7 +358,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   $(function () {
-    
     $("#rateYo").rateYo({
         rating: 5,
         fullStar: true,
@@ -366,5 +365,17 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('star_counter').value = rating
         }
     })
+    $(function () {
+      let yaRating = $("#YaRaiting").text()
+      let googleRating = $("#GoogleRaiting").text()
+      $("#rateYoYa").rateYo({
+          rating: yaRating,
+          readOnly: true
+      });
+      $("#rateYoGoogle").rateYo({
+          rating: googleRating,
+          readOnly: true
+      });
+    });
   })
 });

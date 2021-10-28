@@ -102,56 +102,25 @@
         <div class="wrapper">
             <div class="zagol">Отзывы</div>
             <div class="spis_img">
-                <%= image_tag("o1.webp") %>
-                <%= image_tag("o2.webp") %>
+                <div class="reviews_main">
+                    <%= image_tag("o1.webp") %>
+                    <span class="spis_zv" id="rateYoYa"></span>
+                    <span id="YaRaiting" style="display: none;"><%= rating_yandex %></span>
+                </div>
+                <div class="reviews_main">
+                    <%= image_tag("o2.webp") %>
+                    <span class="spis_zv" id="rateYoGoogle"></span>
+                    <span id="GoogleRaiting" style="display: none;"><%= rating_google %></span>
+                </div>
             </div>
             <div class="spis_ot">
-                <div class="ot1">
-                    <div class="bl_img" style="background-image: <%= image_path("o.webp")%>;"></div>
-                    <div class="fio">Андрей</div>
-                    <div class="zvezd">
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                    </div>
-                    <p>Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
-                    <a href="#" class="more">Посмотреть еще</a>
-                    <p class="moree">Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
-                </div>
-                <div class="ot1">
-                    <div class="bl_img" style="background-image: <%= image_path("o.webp")%>;"></div>
-                    <div class="fio">Андрей</div>
-                    <div class="zvezd">
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                    </div>
-                    <p>Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
-                    <a href="#" class="more">Посмотреть еще</a>
-                    <p class="moree">Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
-                </div>
-                <div class="ot1">
-                    <div class="bl_img" style="background-image: <%= image_path("o.webp")%>;"></div>
-                    <div class="fio">Андрей</div>
-                    <div class="zvezd">
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                        <%= image_tag("z.webp") %>
-                    </div>
-                    <p>Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
-                    <a href="#" class="more">Посмотреть еще</a>
-                    <p class="moree">Всё понравилось: чётко, вовремя, соответствует обговоренным условиям и фотографиям автомобилей. Машина чистая, заправленная, без технических неполадок. Удобное и понятное место встречи в Храброво. Быстрая передача и приёмка машины. Спасибо! Воспользуюсь еще раз, если снова полечу в Калининград...</p>
-                </div>
+                <%= render partial: 'review', collection: @reviews, as: :review, cached: true %>
                 <div class="clear"></div>
             </div>
             <div class="btn">
-                <a href="#">Посмотреть все отзывы</a>
+                <%= link_to reviews_path do %>
+                    Посмотреть все отзывы
+                <% end %>
             </div>
             <div class="clear"></div>
         </div>
