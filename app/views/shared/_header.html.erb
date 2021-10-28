@@ -518,23 +518,23 @@
             </li>
             <li>
               <% if I18n.locale == :en %>
-                <% if current_page?(reviews_path) %>
+                <% if current_page?(new_booking_path) %>
                   <a href="" onclick="return false">
-                      <%= t 'header.reviews' %>
+                    Booking
                   </a>
                   <% else %>
-                    <%= link_to reviews_path(locale: I18n.locale) do %>
-                      <%= t 'header.reviews' %>
+                    <%= link_to new_booking_path(locale: I18n.locale) do %>
+                      Booking
                     <% end %>
                   <% end %>
                 <% else %>
-                  <% if current_page?(reviews_path) %>
-                    <a href="" onclick="return false">
-                        <%= t 'header.reviews' %>
-                    </a>
+                <% if current_page?(new_booking_path) %>
+                  <a href="" onclick="return false">
+                    Заказать
+                  </a>
                   <% else %>
-                    <%= link_to reviews_path do %>
-                      <%= t 'header.reviews' %>
+                    <%= link_to new_booking_path do %>
+                      Заказать
                     <% end %>
                 <% end %>
               <% end %>
@@ -757,6 +757,29 @@
                 <ul class="menu_vip">
                   <li>
                     <% if I18n.locale == :en %>
+                      <% if current_page?(reviews_path) %>
+                        <a href="" onclick="return false">
+                            <%= t 'header.reviews' %>
+                        </a>
+                        <% else %>
+                          <%= link_to reviews_path(locale: I18n.locale) do %>
+                            <%= t 'header.reviews' %>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <% if current_page?(reviews_path) %>
+                          <a href="" onclick="return false">
+                              <%= t 'header.reviews' %>
+                          </a>
+                        <% else %>
+                          <%= link_to reviews_path do %>
+                            <%= t 'header.reviews' %>
+                          <% end %>
+                      <% end %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
                       <% if current_page?(articles_path) %>
                         <a href="" onclick="return false">
                           <%= t 'header.articles' %>
@@ -845,6 +868,29 @@
                           <%= t 'header.carsharing' %>
                         <% end %>
                       <% end %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(casko_path) %>
+                          <a href="" onclick="return false">
+                              <%= t 'footer.casko' %>
+                          </a>
+                      <% else %>
+                          <%= link_to casko_path(locale: I18n.locale) do %>
+                              <%= t 'footer.casko' %>
+                          <% end %>
+                      <% end%>
+                      <% else %>
+                      <% if current_page?(casko_path) %>
+                          <a href="" onclick="return false">
+                              <%= t 'footer.casko' %>
+                          </a>
+                      <% else %>
+                          <%= link_to casko_path do %>
+                              <%= t 'footer.casko' %>
+                          <% end %>
+                      <% end%>
                     <% end %>
                   </li>
                   <li>
