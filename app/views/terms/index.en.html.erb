@@ -1,47 +1,54 @@
 <% title @text.terms_title_en %>
 <% description @text.terms_description_en %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
     <div class="wrapper">
-      <%= render 'shared/bread'%>
-      <h1>Rent terms</h1>
-      <div class="bl_usloviya">
-          <div class="bl_uslo">
-              <div class="zg">The main ones:</div>
-              <%= @text.term_common_en.html_safe %>
+        <div class="bread">
+            <a href="/">Main</a> / Terms
         </div>
-          <div class="bl_uslo">
-              <div class="zg">Documents:</div>
-              <%= @text.term_docs_en.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">For foreign citizens:</div>
-              <%= @text.term_gringo_en.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">For organizations:</div>
-              <%= @text.term_companies_en.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Everything for the client:</div>
-              <%= @text.term_clients_en.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Conditions for providing a car without a franchise for insurance - option <br />"Full guarantee" (Full insurance):</div>
-              <%= @text.term_no_franchise_en.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Other conditions:</div>
-              <%= @text.term_other_en.html_safe %>
-          </div>
-          <div class="bl_uslo">
-              <div class="zg">Conditions for issuing a car abroad:</div>
-              <%= @text.term_abroad_en.html_safe %>
-          </div>
-          <p class="niz"><%= @text.term_bottom_en.html_safe %></p>
-          <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
+        <div class="uslovi">
+            <div class="zagol">Rent terms</div>
+            <div class="obol">
+                <div class="zz">Main:</div>
+                <%= @text.term_common_en.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Documents:</div>
+                <%= @text.term_docs_en.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">For foreign citizens:</div>
+                <%= @text.term_gringo_en.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">For organizations:</div>
+                <%= @text.term_companies_en.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Everything for the client:</div>
+                <%= @text.term_clients_en.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Conditions for providing a car without a deductible for insurance - option <br /> "Full warranty"(Full insurance):</div>
+                <%= @text.term_no_franchise_en.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Other conditions:</div>
+                <%= @text.term_other_en.html_safe %>
+            </div>
+            <div class="obol">
+                <div class="zz">Conditions for issuing a car abroad:</div>
+                <%= @text.term_abroad_en.html_safe %>
+            </div>
+            <div class="obol">
+                <p class="niz"><%= @text.term_bottom_en.html_safe %></p>
+            </div>
+        </div>
+        <div class="clear"></div>
     </div>
 </div>
 <%= render 'shared/footer', cached: true %>

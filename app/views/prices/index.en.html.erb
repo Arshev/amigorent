@@ -1,549 +1,198 @@
 <% title @text.prices_title_en %>
-<% description @text.prices_description_en %>
-<%= render 'shared/header', cached: true %>
+<% description @text.prices_description %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
     <div class="wrapper">
         <%= render 'shared/bread'%>
-        <div class="bl_ceny">
-            <h1>Prices</h1>
-            <div class="podp"><%= @text.prices_text_en.html_safe %></div>
-            <table class="lipkaya">
+        <div class="pricee">
+            <div class="zagol">Prices</div>
+            <div class="podzag"><%= @text.prices_text_en.html_safe %></div>
+            <table>
                 <thead>
                     <tr>
-                        <th>Car model</th>
-                        <th><nobr>up to 3</nobr><br />days</th>
-                        <th>4-7<br />days</th>
-                        <th>8-14<br />days</th>
-                        <th>15-30<br />days</th>
-                        <th>> 30<br />days</th>
-                        <th>Hourly<br />payment<br />(>1 day)</th>
+                        <th>Car make, model</th>
+                        <th>until 3</th>
+                        <th>4 - 7</th>
+                        <th>8 - 14</th>
+                        <th>15 - 30</th>
+                        <th>> 30</th>
                         <th>Deposit</th>
-                        <th>Book now</th>
+                        <th>In hour<br />>1day.</th>
+                        <th>Book</th>
                     </tr>
                 </thead>
                 <tbody>
-                  <% @count = 0 %>
-                  <tr>
-                      <td colspan="9">Economy</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Эконом' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
+                  <% @cars.where(active: true).each do |car| %>
+                    <tr>
                       <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Manual", title: "Manual" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Automatic", title: "Automatic" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "hatchback", title: "hatchback" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "sedan", title: "sedan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Crossover", title: "Crossover" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Coupe", title: "Coupe" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "conditioner", title: "conditioner" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
                         <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
+                          <div class="akci">Sale</div>
                         <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
+                        <div class="zz">
+                          <%= link_to car_path(car) do %>
+                            <%= car.car_name %>
+                          <% end %>
+                        </div>
+                        <%= link_to car_path(car) do %>
+                        
+                        <% if car.main_image? %>
+                          <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
+                        <% else %>
+                          <%= image_tag "avto.webp", alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
                         <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
+                        
                         <% end %>
+                        <div class="hara">
+                          <% if car.car_type == "Хэтчбек" %>
+                            <div class="hr">
+                              <span>Body</span>
+                              Hatchback
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Седан" %>
+                            <div class="hr">
+                              <span>Body</span>
+                              Sedan
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Универсал" %>
+                            <div class="hr">
+                              <span>Body</span>
+                              Universal
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Минивэн" %>
+                            <div class="hr">
+                              <span>Body</span>
+                              Minivan
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Кроссовер" %>
+                            <div class="hr">
+                              <span>Body</span>
+                              Crossover
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Купе" %>
+                            <div class="hr">
+                              <span>Body</span>
+                              Cupe
+                            </div>
+                          <% end %>
+                          <% if car.is_air %>
+                            <div class="hr">
+                              <span>Air Cond.</span>
+                              Yes
+                            </div>
+                          <% else %>
+                            <div class="hr">
+                              <span>Air Cond.</span>
+                              No
+                            </div>
+                          <% end %>
+                          <% if car.transmission == 'Механика'%>
+                            <div class="hr">
+                              <span>Transmission</span>
+                              Manual
+                            </div>
+                          <% else %>
+                            <div class="hr">
+                              <span>Transmission</span>
+                              Automatic
+                            </div>
+                          <% end %>
+                        </div>
                       </td>
                       <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Book now
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Middle</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Средний' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Manual", title: "Manual" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Automatic", title: "Automatic" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "hatchback", title: "hatchback" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "sedan", title: "sedan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Crossover", title: "Crossover" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Coupe", title: "Coupe" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "conditioner", title: "conditioner" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
+                        <%= car.price_1 %> ₽ 
                         <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
+                          <div class="old"><%= car.old_price_1 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_2 %>
+                        <%= car.price_2 %> ₽ 
                         <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
+                          <div class="old"><%= car.old_price_2 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_3 %>
+                        <%= car.price_3 %> ₽ 
                         <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
+                          <div class="old"><%= car.old_price_3 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_4 %>
+                        <%= car.price_4 %> ₽ 
                         <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
+                          <div class="old"><%= car.old_price_4 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_5 %>
+                        <%= car.price_5 %> ₽ 
                         <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
+                          <div class="old"><%= car.old_price_5 %> ₽ </div>
                         <% end %>
                       </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Book now
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Minivans</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Минивэны' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Manual", title: "Manual" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Automatic", title: "Automatic" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "hatchback", title: "hatchback" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "sedan", title: "sedan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Crossover", title: "Crossover" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Coupe", title: "Coupe" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "conditioner", title: "conditioner" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Book now
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Crossovers</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Кроссоверы' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Manual", title: "Manual" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Automatic", title: "Automatic" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "hatchback", title: "hatchback" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "sedan", title: "sedan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Crossover", title: "Crossover" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Coupe", title: "Coupe" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "conditioner", title: "conditioner" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Book now
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Business</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Бизнес' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Manual", title: "Manual" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Automatic", title: "Automatic" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "hatchback", title: "hatchback" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "sedan", title: "sedan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Crossover", title: "Crossover" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Coupe", title: "Coupe" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "conditioner", title: "conditioner" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Book now
-                        <% end %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                      <td colspan="9">Commercial vehicle</td>
-                  </tr>
-                  <% @cars.where("car_class = 'Коммерческий' and active = 'true'").each do |car| %>
-                    <% @count += 1 %>
-                    <tr class=<%= bg_active(@count) %>>
-                      <td>
-                          <div class="avto">
-                              <div class="zz"><%= car.car_name %></div>
-                              <%= link_to car_path(car), class: "bl_img" do %>
-                                  <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", style: "border-radius: 10px;" if car.main_image? %>
-                              <% end %>
-                              <div class="hara">
-                                  <% if car.transmission == 'Механика'%>
-                                      <%= image_tag "transmission.png", class: "transmission", alt: "Manual", title: "Manual" %>
-                                  <% else %>
-                                      <%= image_tag "auto-transmission.png", class: "transmission", alt: "Automatic", title: "Automatic" %>
-                                  <% end %>
-                                  <% if car.car_type == "Хэтчбек" %>
-                                      <%= image_tag ('hatchback.png'), class: "hatchback", alt: "hatchback", title: "hatchback" %>
-                                  <% end %>
-                                  <% if car.car_type == "Седан" %>
-                                      <%= image_tag ('sedan.png'), class: "sedan", alt: "sedan", title: "sedan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Универсал" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Touring", title: "Touring" %>
-                                  <% end %>
-                                  <% if car.car_type == "Минивэн" %>
-                                      <%= image_tag ('universal.png'), class: "universal", alt: "Minivan", title: "Minivan" %>
-                                  <% end %>
-                                  <% if car.car_type == "Кроссовер" %>
-                                      <%= image_tag ('crossover.png'), class: "crossover", alt: "Crossover", title: "Crossover" %>
-                                  <% end %>
-                                  <% if car.car_type == "Купе" %>
-                                      <%= image_tag ('coupe.png'), class: "coupe", alt: "Coupe", title: "Coupe" %>
-                                  <% end %>
-                                  <% if car.is_air %>
-                                    <%= image_tag ('air-conditioner.png'), class: "conditioner", alt: "conditioner", title: "conditioner" %>
-                                  <% end %>
-                              </div>
-                          </div>
-                      </td>
-                      <td>
-                        <%= car.price_1 %>
-                        <% if car.old_price_1 %>
-                          <div class="old"><%= car.old_price_1 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_2 %>
-                        <% if car.old_price_2 %>
-                          <div class="old"><%= car.old_price_2 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_3 %>
-                        <% if car.old_price_3 %>
-                          <div class="old"><%= car.old_price_3 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_4 %>
-                        <% if car.old_price_4 %>
-                          <div class="old"><%= car.old_price_4 %></div>
-                        <% end %>
-                      </td>
-                      <td>
-                        <%= car.price_5 %>
-                        <% if car.old_price_5 %>
-                          <div class="old"><%= car.old_price_5 %></div>
-                        <% end %>
-                      </td>
-                      <td><%= car.price_hour %></td>
-                      <td><%= car.deposit %></td>
-                      <td>
-                        <%= link_to new_booking_path(car_id: car.id), class:"zakaz" do %>
-                          Book now
+                      <td><%= car.deposit %> ₽ </td>
+                      <td><%= car.price_hour %> ₽ </td>
+                      <td class="btn_price">
+                        <%= link_to new_booking_path(car_id: car.id) do %>
+                          Book
                         <% end %>
                       </td>
                     </tr>
                   <% end %>
                 </tbody>
             </table>
-            <p class="niz"><%= @text.prices_bottom_text_en.html_safe %></p>
-            <div>
-              <a name="dop-table"></a>
-              <div class="bl_dop">
-                <h2>Prices for additional equipment</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Equipment</td>
-                            <td>For a day, rubles</td>
-                            <td>For the entire period up to 15 days, rubles</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Child seat / booster</td>
-                            <td><%= @text.dop_table_kreslo_dayprice %></td>
-                            <td><%= @text.dop_table_kreslo_allprice %></td>
-                        </tr>
-                        <tr>
-                            <td>GPS navigator</td>
-                            <td><%= @text.dop_table_navigator_dayprice %></td>
-                            <td><%= @text.dop_table_navigator_dayprice %></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p><%= @text.dop_table_downtext_en.html_safe %></p>
-                <div class="clear"></div>
-            </div>
-            </div>
-            <div class="clear"></div>
+            
+            <% unless params[:city] && params[:city] != 'Калининград' %>
+              <p class="tex">For out-of-office delivery prices, see the section 
+              <%= link_to deliveries_path(locale: I18n.locale) do %>
+                "Delivery"
+              <% end %></p>
+            <% end %>
+            
+            <div class="zagol">PRICES FOR ADDITIONAL EQUIPMENT</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Equipment </th>
+                        <th> Cost per day </th>
+                        <th> Up to 15 days </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="zz">Baby chair</div>
+                        </td>
+                        <td><%= number_to_currency(@text.dop_table_kreslo_dayprice, {delimiter: " ", precision: 0, unit: ''}) %> ₽ </td>
+                        <td><%= number_to_currency(@text.dop_table_kreslo_allprice, {delimiter: " ", precision: 0, unit: ''}) %> ₽ </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="zz">GPS</div>
+                        </td>
+                        <td><%= number_to_currency(@text.dop_table_navigator_dayprice, {delimiter: " ", precision: 0, unit: ''}) %> ₽ </td>
+                        <td><%= number_to_currency(@text.dop_table_navigator_dayprice, {delimiter: " ", precision: 0, unit: ''}) %> ₽ </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="tex"><%= @text.dop_table_downtext_en.html_safe %></p>
+          <div class="zagol">About the pricing policy of our company</div>
+          <div class="txt">
+            <p><%= @text.prices_bottom_text_en.html_safe %></p>
+          </div>
         </div>
         <div class="clear"></div>
     </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

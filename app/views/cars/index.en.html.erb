@@ -1,15 +1,162 @@
 <% title @text.cars_title_en %>
 <% description @text.cars_description_en %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
-  <div class="wrapper">
-    <%= render 'shared/bread'%>
-    <h1>Cars</h1>
-    <div class="bl_avtomob">
-      <%= render 'cars', cached: true %>
-      <div class="clear"></div>
+    <div class="wrapper">
+        <div class="bread">
+          <%= render 'shared/bread'%>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-  </div>
+</div>
+<div class="block2 var2">
+    <div class="wrapper" id="search_cars">
+        <div class="zagol"><h1>Cars</h1></div>
+        <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>"></search_cars>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<% if @cars && @cars.length > 0 %>
+    <div class="content for_spis">
+        <div class="wrapper">
+            <% if params[:start_date] && params[:end_date] %>
+                <div class="text1">
+                    <div class="zagol">Flash booking</div>
+                    <p>Below are the free cars for the period you specified. A response to your application will be received as soon as possible, usually within an hour, during business hours.</p>
+                    <%# <div class="zagol">Результаты</div> %>
+                </div>
+            <% else %>
+                <div class="text1">
+                    <div class="zagol"><%= @text.top_cars_title_en.html_safe %></div>
+                    <p><%= @text.top_cars_en.html_safe %></p>
+                </div>
+            <% end %>
+            <div class="filter">
+                <select id="car_type">
+                    <option selected value="0">Car type</option>
+                    <option value="1">Sedan</option>
+                    <option value="2">Hatchback</option>
+                    <option value="3">Universal</option>
+                    <option value="4">Cupe</option>
+                    <option value="5">Crossover</option>
+                    <option value="6">Jeep</option>
+                    <option value="7">Minivan</option>
+                    <option value="8">All cars</option>
+                </select>
+                <select id="car_kpp">
+                    <option selected value="0">Transmission</option>
+                    <option value="1">Automatic Transmission</option>
+                    <option value="2">Manual Transmission</option>
+                    <option value="4">All cars</option>
+                </select>
+                <%# <button>Показать автомобили</button> %>
+                <div class="vid_spis" id="flash_cars_vid">
+                    <a href="#" class="vid1 active"></a>
+                    <a href="#" class="vid2"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4 var2" id="flash_cars">
+        <div class="wrapper">
+            <div class="spis_avto active" id="spis1">
+                <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="spis_avto" id="spis2">
+                <%= render partial: 'cars_plitka', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <%# <div class="clear"></div> %>
+        </div>
+    </div>
+<% elsif %>
+    <div class="content for_spis">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol">No cars available for instant booking</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+<% end %>
+<% if @fake_cars && @fake_cars.length > 0 %>
+    <div class="content for_spis" style="padding: 10px 0 8px;">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol">Manager book</div>
+                <p>Below are the cars, the availability of which for the specified dates is checked by the manager. A response to the application will be received in the near future, in exceptional cases - up to 1 day.</p>
+                <%# <div class="zagol">Результаты</div> %>
+            </div>
+            <div class="filter">
+                <select id="not_flash_car_type">
+                    <option selected value="0">Car type</option>
+                    <option value="1">Sedan</option>
+                    <option value="2">Hatchback</option>
+                    <option value="3">Universal</option>
+                    <option value="4">Cupe</option>
+                    <option value="5">Crossover</option>
+                    <option value="6">Jeep</option>
+                    <option value="7">Minivan</option>
+                    <option value="8">All cars</option>
+                </select>
+                <select id="not_flash_car_kpp">
+                    <option selected value="0">Transmission</option>
+                    <option value="1">Automatic Transmission</option>
+                    <option value="2">Manual Transmission</option>
+                    <option value="4">All cars</option>
+                </select>
+                <div class="vid_spis" id="not_flash_cars_vid">
+                    <a href="#" class="vid1 active"></a>
+                    <a href="#" class="vid2"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4 var2" id="not_flash_cars">
+        <div class="wrapper">
+            <div class="spis_avto active" id="spis1">
+                <%= render partial: 'cars', collection: @fake_cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="spis_avto" id="spis2">
+                <%= render partial: 'cars_plitka', collection: @fake_cars, as: :car, cached: true %>
+            </div>
+            <%# <div class="btn">
+                <a href="#">Загрузить еще</a>
+            </div> %>
+            <div class="clear"></div>
+        </div>
+    </div>
+<% else %>
+    <%# <div class="content for_spis">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol">Свободных автомобилей нет</div>
+            <div class="clear"></div>
+        </div>
+    </div> %>
+<% end %>
+<div class="block_vopros">
+    <div class="wrapper">
+        <div class="zagol">FAQs</div>
+        <div class="vopros">
+            <div class="vop active">How do I book a car?<span></span></div>
+            <div class="otv" style="display: block;">The procedure for booking a car on the Amigo car rental website is simple and straightforward. The easiest way to book a car is to apply for a rental on our website. To order a car, just enter the dates of interest in the search field and the system will show the cars available for the specified period. At the top of the list, under the heading "Instant booking" there are cars that are available for the specified period, you can choose a suitable car and make a reservation. Confirmation will come shortly (usually within an hour). If you have not found a suitable car in the specified list, you can select a car from the list under the heading “Manager's bookings”. After completing the application, the car rental employee will check the availability of the selected car, in case of employment, suggest adjusting the rental period or help you choose a similar car. During business hours, the application is usually processed within an hour, but in some cases it can take up to one day. Therefore, if you need a car very urgently, we recommend calling. In any case, the registration of the application is not a guarantee of the provision of the car, the booking guarantee is the confirmation of the application by the car rental. Therefore, after completing the application, be sure to check the specified e-mail, including the "junk mail" folder.</div>
+        </div>
+        <div class="vopros">
+            <div class="vop">How to choose a car for rent?<span></span></div>
+            <div class="otv">To begin with, we recommend that you determine the dates of the desired car rental, enter them in the appropriate fields and click the "Search" button. You will see a list of cars available for instant automatic booking and those booked by a car rental employee. Further, if there is a preferred type of gearbox, select it in the appropriate field, if it does not matter to you, leave it unchanged. If you have preferences for the type of car body, select it in the appropriate field. For example: you are traveling in a large company and you definitely need a minivan, or - you only want an SUV. If there is no particular preference or if you want to consider all the options, leave the field unchanged. Next, you need to make a decision, do you need a cheaper or more impressive car? Sorting of cars is carried out by price, respectively, if you need an expensive car - you can start browsing from the bottom of the list, if you want a cheaper car - pay attention to the top of the page. Car rental Amigo guarantees that all cars presented in the park, regardless of the year of manufacture, are regularly serviced and maintained in proper technical condition. But, of course, it is worth understanding that cars are operated in car rental, and not all customers treat them with care, therefore minor cosmetic defects (chips, scratches) may be present even on the newest cars; at the same time, there may be more such defects on cars of older years of production. The company's pricing policy takes these nuances into account; accordingly, more recent cars have a higher rental price.</div>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
 <%= render 'shared/footer', cached: true %>

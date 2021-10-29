@@ -1,57 +1,60 @@
 <% title @text.pionerskyi_title_en %>
 <% description @text.pionerskyi_description_en %>
 <%= render 'shared/header', cached: true %>
-  <div class="bl_topp" style="background:url(<%= asset_path("bg_zelenogradsk.jpg")%>) no-repeat center top transparent;">
+<div class="block_price">
     <div class="wrapper">
-      <h1><%= @text.pionerskyi_h1_en %></h1>
-      <%= render 'advantages' %>
+        <span></span>
+        <div class="text1">With us you are always at the helm!</div>
+        <div class="text2"><b>Car rental</b> at Pionerskiy</div>
+        <div class="text3">Pionerskiy</div>
+        <%= link_to prices_path(locale: I18n.locale), class: "ceny" do %>
+            Rental prices
+        <% end %>
+        <div class="clear"></div>
     </div>
-  </div>
-  <div class="content">
-      <div class="wrapper">
-          <div class="bread">
-              <a href="/">Main /</a> Pionerskyi
-          </div>
-          <div class="bl_dop">
-              <h2>Prices for delivery to Pionerskyi</h2>
-              <table class="var2">
-                  <thead>
-                      <tr>
-                          <td rowspan="2">Delivery / Return Point</td>
-                          <td colspan="2">Price, rubles</td>
-                      </tr>
-                      <tr>
-                          <td>09:00 - 19:00</td>
-                          <td>19:00 - 09:00</td>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>Pionerskyi</td>
-                          <td><%= @text.pionerskyi_price %></td>
-                          <td><%= @text.pionerskyi_price_unwork %></td>
-                      </tr>
-                  </tbody>
-              </table>
-              <div class="clear"></div>
-          </div>
-          <div class="bl_full_text">
-              <%= @text.pionerskyi_text_en.html_safe %>
-              <div class="clear"></div>
-          </div>
-          <br />
-          <div class="block4">
-              <div class="wrapper">
-                  <div class="zag"><%= @text.pionerskyi_avto_en %></div>
-                  <div class="spis_avto">
-                      <%= render "cars"%>
-                      <div class="clear"></div>
-                  </div>
-                  <%= link_to "View all cars", cars_path, class: "all" %>
-                  <div class="clear"></div>
-              </div>
-          </div>
-          <div class="clear"></div>
-      </div>
-  </div>
+</div>
+<div class="block2 var2">
+    <div class="wrapper" id="search_cars">
+        <div class="zagol" style="padding-top: 30px;"><h1>Car rental at Pionerskiy</h1></div>
+        <search_cars city="Калининград"></search_cars>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="content for_price">
+    <div class="wrapper">
+        <div class="bl_dostavka">
+            <div class="zagol"><h2>Prices for delivery to Pionerskyi</h2></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Delivery / Return Point</th>
+                        <th><b><%= @text.dop_table_worktime %></b></th>
+                        <th><b><%= @text.dop_table_endtime %></b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pionerskyi</td>
+                        <td><%= @text.pionerskyi_price %></td>
+                        <td><%= @text.pionerskyi_price_unwork %></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="kak_nayti">
+                <%= @text.pionerskyi_text.html_safe %>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block4 var2">
+    <div class="wrapper">
+        <div class="zagol"><%= @text.pionerskyi_avto %></div>
+        <div class="spis_avto active" id="spis1">
+            <%= render 'cars', cached: true %>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
 <%= render 'shared/footer', cached: true %>

@@ -1,106 +1,116 @@
 <% title @text.contacts_title_en %>
 <% description @text.contacts_description_en %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
-    <div class="wrapper">
+  <div class="wrapper">
+      <div class="bread">
         <%= render 'shared/bread'%>
+      </div>
+      <div class="zagol">Contacts</div>
+      <% if params[:city] && params[:city] != 'Калининград' %>
         <div class="bl_contact">
-            <div class="slider">
-                <ul class="bxslider">
-                    <li>
-                      <%= image_tag "enter.jpg", alt: "Enter to office", title: "Enter to office" %>
-                    </li>
-                </ul>
-            </div>
-            <div class="pol1">
-                <h1>Contact details:</h1>
-                <div class="zg2">
-                  <%= image_tag "co1.png", alt: "Contact details", title: "Contact details" %>
-                  Office Address:
-                </div>
-                <p>Kaliningrad st. A. Nevsky 36V, shopping center "Nevsky", 3rd floor - left wing</p>
-                <p><b>Dear Clients! Please, call us before visiting, it may happens that all employees are away because of many orders</b></p>
-                <div class="zg2">
-                  <%= image_tag "co2.png", alt: "Телефон", title: "Телефон" %>
-                  Phone:
-                </div>
-                <p><a href="tel:+74012521615" style="padding-right:10px;">+7 (4012) 52-16-15 </a><a href="tel:+79217101615"> +7 (921) 710-16-15</a></p>
-                <p>Messengers:
-                  <a href="whatsapp://send?phone=+79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
-                    <%= image_tag "whatsapp.png", style: "width:30px;", alt: "whatsapp", title: "whatsapp" %>
-                  </a>
-                  <a href="viber://add?number=79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
-                    <%= image_tag "viber.png", style: "width:30px;", alt: "viber", title: "viber" %>
-                  </a>
-                  <a href="https://t.me/amigorent_ru" style="text-decoration: none;" rel="nofollow" target="_blank">
-                    <%= image_tag "telegram.png", style: "width:30px;", alt: "telegram", title: "telegram" %>
-                  </a>
-                </p>
-                <p><a href="tel:88001003973">8 800 100-39-73</a> <span>The call is free in Russia (from 10:00 to 20:00 Moscow time)</span></p>
-                <p>+7 (4012) 64 00 03; +7 (908) 290-09-08 <span style="color: #d67e2a;">Emergency (around the clock)</span></p>
-                <div class="zg2">
-                  <%= image_tag "co3.png", alt: "E-mail", title: "E-mail" %>
-                  E-mail:
-                </div>
-                <p>amigorent@ya.ru</p>
-                <div class="zg2">
-                    We are in the social networks:
-                </div>
-                <div class="social">
-                    <a href="https://instagram.com/amigorent" rel="nofollow" target="_blank">
-                      <%= image_tag "s1.png", alt: "instagram", title: "instagram" %>
-                    </a>
-                    <a href="https://vk.com/amigorent" target="_blank" rel="nofollow" >
-                      <%= image_tag "s2.png", alt: "vk", title: "vk"  %>
-                    </a>
-                    <a href="https://www.facebook.com/amigorent" target="_blank" rel="nofollow" >
-                      <%= image_tag "s3.png", alt: "facebook", title: "facebook"  %>
-                    </a>
-                    <a href="https://www.youtube.com/c/amigorent" rel="nofollow" target="_blank">
-                      <%= image_tag "s4.png", style: "wigth:25px;height:25px;", alt: "youtube", title: "youtube" %>
-                    </a>
-                    <p>Sign up and get a discount on car rental.</p>
-                </div>
-                <div class="zg2">
-                  <%= image_tag "co4.png", alt: "Режим работы", title: "Режим работы" %>
-                    Operating time:
-                </div>
-                <p>From 9:00 to 19:00 seven days a week;<br /><span>By prior arrangement to order a car - around the clock.</span></p>
-                <div class="zg2">
-                  <%= image_tag "co5.png", alt: "Payment Methods", title: "Payment Methods" %>
-                    Payment Methods:
-                </div>
-                <p>By cash, credit card, bank transfer</p>
-            </div>
-            <%= image_tag "shema.jpg", alt: "Office layout", title: "Office layout", class: "pol2" %>
-            <div class="clear"></div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ks610UJnChc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="bl_mapp">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2303.96344710462!2d20.526638516009207!3d54.72785778029164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e315e437b9785b%3A0x5c542fe26b15078d!2z0JDQstGC0L7Qv9GA0L7QutCw0YIg0JDQvNC40LPQvg!5e0!3m2!1sru!2sru!4v1589366750583!5m2!1sru!2sru" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    <div class="wrapper">
-        <div class="bl_connt">
-            <div class="zg">Help us get better!</div>
-            <%= form_with(action: "create", local: true)  do |f| %>
-              <%= f.text_field :name, placeholder: "Name *", required: true %>
-              <%= f.text_field :email, placeholder: "Email *", required: true %>
-              <%= f.text_field :phone, placeholder: "Phone *", required: true %>
-              <%= f.text_area :message, placeholder: "Letter", required: true %>
-              <label>
-                <%= f.check_box :fz152, required: true %>
-                I accept the agreement on personal data in accordance with 152-FZ *
-              </label>
-              <div>
-                <%= f.invisible_captcha :subtitle %>
+          <p><span class="videl">Уважаемые клиенты! </span><br />Просьба, перед выходом к нам - звоните, при большом количестве заказов бывает, что все сотрудники на выезде</p>
+          <div class="pol1">
+              <div class="zag">Адрес офиса:</div>
+              <p><%= @city.name %>, <%= @city.address %></p>
+              <div class="zag">Телефон:</div>
+              <p><a href="tel:88001003973"><span class="videl"><b>8 800 100-39-73</b></span></a></p>
+              <div class="zag">
+                  Мы в соц. сетях:
               </div>
-              <%= f.submit "Send" %>
-            <% end %>
+              <p>
+                  <a href="https://instagram.com/amigorent" rel="nofollow" target="_blank">
+                    <%= image_tag "s1.webp", alt: "instagram", title: "instagram" %>
+                  </a>
+                  <a href="https://vk.com/amigorent" target="_blank" rel="nofollow" >
+                    <%= image_tag "s2.webp", alt: "vk", title: "vk"  %>
+                  </a>
+                  <a href="https://www.facebook.com/amigorent" target="_blank" rel="nofollow" >
+                    <%= image_tag "s3.webp", alt: "facebook", title: "facebook"  %>
+                  </a>
+                  <a href="https://www.youtube.com/c/amigorent" rel="nofollow" target="_blank">
+                    <%= image_tag "s4.webp", style: "wigth:25px;height:25px; border-radius: 5px;", alt: "youtube", title: "youtube" %>
+                  </a>
+                  <p>Подпишитесь и получите скидку на аренду авто.</p>
+              </p>
+              <div class="zag">Режим работы</div>
+              <p><span class="videl"><b>С 9:00 до 19:00</b></span> Без выходных;<br />По предварительной договоренности о заказе автомобиля - круглосуточно.</p>
+              <div class="zag">
+                  Способы оплаты:
+              </div>
+              <p>Наличными, банковской картой, безналичным переводом</p>
+              <div class="zag">Наш E-mail:</div>
+              <%# <p><a href="#">amigorent@ya.ru</a></p> %>
+              <p><%= @text.contacts_phones_en.html_safe %></p>
+          </div>
+          <div class="clear"></div>
         </div>
-        <div class="clear"></div>
-    </div>
+      <% else %>
+        <div class="bl_contact">
+          <p><span class="videl">Dear Clients! </span><br />Please, call before you come to us, with a large number of orders, it happens that all employees are on the road </p>
+          <div class="pol1">
+              <div class="zag">Office adress:</div>
+              <p>Kaliningrad st. A.Nevskogo 36V, shopping center "Nevsky", 3rd floor - left wing</p>
+              <div class="zag">Phones:</div>
+              <%= @text.contacts_phones_en.html_safe %>
+              <%# <p><a href="tel:+74012640003"><span class="videl"><b>+7 (4012) 52-16-15</b></span></a> – городской номер</p>
+              <p><a href="#"><b>+7 921 710-16-15</b></a> – Мобильный</p>
+              <p><a href="tel:88001003973"><b>8 800 100-39-73</b></a> – звонок по России бесплатный <br />(с 10:00 до 20:00 Мск);</p> %>
+              <p>Messengers:
+                <a href="whatsapp://send?phone=+79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
+                  <%= image_tag "whatsapp.webp", style: "width:30px;", alt: "whatsapp", title: "whatsapp" %>
+                </a>
+                <a href="https://t.me/amigorent_ru" style="text-decoration: none;" rel="nofollow" target="_blank">
+                  <%= image_tag "telegram.webp", style: "width:26px;", alt: "telegram", title: "telegram" %>
+                </a>
+              </p>
+              <div class="zag">
+                  Social networks:
+              </div>
+              <p>
+                  <a href="https://instagram.com/amigorent" rel="nofollow" target="_blank">
+                    <%= image_tag "s1.webp", alt: "instagram", title: "instagram" %>
+                  </a>
+                  <a href="https://vk.com/amigorent" target="_blank" rel="nofollow" >
+                    <%= image_tag "s2.webp", alt: "vk", title: "vk"  %>
+                  </a>
+                  <a href="https://www.facebook.com/amigorent" target="_blank" rel="nofollow" >
+                    <%= image_tag "s3.webp", alt: "facebook", title: "facebook"  %>
+                  </a>
+                  <a href="https://www.youtube.com/c/amigorent" rel="nofollow" target="_blank">
+                    <%= image_tag "s4.webp", style: "wigth:25px;height:25px; border-radius: 5px;", alt: "youtube", title: "youtube" %>
+                  </a>
+                  <p>Subscribe and get a discount on car rental.</p>
+              </p>
+              <div class="zag">Working hours</div>
+              <p><span class="videl"><b>С 9:00 до 19:00</b></span> Seven days a week;<br />By prior arrangement about ordering a car - around the clock.</p>
+              <div class="zag">
+                  Payment Methods:
+              </div>
+              <p>Cash, credit card, wire transfer</p>
+              <div class="zag">Our E-mail:</div>
+              <p><a href="#">amigorent@ya.ru</a></p>
+          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2303.963515326628!2d20.52668781586057!3d54.727856580291764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e315e437b8be95%3A0x4d46a22eb9d838f8!2z0YPQuy4g0JDQu9C10LrRgdCw0L3QtNGA0LAg0J3QtdCy0YHQutC-0LPQviwgMzbQsiwg0JrQsNC70LjQvdC40L3Qs9GA0LDQtCwg0JrQsNC70LjQvdC40L3Qs9GA0LDQtNGB0LrQsNGPINC-0LHQuy4sINCg0L7RgdGB0LjRjywgMjM2MDQx!5e0!3m2!1sru!2sua!4v1629993721634!5m2!1sru!2sua" width="780" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <div class="clear"></div>
+          <div class="zagol">How to find us?</div>
+          <div class="video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/ks610UJnChc" title="Схема прохода в офис" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <%= image_tag "shema.webp", class:"shema", alt: "Схема офиса", title: "Схема офиса" %>
+          <div class="clear"></div>
+          <%= image_tag "shema2.webp", class:"shema2", alt: "Схема офиса", title: "Схема офиса" %>
+        </div>
+      <% end %>
+      <div class="clear"></div>
+  </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

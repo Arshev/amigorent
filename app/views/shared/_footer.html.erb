@@ -17,7 +17,11 @@
                 <p><%= t 'footer.copyright_html', year: Time.now.year %></p>
             </div>
             <div class="col2">
-                <div class="zag">Разделы сайта</div>
+                <% if I18n.locale == :en %>
+                    <div class="zag">Sections</div>
+                <% else %>
+                    <div class="zag">Разделы сайта</div>
+                <% end %>
                 <ul>
                     <li>
                         <% if I18n.locale == :en %>
@@ -283,7 +287,11 @@
                 </ul>
             </div>
             <div class="col3">
-                <div class="zag">Полезное</div>
+                <% if I18n.locale == :en %>
+                    <div class="zag">Useful</div>
+                <% else %>
+                    <div class="zag">Полезное</div>
+                <% end %>
                 <ul>
                     <li>
                         <% if I18n.locale == :en %>
@@ -378,13 +386,45 @@
                         <% end %>
                     </li>
                     <li>
-                        <p class="copy">Мы используем <%= link_to "CRM RentProg", "https://rentprog.ru", class:"polz", style: "color: #f77d0a; margin: 0; text-align: center;"%></p>
+                        <% if I18n.locale == :en %>
+                            <% if current_page?(conditions_path) %>
+                                <a href="" onclick="return false">
+                                <%= t 'header.conditions' %>
+                                </a>
+                            <% else %>
+                                <%= link_to conditions_path(locale: I18n.locale) do %>
+                                <%= t 'header.conditions' %>
+                                <% end %>
+                            <% end %>
+                            <% else %>
+                            <% if current_page?(conditions_path) %>
+                                <a href="" onclick="return false">
+                                <%= t 'header.conditions' %>
+                                </a>
+                            <% else %>
+                                <%= link_to conditions_path do %>
+                                <%= t 'header.conditions' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
+                            <p class="copy">We use <%= link_to "CRM RentProg", "https://rentprog.ru", class:"polz", style: "color: #f77d0a; margin: 0; text-align: center;"%></p>
+                        <% else %>
+                            <p class="copy">Мы используем <%= link_to "CRM RentProg", "https://rentprog.ru", class:"polz", style: "color: #f77d0a; margin: 0; text-align: center;"%></p>
+                        <% end %>
                     </li>
                 </ul>
             </div>
             <div class="col3">
-                <div class="zag">Контакты</div>
-                <p>г. Калинингоад,<br />ул. А. Невского 36В</p>
+                <% if I18n.locale == :en %>
+                    <div class="zag">Contacts</div>
+                    <p>Kaliningrad,<br />Nevskogo street 36V</p>
+                <% else %>
+                    <div class="zag">Контакты</div>
+                    <p>г. Калинингоад,<br />ул. А. Невского 36В</p>
+                <% end %>
                 <p><a href="tel:+79020371122">+7 (902) 037-11-22</a></p>
                 <p><a href="mailto:amigorent@ya.ru">amigorent@ya.ru</a></p>
                 <div class="social">

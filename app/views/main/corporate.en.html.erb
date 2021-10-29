@@ -1,17 +1,24 @@
 <% title @text.corporate_title_en %>
 <% description @text.corporate_description_en %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
   <div class="wrapper">
-        <%= render 'shared/bread'%>
-    <div class="bl_dop">
-        <h1><%= @text.corporate_h1_en %></h1>
-        <div>
+      <div class="bread">
+          <%= render 'shared/bread'%>
+      </div>
+      <div class="textt">
+          <div class="zagol"><%= @text.corporate_h1_en %></div>
           <%= @text.corporate_text_en.html_safe %>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
   </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

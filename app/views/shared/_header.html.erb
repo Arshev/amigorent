@@ -24,7 +24,11 @@
         <div id="menu_tg2">
             <span></span>
             <span></span>
-            Меню
+            <% if I18n.locale == :en %>
+              Menu
+            <% else %>
+              Меню
+            <% end %>
         </div>
         <ul class="menu_mob">
             <li class="parent">
@@ -752,7 +756,11 @@
         <div id="menu_tg">
             <span></span>
             <span></span>
-            Меню
+            <% if I18n.locale == :en %>
+              Menu
+            <% else %>
+              Меню
+            <% end %>
             <div id="menu_vipad">
                 <ul class="menu_vip">
                   <li>

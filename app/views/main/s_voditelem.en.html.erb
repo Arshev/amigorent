@@ -1,55 +1,64 @@
 <% title @text.s_voditelem_title_en %>
 <% description @text.s_voditelem_description_en %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
   <div class="wrapper">
-        <%= render 'shared/bread'%>
-    <div class="bl_dop">
-        <h1><%= @text.s_voditelem_h1_en %></h1>
-        <table class="table-carshearing var2">
-          <tbody>
-            <tr>
-              <td></td>
-              <td colspan="3">Cost (rubles per hour) <sup>*</sup></td>
-            </tr>
-            <tr>
-              <td>Duration</td>
-              <td>Economy</td>
-              <td>Medium</td>
-              <td>Business</td>
-            </tr>
-            <tr>
-              <td>from 4 hours</td>
-              <td>700</td>
-              <td>1000</td>
-              <td>1500</td>
-            </tr>
-            <tr>
-              <td>from 8 hours</td>
-              <td>600</td>
-              <td>800</td>
-              <td>1300</td>
-            </tr>
-            <tr>
-              <td>from 7 days</td>
-              <td>500</td>
-              <td>600</td>
-              <td>1100</td>
-            </tr>
-            <tr>
-              <td>from 1 month</td>
-              <td>400</td>
-              <td>500</td>
-              <td>1000</td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
+      <div class="bread">
+          <%= render 'shared/bread'%>
+      </div>
+      <div class="textt">
+          <div class="zagol"><%= @text.s_voditelem_h1_en %></div>
+          <div class="pricee">
+            <table class="article_table">
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th colspan="3">Стоимость (руб. в час) <sup>*</sup></th>
+                </tr>
+                <tr>
+                  <td>Duration</td>
+                  <td>Economy</td>
+                  <td>Medium</td>
+                  <td>Business</td>
+                </tr>
+                <tr>
+                  <td>from 4 hours </td>
+                  <td>700</td>
+                  <td>1000</td>
+                  <td>1500</td>
+                </tr>
+                <tr>
+                  <td>from 8 hours </td>
+                  <td>600</td>
+                  <td>800</td>
+                  <td>1300</td>
+                </tr>
+                <tr>
+                  <td>from 7 days</td>
+                  <td>500</td>
+                  <td>600</td>
+                  <td>1100</td>
+                </tr>
+                <tr>
+                  <td>from 1 month </td>
+                  <td>400</td>
+                  <td>500</td>
+                  <td>1000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <%= @text.s_voditelem_text_en.html_safe %>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
   </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>
