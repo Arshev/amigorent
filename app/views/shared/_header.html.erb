@@ -2,7 +2,11 @@
 <% if current_page?(controller: 'main', action: 'index') %>
   <div class="polosa">
     <div class="wrapper" id="call_booking">
-        <p><%= @text.main_up_text %></p>
+        <% if I18n.locale == :en %>
+          <p><%= @text.main_up_text_en %></p>
+        <% else %>
+          <p><%= @text.main_up_text %></p>
+        <% end %>
         <app></app>
         <div class="clear"></div>
     </div>
