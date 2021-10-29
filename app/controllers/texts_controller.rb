@@ -116,7 +116,8 @@ private
       :cars_business_h1_en, :cars_business_text_en, :cars_commercial_title, :cars_commercial_description, 
       :cars_commercial_h1, :cars_commercial_text, :cars_commercial_title_en, 
       :cars_commercial_description_en, :cars_commercial_h1_en, :cars_commercial_text_en, :bookings_h1, 
-      :bookings_h1_en, :contacts_phones, :contacts_phones_en, :contacts_email
+      :bookings_h1_en, :contacts_phones, :contacts_phones_en, :contacts_email, :top_cars_title,
+      :top_cars_title_en, :top_cars, :top_cars_en
     )
   end
 end
