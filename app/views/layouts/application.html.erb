@@ -27,6 +27,9 @@
     <%= javascript_pack_tag 'search_main', rel: 'preload' %>
     <%= stylesheet_pack_tag 'search_main', media: "all" %>
   <% end %>
+  <% if current_page?(new_booking_path) %>
+    <link href="https://rentprog-b5205.web.app/css/app.css" rel="stylesheet"/>
+  <% end %>
   <% if request.path.include?('/russia/') %>
     <%= javascript_pack_tag 'search_main', rel: 'preload' %>
     <%= stylesheet_pack_tag 'search_main', media: "all" %>
@@ -69,6 +72,9 @@
     <script>
       gtag('event', 'conversion', {'send_to': 'AW-691640545/X7MvCP6LzvUBEOGx5skC'});
     </script>
+  <% end %>
+  <% if current_page?(new_booking_path) %>
+    <script src="https://rentprog-b5205.web.app/js/app.js"></script>
   <% end %>
 </body>
 </html>

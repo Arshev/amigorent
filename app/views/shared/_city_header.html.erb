@@ -61,6 +61,52 @@
             </li>
             <li>
               <% if I18n.locale == :en %>
+                <% if current_page?(articles_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.articles' %>
+                  </a>
+                <% else %>
+                  <%= link_to articles_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.articles' %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if current_page?(articles_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.articles' %>
+                  </a>
+                <% else %>
+                  <%= link_to articles_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.articles' %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
+                <% if current_page?(abouts_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.abouts' %>
+                  </a>
+                <% else %>
+                  <%= link_to abouts_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.abouts' %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if current_page?(abouts_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.abouts' %>
+                  </a>
+                <% else %>
+                  <%= link_to abouts_path(city:  (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.abouts' %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
                 <% if current_page?(contacts_path) %>
                   <a href="" onclick="return false">
                     <%= t 'header.contacts' %>
@@ -174,6 +220,52 @@
                     <%= link_to reviews_path(city: (params[:city] ? params[:city] : @city.name)) do %>
                       <%= t 'header.reviews' %>
                     <% end %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
+                <% if current_page?(articles_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.articles' %>
+                  </a>
+                <% else %>
+                  <%= link_to articles_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.articles' %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if current_page?(articles_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.articles' %>
+                  </a>
+                <% else %>
+                  <%= link_to articles_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.articles' %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if I18n.locale == :en %>
+                <% if current_page?(abouts_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.abouts' %>
+                  </a>
+                <% else %>
+                  <%= link_to abouts_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.abouts' %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if current_page?(abouts_path) %>
+                  <a href="" onclick="return false">
+                    <%= t 'header.abouts' %>
+                  </a>
+                <% else %>
+                  <%= link_to abouts_path(city:  (params[:city] ? params[:city] : @city.name)) do %>
+                    <%= t 'header.abouts' %>
+                  <% end %>
                 <% end %>
               <% end %>
             </li>

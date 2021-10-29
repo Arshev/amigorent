@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_145701) do
+ActiveRecord::Schema.define(version: 2021_10_29_085850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -603,6 +603,23 @@ ActiveRecord::Schema.define(version: 2021_10_23_145701) do
     t.string "cars_commercial_description_en", default: "empty"
     t.string "cars_commercial_h1_en", default: "empty"
     t.text "cars_commercial_text_en", default: "empty"
+    t.string "bookings_h1", default: "empty"
+    t.string "contacts_phones", default: "empty"
+    t.string "bookings_h1_en", default: "empty"
+    t.string "contacts_phones_en", default: "empty"
+    t.string "contacts_email", default: "empty"
+    t.text "main_question_1", default: "empty"
+    t.text "main_question_2", default: "empty"
+    t.text "main_question_3", default: "empty"
+    t.text "main_question_1_en", default: "empty"
+    t.text "main_question_2_en", default: "empty"
+    t.text "main_question_3_en", default: "empty"
+    t.text "main_question_title_1", default: "empty"
+    t.text "main_question_title_2", default: "empty"
+    t.text "main_question_title_3", default: "empty"
+    t.text "main_question_title_1_en", default: "empty"
+    t.text "main_question_title_2_en", default: "empty"
+    t.text "main_question_title_3_en", default: "empty"
   end
 
   create_table "towns", force: :cascade do |t|

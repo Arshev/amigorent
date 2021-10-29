@@ -370,11 +370,13 @@ document.addEventListener("DOMContentLoaded", () => {
       let googleRating = $("#GoogleRaiting").text()
       $("#rateYoYa").rateYo({
           rating: yaRating,
-          readOnly: true
+          readOnly: true,
+          ratedFill: "#ef7f1a"
       });
       $("#rateYoGoogle").rateYo({
           rating: googleRating,
-          readOnly: true
+          readOnly: true,
+          ratedFill: "#ef7f1a"
       });
     });
   })

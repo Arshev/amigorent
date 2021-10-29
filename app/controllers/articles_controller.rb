@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.paginate(page: params[:page])
+    @city = City.find_by(name: params[:city])
   end
 
   def create
@@ -28,6 +29,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @city = City.find_by(name: params[:city])
   end
 
   def destroy

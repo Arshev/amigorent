@@ -219,6 +219,17 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
+                  <h4>H1 страницы заявки</h4>
+                  <%= f.cktext_area :bookings_h1, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
                   <h4>Текст внизу страницы заявки</h4>
                   <%= f.cktext_area :bookings_bottom_text, ckeditor: { language: 'ru'} %>
                 </div>
@@ -342,6 +353,28 @@
                 <div class="click2edit m-b-3">
                   <h4>Статьи Н1</h4>
                   <%= f.text_field :articles_h1, placeholder: "", class: "form-control" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Контакты телефоны</h4>
+                  <%= f.cktext_area :contacts_phones, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Контакты Email</h4>
+                  <%= f.cktext_area :contacts_email, ckeditor: { language: 'ru'} %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>

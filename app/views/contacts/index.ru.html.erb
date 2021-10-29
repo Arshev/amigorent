@@ -44,7 +44,8 @@
               </div>
               <p>Наличными, банковской картой, безналичным переводом</p>
               <div class="zag">Наш E-mail:</div>
-              <p><a href="#">amigorent@ya.ru</a></p>
+              <%# <p><a href="#">amigorent@ya.ru</a></p> %>
+              <p><%= @text.contacts_phones.html_safe %></p>
           </div>
           <div class="clear"></div>
         </div>
@@ -55,9 +56,10 @@
               <div class="zag">Адрес офиса:</div>
               <p>Калининград ул. А.Невского 36В, ТЦ "Невский", 3 этаж - левое крыло</p>
               <div class="zag">Телефон:</div>
-              <p><a href="tel:+74012640003"><span class="videl"><b>+7 (4012) 64-00-03</b></span></a> – городской номер</p>
-              <p><a href="#"><b>+7 921 710-16-15</b></a> – Экстренный (круглосуточно)</p>
-              <p><a href="tel:88001003973"><b>8 800 100-39-73</b></a> – звонок по России бесплатный <br />(с 10:00 до 20:00 Мск);</p>
+              <%= @text.contacts_phones.html_safe %>
+              <%# <p><a href="tel:+74012640003"><span class="videl"><b>+7 (4012) 52-16-15</b></span></a> – городской номер</p>
+              <p><a href="#"><b>+7 921 710-16-15</b></a> – Мобильный</p>
+              <p><a href="tel:88001003973"><b>8 800 100-39-73</b></a> – звонок по России бесплатный <br />(с 10:00 до 20:00 Мск);</p> %>
               <p>Мессенджеры:
                 <a href="whatsapp://send?phone=+79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
                   <%= image_tag "whatsapp.webp", style: "width:30px;", alt: "whatsapp", title: "whatsapp" %>

@@ -10,7 +10,7 @@
         <%= render 'shared/bread'%>
         <div class="pricee">
             <div class="zagol">Цены</div>
-            <div class="podzag">Страховка автомобиля по КАСКО включена в стоимость</div>
+            <div class="podzag"><%= @text.prices_text.html_safe %></div>
             <table>
                 <thead>
                     <tr>
@@ -182,7 +182,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p class="tex">По вашей просьбе может быть предоставлен более широкий набор дополнительного оборудования.<br />Зарядные устройства, держатели для телефона, FM-трансмиттеры, провода для AUX даем бесплатно, по запросу</p>
+            <p class="tex"><%= @text.dop_table_downtext.html_safe %></p>
           <div class="zagol">О ценовой политике Нашей компании</div>
           <div class="txt">
             <p><%= @text.prices_bottom_text.html_safe %></p>
