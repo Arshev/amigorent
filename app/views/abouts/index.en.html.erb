@@ -8,46 +8,61 @@
           <p><%= @text.about_text_en.html_safe %></p>
           <div class="zagol">Our partners:</div>
           <div class="spis_par">
-            <%= image_tag "par.webp", alt: "", title: "" %>
-            <%= image_tag "par.webp", alt: "", title: "" %>
-            <%= image_tag "par.webp", alt: "", title: "" %>
-            <%= image_tag "par.webp", alt: "", title: "" %>
-            <%= image_tag "par.webp", alt: "", title: "" %>
-            <%= image_tag "par.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_1.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_2.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_3.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_4.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_5.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_6.webp", alt: "", title: "" %>
             <div class="clear"></div>
           </div>
-          <div class="zagol">Certificates</div>
+          <div class="zagol">Сертификаты</div>
           <div class="spis_ser">
-            <%= image_tag "ser.webp", alt: "", title: "" %>
-            <%= image_tag "ser.webp", alt: "", title: "" %>
-            <%= image_tag "ser.webp", alt: "", title: "" %>
+            <%= image_pack_tag "ser_1.webp", alt: "", title: "" %>
+            <%= image_pack_tag "ser_2.webp", alt: "", title: "" %>
+            <%= image_pack_tag "ser_3.webp", alt: "", title: "" %>
             <div class="clear"></div>
           </div>
           <div class="zagol">Our employees</div>
           <div class="spis_sot">
               <div class="sot">
-                  <div class="bl_img" style="background-image: url(<%= image_path('sot.webp')%>);"></div>
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_1.webp')%>);"></div>
                   <div class="fio">Andrew Vladimirovich</div>
-                  <p>Director</p>
+                  <p>CEO</p>
               </div>
               <div class="sot">
-                  <div class="bl_img" style="background-image: url(<%= image_path('sot.webp')%>);"></div>
-                  <div class="fio">Evgeny Sergeevich</div>
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_2.webp')%>);"></div>
+                  <div class="fio">Evgeniy Sergeevich</div>
                   <p>Manager</p>
               </div>
               <div class="sot">
-                  <div class="bl_img" style="background-image: url(<%= image_path('sot.webp')%>);"></div>
-                  <div class="fio">Evgenia Nikolaevna</div>
-                  <p>Менеджер</p>
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_5.webp')%>);"></div>
+                  <div class="fio">Evgeniya Nikolaevna</div>
+                  <p>Manager</p>
               </div>
               <div class="sot">
-                  <div class="bl_img" style="background-image: url(<%= image_path('sot.webp')%>);"></div>
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_8.webp')%>);"></div>
                   <div class="fio">Irina Vladimirovna</div>
                   <p>Marketer</p>
               </div>
               <div class="sot">
-                  <div class="bl_img" style="background-image: url(<%= image_path('sot.webp')%>);"></div>
-                  <div class="fio">Roman Alexandrovich</div>
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_3.webp')%>);"></div>
+                  <div class="fio">Aleksandr Vladimirovich</div>
+                  <p>Technician</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_4.webp')%>);"></div>
+                  <div class="fio">Alexey Mikhailovich</div>
+                  <p>Manager</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_6.webp')%>);"></div>
+                  <div class="fio">Ivan Grigorievich</div>
+                  <p>Manager</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_7.webp')%>);"></div>
+                  <div class="fio">Victor Alexandrovich</div>
                   <p>Technician</p>
               </div>
               <div class="clear"></div>

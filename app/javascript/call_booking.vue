@@ -5,7 +5,60 @@
       :is-full-page="true"
       color="#1976d2"
     ></loading>
-    <div>
+    <div v-if="locale && locale == 'en'">
+      <a class="zaya" @click="showModal = true">Leave a request</a>
+      <div v-if="showModal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-container">
+              <div class="modal-body">
+                <slot name="body">
+                  <div style="text-align: left">
+                    <button
+                      class="modal-default-button"
+                      @click="showModal = false"
+                    >
+                      Close
+                    </button>
+                  </div>
+                  <div class="bl_contact2_modal">
+                    <div>
+                      <div class="zag">Have questions?</div>
+                      <form @submit.prevent="sendBooking()">
+                        <input
+                          v-model="name"
+                          type="text"
+                          value=""
+                          placeholder="Your name"
+                          name=""
+                        />
+                        <input
+                          v-model="phone"
+                          type="phone"
+                          value=""
+                          placeholder="+ 7 (123) 456-78-90"
+                          name=""
+                        />
+                        <input
+                          v-model="text"
+                          type="textarea"
+                          name="text"
+                          placeholder="Текст"
+                        />
+                        <input type="submit" value="Send" />
+                        <div class="clear"></div>
+                      </form>
+                      <div class="clear"></div>
+                    </div>
+                  </div>
+                </slot>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else>
       <a class="zaya" @click="showModal = true">Оставить заявку</a>
       <div v-if="showModal">
         <div class="modal-mask">
@@ -63,6 +116,11 @@
 
 <script>
 export default {
+  props: {
+    locale: {
+      type: String,
+    },
+  },
   data: function () {
     return {
       phone: null,

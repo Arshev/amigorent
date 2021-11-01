@@ -1,0 +1,46 @@
+<% title @city.title_en %>
+<% description @city.description_en %>
+<%= render 'shared/city_header', city_name: @city.name_en, city_address: @city.address_en, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<div class="block_price" <%= style="background: url( #{url_for(@city.background)}) no-repeat top transparent;" if @city.background.attached? %> %>
+    <div class="wrapper">
+        <span></span>
+        <div class="text1">You are always at the helm with us!</div>
+        <div class="text2"><b>Car rental in</b> <%= @city.name_en %></div>
+        <%= link_to prices_path(locale: I18n.locale, city: @city.name), class: "ceny" do %>
+            Rental Prices
+        <% end %>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block2 var3">
+    <div class="wrapper" id="search_main">
+        <search city="<%= @city.name %>" locale="<%= I18n.locale %>"></search>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="content" style="padding: 50px 0 11px;">
+    <div class="wrapper">
+        <div class="bl_dostavka">
+            <div class="zagol"><h1><%= @city.h1_en %></h1></div>
+            <p><%= @city.text_en %></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    </div>
+<div class="block4 var2">
+    <div class="wrapper">
+        <div class="zagol">
+            Car rental in </b><%= @city.name_en %>
+        </div>
+        <div class="spis_avto active" id="spis1">
+        
+        <% if @cars.size > 0 %>
+            <%= render partial: 'cars/cars', collection: @cars, as: :car, cached: true %>
+        <% end %>
+        
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<%= render 'shared/city_footer', city_name: @city.name_en, city_address: @city.address_en, city_phone: @city.phone, city_email: @city.email, cached: true %>

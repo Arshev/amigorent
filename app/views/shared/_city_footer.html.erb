@@ -211,16 +211,30 @@
                 </ul>
             </div>
             <div class="col3">
-                <div class="zag">Полезное</div>
-                <ul>
-                    <li>
-                        <p class="copy">Мы используем <%= link_to "CRM RentProg", "https://rentprog.ru", class:"polz", style: "color: #f77d0a; margin: 0; text-align: center;"%></p>
-                    </li>
-                </ul>
+                <% if I18n.locale == :en %>
+                    <div class="zag">Usefull</div>
+                    <ul>
+                        <li>
+                            <p class="copy">We work on <%= link_to "CRM RentProg", "https://rentprog.ru", class:"polz", style: "color: #f77d0a; margin: 0; text-align: center;"%></p>
+                        </li>
+                    </ul>
+                <% else %>
+                    <div class="zag">Полезное</div>
+                    <ul>
+                        <li>
+                            <p class="copy">Мы используем <%= link_to "CRM RentProg", "https://rentprog.ru", class:"polz", style: "color: #f77d0a; margin: 0; text-align: center;"%></p>
+                        </li>
+                    </ul>
+                <% end %>
             </div>
             <div class="col3">
-                <div class="zag">Контакты</div>
-                <p>г. <%= @city.name %>,<br /><%= @city.address %></p>
+                <% if I18n.locale == :en %>
+                    <div class="zag">Contacts</div>
+                    <p><%= @city.name_en %>,<br /><%= @city.address_en %></p>
+                <% else %>
+                    <div class="zag">Контакты</div>
+                    <p>г. <%= @city.name %>,<br /><%= @city.address %></p>
+                <% end %>
                 <p><a href="tel:88001003973">8 800 100-39-73</a></p>
                 <p><a href="mailto:amigorent@ya.ru">amigorent@ya.ru</a></p>
                 <div class="social">

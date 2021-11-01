@@ -3,9 +3,15 @@
   <meta itemprop="headline" content="Прокат автомобилей Амиго">
     <meta itemprop="description" content="✔️ Честный прокат автомобилей в Калининграде. Дружественное отношение к клиенту, низкие цены на аренду авто, от 700₽, страховка КАСКО. Обращайтесь!">
     <div class="wrapper">
-        <a href="/russia/<%= @city.url_name %>" id="logo">
+      <% if I18n.locale == :en %>
+        <a href="/russia/<%= @city.url_name %>?locale=en" id="logo">
           <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
         </a>
+      <% else %>
+        <a href="/russia/<%= @city.url_name %>?locale=ru" id="logo">
+          <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
+        </a>
+      <% end %>
         <div id="menu_tg2">
             <span></span>
             <span></span>
@@ -225,29 +231,6 @@
             </li>
             <li>
               <% if I18n.locale == :en %>
-                <% if current_page?(articles_path) %>
-                  <a href="" onclick="return false">
-                    <%= t 'header.articles' %>
-                  </a>
-                <% else %>
-                  <%= link_to articles_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
-                    <%= t 'header.articles' %>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <% if current_page?(articles_path) %>
-                  <a href="" onclick="return false">
-                    <%= t 'header.articles' %>
-                  </a>
-                <% else %>
-                  <%= link_to articles_path(city: (params[:city] ? params[:city] : @city.name)) do %>
-                    <%= t 'header.articles' %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </li>
-            <li>
-              <% if I18n.locale == :en %>
                 <% if current_page?(abouts_path) %>
                   <a href="" onclick="return false">
                     <%= t 'header.abouts' %>
@@ -293,8 +276,35 @@
               <% end %>
             </li>
             <li class="parent">
-              <a>Ещё</a>
+              <% if I18n.locale == :en %>
+                <a>More</a>
+              <% else %>
+                <a>Ещё</a>
+              <% end %>
                 <ul>
+                  <li>
+                    <% if I18n.locale == :en %>
+                      <% if current_page?(articles_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.articles' %>
+                        </a>
+                      <% else %>
+                        <%= link_to articles_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                          <%= t 'header.articles' %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <% if current_page?(articles_path) %>
+                        <a href="" onclick="return false">
+                          <%= t 'header.articles' %>
+                        </a>
+                      <% else %>
+                        <%= link_to articles_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                          <%= t 'header.articles' %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </li>
                   <li>
                     <% if I18n.locale == :en %>
                         <% if current_page?(casko_path) %>
@@ -483,27 +493,37 @@
             </li>
         </ul>
         
-        <div class="gorod" style="float: right;">
+        <div class="gorod">
+          <% if I18n.locale == :en %>
+            <span><%= @city.name_en %></span>
+            <a href="#">Select City</a>
+            <div class="vipad">
+                <a href="/" >Kaliningrad</a>
+              <% cities_list.each do |city| %>
+                <a href="/russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+              <% end %>
+            </div>
+          <% else %>
             <span><%= @city.name %></span>
             <a href="#">Выбрать город</a>
             <div class="vipad">
                 <a href="/" >Калининград</a>
               <% cities_list.each do |city| %>
-                <a href="/russia/<%= city.url_name %>" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
-                <%# <a href="#" class="active">Калининград</a> %>
+                <a href="/russia/<%= city.url_name %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
               <% end %>
             </div>
+          <% end %>
         </div>
         <div class="lang">
-          <% link_to root_path(locale: :en) do %>
+          <%= link_to root_path(locale: :en) do %>
             <% if I18n.locale == :en %>
               <span class="active">EN</span>
             <% else %>
               <span class="">EN</span>
             <% end %>
           <% end %>
-          <%# /  %>
-          <% link_to root_path do %>
+          / 
+          <%= link_to root_path do %>
             <% if I18n.locale == :ru %>
               <span class="active">RU</span>
             <% else %>

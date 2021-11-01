@@ -7,7 +7,7 @@
         <% else %>
           <p><%= @text.main_up_text %></p>
         <% end %>
-        <app></app>
+        <app locale="<%= I18n.locale %>"></app>
         <div class="clear"></div>
     </div>
   </div>
@@ -16,6 +16,17 @@
   <meta itemprop="headline" content="Прокат автомобилей Амиго">
     <meta itemprop="description" content="✔️ Честный прокат автомобилей в Калининграде. Дружественное отношение к клиенту, низкие цены на аренду авто, от 700₽, страховка КАСКО. Обращайтесь!">
     <div class="wrapper">
+      <% if I18n.locale == :en %>
+        <% if current_page?(controller: 'main', action: 'index') %>
+          <a href="" onclick="return false" id="logo">
+              <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
+          </a>
+        <% else %>
+          <%= link_to root_path(locale: :en), id: "logo" do %>
+            <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
+          <% end %>
+        <% end %>
+      <% else %>
         <% if current_page?(controller: 'main', action: 'index') %>
           <a href="" onclick="return false" id="logo">
               <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
@@ -25,6 +36,7 @@
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           <% end %>
         <% end %>
+      <% end %>
         <div id="menu_tg2">
             <span></span>
             <span></span>
@@ -954,17 +966,27 @@
                 </ul>
             </div>
         </div>
-        <% if I18n.locale != :en %>
-          <div class="gorod">
-              <span>Калининград</span>
-              <a href="#">Выбрать город</a>
-              <div class="vipad">
-                <% cities_list.each do |city| %>
-                  <a href="/russia/<%= city.url_name %>" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
-                <% end %>
-              </div>
-          </div>
-        <% end %>
+        <div class="gorod">
+            <% if I18n.locale == :en %>
+            <span>Kaliningrad</span>
+            <a href="#">Select City</a>
+            <div class="vipad">
+                <a href="/" >Kaliningrad</a>
+              <% cities_list.each do |city| %>
+                <a href="/russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+              <% end %>
+            </div>
+          <% else %>
+            <span>Калининград</span>
+            <a href="#">Выбрать город</a>
+            <div class="vipad">
+                <a href="/" >Калининград</a>
+              <% cities_list.each do |city| %>
+                <a href="/russia/<%= city.url_name %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
         <div class="lang">
           <%= link_to root_path(locale: :en) do %>
             <% if I18n.locale == :en %>

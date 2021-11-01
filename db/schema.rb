@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_102026) do
+ActiveRecord::Schema.define(version: 2021_11_01_155149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -198,6 +198,12 @@ ActiveRecord::Schema.define(version: 2021_10_29_102026) do
     t.float "google", default: 1.0
     t.boolean "active", default: false
     t.string "rentprog_token"
+    t.string "name_en", default: "empty"
+    t.string "title_en", default: "empty"
+    t.string "description_en", default: "empty"
+    t.string "h1_en", default: "empty"
+    t.text "text_en", default: "empty"
+    t.string "address_en", default: "empty"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

@@ -140,7 +140,7 @@
                       <td><%= car.deposit %> ₽ </td>
                       <td><%= car.price_hour %> ₽ </td>
                       <td class="btn_price">
-                        <%= link_to new_booking_path(car_id: car.id) do %>
+                        <%= link_to car_ru_path(car) do %>
                           Арендовать
                         <% end %>
                       </td>
