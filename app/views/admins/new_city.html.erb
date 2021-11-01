@@ -21,6 +21,8 @@
                   <h4 class="text-black"><%= @city.name %></h4>
                   <h3>Имя</h3>
                   <%= f.text_field :name, class: "form-control" %>
+                  <h3>Имя En</h3>
+                  <%= f.text_field :name_en, class: "form-control" %>
                   <h3>URL адрес</h3>
                   <%= f.text_field :url_name, class: "form-control" %>
                   <h3>Title</h3>
@@ -29,6 +31,12 @@
                   <%= f.text_field :description, class: "form-control" %>
                   <h3>Н1</h3>
                   <%= f.text_field :h1, class: "form-control" %>
+                  <h3>Title En</h3>
+                  <%= f.text_field :title_en, class: "form-control" %>
+                  <h3>Description En</h3>
+                  <%= f.text_field :description_en, class: "form-control" %>
+                  <h3>Н1 En</h3>
+                  <%= f.text_field :h1_en, class: "form-control" %>
                   <h3>Email</h3>
                   <%= f.text_field :email, class: "form-control" %>
                   <h3>Телефон</h3>
@@ -37,6 +45,8 @@
                   <%= f.text_field :rentprog_token, class: "form-control" %>
                   <h3>Адрес</h3>
                   <%= f.text_field :address, class: "form-control" %>
+                  <h3>Адрес En</h3>
+                  <%= f.text_field :address_en, class: "form-control" %>
                   <h3>Яндекс</h3>
                   <%= f.text_field :yandex, class: "form-control" %>
                   <h3>Google</h3>
@@ -45,6 +55,8 @@
                   <%= f.text_field :work_time, class: "form-control" %>
                   <h3>Текст</h3>
                   <%= f.cktext_area :text, ckeditor: { language: 'ru'}, class: "form-control" %>
+                  <h3>Текст En</h3>
+                  <%= f.cktext_area :text_en, ckeditor: { language: 'ru'}, class: "form-control" %>
                   <div id="photos" style="text-align: center;">
                   <% if @city.background.attached? %>
                     <%= image_tag @city.background.variant(resize_to_limit: [500, nil]), class: "m-t-1" %>
