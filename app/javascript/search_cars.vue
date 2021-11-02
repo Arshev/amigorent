@@ -148,40 +148,6 @@
       </div>
       <button @click.prevent="goToCars()">Поиск</button>
       <div class="filtry"><a @click.prevent="goToAllCars()">Очистить</a></div>
-      <!-- <div class="filtry">Фильтры</div>
-      <div class="vipad_filtr">
-        <select class="var2">
-          <option>Выберите тип КПП</option>
-          <option>Механика</option>
-          <option>Автомат</option>
-        </select>
-        <select class="var2">
-          <option>Выберите класс авто</option>
-          <option>Премиум</option>
-          <option>Комфорт</option>
-        </select>
-        <select class="var2">
-          <option>Выберите кузов авто</option>
-          <option>Седан</option>
-          <option>Хетчбек</option>
-        </select>
-        <select class="var2">
-          <option>Укажите год выпуска</option>
-          <option>2010</option>
-          <option>2011</option>
-          <option>2012</option>
-          <option>2013</option>
-          <option>2014</option>
-          <option>2015</option>
-        </select>
-        <select class="var2">
-          <option>Выберите топливо</option>
-          <option>Бензин</option>
-          <option>Дизель</option>
-        </select>
-        <a href="#" class="prime">Применить</a>
-        <div class="clear"></div>
-      </div> -->
       <div class="clear"></div>
     </form>
     <div class="clear"></div>
@@ -259,7 +225,7 @@ export default {
             moment(this.end_date, "DD-MM-YYYY")
           )
         ) {
-          if (locale && locale == 'en') {
+          if (this.locale && this.locale == 'en') {
             window.location.replace(
               `/en/cars?start_date=${this.start_date}&start_time=${this.start_time}&end_date=${this.end_date}&end_time=${this.end_time}&city=${this.city}`
             );
@@ -284,7 +250,7 @@ export default {
       }
     },
     goToAllCars() {
-      if (locale && locale == 'en') {
+      if (this.locale && this.locale == 'en') {
         window.location.replace(
           `/en/cars?city=${this.city}`
         );
