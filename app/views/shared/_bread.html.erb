@@ -1,129 +1,129 @@
 <% if I18n.locale == :en %>  
   <div class="bread">
     <% if current_page?(controller: 'cars', action: 'index')%>
-      <a href="/">Main /</a> Cars
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Cars
     <% elsif current_page?(controller: 'cars', action: 'economy')%>
-      <a href="/">Главная /</a> Economy
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Economy
     <% elsif current_page?(controller: 'cars', action: 'middle')%>
-      <a href="/">Главная /</a> Middle
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Middle
     <% elsif current_page?(controller: 'cars', action: 'minivans')%>
-      <a href="/">Главная /</a> Minivans
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Minivans
     <% elsif current_page?(controller: 'cars', action: 'crossovers')%>
-      <a href="/">Главная /</a> Crossovers
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Crossovers
     <% elsif current_page?(controller: 'cars', action: 'business')%>
-      <a href="/">Главная /</a> Business
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Business
     <% elsif current_page?(controller: 'cars', action: 'commercial')%>
-      <a href="/">Главная /</a> Commercial vehicle
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Commercial vehicle
     <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
-      <a href="/">Main /</a><%= link_to "Cars", cars_path %> / <%= @car.car_name%>
+      <a href="<%= @car.city != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a><%= link_to "Cars", cars_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @car.city)) %> / <%= @car.car_name%>
     <% elsif current_page?(controller: 'prices', action: 'index')%>
-      <a href="/">Main /</a> Prices
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Prices
     <% elsif current_page?(controller: 'contacts', action: 'index')%>
-      <a href="/">Main /</a> Contacts
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Contacts
     <% elsif current_page?(controller: 'main', action: 'conditions')%>
-      <a href="/">Main /</a> Terms of use
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Terms of use
     <% elsif current_page?(controller: 'bookings', action: 'new')%>
-      <a href="/">Main /</a> Booking
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Booking
     <% elsif current_page?(controller: 'bookings', action: 'success')%>
-      <a href="/">Main /</a> Success
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Success
     <% elsif current_page?(controller: 'reviews', action: 'index')%>
-      <a href="/">Main /</a> Reviews
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Reviews
     <% elsif current_page?(controller: 'terms', action: 'index')%>
-      <a href="/">Main /</a> Terms
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Terms
     <% elsif current_page?(controller: 'faqs', action: 'index')%>
-      <a href="/">Main /</a> FAQs
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> FAQs
     <% elsif current_page?(controller: 'abouts', action: 'index')%>
-      <a href="/">Main /</a> About us
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> About us
     <% elsif current_page?(controller: 'services', action: 'index')%>
-      <a href="/">Main /</a> Additional Services
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Additional Services
     <% elsif current_page?(controller: 'deliveries', action: 'index')%>
-      <a href="/">Main /</a> Delivery
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Delivery
     <% elsif current_page?(controller: 'main', action: 'casko')%>
-      <a href="/">Main /</a> Hull Insurance
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Hull Insurance
     <% elsif current_page?(controller: 'main', action: 's_voditelem')%>
-      <a href="/">Main /</a> Car Hire
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Car Hire
     <% elsif current_page?(controller: 'main', action: 'car_sharing')%>
-      <a href="/">Main /</a> Car Sharing
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Car Sharing
     <% elsif current_page?(controller: 'main', action: 'corporate')%>
-      <a href="/">Main /</a> Corporate Clients
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Corporate Clients
     <% elsif current_page?(controller: 'main', action: 'sales')%>
-      <a href="/">Main /</a> Sales System
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Sales System
     <% elsif current_page?(controller: 'main', action: 'payment')%>
-      <a href="/">Main /</a> Payment Methods
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Payment Methods
     <% elsif current_page?(controller: 'main', action: 'outsours')%>
-      <a href="/">Main /</a> Transport Outsourcing
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Transport Outsourcing
     <% elsif current_page?(controller: 'main', action: 'full_insurance')%>
-      <a href="/">Main /</a> Full Insurance
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Full Insurance
     <% elsif current_page?(controller: 'articles', action: 'index')%>
-      <a href="/">Main /</a> News and Promotions
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> News and Promotions
     <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
-      <a href="/">Main /</a><%= link_to "Articles", articles_en_path %> / <%= @article.title_en %>
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a><%= link_to "Articles", articles_en_path %> / <%= @article.title_en %>
     <% else %>
-      <a href="/">Main /</a>
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a>
     <% end %>
   </div>
 <% else %>
   <div class="bread">
     <% if current_page?(controller: 'cars', action: 'index')%>
-      <a href="/">Главная /</a> Автомобили
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Автомобили
     <% elsif current_page?(controller: 'cars', action: 'economy')%>
-      <a href="/">Главная /</a> Автомобили Эконом-класса
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Автомобили Эконом-класса
     <% elsif current_page?(controller: 'cars', action: 'middle')%>
-      <a href="/">Главная /</a> Автомобили Среднего класса
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Автомобили Среднего класса
     <% elsif current_page?(controller: 'cars', action: 'minivans')%>
-      <a href="/">Главная /</a> Минивэны
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Минивэны
     <% elsif current_page?(controller: 'cars', action: 'crossovers')%>
-      <a href="/">Главная /</a> Кроссоверы
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Кроссоверы
     <% elsif current_page?(controller: 'cars', action: 'business')%>
-      <a href="/">Главная /</a> Автомобили Бизнес-класса
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Автомобили Бизнес-класса
     <% elsif current_page?(controller: 'cars', action: 'commercial')%>
-      <a href="/">Главная /</a> Коммерческий транспорт
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Коммерческий транспорт
     <% elsif params[:controller] == 'cars' && params[:action] == 'show' %>
-      <a href="/">Главная /</a><%= link_to "Автомобили", cars_path %> / <%= @car.car_name%>
+      <a href="<%= @car.city != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a><%= link_to "Автомобили", cars_path(locale: I18n.locale, city:  (params[:city] ? params[:city] : @car.city)) %> / <%= @car.car_name%>
     <% elsif current_page?(controller: 'prices', action: 'index')%>
-      <a href="/">Главная /</a> Цены
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Цены
     <% elsif current_page?(controller: 'contacts', action: 'index')%>
-      <a href="/">Главная /</a> Контакты
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Контакты
     <% elsif current_page?(controller: 'main', action: 'conditions')%>
-      <a href="/">Главная /</a> Пользовательское соглашение
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Пользовательское соглашение
     <% elsif current_page?(controller: 'bookings', action: 'new')%>
-      <a href="/">Главная /</a> Заказать
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Заказать
     <% elsif current_page?(controller: 'bookings', action: 'success')%>
-      <a href="/">Главная /</a> Успешная заявка
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Успешная заявка
     <% elsif current_page?(controller: 'reviews', action: 'index')%>
-      <a href="/">Главная /</a> Отзывы
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Отзывы
     <% elsif current_page?(controller: 'terms', action: 'index')%>
-      <a href="/">Главная /</a> Условия
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Условия
     <% elsif current_page?(controller: 'faqs', action: 'index')%>
-      <a href="/">Главная /</a> Вопросы
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Вопросы
     <% elsif current_page?(controller: 'abouts', action: 'index')%>
-      <a href="/">Главная /</a> О нас
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> О нас
     <% elsif current_page?(controller: 'services', action: 'index')%>
-      <a href="/">Главная /</a> Дополнительные услуги
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Дополнительные услуги
     <% elsif current_page?(controller: 'deliveries', action: 'index')%>
-      <a href="/">Главная /</a> Доставка
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Доставка
     <% elsif current_page?(controller: 'main', action: 'casko')%>
-      <a href="/">Главная /</a> Страховка КАСКО
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Страховка КАСКО
     <% elsif current_page?(controller: 'main', action: 's_voditelem')%>
-      <a href="/">Главная /</a> Аренда авто с водителем
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Аренда авто с водителем
     <% elsif current_page?(controller: 'main', action: 'car_sharing')%>
-      <a href="/">Главная /</a> Каршеринг
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Каршеринг
     <% elsif current_page?(controller: 'main', action: 'corporate')%>
-      <a href="/">Главная /</a> Корпоративным клиентам
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Корпоративным клиентам
     <% elsif current_page?(controller: 'main', action: 'sales')%>
-      <a href="/">Главная /</a> Система скидок
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Система скидок
     <% elsif current_page?(controller: 'main', action: 'payment')%>
-      <a href="/">Главная /</a> Методы оплаты
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Методы оплаты
     <% elsif current_page?(controller: 'main', action: 'outsours')%>
-      <a href="/">Главная /</a> Транспортный аутсорсинг
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Транспортный аутсорсинг
     <% elsif current_page?(controller: 'main', action: 'full_insurance')%>
-      <a href="/">Главная /</a> Полная страховка
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Полная страховка
     <% elsif current_page?(controller: 'articles', action: 'index')%>
-      <a href="/">Главная /</a> Новости и акции
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Новости и акции
     <% elsif params[:controller] == 'articles' && params[:action] == 'show' %>
-      <a href="/">Главная /</a><%= link_to "Статьи", articles_path %> / <%= @article.title%>
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a><%= link_to "Статьи", articles_path %> / <%= @article.title%>
     <% else %>
-      <a href="/">Главная /</a>
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a>
     <% end %>
   </div>
 <% end %>

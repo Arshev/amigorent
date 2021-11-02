@@ -5,6 +5,7 @@ class MainImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :file
+
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -48,7 +49,7 @@ class MainImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png webp]
   end
 
   # Override the filename of the uploaded files:

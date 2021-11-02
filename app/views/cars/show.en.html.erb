@@ -1,453 +1,247 @@
-<% title @text.car_title_en + " " + @car.car_name + " in Kaliningrad | Amigo" %>
-<% description @text.car_description_en + " " + @car.car_name + " in Kaliningrad. Car rental #{@car.car_name} at the Amigo car rental in Kaliningrad. Book online." %>
-<%= render 'shared/header', cached: true %>
+<% title @text.car_title + " " + @car.car_name + " in Kaliningrad | Amigo" %>
+<% description @text.car_description + " " + "#{@car.car_name} in Kaliningrad. Car hire #{@car.car_name} in car rental Amigo in Kaliningrad. Book on site." %>
+<% if @car.city != 'Калининград' || (params[:city] && params[:city] != 'Калининград') %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
     <div class="wrapper">
-        <%= render 'shared/bread'%>
-        <div class="bl_avto">
-            <div class="pol1" id="side-block">
-                <h1><%= @car.car_name %></h1>
-                <div class="bir">
-                    <% case @car.car_class %>
-                        <% when 'Эконом' %>
-                            <%= link_to economy_cars_path do %>
-                                Economy
-                            <% end %>
-                        <% when 'Средний' %>
-                            <%= link_to middle_cars_path do %>
-                                Middle
-                            <% end %>
-                        <% when 'Минивэны' %>
-                            <%= link_to minivans_cars_path do %>
-                                Minivans
-                            <% end %>
-                        <% when 'Кроссоверы' %>
-                            <%= link_to crossovers_cars_path do %>
-                                Crossovers
-                            <% end %>
-                        <% when 'Бизнес' %>
-                            <%= link_to business_cars_path do %>
-                                Business
-                            <% end %>
-                        <% when 'Коммерческий' %>
-                            <%= link_to commercial_cars_path do %>
-                                Commercial vehicle
-                            <% end %>
+        <div class="bread">
+            <%= render 'shared/bread'%>
+        </div>
+        <div class="cartochka">
+            <div class="pl1">
+                
+                <% if @car.main_image? %>
+                    <div class="bl_img_full" style="background-image: url(<%= image_path(@car.main_image.url) %>);"></div>
+                <% else %>
+                    <div class="bl_img_full" style="background-image: url(<%= image_path('avto.webp') %>);"></div>
+                <% end %>
+                
+                <ul class="bxslider">
+                    <% @car.images.each do |image| %>
+                        <li>
+                        <% if image.url %>
+                            <a href="<%= image_path(image.url)%>" style="background-image: url(<%= image_path(image.url(:show))%>);"></a>
                         <% else %>
-                            <%= @car.car_class %>
+                            <a href="<%= image_url('avto.webp')%>" style="background-image: url(<%= image_url('avto.webp')%>);"></a>
+                        <% end %>
+                        </li>
                     <% end %>
-                </div>
-                <div class="bl_full" style="margin-top: 100px;">
-                    <% if @car.old_price_1 %>
-                        <div class="badge">
-                            <%= image_tag "badge.png", alt: "Sales", title: "Sales" %>
-                        </div>
-                    <% end %>
-                    <div class="fotorama" data-nav="thumbs" data-thumbwidth="100" data-thumbheight="100">
-                        <%= image_tag @car.main_image.url, alt: @car.car_name, title: @car.car_name if @car.main_image? %>
-                        <% @car.images.each do |image| %>
-                            <%= image_tag image.url, alt: @car.car_name, title: @car.car_name %>
+                    <li>
+                        <a href="<%= image_path(@car.main_image.url) %>" style="background-image: url(<%= image_path(@car.main_image.url) %>);"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pl2">
+                <div class="zagol"><%= @car.car_name %>, <%= @car.year %></div>
+                <div class="hara">
+                    <div class="hr">
+                        <%= image_tag "h1.webp", alt: "", title: "" %>
+                        <%= @car.number_seats %> seats
+                    </div>
+                    <div class="hr">
+                        <%= image_tag "h2.webp", alt: "", title: "" %>
+                        <%= @car.year %> y.
+                    </div>
+                    <div class="hr">
+                        <%= image_tag "h3.webp", alt: "", title: "" %>
+                        <% if @car.is_air %>
+                            Air condition
+                        <% else %>
+                            No Air Condition
                         <% end %>
                     </div>
-                    <%= link_to "Previous", car_previous, style: "float:left;" %> <%= link_to "Next", car_next, style: "float:right;" %>
+                    <div class="hr">
+                        <%= image_tag "h4.webp", alt: "", title: "" %>
+                        <% if @car.fuel == "Бензин" %>
+                            Gasoline
+                        <% elsif @car.fuel == "Дизель" %>
+                            Disel
+                        <% else %>
+                            <%= @car.fuel %>
+                        <% end %>
+                    </div>
+                    <div class="hr">
+                        <%= image_tag "h5.webp", alt: "", title: "" %>
+                        <% if @car.car_type == 'Седан' %>
+                            Sedan
+                        <% elsif @car.car_type == 'Хэтчбэк' %>
+                            Hatchback
+                        <% elsif @car.car_type == 'Универсал' %>
+                            Universal
+                        <% elsif @car.car_type == 'Купе' %>
+                            Cupe
+                        <% elsif @car.car_type == 'Кроссовер' %>
+                            Crossover
+                        <% elsif @car.car_type == 'Джип' %>
+                            Jeep
+                        <% elsif @car.car_type == 'Миниван' %>
+                            Minivan
+                        <% else %>
+                            Sedan
+                        <% end %>
+                    </div>
+                    <div class="hr">
+                        <%= image_tag "h6.webp", alt: "", title: "" %>
+                        <% if @car.transmission == 'Механика'%>
+                            Manual
+                        <% else %>
+                            Automatic
+                        <% end %>
+                    </div>
+                    <div class="hr">
+                        <%= image_tag "h7.webp", alt: "", title: "" %>
+                        <% if @car.is_electropackage %>
+                            Electropackage
+                        <% else %>
+                            No Electropackage
+                        <% end %>
+                    </div>
+                    <div class="hr">
+                        <%= image_tag "h8.webp", alt: "", title: "" %>
+                        <%= @car.engine_capacity ? @car.engine_capacity : "-" %> l
+                    </div>
+                    <div class="clear"></div>
                 </div>
-            </div>
-            <div class="pol2">
-                <div class="zg">Specification:</div>
-                <div class="rating">
-                    Model rating:
-                    <% case car_rating(@car.id) %>
-                    <% when 5.0 %>
-                        <% 5.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                    <% when 4.5 %>
-                        <% 4.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 4.0 %>
-                        <% 4.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 3.5 %>
-                        <% 3.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 3.0 %>
-                        <% 3.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 2.5 %>
-                        <% 2.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 2.0 %>
-                        <% 2.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 1.5 %>
-                        <% 1.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 1.0 %>
-                        <% 1.times do %>
-                            <%= image_tag "ra1.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <% end %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% when 0.5 %>
-                        <%= image_tag "ra05.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                        <%= image_tag "ra0.png", alt: "Рейтинг", title: "Рейтинг" %>
-                    <% end %>
+                <div class="price">from <b><span><%= number_to_currency(@car.price_main, {delimiter: " ", precision: 0, unit: ''}) %></span> ₽/day</b></div>
+                <div class="podzg">Rent cost, daily</div>
+                <div class="spis_stoi">
+                    <div class="st">
+                        <span>until 3</span>
+                        <div style="<%= @car.old_price_1 ? "color: red;" : "" %>">
+                            <%= number_to_currency(@car.price_1, {delimiter: " ", precision: 0, unit: ''}) %> ₽
+                        </div>
+                        <% if @car.old_price_1 %>
+                            <div>
+                                <s><small><%= number_to_currency(@car.old_price_1, {delimiter: " ", precision: 0, unit: ''}) %> ₽</s></small>
+                            </div>
+                        <% end %> 
+                    </div>
+                    <div class="st">
+                        <span>4 - 7</span>
+                        <div style="<%= @car.old_price_2 ? "color: red;" : "" %>">
+                            <%= number_to_currency(@car.price_2, {delimiter: " ", precision: 0, unit: ''}) %> ₽
+                        </div>
+                        <% if @car.old_price_2 %>
+                            <div>
+                                <s><small><%= number_to_currency(@car.old_price_2, {delimiter: " ", precision: 0, unit: ''}) %> ₽</s></small>
+                            </div>
+                        <% end %> 
+                    </div>
+                    <div class="st">
+                        <span>8 - 14</span>
+                        <div style="<%= @car.old_price_3 ? "color: red;" : "" %>">
+                            <%= number_to_currency(@car.price_3, {delimiter: " ", precision: 0, unit: ''}) %> ₽
+                        </div>
+                        <% if @car.old_price_3 %>
+                            <div>
+                                <s><small><%= number_to_currency(@car.old_price_3, {delimiter: " ", precision: 0, unit: ''}) %> ₽</s></small>
+                            </div>
+                        <% end %> 
+                    </div>
+                    <div class="st">
+                        <span>15 - 30</span>
+                        <div style="<%= @car.old_price_4 ? "color: red;" : "" %>">
+                            <%= number_to_currency(@car.price_4, {delimiter: " ", precision: 0, unit: ''}) %> ₽
+                        </div>
+                        <% if @car.old_price_4 %>
+                            <div>
+                                <s><small><%= number_to_currency(@car.old_price_4, {delimiter: " ", precision: 0, unit: ''}) %> ₽</s></small>
+                            </div>
+                        <% end %> 
+                    </div>
+                    <div class="st">
+                        <span>> 30</span>
+                        <div style="<%= @car.old_price_5 ? "color: red;" : "" %>">
+                            <%= number_to_currency(@car.price_5, {delimiter: " ", precision: 0, unit: ''}) %> ₽
+                        </div>
+                        <% if @car.old_price_5 %>
+                            <div>
+                                <s><small><%= number_to_currency(@car.old_price_5, {delimiter: " ", precision: 0, unit: ''}) %> ₽</s></small>
+                            </div>
+                        <% end %> 
+                    </div>
+                    <div class="st">
+                        <span>Deposit</span>
+                        <%= number_to_currency(@car.deposit, {delimiter: " ", precision: 0, unit: ''}) %> ₽ 
+                    </div>
+                    <div class="clear"></div>
                 </div>
-                <p>
-                    <%= image_tag "i1.png", alt: "Transmission", title: "Transmission" %>
-                    Transmission:
-                    <% if @car.transmission == 'Механика' %>
-                        <span>Manual</span>
-                    <% elsif @car.transmission == 'Автомат' %>
-                        <span>Automatic</span>
-                    <% else %>
-                        <span><%= @car.transmission %></span>
-                    <% end %>
-                </p>
-                <p>
-                    <%= image_tag "i2.png", alt: "Color", title: "Color" %>
-                    Color:
-                    <span><%= @car.color %></span>
-                </p>
-                <p>
-                    <%= image_tag "i3.png", alt: "Fuel Type", title: "Fuel Type" %>
-                    Fuel Type:
-                    <% if @car.fuel == 'Бензин' %>
-                        <span>Gasoline</span>
-                    <% elsif @car.fuel == 'Дизель' %>
-                        <span>Dizel</span>
-                    <% else %>
-                        <span><%= @car.fuel %></span>
-                    <% end %>
-                </p>
-                <p>
-                    <%= image_tag "i4.png", alt: "Year of release", title: "Year of release" %>
-                    Year of release:
-                    <span><%= @car.year %></span>
-                </p>
-                <p>
-                    <%= image_tag "i5.png", alt: "Engine capacity", title: "Engine capacity" %>
-                    Engine capacity:
-                    <span><%= @car.engine_capacity %>l</span>
-                </p>
-                <p>
-                    <%= image_tag "i6.png", alt: "Body type", title: "Body type" %>
-                    Body type:
-                    <% if @car.car_type == "Хэтчбек" %>
-                        <span>Hatchback</span>
-                    <% elsif @car.car_type == "Седан" %>
-                        <span>Sedan</span>
-                    <% elsif @car.car_type == "Универсал" %>
-                        <span>Touring</span>
-                    <% elsif @car.car_type == "Минивэн" %>
-                        <span>Minivan</span>
-                    <% elsif @car.car_type == "Кроссовер" %>
-                        <span>Crossover</span>
-                    <% elsif @car.car_type == "Купе" %>
-                        <span>Coupe</span>
-                    <% else %>
-                        <span><%= @car.car_type %></span>
-                    <% end %>
-                </p>
-                <p>
-                    <%= image_tag "i7.png", alt: "Number of Doors", title: "Number of Doors" %>
-                    Number of Doors:
-                    <span><%= @car.number_doors %></span>
-                </p>
-                <p>
-                    <%= image_tag "i8.png", alt: "Air conditioning", title: "Air conditioning" %>
-                    Air conditioning:
-                    <% if @car.is_air %>
-                        <span>Yes</span>
-                    <% else %>
-                        <span>No</span>
-                    <% end %>
-                </p>
-                <p>
-                    <%= image_tag "i9.png", alt: "Electrical package", title: "Electrical package" %>
-                    Electrical package:
-                    <% if @car.is_electropackage %>
-                        <span>Yes</span>
-                    <% else %>
-                        <span>No</span>
-                    <% end %>
-                </p>
-                <div class="price">от <b><%= @car.price_main %></b> rubles/day</div>
-                <%= link_to "Book now", new_booking_path(car_id: @car.id), class:"bron" %>
+                <div style="text-align: center;" id="bookings">
+                    <bookings rentprog_token="<%= @rentprog_token %>" :link_params="<%= request.query_parameters.to_json %>" :ids_rentprog="<%= @car.ids_rentprog ? @car.ids_rentprog : [] %>" :booking_limit="<%= @car.booking_limit %>" car_name="<%= @car.car_name %>" locale="<%= I18n.locale == :en ? 'en' : 'ru' %>" :prices="[<%= @car.price_1 %>, <%= @car.price_2 %>, <%= @car.price_3 %>, <%= @car.price_4 %>, <%= @car.price_5 %>, <%= @car.price_hour %>, <%= @car.deposit %>]" image_link="<%= image_path(@car.main_image.url) ? image_path(@car.main_image.url) : image_path('avto.webp') %>"></bookings>
+                    <%# link_to "Забронировать", new_booking_path(car_id: @car.id), class:"arend" %>
+                </div>
+                <div>
+                    <%= link_to "Previous car", car_previous, style: "float:left;" %> <%= link_to "Next car", car_next, style: "float:right;" %>
+                </div>
             </div>
             <div class="clear"></div>
-            <div class="perek active" id="pere1">
-                <h3>Prices</h3>
-                <div class="table-wrap-tth">
-                    <table class="blueTable" style="font-size: 1em;">
-                        <thead>
-                            <tr>
-                                <th>up to 3 days</th>
-                                <th>4-7 days</th>
-                                <th>8-14 days</th>
-                                <th>15-30 days</th>
-                                <th>> 30 days</th>
-                                <th>Deposit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="<%= @car.old_price_1 ? "color: red;" : "" %>">
-                                        <%= @car.price_1 %>
-                                    </div>
-                                    <% if @car.old_price_1 %>
-                                        <div>
-                                            <s><small><%= @car.old_price_1 %></s></small>
-                                        </div>
-                                    <% end %>
-                                </td>
-                                <td>
-                                    <div style="<%= @car.old_price_2 ? "color: red;" : "" %>">
-                                        <%= @car.price_2 %>
-                                    </div>
-                                    <% if @car.old_price_2 %>
-                                        <div>
-                                            <small><s><%= @car.old_price_2 %></s></small>
-                                        </div>
-                                    <% end %>
-                                </td>
-                                <td>
-                                    <div style="<%= @car.old_price_3 ? "color: red;" : "" %>">
-                                        <%= @car.price_3 %>
-                                    </div>
-                                    <% if @car.old_price_3 %>
-                                        <div>
-                                            <small><s><%= @car.old_price_3 %></s></small>
-                                        </div>
-                                    <% end %>
-                                </td>
-                                <td>
-                                    <div style="<%= @car.old_price_4 ? "color: red;" : "" %>">
-                                        <%= @car.price_4 %>
-                                    </div>
-                                    <% if @car.old_price_4 %>
-                                        <div>
-                                            <small><s><%= @car.old_price_4 %></s></small>
-                                        </div>
-                                    <% end %>
-                                </td>
-                                <td>
-                                    <div style="<%= @car.old_price_5 ? "color: red;" : "" %>">
-                                        <%= @car.price_5 %>
-                                    </div>
-                                    <% if @car.old_price_5 %>
-                                        <div>
-                                            <small><s><%= @car.old_price_5 %></s></small>
-                                        </div>
-                                    <% end %>
-                                </td>
-                                <td>
-                                    <div>
-                                        <%= @car.deposit %>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="bl_hara">
+                <div class="zagol"><span>Vehicle characteristics</span></div>
+                <div class="cc1">
+                    <div class="zz">Specifications</div>
+                    <p>Type of fuel <span><%= @car.fuel_type %></span></p>
+                    <p>Engine volume <span><%= @car.engine_capacity %></span></p>
+                    <p>Power <span><%= @car.power %></span></p>
+                    <p>Drive unit <span><%= @car.drive_unit %></span></p>
+                    <p>Fuel tank volume <span><%= @car.tank_capacity %></span></p>
+                    <p>Trunk volume <span><%= @car.trunk_volume %></span></p>
+                    <p>Transmission <span><%= @car.transmission %></span></p>
+                    <p>Number of gears <span><%= @car.number_gears %></span></p>
+                    <p>Maximum speed <span><%= @car.max_speed %> км/ч</span></p>
+                    <p>Acceleration to 100 km / h <span><%= @car.racing %></span></p>
+                    <p>Clearance <span><%= @car.clearance %></span></p>
+                    <p>Length <span><%= @car.length %></span></p>
+                    <p>Width <span><%= @car.width %></span></p>
+                    <p>Height <span><%= @car.height %></span></p>
+                    
                 </div>
-                <p><%= @car.description_en %></p>
+                <div class="cc1">
+                    <div class="zz">Comfort</div>
+                    <p>Number of seats <span><%= @car.number_seats %></span></p>
+                    <p>Electrically adjustable seat <span><%= @car.power_seats ? "Include" : "No" %></span></p>
+                    <p>Power mirrors <span><%= @car.mirror ? "Include" : "No" %></span></p>
+                    <p>Front power windows <span><%= @car.power_window_front ? "Include" : "No" %></span></p>
+                    <p>Rear power windows <span><%= @car.power_window_back ? "Include" : "No" %></span></p>
+                    <p>Height adjustable steering wheel <span><%= @car.steering_wheel_height ? "Include" : "No" %></span></p>
+                    <p>Handlebar stem adjustment <span><%= @car.steering_wheel_adjustment ? "Include" : "No" %></span></p>
+                    <p>Heated seats <span><%= @car.hot_seats ? "Include" : "No" %></span></p>
+                    <p>Climate control <span><%= @car.climat %></span></p>
+                    <p>Central locking <span><%= @car.central_locking ? "Include" : "No" %></span></p>
+                    <p>AUX <span><%= @car.aux ? "Include" : "No" %></span></p>
+                    <p>Rasio <span><%= @car.radio ? "Include" : "No" %></span></p>
+                    <p>USB <span><%= @car.usb ? "Include" : "No" %></span></p>
+                    <p>Video <span><%= @car.video ? "Include" : "No" %></span></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="video">
                 <% if @car.youtube && @car.youtube != "" %>
-                    <div style="text-align:center;">
-                        <h3>Video about the car</h3>
-                        <div class="thumb-wrap">
-                            <iframe width="800" height="400" src="<%= @car.youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
+                    <div class="zagol">Video about car</div>
+                    <iframe width="560" height="315" src="<%= @car.youtube %>" title="<%= @car.car_name %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <% end %>
-                <div class="table-wrap-tth">
-                    <table class="table-tth" style="margin:auto;">
-                    <!--Table head-->
-                    <thead>
-                      <tr>
-                        <th colspan="2">Technical Data</th>
-                        <th colspan="2">Comfort</th>
-                      </tr>
-                    </thead>
-                    <!--Table head-->
-                    <!--Table body-->
-                    <tbody style="text-align:left;">
-                      <tr style="border: 1px solid black;">
-                        <th>Type of fuel</th>
-                        <td><%= @car.fuel_type %></td>
-                        <th>Seats</th>
-                        <td><%= @car.number_seats %></td>
-                      </tr>
-                      <tr>
-                        <th>Engine capacity</th>
-                        <td><%= @car.engine_capacity %></td>
-                        <th>Electrically adjustable seats</th>
-                        <td><%= @car.power_seats ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Power</th>
-                        <td><%= @car.power %></td>
-                        <th>Power mirrors</th>
-                        <td><%= @car.mirror ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Consumption (highway / mixed / city)</th>
-                        <td><%= @car.consumption %></td>
-                        <th>Front power windows</th>
-                        <td><%= @car.power_window_front ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Drive</th>
-                        <td><%= @car.drive_unit %></td>
-                        <th>Back power windows</th>
-                        <td><%= @car.power_window_back ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Ground clearance</th>
-                        <td><%= @car.clearance %></td>
-                        <th>Steering wheel adjustment</th>
-                        <td><%= @car.steering_wheel_height ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Length</th>
-                        <td><%= @car.length %></td>
-                        <th>Outrigger steering</th>
-                        <td><%= @car.steering_wheel_adjustment ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Width</th>
-                        <td><%= @car.width %></td>
-                        <th>Climate control</th>
-                        <td><%= @car.climat %></td>
-                      </tr>
-                      <tr>
-                        <th>Height</th>
-                        <td><%= @car.height %></td>
-                        <th>Seat heating</th>
-                        <td><%= @car.hot_seats ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Volume of the fuel tank</th>
-                        <td><%= @car.tank_capacity %></td>
-                        <th>Central locking</th>
-                        <td><%= @car.central_locking ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Trunk volume</th>
-                        <td><%= @car.trunk_volume %></td>
-                        <th>Radio</th>
-                        <td><%= @car.radio ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Curb weight</th>
-                        <td><%= @car.mass %></td>
-                        <th>USB</th>
-                        <td><%= @car.usb ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Transmission</th>
-                        <td>
-                            <% if @car.transmission == 'Механика' %>
-                                Manual
-                            <% elsif @car.transmission == 'Автомат' %>
-                                Automatic
-                            <% else %>
-                                <%= @car.transmission %>
-                            <% end %>
-                        </td>
-                        <th>AUX</th>
-                        <td><%= @car.aux ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Number of gears</th>
-                        <td><%= @car.number_gears %></td>
-                        <th>CD</th>
-                        <td><%= @car.cd ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Maximum speed</th>
-                        <td><%= @car.max_speed %></td>
-                        <th>Video</th>
-                        <td><%= @car.video ? "Yes" : "No" %></td>
-                      </tr>
-                      <tr>
-                        <th>Acceleration to 100km</th>
-                        <td><%= @car.racing %></td>
-                        <th>Number of doors</th>
-                        <td><%= @car.number_doors %></td>
-                      </tr>
-                      <tr>
-                    </tbody>
-                    <!--Table body-->
-                  </table>
-                  <div style="text-align:center;">
-                    <%# @car.tth_note %>
-                  </div>
-                </div>
-                <div class="clear"></div>
+                
+                <p><%= @car.description_en %></p>
             </div>
-            <div class="bl_ostav">
-                <div class="zg">Fill in the form to leave a review</div>
-                <%= form_with(model: @new_review, url: [@car, @new_review], local: true) do |f| %>
-                    <%= f.text_field :fullname, placeholder: "Name *", required: true %>
-                    <%= f.text_field :phone, placeholder: "Phone", required: true %>
-                    <%= f.text_field :email, placeholder: "Email *", required: true %>
-                    <div class="clear"></div>
-                    <div id="rateYo" style="margin:10px;"></div>
-                    <%= f.text_area :text, placeholder: "Review text", required: true %>
-                    <%= f.hidden_field :star, id:"star_counter", value:"5" %>
-                    <%# recaptcha_v3(action: 'create') %>
-                    <%= recaptcha_tags %>
-                    <%= f.submit "Send" %>
-                <% end %>
-                <div class="clear"></div>
-            </div>
-            <div class="bl_otz">
-                <div class="zag">Reviews</div>
-                <%= render "review" %>
-            </div>
+            <div class="zagol">See also</div>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>
 </div>
-<script>
-    $(function () {
-        $("#rateYo").rateYo({
-            rating: 5,
-        fullStar: true,
-        onChange: function (rating, rateYoInstance) {
-            document.getElementById('star_counter').value = rating
-        }
-    })
-});
-</script>
-<%= render 'shared/footer', cached: true %>
+<div class="block4 var2">
+    <div class="wrapper">
+        <div class="spis_avto active" id="spis1">
+            <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<% if @car.city != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_email: @city.email, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

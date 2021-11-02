@@ -1,0 +1,3994 @@
+@import url('//fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap');
+  *, html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+  }
+  html {
+      outline: none;
+      overflow-x: hidden;
+  }
+  body {
+      background: #f4f4f4;
+      color: #000;
+      position: relative;
+      margin: 0 auto;
+      max-width: 1920px;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+      font-size: inherit;
+      color: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      margin: 0;
+      padding: 0;
+      display: inline;
+  }
+  a {
+      color: #000;
+      text-decoration: underline;
+  }
+  .clear {
+      clear: both;
+      float: none;
+      display: block;
+  }
+  .wrapper {
+      width: 1406px;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0 auto;
+      position: relative;
+  }
+  
+  .polosa {
+      background: #1c1c1c;
+      padding: 0 0 10px;
+      position: relative;
+      z-index: 7;
+  }
+  .polosa p {
+      float: left;
+      color: #fff;
+      font-weight: 300;
+      margin: 16px 0 0;
+      font-size: 19px;
+      line-height: 24px;
+  }
+  .polosa .zaya {
+      font-weight: 500;
+      float: right;
+      color: #fff;
+      background: #ef7f1a;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin: 10px 0 0;
+      line-height: 40px;
+      padding: 0 45px;
+      font-size: 16px;
+      letter-spacing: 2px;
+      border-radius: 6px;
+      cursor: pointer;
+  }
+  .polosa .zaya:hover {
+      background: #cb670c;
+  }
+  .header {
+      position: absolute;
+      z-index: 9;
+      left: 0;
+      top: 60px;
+      right: 0;
+      padding: 29px 0 0;
+      transition: padding .3s linear;
+  }
+  .header #logo {
+      float: left;
+      margin: 0;
+      width: 204px;
+  }
+  .header #logo img {
+      display: block;
+      max-width: 100%;
+  }
+  .header .menu_top {
+      float: left;
+      list-style: none;
+      font-size: 0;
+      margin: 28px 0 0 30px;
+  }
+  .header .menu_top li {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 25px 0 0;
+      position: relative;
+  }
+  .header .menu_top li a {
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 2.3px;
+    padding: 0 0 10px;
+  }
+  .header .menu_top li a:hover {
+    text-decoration: underline;
+  }
+  .header #menu_tg {
+      cursor: pointer;
+      float: left;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 2.3px;
+      text-align: center;
+      margin: 21px 0 0 27px;
+      width: 65px;
+      line-height: 15px;
+      position: relative;
+      padding: 0 0 5px;
+  }
+  .header #menu_tg:hover {
+      color: #ef7f1a;
+  }
+  .header #menu_tg:hover span {
+      background: #ef7f1a;
+  }
+  .header #menu_tg span {
+      display: block;
+      background: #fff;
+      height: 2px;
+      margin: 0 0 8px;
+  }
+  .header .gorod {
+      float: left;
+      text-align: right;
+      margin: 14px 0 0 5px;
+      width: 170px;
+      position: relative;
+  }
+  .header .gorod span {
+      display: block;
+      color: #ef7f1a;
+      font-weight: 300;
+      font-size: 17px;
+      letter-spacing: 3.3px;
+      line-height: 20px;
+  }
+  .header .gorod a {
+      display: inline-block;
+      vertical-align: top;
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: .6px;
+      line-height: 17px;
+      margin: 4px 0 0;
+  }
+  .header .gorod a:hover {
+    text-decoration: none;
+  }
+  .header .lang {
+      float: right;
+      color: #fff;
+      font-weight: 300;
+      line-height: 28px;
+      font-size: 20px;
+      margin: 23px 0 0;
+      letter-spacing: 3.5px;
+  }
+  .header .lang span {
+    color: #fff;
+    text-decoration: none;
+  }
+  .header .lang .active {
+    color: #ef7f1a;
+    text-decoration: none;
+    font-weight: 700;
+}
+  .header .lang a:hover {
+    text-decoration: underline;
+  }
+  .block1 {
+      position: relative;
+      z-index: 6;
+      margin: 0;
+      padding: 130px 0 50px;
+      text-align: center;
+      background: url("~block1.webp") no-repeat center -300px transparent;
+  }
+  .block1 span {
+      display: block;
+      margin: 0 auto;
+      background: #ef7f1a;
+      height: 5px;
+      width: 200px;
+  }
+  .block1 .text1 {
+      color: #ef7f1a;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 29px;
+      margin: 20px 0 0;
+      line-height: 32px;
+      letter-spacing: 6.6px;
+  }
+  .block1 .text2 {
+      font-weight: 300;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 37px;
+      letter-spacing: 9.7px;
+      line-height: 46px;
+      margin: 12px 0 0;
+  }
+  .block1 .text2 b {
+      font-weight: 700;
+  }
+  .block1 .price {
+      display: inline-block;
+      vertical-align: top;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: 3px solid #fff;
+      margin: 25px 0 0;
+      line-height: 53px;
+      letter-spacing: 3px;
+      font-size: 16px;
+      padding: 0 48px;
+      border-radius: 6px;
+  }
+  .block1 .price:hover {
+      background: #fff;
+      color: #000;
+  }
+  .block2 {
+      padding: 0px 0 0;
+  }
+  .block2 .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0 0 39px;
+  }
+  .block2 form {
+      position: relative;
+  }
+  .block2 form .obol {
+      float: left;
+      margin: 0 35px 0 0;
+      width: 505px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 0 20px -10px #333;
+  }
+  .block2 form .obol input {
+      float: left;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      background: url("~cale.webp") no-repeat 20px center #fff;
+      font-weight: 300;
+      height: 56px;
+      width: 390px;
+      padding: 0 0 0 59px;
+      font-size: 20px;
+  }
+  .block2 form .obol select {
+      float: right;
+      background: #ef7f1a;
+      color: #fff;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      box-sizing: border-box;
+      width: 115px;
+      height: 56px;
+      font-weight: 300;
+      padding: 0 0 0 15px;
+      font-size: 20px;
+  }
+  .block2 form button {
+      float: right;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: #ef7f1a;
+      font-weight: 500;
+      border: 3px solid #ef7f1a;
+      height: 58px;
+      width: 324px;
+      font-size: 17px;
+      letter-spacing: 2px;
+      border-radius: 6px;
+      background: #fff;
+  }
+  .block2 form button:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .block3 {
+      padding: 118px 0 0;
+  }
+  .block3 .prei {
+      float: left;
+      clear: both;
+      width: 625px;
+      position: relative;
+  }
+  .block3 .prei span {
+      position: absolute;
+      z-index: 3;
+      color: #fff;
+      font-weight: 900;
+      font-size: 220px;
+      line-height: 220px;
+      text-shadow: 0 0 30px rgba(0,0,0,.03);
+      left: 0;
+      top: -57px;
+  }
+  .block3 .prei .zg {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 29px;
+      line-height: 38px;
+      letter-spacing: 5px;
+      position: relative;
+      z-index: 5;
+  }
+  .block3 .prei .zg b {
+      color: #ef7f1a;
+      font-weight: 700;
+  }
+  .block3 .prei p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      margin: 8px 0px 0 0;
+      max-width: 460px;
+      position: relative;
+      z-index: 5;
+  }
+  .block3 .prei + .prei {
+      float: right;
+      width: 690px;
+      margin: 4px 0 0;
+  }
+  .block3 .prei + .prei + .prei {
+      float: left;
+  }
+  .block3 .prei + .prei + .prei + .prei {
+      float: right;
+  }
+  .block4 {
+      padding: 20px 0 20px;
+  }
+  .block4 .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0;
+  }
+  .block4 .podzag {
+      text-align: center;
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 30px;
+      margin: 5px 0 44px;
+  }
+  .block4 .btn {
+      text-align: center;
+  }
+  .block4 .btn a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #ef7f1a;
+      border: 3px solid #ef7f1a;
+      margin: 0;
+      line-height: 52px;
+      border-radius: 6px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      padding: 0 55px;
+  }
+  .block4 .btn a:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .block4 .spis_avto {}
+  .block4 .spis_avto .avto1 {
+      float: left;
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 15px;
+      padding: 0 0 33px;
+      margin: 0 0 46px 32px;
+      width: 447px;
+      box-shadow: 0 0 20px -10px #333;
+      position: relative;
+  }
+  .block4 .spis_avto .avto1:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .block4 .spis_avto .avto1 .badge {
+      position: absolute;
+      z-index: 3;
+      background: url("~badge.webp") no-repeat 0 0 transparent;
+      padding: 23px 50px 75px 0px;
+      clip-path: polygon(0 0, 100% 0, 0% 100%, 0 100%);
+  }
+  .block4 .spis_avto .avto1 .badge span {
+      color: #fff;
+      display: block;
+      text-transform: uppercase;
+      font-weight: 700;
+      transform: rotate(-45deg);
+      font-size: 16px;
+      letter-spacing: 3px;
+  }
+  .block4 .spis_avto .avto1 .bl_img {
+      height: 210px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin: 24px 30px 0;
+      background-size: contain;
+  }
+  .block4 .spis_avto .avto1 .zg {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 5.3px;
+      font-size: 23px;
+      line-height: 30px;
+      margin: 18px 0 0;
+  }
+  .block4 .spis_avto .avto1 .zg:hover {
+      text-decoration: underline;
+  }
+  .block4 .spis_avto .avto1 .hara {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      margin: 18px 0 0;
+  }
+  .block4 .spis_avto .avto1 .hara .hr {
+      display: table-cell;
+      vertical-align: top;
+      font-weight: 300;
+      text-align: center;
+      font-size: 16px;
+      line-height: 20px;
+  }
+  .block4 .spis_avto .avto1 .hara .hr span {
+      display: block;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      font-size: 15px;
+      margin: 0 0 5px;
+  }
+  .block4 .spis_avto .avto1 .price {
+      font-weight: 300;
+      text-transform: uppercase;
+      font-size: 22px;
+      margin: 26px 32px 0;
+      letter-spacing: 3.5px;
+  }
+  .block4 .spis_avto .avto1 .price span {
+      float: right;
+      text-transform: none;
+      letter-spacing: 0.4px;
+  }
+  .block4 .spis_avto .avto1 .price span b {
+      font-weight: 700;
+  }
+  .block4 .spis_avto .avto1 .more {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #ef7f1a;
+      border: 3px solid #ef7f1a;
+      margin: 35px 32px 0;
+      line-height: 52px;
+      border-radius: 6px;
+      font-size: 16px;
+      letter-spacing: 3px;
+  }
+  .block4 .spis_avto .avto1 .more:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .block5 {
+      background: url("~block5.webp") no-repeat center top transparent;
+      background-size: cover;
+      padding: 80px 0 0;
+  }
+  .block5 .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0;
+      color: #fff;
+  }
+  .block5 .podzag {
+      text-align: center;
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 30px;
+      margin: 5px 0 44px;
+      color: #fff;
+  }
+  .block5 .pol1 {
+      float: left;
+      width: 690px;
+      margin: 122px 0 0;
+  }
+  .block5 .pol1 p {
+      color: #fff;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 27px;
+  }
+  .block5 .pol1 .fio {
+      background: url("~fio.webp") no-repeat right top transparent;
+      margin: 36px 10px 0 0;
+      padding: 49px 0 60px;
+      color: #fff;
+      font-weight: 300;
+      font-size: 16px;
+      letter-spacing: 2.4px;
+      line-height: 20px;
+  }
+  .block5 .pol1 .fio span {
+      display: block;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 28px;
+      line-height: 32px;
+      margin: 8px 0 0;
+      letter-spacing: 7.5px;
+  }
+  .block5 img {
+      float: right;
+      margin: 4px 108px 0 0;
+  }
+  .block6 {
+      padding: 82px 0 0;
+  }
+  .block6 .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0;
+  }
+  .block6 .spis_img {
+      text-align: center;
+      font-size: 0;
+      margin: 30px 0 48px;
+  }
+  .block6 .spis_img img {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 22px;
+  }
+  .reviews_main {
+    display: inline-flex;
+    align-items: center;
+  }
+  .block6 .spis_ot {}
+  .block6 .spis_ot .ot1 {
+      float: left;
+      background: #fff;
+      box-sizing: border-box;
+      margin: 0 0 0 30px;
+      width: 444px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px -10px #333;
+      text-align: center;
+      padding: 0 0 57px;
+  }
+  .block6 .spis_ot .ot1:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .block6 .spis_ot .ot1 .bl_img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 50px auto 0;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  .block6 .spis_ot .ot1 .fio {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 29px;
+      letter-spacing: 7px;
+      line-height: 32px;
+      margin: 26px 0 0;
+  }
+  .block6 .spis_ot .ot1 .zvezd {
+      font-size: 0;
+      margin: 14px 0 0;
+  }
+  .block6 .spis_ot .ot1 .zvezd img {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 3px;
+  }
+  .block6 .spis_ot .ot1 p {
+      font-weight: 300;
+      font-size: 24px;
+      margin: 25px 37px 0;
+      line-height: 25px;
+  }
+  .block6 .spis_ot .ot1 p.moree {
+    display: none;
+  }
+  .block6 .spis_ot .ot1 .more {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: underline;
+      color: #ef7f1a;
+      font-weight: 300;
+      line-height: 25px;
+      font-size: 24px;
+      margin: 27px 0 0;
+  }
+  .block6 .spis_ot .ot1 .more:hover {
+    text-decoration: none;
+  }
+  .block6 .btn {
+    text-align: center;
+    margin: 45px 0 0;
+  }
+  .block6 .btn a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #ef7f1a;
+      border: 3px solid #ef7f1a;
+      margin: 0;
+      line-height: 52px;
+      border-radius: 6px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      padding: 0 83px;
+  }
+  .block6 .btn a:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .block7 {
+      padding: 78px 0 0;
+  }
+  .block7 .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0 0 34px;
+  }
+  .block7 .zag {
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 34px;
+      font-size: 28px;
+      letter-spacing: 7.2px;
+  }
+  .block7 p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      margin: 10px 0 40px;
+  }
+  .block8 {
+      padding: 36px 0 71px;
+  }
+  .block8 .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0;
+  }
+  .block8 .podzag {
+      text-align: center;
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 28px;
+      margin: 5px 0 0;
+  }
+  .block8 .zag {
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 34px;
+      font-size: 28px;
+      letter-spacing: 7.2px;
+  }
+  .block8 p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 27.5px;
+      margin: 10px 0 46px;
+  }
+  .block8 img {
+      float: left;
+      margin: 85px 0 0;
+  }
+  .block8 .pol2 {
+      float: right;
+      width: 924px;
+      margin: 80px 0 0;
+  }
+  .block8 .cha1 {
+      float: left;
+      width: 687px;
+      margin: -8px 0 0;
+  }
+  .block8 .cha1 + .cha1 {
+      float: right;
+  }
+  .block8 .cha1 .spis_mis {
+      margin: -15px 0 0;
+  }
+  .block8 .cha1 .spis_mis .mis {
+      font-weight: 300;
+      font-size: 24px;
+      position: relative;
+      line-height: 30px;
+      padding: 0 0 0 72px;
+      margin: 0 92px 27px 0;
+  }
+  .block8 .cha1 .spis_mis .mis img {
+      margin: auto 0;
+      position: absolute;
+      left: 0;
+      top: -30px;
+      bottom: -30px;
+  }
+  .block8 .cha1 .spis_prei {
+      margin: -15px 0 0;
+  }
+  .block8 .cha1 .spis_prei .prei {
+      margin: 0 0 36px;
+  }
+  .block8 .cha1 .spis_prei .prei .zz {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 30px;
+      cursor: pointer;
+      position: relative;
+      padding: 0 0 0 71px;
+      background: url("~zz1.webp") no-repeat right center transparent;
+  }
+  .block8 .cha1 .spis_prei .prei p {
+    display: none;
+    margin: 10px 50px 0 71px;
+    font-size: 21px;
+    line-height: 24px;
+  }
+  .block8 .cha1 .spis_prei .prei .zz img {
+      margin: auto 0;
+      position: absolute;
+      left: 0;
+      top: -30px;
+      bottom: -30px;
+  }
+  .block8 .cha1 .spis_prei .prei .zz.opened {
+      background: url("~zz2.webp") no-repeat right center transparent;
+  }
+  .footer {
+      background: #141414;
+      padding: 0 0 78px;
+  }
+  .footer .col1 {
+      float: left;
+      width: 230px;
+      margin: 90px 0 0;
+  }
+  .footer .col1 #logo2 {
+      display: block;
+      width: 204px;
+  }
+  .footer .col1 #logo2 img {
+      display: block;
+      max-width: 100%;
+  }
+  .footer .col1 p {
+      font-weight: 300;
+      color: #fff;
+      margin: 119px 0 0;
+      font-size: 15px;
+      line-height: 18px;
+  }
+  .footer .col2 {
+      float: left;
+      margin: 82px 0 0 34px;
+      width: 315px;
+  }
+  .footer .col3 {
+      float: left;
+      margin: 82px 0 0 34px;
+      width: 205px;
+  }
+  .footer .zag {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 22px;
+      letter-spacing: 7px;
+      line-height: 30px;
+  }
+  .footer ul {
+      list-style: none;
+      display: block;
+      margin: 15px 0 0;
+  }
+  .footer ul li {
+      margin: 0 0 11px;
+  }
+  .footer ul li a {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    color: #fff;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 23px;
+  }
+  .footer ul li a:hover {
+    text-decoration: underline;
+  }
+  .footer .col3 p {
+      color: #fff;
+      font-weight: 300;
+      font-size: 21px;
+      margin: 16px 0 -6px;
+      line-height: 24px;
+  }
+  .footer .col3 p a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .footer .col3 p a:hover {
+    text-decoration: underline;
+  }
+  .footer .col3 .social {
+      font-size: 0;
+      margin: 63px 0 0;
+  }
+  .footer .col3 .social a {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 17px 0 0;
+  }
+  .footer .col3 .social a img {
+      display: block;
+  }
+  .footer .col3 .social a:hover {
+    opacity: .7;
+  }
+  .header #menu_vipad {
+      display: none;
+      position: absolute;
+      z-index: 20;
+      background: #1c1c1c;
+      box-sizing: border-box;
+      right: 0;
+      top: 40px;
+      width: 250px;
+      padding: 0;
+      text-align: right;
+  }
+  .header #menu_vipad .zg {
+      color: #fff;
+      text-transform: uppercase;
+      border-bottom: 1px solid #292929;
+      font-weight: 700;
+      letter-spacing: 5px;
+      padding: 26px 0 27px 105px;
+      line-height: 32px;
+      font-size: 30px;
+  }
+  .header #menu_vipad .menu_vip {
+      list-style: none;
+      padding: 0;
+  }
+  .header #menu_vipad .menu_vip li {
+      display: block;
+      margin: 4px 6px;
+  }
+  .header #menu_vipad .menu_vip li a {
+      display: block;
+      vertical-align: top;
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 2px;
+      line-height: 20px;
+      background: rgba(255,255,255,.1);
+      padding: 5px;
+  }
+  .header #menu_vipad .menu_vip li a:hover,
+  .header #menu_vipad .menu_vip li.active a {
+    color: #ef7f1a;
+  }
+  .content {
+      // padding: 211px 0 11px;
+    padding: 170px 0 11px;
+  }
+  .content .bread {
+      font-weight: 300;
+      color: #ef7f1a;
+      line-height: 24px;
+      font-size: 18px;
+      // margin: 0 0 32px;
+  }
+  .content .bread a {
+    text-decoration: none;
+  }
+  .content .bread a:hover {
+    text-decoration: underline;
+  }
+  .content .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0;
+  }
+  .content .btn {
+      text-align: center;
+      margin: 22px 0 76px;
+  }
+  .content .btn a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #ef7f1a;
+      border: 3px solid #ef7f1a;
+      margin: 0;
+      line-height: 52px;
+      border-radius: 6px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      padding: 0 73px;
+  }
+  .content .btn a:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .content .spis_new {
+      margin: 40px 0 0;
+  }
+  .content .spis_new .new1 {
+      float: left;
+      box-sizing: border-box;
+      background: #fff;
+      margin: 0 0 30px 35px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px -10px #333;
+      width: 445px;
+      padding: 40px 30px 38px;
+  }
+  .content .spis_new .new1:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .content .spis_new .new1 .bl_img {
+      width: 384px;
+      height: 250px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 10px;
+  }
+  .content .spis_new .new1 .data {
+      font-weight: 300;
+      line-height: 22px;
+      margin: 30px 0 0;
+      letter-spacing: 2px;
+      font-size: 16px;
+  }
+  .content .spis_new .new1 .zg {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 4px 0 0;
+  }
+  .content .spis_new .new1 .zg:hover {
+    text-decoration: underline;
+  }
+  .content .spis_new .new1 p {
+      font-weight: 300;
+      font-size: 16px;
+      margin: 20px 0 0;
+      line-height: 19px;
+  }
+  .content .spis_new .new1 .more {
+      display: block;
+      vertical-align: top;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #ef7f1a;
+      border: 3px solid #ef7f1a;
+      margin: 46px 0 0;
+      line-height: 52px;
+      border-radius: 6px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      padding: 0;
+  }
+  .content .spis_new .new1 .more:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  body:not(.home) .header {
+      background: #141414;
+      padding: 29px 0 27px;
+      top: 0;
+  }
+  .bl_new {
+      text-align: center;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 193px 0 184px;
+  }
+  .bl_new span {
+      display: block;
+      margin: 0 auto;
+      background: #ef7f1a;
+      height: 5px;
+      width: 200px;
+  }
+  .bl_new .text1 {
+      color: #ef7f1a;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 29px;
+      margin: 34px 0 0;
+      line-height: 32px;
+      letter-spacing: 6.6px;
+  }
+  .bl_new .text2 {
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 38px;
+      letter-spacing: 9.2px;
+      line-height: 49px;
+      margin: 12px 46px 0;
+  }
+  .bl_new p {
+      color: #fff;
+      font-weight: 300;
+      font-size: 24px;
+      margin: 30px 120px 0;
+      line-height: 29px;
+  }
+  .content2 {
+      padding: 40px 0 60px;
+  }
+  .content2 .zag {
+      text-align: center;
+      font-weight: 700;
+      font-size: 30px;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      margin: 50px 0 20px;
+  }
+  .content2 p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      margin: 0 0 19px;
+  }
+  .content2 img {
+      max-width: 100%;
+      height: auto;
+  }
+  .content2 .trix-content div {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 19px;
+}
+  .content2 .trix-content img {
+      max-width: 100%;
+      height: auto;
+  }
+    .content2 img.alignleft {
+    float: left;
+    margin: 0px 49px 25px 0;
+  }
+  .content .bl_about {
+      padding: 32px 0 55px;
+  }
+  .content .bl_about .zagol {
+      margin: 79px 0 34px;
+  }
+  .content .bl_about p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      margin: 0 0 20px;
+  }
+  .content .bl_about p a {
+      color: #ef7f1a;
+  }
+  .content .bl_about p a:hover {
+    text-decoration: none;
+  }
+  .content .bl_about .spis_par {}
+  .content .bl_about .spis_par img {
+      float: left;
+      width: 204px;
+  }
+  .content .bl_about .spis_par img + img {
+      margin: 0 0 0 36px;
+  }
+  .content .bl_about .spis_ser {}
+  .content .bl_about .spis_ser img {
+      float: left;
+      width: 444px;
+  }
+  .content .bl_about .spis_ser img + img {
+      margin: 0 0 0 37px;
+  }
+  .content .bl_about .spis_sot {
+      margin: 0 0 -28px;
+  }
+  .content .bl_about .spis_sot .sot {
+      float: left;
+      width: 444px;
+      margin: 0 0 24px 37px;
+  }
+  .content .bl_about .spis_sot .sot:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .content .bl_about .spis_sot .sot .bl_img {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 450px;
+  }
+  .content .bl_about .spis_sot .sot .fio {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 34px;
+      margin: 27px 0 0;
+      letter-spacing: 6px;
+  }
+  .content .bl_about .spis_sot .sot p {
+      margin: 7px 0 0;
+  }
+  .content .bl_contact {
+      padding: 38px 0 78px;
+  }
+  .content .bl_contact .zagol {}
+  .content .bl_contact .zag {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 30px;
+      letter-spacing: 7.5px;
+      margin: 0 0 10px;
+  }
+  .content .bl_contact .pol1 {
+      float: left;
+      width: 685px;
+      margin: 10px 0 0;
+  }
+  .content .bl_contact p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      margin: 0 0 9px;
+  }
+  .content .bl_contact .videl {
+      color: #ef7f1a;
+  }
+  .content .bl_contact b {
+      font-weight: 700;
+  }
+  .content .bl_contact iframe {
+      float: right;
+      width: 688px;
+      height: 780px;
+      margin: 5px 0 81px;
+  }
+  .content .bl_contact .video {
+      float: left;
+      width: 924px;
+      margin: 20px 0 0;
+  }
+  .content .bl_contact .video iframe {
+      display: block;
+      width: 100%;
+      height: 522px;
+      float: none;
+      margin: 0;
+  }
+  .content .bl_contact a {
+    text-decoration: none;
+  }
+  .content .bl_contact a:hover {
+    text-decoration: underline;
+  }
+  .content .bl_contact .shema {
+      float: right;
+      margin: 20px 0 0;
+      width: 443px;
+  }
+  .content .bl_contact .shema2 {
+      display: block;
+      width: 100%;
+      margin: 45px 0 0;
+  }
+  .content .bl_contact .pol1 p + .zag {
+      margin: 15px 0 11px;
+  }
+  .bl_contact2 {
+      background: #fff;
+      padding: 86px 0 90px;
+  }
+  .bl_contact2 .zag {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      letter-spacing: 7.5px;
+      margin: 0 0 37px;
+  }
+  .bl_contact2 form {}
+  .bl_contact2 form input {
+      float: left;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      background: #d9d9d9;
+      font-weight: 300;
+      font-size: 20px;
+      height: 55px;
+      margin: 0 36px 0 0;
+      width: 504px;
+      border-radius: 6px;
+      padding: 0 45px;
+  }
+  .bl_contact2 form input[type="submit"] {
+      cursor: pointer;
+      margin: 0;
+      text-transform: uppercase;
+      background: #fff;
+      color: #ef7f1a;
+      border: 3px solid #ef7f1a;
+      width: 325px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      font-size: 17px;
+  }
+  .bl_contact2 form input[type="submit"]:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .header.fixed,
+  body:not(.home) .header.fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 19;
+    background: #141414;
+    padding: 5px 0;
+  }
+  .header #menu_tg:hover #menu_vipad {
+    display: block;
+  }
+  .header .gorod .vipad {
+      display: none;
+      position: absolute;
+      top: 46px;
+      right: 0;
+      box-sizing: border-box;
+      width: 180px;
+      background: #1c1c1c;
+      padding: 3px 5px;
+  }
+  .header .gorod .vipad a {
+      display: block;
+      text-decoration: none;
+      background: rgba(255,255,255,.1);
+      padding: 4px 6px;
+  }
+  .header .gorod .vipad a:hover,
+  .header .gorod .vipad a.active {
+      background: rgba(255,255,255,.25);
+  }
+  .header .menu_top li ul {
+    display: none;
+    position: absolute;
+    background: #1c1c1c;
+    width: 250px;
+    box-sizing: border-box;
+    left: 0;
+    top: 30px;
+  }
+  .header .menu_top li:hover ul {
+    display: block;
+  }
+  .header .menu_top li ul li {
+      display: block;
+      margin: 4px 6px;
+  }
+  .header .menu_top li ul li a {
+      display: block;
+      vertical-align: top;
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 2px;
+      line-height: 20px;
+      background: rgba(255,255,255,.1);
+      padding: 5px;
+  }
+  .header .menu_top li ul li a:hover {
+    color: #ef7f1a;
+      text-decoration: none;
+  }
+  .header .menu_top li.parent > a {
+      background: url("~down.webp") no-repeat right 4px transparent;
+      background-size: 19px;
+      padding-right: 26px;
+  }
+  .block1 img {
+    display: block;
+    margin: 25px auto 0;
+    width: 600px;
+  }
+  .content .textt {
+      padding: 11px 0 56px;
+  }
+  .content .textt p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      margin: 0 0 16px;
+  }
+  .content .textt b {
+    font-weight: 700;
+  }
+  .content .textt span {
+    color: #ef7f1a;
+  }
+  .content .textt .zagol {
+    margin: 0 0 33px;
+  }
+  .content .pricee {
+      padding: 12px 0 75px;
+  }
+  .content .pricee .zagol {
+      margin: 0 0 4px;
+  }
+  .content .pricee .txt {
+      padding: 30px 0 78px;
+  }
+  .content .pricee .txt p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+  }
+  .content .pricee .txt p.moree {
+    display: none;
+  }
+  .content .pricee .txt .more {
+    text-decoration: underline;
+    color: #ef7f1a;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 3px 0 0;
+  }
+  .content .pricee .txt .more:hover {
+    text-decoration: none;
+  }
+  .content .pricee .podzag {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 300;
+      line-height: 30px;
+      margin: 0 0 44px;
+  }
+  .content .pricee table {
+      width: 100%;
+      border: none;
+      border-collapse: collapse;
+      border-bottom: 1px solid #ef7f1a;
+  }
+  .content .pricee table thead {
+      position: sticky;
+      top: 86px;
+  }
+  .content .pricee table th {
+      background: #ef7f1a;
+      color: #fff;
+      font-weight: 300;
+      font-size: 18px;
+      vertical-align: middle;
+      border: 1px solid #ef7f1a;
+      line-height: 22px;
+      padding: 12px 5px;
+      box-sizing: border-box;
+  }
+  .content .pricee table td {
+      border-left: 1px solid #ef7f1a;
+      padding: 20px 10px;
+      vertical-align: middle;
+      max-width: 340px;
+      min-width: 101px;
+      font-weight: 300;
+      font-size: 23px;
+      background: #fff;
+      line-height: 30px;
+      text-align: center;
+  }
+  .content .pricee .article_table td {
+    border-left: 1px solid #ef7f1a;
+    padding: 10px;
+    vertical-align: middle;
+    max-width: 340px;
+    min-width: 101px;
+    font-weight: 300;
+    font-size: 23px;
+    background: #fff;
+    line-height: 30px;
+    text-align: center;
+}
+  .content .pricee table td:last-child {
+      border-right: 1px solid #ef7f1a;
+  }
+  .content .pricee table td .akci {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: url("~akci.webp") no-repeat center top transparent;
+      font-size: 19px;
+      letter-spacing: 4px;
+      line-height: 34px;
+      background-size: cover;
+      margin: 0 -10px 13px;
+  }
+  .content .pricee table td .full {
+      display: block;
+      width: 150px;
+      height: auto;
+      margin: 10px auto 0;
+  }
+  .content .pricee table td .zz {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: 4.7px;
+  }
+  .content .pricee table td .zz a {
+    text-decoration: none;
+  }
+  .content .pricee table .old {
+    font-weight: 100;
+    font-size: 18px;
+    text-decoration: line-through;
+  }
+  .content .pricee table td .hara {
+      display: table;
+      width: 270px;
+      table-layout: fixed;
+      margin: 10px auto 0;
+  }
+  .content .pricee table td .hara .hr {
+      display: table-cell;
+      vertical-align: top;
+      font-weight: 300;
+      text-align: center;
+      font-size: 16px;
+      line-height: 20px;
+  }
+  .content .pricee table td .hara .hr span {
+      display: block;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      font-size: 15px;
+      margin: 0 0 5px;
+  }
+  .btn_price a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 500;
+      background: #ef7f1a;
+      border: 1px solid #ef7f1a;
+      border-radius: 6px;
+      line-height: 52px;
+      padding: 0 27px;
+      letter-spacing: 3px;
+      font-size: 16px;
+  }
+  .btn_price a:hover {
+    background: #fff;
+    color: #ef7f1a;
+  }
+
+  .content .pricee table tr:nth-child(2n+1) td {
+    background: #f4f4f4;
+  }
+  .content .pricee .tex {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      margin: 37px 0 0;
+  }
+  .content .pricee .tex a {
+    text-decoration: underline;
+    color: #ef7f1a;
+  }
+  .content .pricee .tex a:hover {
+    text-decoration: none;
+  }
+  .content .pricee .tex + .zagol {
+      margin: 81px 0 39px;
+  }
+  .content .uslovi {
+      padding: 12px 0 42px;
+  }
+  .content .uslovi .zz {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 30px;
+      line-height: 36px;
+      letter-spacing: 6px;
+      margin: 0 0 7px;
+  }
+  .content .uslovi .zz2 {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 22px;
+      letter-spacing: 6px;
+      line-height: 26px;
+      margin: 32px 0 11px;
+  }
+  .content .uslovi p {
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+  }
+  .content .uslovi .obol {
+      background: #fff;
+      box-shadow: 0 0 20px -10px #333;
+      border-radius: 8px;
+      padding: 34px 41px;
+      margin: 0 0 38px;
+  }
+  .content .uslovi .zagol {
+      margin: 0 0 37px;
+  }
+  .block2.var2 {
+      margin: -10px 0 0;
+  }
+  .block2.var2 form .obol {
+      width: 456px;
+  }
+  .block2.var2 form .obol input {
+      width: 341px;
+  }
+  .block2.var2 form button {
+    float: left;
+    width: 266px;
+  }
+  .block2 form select.var2:hover {
+    color: #ef7f1a;
+    border-color: #ef7f1a;
+  }
+  .block2 form select.var2 {
+    float: left;
+    font-weight: 300;
+    letter-spacing: 1px;
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 420px;
+    font-size: 20px;
+    height: 54px;
+    border-bottom: 2px solid #000;
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin: 0 0 26px 36px;
+  }
+  .block2 form .vipad_filtr {
+      display: none;
+      position: absolute;
+      background: #fff;
+      left: 0;
+      right: 0;
+      top: 102px;
+      box-shadow: 0 0 20px -10px #333;
+      border-radius: 8px;
+      padding: 36px 37px;
+      z-index: 30;
+  }
+  .block2 form .vipad_filtr select:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .block2 form .vipad_filtr .prime {
+      float: right;
+      text-decoration: none;
+      border: 3px solid #ef7f1a;
+      color: #ef7f1a;
+      text-transform: uppercase;
+      margin: 99px 0 0;
+      font-weight: 500;
+      line-height: 52px;
+      padding: 0 70px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      border-radius: 6px;
+  }
+  .block2 form .vipad_filtr .prime:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .block2 form .filtry {
+    float: right;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 3px;
+    // background: url("~filt.webp") no-repeat right center transparent;
+    border: none;
+    outline: none;
+    width: 123px;
+    font-size: 16px;
+    line-height: 58px;
+    cursor: pointer;
+  }
+  .block2 form .filtry a {
+    text-decoration: none;
+  }
+  .content.for_spis {
+      padding: 78px 0 8px;
+  }
+  .content.for_spis .text1 {}
+  .content.for_spis .text1 .zagol {}
+  .content.for_spis .text1 p {
+      font-weight: 300;
+      font-size: 24px;
+      margin: 30px 0 5px;
+      line-height: 27.5px;
+  }
+  .content.for_spis .filter {
+      padding: 35px 0 0;
+  }
+  .content.for_spis .filter select {
+      float: left;
+      box-sizing: border-box;
+      outline: none;
+      background: #fff;
+      border: none;
+      color: #a0a0a0;
+      font-weight: 300;
+      margin: 0 33px 0 0;
+      width: 326px;
+      height: 58px;
+      padding: 0 22px;
+      font-size: 21px;
+      border-radius: 8px;
+  }
+  .content.for_spis .filter button {
+      float: left;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: #ef7f1a;
+      font-weight: 500;
+      border: 3px solid #ef7f1a;
+      height: 58px;
+      width: 324px;
+      font-size: 17px;
+      letter-spacing: 2px;
+      border-radius: 6px;
+      background: #fff;
+  }
+  .content.for_spis .filter button:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .content.for_spis .filter .vid_spis {
+      float: right;
+  }
+  .content.for_spis .filter .vid_spis .vid1 {
+      float: left;
+      width: 55px;
+      background: url("~vid11.webp") no-repeat center center transparent;
+      height: 55px;
+  }
+  .content.for_spis .filter .vid_spis .vid2 {
+      background: url("~vid2.webp") no-repeat center center transparent;
+      float: left;
+      width: 55px;
+      height: 55px;
+      margin: 0 0 0 21px;
+  }
+  .content.for_spis .filter .vid_spis .vid1.active {
+      background: url("~vid1.webp") no-repeat center center transparent;
+  }
+  .content.for_spis .filter .vid_spis .vid2.active {
+      background: url("~vid21.webp") no-repeat center center transparent;
+  }
+  .block_vopros {
+      margin: -10px 0 0;
+      padding: 0 0 69px;
+  }
+  .block_vopros .zagol {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 41px;
+      letter-spacing: 7.4px;
+      line-height: 50px;
+      margin: 0 0 38px;
+  }
+  .block_vopros .vopros {
+      background: #fff;
+      border-radius: 8px;
+      margin: 0 0 21px;
+  }
+  .block_vopros .vopros .vop {
+      cursor: pointer;
+      position: relative;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 29px;
+      padding: 32px 40px;
+      line-height: 36px;
+      letter-spacing: 6.7px;
+  }
+  .block_vopros .vopros .vop span {
+      width: 39px;
+      height: 39px;
+      background: url("~span2.webp") no-repeat center center transparent;
+      position: absolute;
+      top: 31px;
+      right: 45px;
+  }
+  .block_vopros .vopros .vop.active span {
+      background: url("~span1.webp") no-repeat center center transparent;
+  }
+  .block_vopros .vopros .otv {
+    display: none;
+    font-weight: 300;
+    padding: 32px 40px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .block4.var2 .spis_avto {
+    display: none;
+  }
+  .block4.var2 .spis_avto.active {
+    display: block;
+  }
+  .block4 .spis_avto#spis2 .avto1 {
+      width: 100%;
+      margin: 0 0 37px;
+      padding: 0 0 60px;
+  }
+  .block4 .spis_avto#spis2 .avto1 .bl_img {
+      float: left;
+      width: 675px;
+      margin: 80px 0 0 40px;
+      height: 310px;
+  }
+  .block4 .spis_avto#spis2 .avto1 .texx {
+      float: right;
+      width: 612px;
+      margin: 53px 72px 0 0;
+  }
+  .block4 .spis_avto#spis2 .avto1 .texx .zg {
+      text-align: left;
+      margin: 0;
+      font-size: 36px;
+      line-height: 40px;
+      letter-spacing: 7px;
+  }
+  .block4 .spis_avto#spis2 .avto1 .texx .zg span {
+    color: #ef7f1a;
+  }
+  .block4 .spis_avto .avto1 .hara .hr2 {
+      display: table-cell;
+      vertical-align: top;
+      color: #a0a0a0;
+      font-weight: 300;
+      padding: 20px 0 20px 50px;
+      font-size: 20px;
+      line-height: 28px;
+  }
+  .block4 .spis_avto .avto1 .hara .hr2.i1 {
+      background: url("~i1.webp") no-repeat left center transparent;
+  }
+  .block4 .spis_avto .avto1 .hara .hr2.i2 {
+      background: url("~i2.webp") no-repeat left center transparent;
+  }
+  .block4 .spis_avto .avto1 .hara .hr2.i3 {
+      background: url("~i3.webp") no-repeat left center transparent;
+  }
+  .block4 .spis_avto .avto1 .hara .hr2.i4 {
+      background: url("~i4.webp") no-repeat left center transparent;
+  }
+  .block4 .spis_avto#spis2 .avto1 .texx p {
+      font-weight: 300;
+      padding: 0 0 0 30px;
+      font-size: 24px;
+      line-height: 29px;
+      margin: 22px 0 -11px;
+      background: url("~pp.webp") no-repeat left center transparent;
+  }
+  .block4 .spis_avto#spis2 .avto1 .price {
+      float: left;
+      margin: 64px 0 0;
+      line-height: 28px;
+  }
+  .block4 .spis_avto#spis2 .avto1 .price b {
+      font-size: 35px;
+      line-height: 43px;
+  }
+  .block4 .spis_avto#spis2 .avto1 .price i {
+    color: #ef7f1a;
+    font-style: normal;
+  }
+  .block4 .spis_avto#spis2 .avto1 .more {
+      float: right;
+      margin: 57px 0 0;
+      padding: 0 58px;
+  }
+  .content .cartochka {}
+  .content .cartochka .pl1 {
+      float: left;
+      width: 685px;
+  }
+  .content .cartochka .pl1 .bl_img_full {
+      height: 525px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      background-color: #fff;
+  }
+  .content .cartochka .pl1 .bx-viewport {
+      height: auto!important;
+      margin: 32px 0 0;
+  }
+  .content .cartochka .pl1 .bx-viewport li {}
+  .content .cartochka .pl1 .bx-viewport li a {
+      display: block;
+      height: 90px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      background-color: #fff;
+      width: 120px;
+      margin: 0 auto;
+  }
+  .content .cartochka .pl1 .bx-viewport li a:hover {
+    opacity: .7;
+  }
+  .content .cartochka .pl2 {
+      float: right;
+      width: 685px;
+  }
+  .content .cartochka .pl2 .zagol {
+      text-align: center;
+  }
+  .content .cartochka .pl2 .hara {
+      margin: 29px 0 0;
+  }
+  .content .cartochka .pl2 .hara .hr {
+      float: left;
+      width: 300px;
+      margin: 0 0 20px 59px;
+      position: relative;
+      color: #a0a0a0;
+      font-weight: 300;
+      padding: 0 0 0 60px;
+      box-sizing: border-box;
+      font-size: 24px;
+      line-height: 32px;
+  }
+  .content .cartochka .pl2 .hara .hr img {
+      position: absolute;
+      left: 0;
+      top: -10px;
+      bottom: -10px;
+      margin: auto 0;
+  }
+  .content .cartochka .pl2 .hara .hr:nth-child(2n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .content .cartochka .pl2 .price {
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 40px;
+      margin: 15px 0 0;
+  }
+  .content .cartochka .pl2 .price b {
+      font-weight: 700;
+      font-size: 36px;
+  }
+  .content .cartochka .pl2 .price span {
+      color: #ef7f1a;
+  }
+  .content .cartochka .pl2 .podzg {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 30px;
+    line-height: 36px;
+    margin: 24px 0 0;
+    letter-spacing: 5.7px;
+  }
+  .content .cartochka .pl2 .spis_stoi {
+      margin: 28px 0 0;
+  }
+  .content .cartochka .pl2 .spis_stoi .st {
+      float: left;
+      width: 84px;
+      font-weight: 300;
+      text-align: center;
+      font-size: 23px;
+      line-height: 30px;
+  }
+  .content .cartochka .pl2 .spis_stoi .st + .st {
+      margin: 0 0 0 36px;
+  }
+  .content .cartochka .pl2 .spis_stoi .st span {
+      display: block;
+      background: #d9d9d9;
+      border-radius: 4px;
+      font-size: 20px;
+      line-height: 24px;
+      padding: 14px 0;
+      margin: 0 0 16px;
+  }
+  .content .cartochka .pl2 .arend {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #fff;
+      border: 2px solid #ef7f1a;
+      background: #ef7f1a;
+      font-weight: 500;
+      margin: 61px 0 0;
+      line-height: 51px;
+      padding: 0 53px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      border-radius: 6px;
+      cursor: pointer;
+  }
+  .content .cartochka .pl2 .arend:hover {
+      background: #fff;
+      color: #ef7f1a;
+  }
+  .cartochka .bx-wrapper .bx-pager {
+    display: none;
+  }
+  .cartochka .bx-wrapper .bx-prev {
+      display: block;
+      position: absolute;
+      z-index: 9;
+      left: 0;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0;
+      background: url("~stre.webp") no-repeat left center transparent;
+  }
+  .cartochka .bx-wrapper .bx-next {
+      display: block;
+      position: absolute;
+      z-index: 9;
+      right: 0;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0;
+      background: url("~stre.webp") no-repeat right center transparent;
+  }
+  .cartochka .bx-wrapper .bx-prev:hover,
+  .cartochka .bx-wrapper .bx-next:hover {
+    opacity: .7;
+  }
+  .content .cartochka .bl_hara {
+      margin: 81px 0 0;
+  }
+  .content .cartochka .bl_hara .zagol {}
+  .content .cartochka .bl_hara .zagol span {
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      background: url("~hara.webp") no-repeat right center transparent;
+      padding: 0 62px 0 0;
+  }
+  .content .cartochka .video {
+      margin: 70px 0 83px;
+  }
+  .content .cartochka .video .zagol {}
+  .content .cartochka .video iframe {
+      display: block;
+      width: 100%;
+      margin: 37px 0 0;
+      height: 700px;
+  }
+  .content .cartochka .video p {
+      font-weight: 300;
+      margin: 40px 0 0;
+      font-size: 24px;
+      line-height: 27.5px;
+  }
+  .content .cartochka .video + .zagol {
+    // margin: 0 0 -57px;
+  }
+  .content .cartochka .bl_hara .cc1 {
+    float: left;
+    display: none;
+    width: 685px;
+  }
+  .content .cartochka .bl_hara .cc1 + .cc1 {
+    float: right;
+  }
+  .content .cartochka .bl_hara .cc1 .zz {
+      font-weight: 300;
+      text-transform: uppercase;
+      font-size: 25px;
+      line-height: 30px;
+      margin: 32px 0 24px;
+  }
+  .content .cartochka .bl_hara .cc1 p {
+      background: #fff;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 0 0 19px;
+      font-weight: 300;
+      padding: 0 0 0 20px;
+      font-size: 21px;
+      line-height: 56px;
+  }
+  .content .cartochka .bl_hara .cc1 p span {
+      float: right;
+      background: #d9d9d9;
+      width: 204px;
+      text-align: center;
+  }
+  .content .cartochka .bl_hara .cc1 p:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .content .bl_otzyvy {}
+  .content .bl_otzyvy .col1 {
+      float: left;
+      width: 805px;
+      margin: 30px 0 0;
+  }
+  .content .bl_otzyvy .col1 .otziv {
+      background: #fff;
+      box-shadow: 0 0 20px -10px #333;
+      border-radius: 10px;
+      margin: 0 0 36px;
+      padding: 31px 40px 50px;
+  }
+  .content .bl_otzyvy .col1 .otziv .zvezd {
+      font-size: 0;
+  }
+  .content .bl_otzyvy .col1 .otziv .zvezd img {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 4px 0 0;
+  }
+  .content .bl_otzyvy .col1 .otziv .fio {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 29px;
+      margin: 20px 0 0;
+      line-height: 34px;
+      letter-spacing: 6px;
+  }
+  .content .bl_otzyvy .col1 .otziv p {
+      font-weight: 300;
+      font-size: 21px;
+      margin: 20px 0 0;
+      line-height: 25px;
+  }
+  .content .bl_otzyvy .col2 {
+      float: right;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px -10px #333;
+      box-sizing: border-box;
+      width: 565px;
+      margin: 30px 0 0;
+      padding: 34px 40px 116px;
+  }
+  .content .bl_otzyvy .col2 .zg {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 29px;
+      margin: 0 0 38px;
+      line-height: 34px;
+      letter-spacing: 6px;
+  }
+  .content .bl_otzyvy .col2 form {}
+  .content .bl_otzyvy .col2 form input {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      height: 56px;
+      outline: none;
+      border-radius: 6px;
+      padding: 0 19px;
+      font-weight: 300;
+      font-size: 20px;
+      border: 2px solid #d9d9d9;
+      margin: 0 0 35px;
+      background: #fff;
+  }
+  .content .bl_otzyvy .col2 form textarea {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      height: 226px;
+      outline: none;
+      border-radius: 6px;
+      padding: 15px 19px;
+      font-weight: 300;
+      font-size: 20px;
+      border: 2px solid #d9d9d9;
+      margin: 0 0 35px;
+      background: #fff;
+  }
+  .content .bl_otzyvy .col2 form button {
+      float: right;
+      box-sizing: border-box;
+      outline: none;
+      cursor: pointer;
+      border: 3px solid #ef7f1a;
+      color: #ef7f1a;
+      text-transform: uppercase;
+      font-weight: 500;
+      height: 57px;
+      background: #fff;
+      border-radius: 6px;
+      width: 258px;
+      font-size: 16px;
+      letter-spacing: 3px;
+  }
+  .reviews_podzag {
+    font-size: 18px;
+    margin: 5px 0 20px;
+    line-height: 21px;
+    text-align: center;
+    font-weight: 300;
+  }
+  .content .pagin {
+    margin: 20px 0 0;
+  }
+  .content .bl_otzyvy .col2 form button:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .content .pagin {
+    text-align: center;
+    font-family: 'Georgia', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 39px 0 0;
+  }
+  .content .pagin a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      font-family: 'Georgia', sans-serif;
+  }
+  .content .pagin a:hover,
+  .content .pagin a.active {
+      text-decoration: underline;
+      color: #f77d0a;
+  }
+  .content .bl_otzyvy .col2 form .ocen {
+      float: left;
+      width: 200px;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 16px;
+  }
+  .content .bl_otzyvy .col2 form .ocen .spis_zv {
+      font-size: 0;
+      margin: 17px 0 0;
+  }
+  .content .bl_otzyvy .col2 form .ocen .spis_zv img {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    margin: 0 4px 0 0;
+  }
+  .content .bl_otzyvy .col2 form .ocen .spis_zv img:hover {
+    opacity: .7;
+  }
+  .content .bl_dostavka {}
+  .content .bl_dostavka table {
+      width: 100%;
+      margin: 40px 0 0;
+      border-collapse: collapse;
+  }
+  .content .bl_dostavka table thead {}
+  .content .bl_dostavka table th {
+      text-align: left;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 30px;
+      padding: 0 0 5px;
+      position: sticky;
+      top: 87px;
+      background: #f4f4f4;
+  }
+  .content .bl_dostavka table th b {
+      font-weight: 700;
+      color: #ef7f1a;
+  }
+  .content .bl_dostavka table th + th {
+      text-align: center;
+      width: 230px;
+  }
+  .content .bl_dostavka table td {
+      background: #fff;
+      font-weight: 300;
+      font-size: 21px;
+      border-radius: 4px;
+      padding: 14px 15px;
+      line-height: 28px;
+      border: 19px solid #f4f4f4;
+  }
+  .content .bl_dostavka table td + td {
+      text-align: center;
+      background: #d9d9d9;
+  }
+  .content .bl_dostavka p {
+      margin: 64px 0 0;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 29px;
+  }
+  .content .bl_dostavka p .more {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: underline;
+      color: #ef7f1a;
+      font-weight: 300;
+      margin: 0;
+  }
+  .content .bl_dostavka p .more:hover {
+    text-decoration: none;
+  }
+  .content .bl_dostavka p.moree {
+      margin: 20px 0 0;
+      display: none;
+  }
+  .block4.var2 .zagol {
+      margin: 0 0 35px;
+  }
+  .block2.var3 {
+      padding: 80px 0 0;
+  }
+  .content.for_price {
+      padding: 80px 0 1px;
+  }
+  .block_price {
+    background: url("~block_price.webp") no-repeat center top transparent;
+    background-size: cover;
+    padding: 115px 0 111px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .block_price span {
+      display: block;
+      margin: 0 auto;
+      background: #ef7f1a;
+      height: 5px;
+      width: 200px;
+  }
+  .block_price .text1 {
+      color: #ef7f1a;
+      font-weight: 700;
+      margin: 33px 0 0;
+      font-size: 30px;
+      line-height: 38px;
+      letter-spacing: 6px;
+  }
+  .block_price .text2 {
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 48px;
+      margin: 6px 0 0;
+      letter-spacing: 8px;
+  }
+  .block_price .text2 b {
+      font-weight: 700;
+  }
+  .block_price .text3 {
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 34px;
+      margin: 36px 0 0;
+      letter-spacing: 8px;
+  }
+  .block_price .ceny {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 500;
+      font-size: 16px;
+      border: 3px solid #fff;
+      margin: 39px 0 0;
+      line-height: 52px;
+      letter-spacing: 3px;
+      padding: 0 49px;
+      border-radius: 6px;
+  }
+  .block_price .ceny:hover {
+      background: #fff;
+      color: #000;
+  }
+  .content .bl_dostavka .kak_nayti {
+      margin: 62px 0 0;
+  }
+  .content .bl_dostavka .kak_nayti p {
+      margin: 0 3px 10px 0;
+  }
+  .content .bl_dostavka .kak_nayti .zagol {
+      margin: 0 0 30px;
+  }
+  .content .bl_dostavka .kak_nayti iframe {
+      float: left;
+      width: 805px;
+      margin: 30px 0 41px;
+      height: 423px;
+  }
+  .content .bl_dostavka .kak_nayti img {
+      float: right;
+      margin: 30px 0 0;
+      width: 563px;
+      height: auto;
+  }
+  .content .page_zakaz {
+      padding: 0 0 80px;
+  }
+  .content .page_zakaz .pol1 {
+      background: #fff;
+      float: left;
+      width: 925px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px -10px #333;
+      margin: 30px 0 0;
+      box-sizing: border-box;
+      padding: 27px 12px 5px;
+  }
+  .content .page_zakaz .pol1 .zag {
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+      background: #ef7f1a;
+      font-weight: 700;
+      line-height: 30px;
+      border-radius: 6px;
+      font-size: 22px;
+      letter-spacing: 6px;
+      margin: 0 0 29px;
+  }
+  .content .page_zakaz .pol1 .in1 {
+      float: left;
+      width: 287px;
+      margin: 0 0 29px 20px;
+  }
+  .content .page_zakaz .pol1 .in1:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .content .page_zakaz .pol1 .in2 {
+      float: left;
+      width: 287px;
+      margin: 0 0 20px 11px;
+  }
+  .content .page_zakaz .pol1 .in2:nth-child(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .content .page_zakaz .pol1 select {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #d9d9d9;
+      border-radius: 4px;
+      height: 56px;
+      padding: 0 16px;
+      color: #ccc;
+      font-weight: 300;
+      font-size: 21px;
+      background: #fff;
+      outline: none;
+  }
+  .content .page_zakaz .pol1 input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #d9d9d9;
+      border-radius: 4px;
+      height: 56px;
+      padding: 0 16px;
+      color: #ccc;
+      font-weight: 300;
+      font-size: 21px;
+      background: #fff;
+      outline: none;
+  }
+  .content .page_zakaz .pol1 input.inp1 {
+      background: url("~inp1.webp") no-repeat 20px center #fff;
+      padding: 0 55px;
+  }
+  .content .page_zakaz .pol1 input.inp2 {
+      padding: 0 55px;
+      background: url("~inp2.webp") no-repeat 20px center #fff;
+  }
+  ::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  .content .page_zakaz .pol2 {
+      float: right;
+      width: 445px;
+      background: #fff;
+      box-shadow: 0 0 20px -10px #333;
+      border-radius: 10px;
+      margin: 30px 0 0;
+      box-sizing: border-box;
+      padding: 26px 20px;
+      text-align: left;
+  }
+  .content .page_zakaz .pol2 .zag {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 6px;
+  }
+  .content .page_zakaz .pol2 .pod {
+      margin: 26px 0 10px;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center !important;
+  }
+  .content .page_zakaz .pol2 .bl_img {
+      height: 200px;
+      margin: 18px 0 0;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+  }
+  .content .page_zakaz .pol2 label {
+      display: block;
+      font-weight: 300;
+      line-height: 28px;
+      font-size: 22px;
+      color: #d9d9d9;
+      margin: 10px 0 6px;
+  }
+
+  .content .page_zakaz .pol2 label input {}
+  .content .page_zakaz .pol2 label span {
+      float: right;
+      font-weight: 700;
+  }
+  .content .page_zakaz .pol2 label:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .content .page_zakaz .pol2 .price {
+      text-align: left;
+      // font-weight: 700;
+      // text-transform: uppercase;
+      font-size: 20px;
+      letter-spacing: 3px;
+      line-height: 28px;
+      margin: 5px 0 0;
+  }
+  .total {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+  }
+  .content .page_zakaz .pol2 .price span {
+    color: #ef7f1a;
+    float: right;
+    font-size: 25px;
+    margin: -4px 0 0;
+    letter-spacing: 1px;
+  }
+  .content .page_zakaz .pol2 .price:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .content .page_zakaz .pol2 label i {
+    font-style: normal;
+  }
+  .content .page_zakaz .pol2 label input:checked + i {
+    color: #000;
+  }
+  .content .page_zakaz .pol2 label input:checked + i + span {
+    color: #ef7f1a;
+  }
+  .content .page_zakaz .obol2 {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px -10px #333;
+      margin: 30px 0 0;
+      padding: 45px 20px 30px;
+  }
+  .content .page_zakaz .obol2 .ch1 {
+      float: left;
+      width: 900px;
+  }
+  .content .page_zakaz .obol2 .ch1 label {
+      display: block;
+      font-weight: 300;
+      font-size: 21px;
+      line-height: 26px;
+      margin: 0 0 8px;
+  }
+  .content .page_zakaz .obol2 .ch1 label input {}
+  .content .page_zakaz .obol2 button {
+      float: right;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: #ef7f1a;
+      font-weight: 500;
+      border: 3px solid #ef7f1a;
+      height: 58px;
+      width: 324px;
+      font-size: 17px;
+      letter-spacing: 2px;
+      border-radius: 6px;
+      background: #fff;
+  }
+  .content .page_zakaz .obol2 button:hover {
+      background: #ef7f1a;
+      color: #fff;
+  }
+  .menu_mob {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 59px;
+    background: #141414;
+    box-sizing: border-box;
+    width: 240px;
+    text-align: right;
+    box-shadow: 0 0 20px -10px #fff;
+    list-style: none;
+  }
+  .header #menu_tg2 {
+      cursor: pointer;
+      float: left;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 2.3px;
+      text-align: center;
+      margin: 21px 0 0 27px;
+      width: 65px;
+      line-height: 15px;
+      position: relative;
+      padding: 0 0 5px;
+      display: none;
+  }
+  .header #menu_tg2:hover {
+      color: #ef7f1a;
+  }
+  .header #menu_tg2:hover span {
+      background: #ef7f1a;
+  }
+  .header #menu_tg2 span {
+      display: block;
+      background: #fff;
+      height: 2px;
+      margin: 0 0 8px;
+  }
+  
+  
+  @media all and (max-width: 1430px) {
+    .wrapper {
+      width: 768px;
+    }
+    .header #menu_tg2 {
+      display: block;
+      float: right;
+      margin: 15px 0 0;
+      text-align: right;
+    }
+    .polosa p {
+      font-size: 15px;
+      line-height: 19px;
+      margin: 10px 0 0;
+    }
+    .polosa .zaya {
+      letter-spacing: 1px;
+      line-height: 30px;
+      padding: 0 15px;
+      margin: 4px 0 0;
+      font-size: 14px;
+    }
+    .polosa {
+      padding: 0 0 4px;
+    }
+    .header {
+      padding: 10px 0!important;
+      top: 37px;
+    }
+    .header #logo {
+      width: 160px;
+    }
+    .header .menu_top {
+      display: none;
+    }
+    .header #menu_tg {
+      display: none;
+    }
+    .header .gorod {
+      display: none;
+    }
+    .header .lang {
+      display: none;
+    }
+    .menu_mob li {
+      display: block;
+      margin: 2px;
+    }
+    .menu_mob li a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255,255,255,.1);
+      line-height: 21px;
+      font-size: 17px;
+      padding: 6px 8px;
+    }
+    .menu_mob li ul {
+      margin: 0 10px 0 0;
+  }
+    .menu_mob li ul li a {
+      font-size: 15px;
+      line-height: 17px;
+    }
+    .block1 {
+      padding: 100px 0 30px;
+      background-size: cover;
+      background-position: center -80px;
+    }
+    .block1 span,
+    .bl_new span {
+      height: 3px;
+      width: 120px;
+    }
+    .block1 .text1,
+    .block_price .text1,
+    .bl_new .text1 {
+      font-size: 22px;
+      letter-spacing: 2px;
+      line-height: 28px;
+      margin: 10px 0 0;
+    }
+    .bl_new p {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 10px 0 0;
+    }
+    .block1 .text2,
+    .block_price .text2,
+    .bl_new .text2 {
+      font-size: 30px;
+      letter-spacing: 3px;
+      line-height: 32px;
+      margin: 10px 0 0;
+    }
+    .block_price .text3 {
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin: 10px 0 0;
+    }
+    .block1 .price,
+    .block_price .ceny {
+      margin: 15px 0 0;
+      letter-spacing: 2px;
+      line-height: 40px;
+      padding: 0 20px;
+    }
+    .block1 img {
+      width: 400px;
+    }
+    .block2 form .obol {
+      width: 100%!important;
+      margin: 0 0 10px;
+    }
+    .block2 form button {
+      width: 100%!important;
+      letter-spacing: 2px;
+      height: 40px;
+    }
+    .block2 form .obol select {
+      font-size: 16px;
+      width: 75px;
+      padding: 0 0 0 7px;
+      height: 40px;
+    }
+    .block2 form .obol input {
+      width: 693px!important;
+      font-size: 15px;
+      background-size: 16px;
+      background-position: 10px center;
+      padding: 0 0 0 34px;
+      height: 40px;
+    }
+    .block3 {
+      padding: 40px 0 30px;
+    }
+    .block3 .prei {
+      width: 500px!important;
+    }
+    .block3 .prei span {
+      font-size: 120px;
+      line-height: 120px;
+      top: -20px;
+    }
+    .block3 .prei .zg {
+      font-size: 22px;
+      letter-spacing: 2px;
+      line-height: 28px;
+    }
+    .block3 .prei p {
+      max-width: 100%;
+      margin: 5px 0 0;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .block4 {
+      padding: 30px 0;
+    }
+    .block4 .podzag {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 0 0 20px;
+    }
+    .block4 .spis_avto .avto1 {
+      clear: none!important;
+      margin: 0 0 20px 20px!important;
+      width: 374px;
+      padding: 0 0 20px;
+    }
+    .block4 .spis_avto .avto1:nth-child(2n+1) {
+      clear: both!important;
+      margin-left: 0!important;
+    }
+    .block4 .spis_avto .avto1 .bl_img {
+      height: 165px;
+      margin: 15px 35px 0;
+    }
+    .block4 .spis_avto .avto1 .zg {
+      font-size: 17px;
+      letter-spacing: 2px;
+      line-height: 21px;
+      margin: 10px 0 0;
+    }
+    .block4 .spis_avto .avto1 .hara {
+      margin: 20px 0 0;
+      display: block;
+      text-align: center;
+    }
+    .block4 .spis_avto .avto1 .hara .hr {
+      font-size: 15px;
+      line-height: 18px;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 6px;
+    }
+    .block4 .spis_avto .avto1 .price {
+      margin: 20px 20px 0;
+      font-size: 17px;
+      line-height: 21px;
+    }
+    .block4 .spis_avto .avto1 .more {
+      letter-spacing: 2px;
+      margin: 20px 20px 0;
+      line-height: 40px;
+    }
+    .block4 .btn a {
+      line-height: 40px;
+      letter-spacing: 2px;
+    }
+    .block5 {
+      padding: 30px 0 30px;
+    }
+    .block5 .podzag {
+      font-size: 18px;
+      line-height: 22px;
+      margin: 0 0 20px;
+    }
+    .block5 img {
+      display: none;
+    }
+    .block5 .pol1 {
+      margin: 0;
+      width: 100%;
+    }
+    .block5 .pol1 p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .block5 .pol1 .fio {
+      background-size: 150px;
+      margin: 20px 0 0;
+      padding: 20px 0;
+      letter-spacing: 1px;
+    }
+    .block5 .pol1 .fio span {
+      font-size: 22px;
+      line-height: 28px;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    .block6 {
+      padding: 30px 0;
+    }
+    .block6 .spis_img {
+      margin: 20px 0;
+    }
+    .block6 .spis_img img {
+      max-height: 30px;
+      margin: 0 20px;
+    }
+    .block6 .spis_ot .ot1 {
+      margin: 0 0 10px;
+      width: 100%;
+      padding: 0 0 20px;
+    }
+    .block6 .spis_ot .ot1 .bl_img {
+      width: 90px;
+      height: 90px;
+      margin: 20px auto 0;
+    }
+    .block6 .spis_ot .ot1 .fio {
+      font-size: 18px;
+      letter-spacing: 2px;
+      line-height: 22px;
+      margin: 10px 0 0;
+    }
+    .block6 .spis_ot .ot1 .zvezd {
+      margin: 10px 0 0;
+    }
+    .block6 .spis_ot .ot1 .zvezd img {
+      width: 19px;
+      margin: 0 2px;
+    }
+    .block6 .spis_ot .ot1 p {
+      margin: 10px 20px 0;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .block6 .spis_ot .ot1 .more {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 10px 0 0;
+    }
+    .block6 .btn a {
+      letter-spacing: 2px;
+      line-height: 40px;
+      padding: 0 30px;
+    }
+    .block6 .btn {
+      margin: 20px 0 0;
+    }
+    .block7 {
+      padding: 30px 0;
+    }
+    .block2 .zagol,
+    .block4 .zagol,
+    .block5 .zagol,
+    .block6 .zagol,
+    .block7 .zagol,
+    .block8 .zagol,
+    .block_vopros .zagol,
+    .bl_contact2 .zag {
+      font-size: 26px;
+      letter-spacing: 3px;
+      line-height: 34px;
+      margin: 0 0 15px;
+    }
+    .block7 .zag,
+    .block8 .zag {
+      font-size: 20px;
+      letter-spacing: 2px;
+      line-height: 26px;
+    }
+    .block7 p,
+    .block8 p {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 5px 0 20px;
+    }
+    .block8 {
+      padding: 30px 0;
+    }
+    .block8 .podzag {
+      font-size: 18px;
+      line-height: 22px;
+      margin: 0;
+    }
+    .block8 img {
+      display: none;
+    }
+    .block8 .pol2 {
+      margin: 20px 0 0;
+      width: 100%;
+    }
+    .block8 .cha1 {
+      margin: 0;
+      width: 100%;
+    }
+    .block8 .cha1 .spis_mis .mis img {
+      display: block;
+      max-width: 32px;
+      max-height: 32px;
+    }
+    .block8 .cha1 .spis_mis .mis {
+      font-size: 16px;
+      line-height: 19px;
+      padding: 0 0 0 40px;
+      margin: 0 0 17px;
+    }
+    .block8 .cha1 .spis_mis {
+      margin: 0;
+    }
+    .block8 .cha1 .spis_prei {
+      margin: 0;
+    }
+    .block8 .cha1 .spis_prei .prei .zz img {
+      display: block;
+      max-width: 32px;
+      max-height: 32px;
+    }
+    .block8 .cha1 .spis_prei .prei .zz {
+      font-size: 18px;
+      line-height: 22px;
+      padding: 0 0 0 40px;
+    }
+    .block8 .cha1 .spis_prei .prei p {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 10px 0 0 40px;
+    }
+    .block8 .cha1 .spis_prei .prei {
+      margin: 0 0 18px;
+    }
+    .footer {
+      padding: 20px 0;
+    }
+    .footer .col1 {
+      margin: 0;
+      width: 100%;
+    }
+    .footer .col1 #logo2 {
+      width: 160px;
+    }
+    .footer .col1 p {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .footer .zag {
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 2px;
+    }
+    .footer ul li {
+      margin: 0 0 5px;
+    }
+    .footer ul {
+      margin: 5px 0 0;
+    }
+    .footer ul li a {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .footer .col2,
+    .footer .col3 {
+      margin: 20px 0 0;
+      width: 50%;
+    }
+    .footer .col3 p {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 5px 0 0;
+    }
+    .footer .col3 .social {
+      margin: 40px 0 0;
+    }
+    .content {
+      padding: 100px 0 10px;
+    }
+    .content .bread {
+      font-size: 15px;
+      line-height: 18px;
+      margin: 0 0 20px;
+    }
+    .block2 form .filtry {
+      width: 100%;
+      line-height: 40px;
+      text-align: center;
+    }
+    .block2 form .vipad_filtr {
+      top: 180px;
+      padding: 15px;
+    }
+    .block2 form select.var2 {
+      font-size: 16px;
+      height: 32px;
+      margin: 0 0 10px 10px;
+      width: 239px;
+    }
+    .block2 form .vipad_filtr .prime {
+      letter-spacing: 2px;
+      line-height: 40px;
+      padding: 0 40px;
+      margin:10px 0 0;
+    }
+    .content.for_spis {
+      padding: 30px 0 10px;
+    }
+    .content .zagol {
+      font-size: 28px;
+      letter-spacing: 2px;
+      line-height: 36px;
+    }
+    .content.for_spis .text1 p {
+      margin: 10px 0 20px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content.for_spis .filter {
+      padding: 10px 0 0;
+    }
+    .content.for_spis .filter select {
+      height: 38px;
+      font-size: 16px;
+      padding: 0 10px;
+      margin: 0 10px 0 0;
+      width: 160px;
+    }
+    .content.for_spis .filter button {
+      letter-spacing: 1px;
+      font-size: 15px;
+      height: 38px;
+      width: 240px;
+    }
+    .content.for_spis .filter .vid_spis a {
+      height: 40px!important;
+      width: 40px!important;
+      background-size: cover!important;
+      margin: 0 0 0 10px!important;
+    }
+    .block_vopros .vopros {
+      margin: 0 0 10px;
+    }
+    .block_vopros .vopros .vop {
+      font-size: 19px;
+      line-height: 23px;
+      letter-spacing: 2px;
+      padding: 15px 40px 15px 15px;
+    }
+    .block_vopros .vopros .vop span {
+      background-size: contain!important;
+      width: 20px;
+      height: 20px;
+      top: 16px;
+      right: 16px;
+    }
+    .block_vopros .vopros .otv {
+      font-size: 16px;
+      line-height: 19px;
+      padding: 10px 15px;
+    }
+    .block_vopros {
+      margin: 0;
+      padding: 30px 0;
+    }
+    .content .bl_contact {
+      padding: 20px 0 30px;
+    }
+    .content .bl_contact p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content .bl_contact .pol1 {
+      margin: 20px 0 0;
+      width: 100%;
+    }
+    .content .bl_contact .zag {
+      font-size: 19px;
+      line-height: 23px;
+      letter-spacing: 2px;
+      margin: 0 0 5px;
+    }
+    .content .bl_contact .pol1 p + .zag {
+      margin: 20px 0 5px;
+    }
+    .content .bl_contact iframe {
+      margin: 20px 0 30px;
+      width: 100%;
+      height: 350px;
+    }
+    .content .bl_contact .video {
+      width: 100%;
+    }
+    .content .bl_contact .video iframe {
+      height: 350px;
+    }
+    .content .bl_contact .shema {
+      width: 250px;
+      margin: 20px 0 20px;
+    }
+    .content .bl_contact .shema + .clear {
+      display: none;
+    }
+    .content .bl_contact .shema2 {
+      width: 498px;
+      float: left;
+      margin: 20px 0 0;
+    }
+    .bl_contact2 {
+      padding: 30px 0;
+    }
+    .bl_contact2 form input {
+      height: 40px;
+      width: 100%;
+      margin: 0 0 10px;
+      font-size: 16px;
+      padding: 0 15px;
+    }
+    .bl_contact2 form input[type="submit"] {
+      width: 100%;
+    }
+    .content .bl_dostavka table th {
+      font-size: 17px;
+      top: 80px;
+    }
+    .content .bl_dostavka table td {
+      padding: 10px;
+      font-size: 16px;
+      line-height: 19px;
+      border-width: 3px;
+    }
+    .content .bl_dostavka p {
+      margin: 20px 0 0;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .block_price,
+    .bl_new {
+      margin: -12px 0 0;
+      padding: 50px 0;
+    }
+    .block_price span {
+      height: 3px;
+      width: 120px;
+    }
+    .block2.var3 {
+      padding: 30px 0;
+    }
+    .content.for_price {
+      padding: 30px 0;
+    }
+    .content .bl_dostavka .kak_nayti {
+      margin: 20px 0 0;
+    }
+    .content .bl_dostavka .kak_nayti .zagol {
+      margin: 0 0 10px;
+    }
+    .content .bl_dostavka .kak_nayti iframe {
+      width: 100%;
+      height: 350px;
+    }
+    .content .bl_dostavka .kak_nayti img {
+      margin: 20px auto;
+      float: none;
+      display: block;
+    }
+    .content2 {
+      padding: 30px 0;
+    }
+    .content2 p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content2 .zag {
+      font-size: 21px;
+      letter-spacing: 2px;
+      line-height: 25px;
+      margin: 20px 0 10px;
+    }
+    .content2 img.alignleft {
+      width: 50%;
+      margin: 0 20px 0 0;
+    }
+    .content .spis_new {
+      margin: 20px 0 0;
+    }
+    .content .spis_new .new1 {
+      margin: 0 0 10px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 15px;
+    }
+    .content .spis_new .new1 .bl_img {
+      width: 100%;
+      height: 200px;
+    }
+    .content .spis_new .new1 .data {
+      font-size: 16px;
+      letter-spacing: 1px;
+      line-height: 19px;
+      margin: 10px 0 0;
+    }
+    .content .spis_new .new1 .zg {
+      font-size: 18px;
+      line-height: 21px;
+      margin: 10px 0 0;
+    }
+    .content .spis_new .new1 p {
+      margin: 10px 0 0;
+    }
+    .content .spis_new .new1 .more {
+      line-height: 34px;
+      letter-spacing: 2px;
+      margin: 10px 0 0;
+    }
+    .content .btn a {
+      letter-spacing: 2px;
+      line-height: 34px;
+      padding: 0 40px;
+    }
+    .content .btn {
+      margin: 20px 0 20px;
+    }
+    .content .bl_about p {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 0 0 15px;
+    }
+    .content .bl_about .zagol {
+      margin: 30px 0 20px;
+    }
+    .content .bl_about .spis_par img {
+      width: 246px;
+      margin: 5px!important;
+      float: none;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .content .bl_about .spis_par {
+      font-size: 0;
+    }
+    .content .bl_about .spis_ser img {
+      margin: 5px!important;
+      width: 246px;
+    }
+    .content .bl_about .spis_sot .sot {
+      width: 246px;
+      margin: 5px!important;
+    }
+    .content .bl_about .spis_sot .sot .fio {
+      font-size: 19px;
+      line-height: 23px;
+      letter-spacing: 2px;
+      margin: 10px 0 0;
+    }
+    .content .bl_about .spis_sot .sot .bl_img {
+      height: 250px;
+    }
+    .content .bl_about .spis_sot {
+      margin: 0;
+    }
+    .content .bl_otzyvy .col1 {
+      margin: 20px 0 0;
+      width: 100%;
+    }
+    .content .bl_otzyvy .col1 .otziv {
+      padding: 20px;
+      margin: 0 0 10px;
+    }
+    .content .bl_otzyvy .col1 .otziv .zvezd img {
+      margin: 0 2px 0 0;
+      width: 18px;
+    }
+    .content .bl_otzyvy .col1 .otziv .fio {
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: 2px;
+      margin: 10px 0 0;
+    }
+    .content .bl_otzyvy .col1 .otziv p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content .bl_otzyvy .col2 {
+      margin: 30px 0 20px;
+      width: 100%;
+      padding: 20px;
+    }
+    .content .bl_otzyvy .col2 .zg {
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: 2px;
+      margin: 0 0 10px;
+    }
+    .content .bl_otzyvy .col2 form input {
+      height: 40px;
+      font-size: 16px;
+      margin: 0 0 10px;
+      padding: 0 15px;
+    }
+    .content .bl_otzyvy .col2 form textarea {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin: 0 0 10px;
+      height: 90px;
+    }
+    .content .bl_otzyvy .col2 form .ocen {
+      font-size: 16px;
+    }
+    .content .bl_otzyvy .col2 form .ocen .spis_zv {
+      margin: 10px 0 0;
+    }
+    .content .bl_otzyvy .col2 form .ocen .spis_zv img {
+      width: 19px;
+      margin: 0 2px 0 0;
+    }
+    .content .bl_otzyvy .col2 form button {
+      letter-spacing: 2px;
+      height: 40px;
+      padding: 0 30px;
+      width: auto;
+    }
+    .content .cartochka .pl1 {
+      width: 100%;
+    }
+    .content .cartochka .pl1 .bl_img_full {
+      height: 300px;
+    }
+    .content .cartochka .pl1 .bx-viewport {
+      margin: 10px 0 0;
+    }
+    .content .cartochka .pl2 {
+      margin: 30px 0 0;
+      width: 100%;
+    }
+    .content .cartochka .pl2 .hara {
+      margin: 20px 0 0;
+    }
+    .content .cartochka .pl2 .hara .hr {
+      font-size: 16px;
+      line-height: 19px;
+      padding: 0 0 0 32px;
+      width: 192px;
+      clear: none!important;
+      margin: 0 0 15px;
+    }
+    .content .cartochka .pl2 .hara .hr img {
+      max-width: 25px;
+      max-height: 25px;
+    }
+    .content .cartochka .pl2 .price {
+      font-size: 17px;
+      line-height: 21px;
+    }
+    .content .cartochka .pl2 .price b {
+      font-size: 22px;
+    }
+    .content .cartochka .pl2 .podzg {
+      font-size: 20px;
+      letter-spacing: 2px;
+      line-height: 25px;
+    }
+    .content .cartochka .pl2 .spis_stoi {
+      margin: 15px 0 0;
+    }
+    .content .cartochka .pl2 .spis_stoi .st {
+      font-size: 17px;
+      line-height: 21px;
+      margin: 0 10px 0 0!important;
+    }
+    .content .cartochka .pl2 .spis_stoi .st span {padding: 3px 0;font-size: 17px;margin: 0 0 5px;}
+    .content .cartochka .pl2 .arend {
+      line-height: 34px;
+      letter-spacing: 2px;
+      padding: 0 30px;
+      margin: 20px 0 0;
+    }
+    .content .cartochka .bl_hara {
+      margin: 30px 0 0;
+    }
+    .content .cartochka .bl_hara .cc1 {
+      width: 100%;
+    }
+    .content .cartochka .bl_hara .cc1 .zz {
+      margin: 20px 0 10px;
+      font-size: 19px;
+      line-height: 22px;
+    }
+    .content .cartochka .bl_hara .cc1 p {
+      line-height: 30px;
+      font-size: 16px;
+      padding: 0 0 0 10px;
+      margin: 0 0 7px;
+    }
+    .content .cartochka .video {
+      margin: 30px 0 30px;
+    }
+    .content .cartochka .video iframe {
+      margin: 20px 0 0;
+      height: 350px;
+    }
+    .content .cartochka .video p {
+      margin: 30px 0 0;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content .cartochka .video + .zagol {
+      margin: 0 0 -20px;
+    }
+    .content .pricee .txt p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content .pricee .txt .more {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content .pricee .txt {
+      padding: 20px 0 30px;
+    }
+    .content .pricee .podzag {
+      font-size: 18px;
+      margin: 5px 0 20px;
+      line-height: 21px;
+    }
+    .content .pricee table th {
+      font-size: 15px;
+      line-height: 18px;
+      padding: 7px 5px;
+      position: sticky;
+      top: 80px;
+    }
+    .content .pricee table td .full {
+      width: 130px;
+      margin: 10px auto 0;
+    }
+    .content .pricee table td .zz {
+      font-size: 18px;
+      letter-spacing: 2px;
+      line-height: 21px;
+    }
+    .content .pricee table td .hara {
+      display: block;
+      margin: 10px 0 0;
+      width: 100%;
+    }
+    .content .pricee table td .hara .hr {
+      display: block;
+      line-height: 19px;
+      margin: 4px 0;
+    }
+    .content .pricee table td .hara .hr span {
+      margin: 0;
+    }
+    .content .pricee table td {
+      min-width: 75px;
+      font-size: 16px;
+      line-height: 19px;
+      padding: 10px 5px;
+      max-width: 220px;
+    }
+    .content .pricee table td a {
+      font-size: 15px;
+      letter-spacing: 2px;
+      padding: 0 20px;
+      line-height: 34px;
+    }
+    .content .pricee table {
+    }
+    .content .pricee table thead {
+      position: relative;
+      top: 0;
+    }
+    .content .pricee .tex {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 20px 0 0;
+    }
+    .content .pricee .tex + .zagol {
+      margin: 30px 0 20px;
+    }
+    .content .pricee table th:nth-child(7),
+    .content .pricee table th:nth-child(8),
+    .content .pricee table th:nth-child(9),
+    .content .pricee table td:nth-child(7),
+    .content .pricee table td:nth-child(8),
+    .content .pricee table td:nth-child(9) {
+      display: none;
+    }
+    .content .pricee table td:nth-child(6) {
+        border-right: 1px solid #ef7f1a;
+    }
+    .content .pricee table td .akci {
+      margin: 0 0 5px;
+      font-size: 15px;
+    }
+    .content .textt p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .content .uslovi .zagol {
+      margin: 0 0 20px;
+    }
+    .content .uslovi .obol {
+      margin: 0 0 20px;
+      padding: 20px 20px 1px;
+    }
+    .content .uslovi .zz,
+    .content .uslovi .zz2 {
+      font-size: 20px;
+      letter-spacing: 2px;
+      line-height: 25px;
+      margin: 0 0 10px;
+    }
+    .content .uslovi p {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 10px 0 20px;
+    }
+    .content .page_zakaz .pol1 {
+      margin: 20px 0 0;
+      width: 100%;
+      padding: 20px;
+    }
+    .content .page_zakaz .pol1 .zag {
+      font-size: 18px;
+      line-height: 21px;
+      letter-spacing: 2px;
+      padding: 6px;
+      margin: 0 0 10px;
+    }
+    .content .page_zakaz .pol1 .in1,
+    .content .page_zakaz .pol1 .in2 {
+      width: 100%;
+      margin: 0 0 10px;
+    }
+    .content .page_zakaz .pol1 select,
+    .content .page_zakaz .pol1 input {
+      height: 40px;
+      font-size: 16px;
+    }
+    .content .page_zakaz .pol2 {
+      width: 100%;
+      margin: 20px 0 0;
+      padding: 20px;
+    }
+    .content .page_zakaz .pol2 .zag {
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: 2px;
+    }
+    .content .page_zakaz .pol2 .bl_img {
+      height: 170px;
+    }
+    .content .page_zakaz .pol2 .pod {
+      margin: 20px 0 10px;
+      font-size: 18px;
+      line-height: 21px;
+    }
+    .content .page_zakaz .pol2 label {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 0 0 4px;
+    }
+    .content .page_zakaz .pol2 .price {
+      margin: 15px 0 0;
+      font-size: 18px;
+      letter-spacing: 2px;
+      line-height: 22px;
+    }
+    .content .page_zakaz .pol2 .price span {
+      font-size: 26px;
+      margin: 0;
+    }
+    .content .page_zakaz .obol2 {
+      margin: 20px 0 0;
+      padding: 20px;
+    }
+    .content .page_zakaz .obol2 .ch1 {
+      width: 100%;
+    }
+    .content .page_zakaz .obol2 .ch1 label {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 0 0 8px;
+    }
+    .content .page_zakaz .obol2 button {
+      height: 40px;
+      letter-spacing: 2px;
+      width: auto;
+      padding: 0 40px;
+    }
+    .content.for_spis .filter .vid_spis {
+      display: none;
+    }
+  }
+  
+  @media all and (max-width: 767px) {
+    .wrapper {
+      width: 480px;
+    }
+    .polosa {
+      display: none;
+    }
+    .header {
+      top: 0;
+    }
+    .block2 form .obol input {
+      width: 405px!important;
+    }
+    .block3 .prei {
+      width: 400px!important;
+      margin: 0 0 15px!important;
+    }
+    .block4 .spis_avto .avto1 {
+      margin: 0 0 20px!important;
+      width: 100%;
+    }
+    .block2 form select.var2 {
+      margin: 0 0 10px;
+      width: 100%;
+    }
+    .content.for_spis .filter select {
+      width: 100%;
+      margin: 0 0 10px;
+    }
+    .content .bl_contact .shema {
+      margin: 20px 0 0;
+      width: 100%;
+    }
+    .content .bl_contact .shema2 {
+      width: 100%;
+      margin: 20px 0;
+    }
+    .content .bl_dostavka table th {
+      font-size: 16px;
+      line-height: 19px;
+      min-width: 95px;
+    }
+    .content .bl_dostavka table td {
+      padding: 5px;
+    }
+    .content .zagol {
+      font-size: 22px !important;
+      line-height: 28px;
+    }
+    .content .bl_dostavka .kak_nayti img {
+      width: 100%;
+    }
+    .content2 img.alignleft {
+      width: 100%;
+      margin: 10px 0;
+    }
+    .content .bl_about .spis_par img,
+    .content .bl_about .spis_ser img,
+    .content .bl_about .spis_sot .sot {
+      margin: 5px 0!important;
+      width: 100%;
+    }
+    .content .cartochka .pl1 .bx-viewport li a {
+      width: 100px;
+      height: 80px;
+    }
+    .content .cartochka .pl2 .hara .hr {
+      width: 240px;
+    }
+    .content .cartochka .pl2 .spis_stoi .st {
+      font-size: 15px;
+      margin: 0 5px 0 0!important;
+      width: 75px;
+    }
+    .content .cartochka .bl_hara .cc1 p span {
+      width: 100%;
+      text-align: left;
+      padding: 0 5px;
+      box-sizing: border-box;
+    }
+    .content .cartochka .bl_hara .cc1 p {
+      padding: 0 5px 5px;
+    }
+    .content .pricee table td .hara {
+      display: none;
+    }
+    .content .pricee table td .full {
+      width: 90px;
+    }
+    .content .pricee table td .zz {
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 19px;
+    }
+    .content .pricee table td {
+      min-width: 67px;
+      padding: 3px;
+      box-sizing: border-box;
+    }
+    table {
+      display: block!important;
+      overflow-x: auto!important;
+    }
+    table th {
+      position: relative!important;
+      top: 0!important;
+    }
+  }
+
+  .modal-close-button {
+    margin-left: auto;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #ef7f1a;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  
+  @media all and (max-width: 479px) {
+    .wrapper {
+      width: 310px;
+    }
+    .block1 .text1, .block_price .text1, .bl_new .text1 {
+      font-size: 19px;
+      line-height: 23px;
+    }
+    .block1 .text2, .block_price .text2, .bl_new .text2 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    .block1 img {
+      width: 250px;
+    }
+    .block2 .zagol, .block4 .zagol, .block5 .zagol, .block6 .zagol, .block7 .zagol, .block8 .zagol, .block_vopros .zagol, .bl_contact2 .zag {
+      font-size: 20px;
+      line-height: 25px;
+    }
+    .block2 form .obol input {
+      width: 235px!important;
+    }
+    .block3 .prei {
+      width: 250px!important;
+    }
+    .block4 .spis_avto .avto1 .hara .hr {
+      padding: 0 4px;
+      font-size: 14px;
+    }
+    .block4 .spis_avto .avto1 .hara .hr span {
+      letter-spacing: 0;
+    }
+    .block4 .spis_avto .avto1 .hara {
+      font-size: 0;
+    }
+    .block4 .spis_avto .avto1 .price {
+      letter-spacing: 1px;
+      font-size: 16px;
+    }
+    .block4 .spis_avto .avto1 .more {
+      line-height: 34px;
+    }
+    .block4 .btn a {
+      display: block;
+      padding: 0;
+      letter-spacing: 1px;
+      font-size: 15px;
+    }
+    .block5 .pol1 .fio {
+      padding: 0 0 90px;
+      background-position: bottom center;
+    }
+    .block6 .spis_img img {
+      margin: 5px 0;
+    }
+    .block7 .zag, .block8 .zag {
+      font-size: 17px;
+      line-height: 20px;
+    }
+    .footer .col2, .footer .col3 {
+      width: 100%;
+    }
+    .footer .col3 + .col3 {
+      padding: 0 0 60px;
+    }
+    .block_vopros .vopros .vop {
+      font-size: 17px;
+      line-height: 20px;
+    }
+    .block_price .text3 {
+      font-size: 17px;
+      line-height: 20px;
+    }
+    .content .cartochka .pl1 .bl_img_full {
+      height: 240px;
+    }
+    .content .cartochka .pl1 .bx-viewport li {
+      width: 155px!important;
+    }
+    .content .cartochka .pl2 .hara .hr {
+      width: 155px;
+    }
+    .content .cartochka .pl2 .spis_stoi .st {
+      margin: 0 10px 10px 0!important;
+      float: none;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .content .cartochka .bl_hara .zagol span {
+      display: block;
+      text-align: left;
+    }
+    .content .pricee table {
+      overflow-x: auto;
+      display: block;
+    }
+    .content .pricee table th {
+      position: relative;
+      top: 0;
+    }
+    .content .page_zakaz .pol1 .zag {
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+    .content .page_zakaz .pol2 .price span {
+      font-size: 22px;
+    }
+    .content .page_zakaz .pol2 .price {
+      font-size: 17px;
+    }
+    .content .page_zakaz .obol2 button {
+      width: 100%;
+    }
+    .content .bl_otzyvy .col2 form button {
+      width: 100%;
+      margin: 20px 0 0;
+    }
+    .content .cartochka .pl2 .arend {
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .content .cartochka .pl2 .spis_stoi {
+      text-align: center;
+      font-size: 0;
+    }
+    .content .cartochka .pl2 .podzg {
+      text-align: center;
+    }
+    .content .cartochka .pl2 .price {
+      text-align: center;
+    }
+    .content .cartochka .pl2 .zagol {
+      text-align: center;
+    }
+    .content .cartochka .pl2 .hara {
+      text-align: center;
+      font-size: 0;
+    }
+    .content .cartochka .pl2 .hara .hr {
+      width: auto;
+      display: inline-block;
+      vertical-align: top;
+      float: none;
+      margin: 5px 15px!important;
+      text-align: left;
+    }
+    .content .page_zakaz {
+      padding: 0 0 20px;
+    }
+  }

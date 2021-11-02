@@ -2,17 +2,84 @@
 <% description @text.cars_crossovers_description %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
-  <div class="wrapper">
-    <%= render 'shared/bread'%>
-    <h1><%= @text.cars_crossovers_h1 %></h1>
-    <div class="bl_avtomob">
-      <%= render 'cars', cached: true %>
-      <div class="clear"></div>
-      <div style="margin-top: 1em; text-align:left;">
-        <%= @text.cars_crossovers_text.html_safe %>
-      </div>
+    <div class="wrapper">
+        <div class="bread">
+          <%= render 'shared/bread'%>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-  </div>
+</div>
+<div class="block2 var2">
+    <div class="wrapper" id="search_cars">
+        <div class="zagol"><h1><%= @text.cars_crossovers_h1 %></h1></div>
+        <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>"></search_cars>
+        <div class="clear"></div>
+    </div>
+</div>
+<% if @cars && @cars.length > 0 %>
+    <div class="content for_spis">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol"><%= @text.top_cars_title.html_safe %></div>
+                <p><%= @text.top_cars.html_safe %></p>
+            </div>
+            <div class="filter">
+                <select id="car_type">
+                    <option selected value="0">Тип автомобиля</option>
+                    <option value="1">Седан</option>
+                    <option value="2">Хетчбек</option>
+                    <option value="3">Универсал</option>
+                    <option value="4">Купе</option>
+                    <option value="5">Кроссовер</option>
+                    <option value="6">Джип</option>
+                    <option value="7">Минивэн</option>
+                    <option value="8">Все автомобили</option>
+                </select>
+                <select id="car_kpp">
+                    <option selected value="0">КПП</option>
+                    <option value="1">Автоматическая КПП</option>
+                    <option value="2">Механическая КПП</option>
+                    <option value="4">Все автомобили</option>
+                </select>
+                <div class="vid_spis" id="flash_cars_vid">
+                    <a href="#" class="vid1 active"></a>
+                    <a href="#" class="vid2"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4 var2" id="flash_cars">
+        <div class="wrapper">
+            <div class="spis_avto active" id="spis1">
+                <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="spis_avto" id="spis2">
+                <%= render partial: 'cars_plitka', collection: @cars, as: :car, cached: true %>
+            </div>
+            <%# <div class="btn">
+                <a href="#">Загрузить еще</a>
+            </div> %>
+            <%# <div class="clear"></div> %>
+        </div>
+    </div>
+<% else %>
+    <%# <div class="content for_spis">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol">Свободных автомобилей нет</div>
+            <div class="clear"></div>
+        </div>
+    </div> %>
+<% end %>
+<div class="block_vopros">
+    <div class="wrapper">
+        <div class="vopros">
+            <div class="otv" style="display: block;"><%= @text.cars_crossovers_text.html_safe %></div>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
 <%= render 'shared/footer', cached: true %>

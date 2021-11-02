@@ -1,61 +1,70 @@
 <% title @text.car_sharing_title %>
 <% description @text.car_sharing_description %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
   <div class="wrapper">
-        <%= render 'shared/bread'%>
-    <div class="bl_dop">
-        <h1><%= @text.car_sharing_h1 %></h1>
-        <table class="table-carshearing var2">
-          <tbody>
-            <tr>
-              <td></td>
-              <td colspan="3">Стоимость (руб. в час)</td>
-            </tr>
-            <tr>
-              <td>Длительность (ч)</td>
-              <td>Эконом</td>
-              <td>Средний</td>
-              <td>Бизнес</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>500</td>
-              <td>600</td>
-              <td>1500</td>
-            </tr>
-            <tr>
-              <td>2-3</td>
-              <td>400</td>
-              <td>500</td>
-              <td>1300</td>
-            </tr>
-            <tr>
-              <td>4-6</td>
-              <td>300</td>
-              <td>400</td>
-              <td>1100</td>
-            </tr>
-            <tr>
-              <td>>7</td>
-              <td>250</td>
-              <td>350</td>
-              <td>1000</td>
-            </tr>
-            <tr>
-              <td>> 2-x суток</td>
-              <td>150</td>
-              <td>200</td>
-              <td>500</td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
+      <div class="bread">
+          <%= render 'shared/bread'%>
+      </div>
+      <div class="textt">
+          <div class="zagol"><%= @text.car_sharing_h1 %></div>
+          <div class="pricee">
+            <table class="article_table">
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th colspan="3">Стоимость (руб. в час)</th>
+                </tr>
+                <tr>
+                  <td>Длительность (ч)</td>
+                  <td>Эконом</td>
+                  <td>Средний</td>
+                  <td>Бизнес</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>500</td>
+                  <td>600</td>
+                  <td>1500</td>
+                </tr>
+                <tr>
+                  <td>2-3</td>
+                  <td>400</td>
+                  <td>500</td>
+                  <td>1300</td>
+                </tr>
+                <tr>
+                  <td>4-6</td>
+                  <td>300</td>
+                  <td>400</td>
+                  <td>1100</td>
+                </tr>
+                <tr>
+                  <td>>7</td>
+                  <td>250</td>
+                  <td>350</td>
+                  <td>1000</td>
+                </tr>
+                <tr>
+                  <td>> 2-x суток</td>
+                  <td>150</td>
+                  <td>200</td>
+                  <td>500</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <%= @text.car_sharing_text.html_safe %>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
   </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

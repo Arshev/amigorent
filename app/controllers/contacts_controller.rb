@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
 
     @contacts_title = Text.first.contacts_title
     @contacts_description = Text.first.contacts_description
+    @city = City.find_by(name: params[:city])
   end
 
   def create

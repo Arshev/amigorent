@@ -1,15 +1,162 @@
 <% title @text.cars_title %>
 <% description @text.cars_description %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
-  <div class="wrapper">
-    <%= render 'shared/bread'%>
-    <h1>Автомобили</h1>
-    <div class="bl_avtomob">
-      <%= render 'cars', cached: true %>
-      <div class="clear"></div>
+    <div class="wrapper">
+        <div class="bread">
+          <%= render 'shared/bread'%>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-  </div>
+</div>
+<div class="block2 var2">
+    <div class="wrapper" id="search_cars">
+        <div class="zagol"><h1>Автомобили</h1></div>
+        <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>" locale="<%= I18n.locale %>"></search_cars>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<% if @cars && @cars.length > 0 %>
+    <div class="content for_spis">
+        <div class="wrapper">
+            <% if params[:start_date] && params[:end_date] %>
+                <div class="text1">
+                    <div class="zagol">Мгновенное бронирование</div>
+                    <p>Ниже представлены свободные на указанный вами период автомобили. Ответ по заявке поступит в ближайшее время, обычно в течение часа, в рабочее время.</p>
+                    <%# <div class="zagol">Результаты</div> %>
+                </div>
+            <% else %>
+                <div class="text1">
+                    <div class="zagol"><%= @text.top_cars_title.html_safe %></div>
+                    <p><%= @text.top_cars.html_safe %></p>
+                </div>
+            <% end %>
+            <div class="filter">
+                <select id="car_type">
+                    <option selected value="0">Тип автомобиля</option>
+                    <option value="1">Седан</option>
+                    <option value="2">Хетчбек</option>
+                    <option value="3">Универсал</option>
+                    <option value="4">Купе</option>
+                    <option value="5">Кроссовер</option>
+                    <option value="6">Джип</option>
+                    <option value="7">Минивэн</option>
+                    <option value="8">Все автомобили</option>
+                </select>
+                <select id="car_kpp">
+                    <option selected value="0">КПП</option>
+                    <option value="1">Автоматическая КПП</option>
+                    <option value="2">Механическая КПП</option>
+                    <option value="4">Все автомобили</option>
+                </select>
+                <%# <button>Показать автомобили</button> %>
+                <div class="vid_spis" id="flash_cars_vid">
+                    <a href="#" class="vid1 active"></a>
+                    <a href="#" class="vid2"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4 var2" id="flash_cars">
+        <div class="wrapper">
+            <div class="spis_avto active" id="spis1">
+                <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="spis_avto" id="spis2">
+                <%= render partial: 'cars_plitka', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <%# <div class="clear"></div> %>
+        </div>
+    </div>
+<% elsif %>
+    <div class="content for_spis">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol">Свободных автомобилей для мгновенного бронирования нет</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+<% end %>
+<% if @fake_cars && @fake_cars.length > 0 %>
+    <div class="content for_spis" style="padding: 10px 0 8px;">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol">Бронирует менеджер</div>
+                <p>Ниже представлены автомобили, доступность которых на указанные даты проверяет менеджер. Ответ по заявке поступит в ближайшее время, в исключительных случаях – до 1 суток.</p>
+                <%# <div class="zagol">Результаты</div> %>
+            </div>
+            <div class="filter">
+                <select id="not_flash_car_type">
+                    <option selected value="0">Тип автомобиля</option>
+                    <option value="1">Седан</option>
+                    <option value="2">Хетчбек</option>
+                    <option value="3">Универсал</option>
+                    <option value="4">Купе</option>
+                    <option value="5">Кроссовер</option>
+                    <option value="6">Джип</option>
+                    <option value="7">Минивэн</option>
+                    <option value="8">Все автомобили</option>
+                </select>
+                <select id="not_flash_car_kpp">
+                    <option selected value="0">КПП</option>
+                    <option value="1">Автоматическая КПП</option>
+                    <option value="2">Механическая КПП</option>
+                    <option value="4">Все автомобили</option>
+                </select>
+                <div class="vid_spis" id="not_flash_cars_vid">
+                    <a href="#" class="vid1 active"></a>
+                    <a href="#" class="vid2"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4 var2" id="not_flash_cars">
+        <div class="wrapper">
+            <div class="spis_avto active" id="spis1">
+                <%= render partial: 'cars', collection: @fake_cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="spis_avto" id="spis2">
+                <%= render partial: 'cars_plitka', collection: @fake_cars, as: :car, cached: true %>
+            </div>
+            <%# <div class="btn">
+                <a href="#">Загрузить еще</a>
+            </div> %>
+            <div class="clear"></div>
+        </div>
+    </div>
+<% else %>
+    <%# <div class="content for_spis">
+        <div class="wrapper">
+            <div class="text1">
+                <div class="zagol">Свободных автомобилей нет</div>
+            <div class="clear"></div>
+        </div>
+    </div> %>
+<% end %>
+<div class="block_vopros">
+    <div class="wrapper">
+        <div class="zagol">Часто задаваемые вопросы</div>
+        <div class="vopros">
+            <div class="vop active">Как забронировать автомобиль?<span></span></div>
+            <div class="otv" style="display: block;">Процедура бронирования автомобиля на сайте автопроката Амиго проста и понятна. Самый легкий способ бронирования авто – это оформление заявки на аренду на нашем сайте. Для заказа машины достаточно ввести в поле поиска интересующие даты аренды и система покажет автомобили, доступные на указанный период. Вверху списка, под заголовком «Мгновенное бронирование» расположены автомобили которые свободны на указанный период, вы можете выбрать подходящий авто и оформить бронь. Подтверждение придет в ближайшее время (обычно в течение часа). Если в указанном списке вы не нашли подходящей машины, то можете выбрать автомобиль из списка под заголовком «Бронирует менеджер». После оформления заявки, сотрудник автопроката проверит доступность выбранного автомобиля, в случае занятости, предложит скорректировать сроки аренды или поможет выбрать аналогичный авто. В рабочее время рассмотрение заявки обычно происходит в течение часа, но в отдельных случаях может составлять до одних суток. Поэтому, если машина нужна очень срочно – рекомендуем звонить. В любом случае, оформление заявки не является гарантией предоставления автомобиля, гарантией бронирования является подтверждение заявки автопрокатом. Поэтому, после оформления заявки, обязательно проверяйте указанную электронную почту, в том числе папку «нежелательная почта».</div>
+        </div>
+        <div class="vopros">
+            <div class="vop">Как подобрать машину для аренды?<span></span></div>
+            <div class="otv">Для начала рекомендуем определиться с датами желаемой аренды автомобиля, ввести их в соответствующие поля и нажать кнопку «Поиск». Перед вами будет список автомобилей доступных для мгновенного автоматического бронирования и тех, бронирование которых осуществляет сотрудник автопроката. Далее, если есть предпочтительный тип коробки передач – выбрать его в соответствующем поле, если вам неважно – оставить без изменений. Если есть предпочтения по типу кузова автомобиля – выбрать его в соответствующем поле. Например: вы путешествуете большой компанией и нужен обязательно минивэн, или – вы хотите только внедорожник. Если особых предпочтений нет или вы хотите рассмотреть все варианты, оставьте поле без изменений. Далее нужно принять решение, вам нужна машина подешевле или посолиднее? Сортировка автомобилей осуществляется по цене, соответственно, если нужен дорогой автомобиль – можно начинать просмотр с нижней части списка, хотите авто подешевле – обратите внимание на верхнюю часть страницы. Автопрокат Амиго гарантирует, что все представленные в парке автомобили, независимо от года выпуска, регулярно обслуживаются и поддерживаются в надлежащем техническом состоянии. Но, конечно же, стоит понимать, что машины эксплуатируются в автопрокате, и не все клиенты относятся к ним бережно, поэтому мелкие косметические дефекты (сколы, царапины) могут присутствовать даже на самых новых машинах; при этом на автомобилях более старших годов выпуска таких дефектов может быть больше. Ценовая политика компании учитывает эти нюансы, соответственно более свежие машины имеют более высокую стоимость аренды.</div>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
 <%= render 'shared/footer', cached: true %>

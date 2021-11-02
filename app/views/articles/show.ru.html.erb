@@ -1,31 +1,40 @@
 <% title @article.title %>
 <% description @article.description %>
-<%= render 'shared/header', cached: true %>
-<div class="content">
-  <div class="wrapper">
-        <%= render 'shared/bread'%>
-    <div class="bl_full_statya" itemscope itemtype="http://schema.org/Article">
-        <h1 itemprop="name"><%= @article.title %></h1>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
+<div itemscope itemtype="http://schema.org/Article">
+    <div class="bl_new" style="background-image: url(<%= image_path("bg_new.webp")%>);">
+        <div class="wrapper">
+            <span></span>
+            <div class="text1">Новости и акции</div>
+            <div class="text2"><%= @article.title %></div>
+            <p><%= truncate(strip_tags(@article.text.to_s), length: 200, separator: ' ') %></p>
+            <div class="clear"></div>
+        </div>
         <span style="display:none;" itemprop="author">Автопрокат Амиго</span>
         <div style="display:none;" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"> 
             <meta itemprop="name" content="Прокат авто Амиго">
             <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"> 
-                <link itemprop="url" href="https://amigorent.ru/logo.png"> 
+                <link itemprop="url" href="https://amigorent.ru/logo.webp"> 
             </div>
         </div>
         <meta itemprop="datePublished" content="<%= @article.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>">
         <meta itemprop="image" content="<%= polymorphic_url(@article.image) %>">
         <meta itemprop="headline" content="<%= @article.title %>">
-        <div class="data"><%= @article.updated_at.strftime("%d.%m.%Y") %></div>
-        <div class="clear"></div>
-        <div itemprop="articleBody"><%= @article.text %></div>
-        <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-        <script src="https://yastatic.net/share2/share.js"></script>
-        <div><%= t 'cars.share'%>:</div>
-        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter,viber,whatsapp,telegram"></div>
-        <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-  </div>
+    <div class="content2">
+        <div class="wrapper">
+            <p itemprop="articleBody">
+                <%= @article.text %>
+            </p>
+        </div>
+    </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

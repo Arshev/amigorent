@@ -1,19 +1,28 @@
 <% title @text.articles_title %>
 <% description @text.articles_description %>
-<%= render 'shared/header', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
     <div class="wrapper">
-        <div class="zagoll_news"><%= @text.articles_h1 %></div>
-        <%= render 'shared/bread'%>
-        <h1>Новости и акции</h1>
-        <div class="bl_news">
+        <div class="bread">
+            <%= render 'shared/bread'%>
+        </div>
+        <div class="zagol">Новости и акции</div>
+        <div class="spis_new">
             <%= render "article" %>
-            <div class="pagin">
-                <%= will_paginate @articles %>
-            </div>
             <div class="clear"></div>
+        </div>
+        <div class="pagin">
+            <%= will_paginate @articles %>
         </div>
         <div class="clear"></div>
     </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

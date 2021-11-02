@@ -1,4 +1,7 @@
-Rails.application.routes.draw do
+Rails
+  .application
+  .routes
+  .draw do
   mount Ckeditor::Engine => "/ckeditor"
   devise_for :users
 
@@ -14,12 +17,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :cars, only: [:index, :show]
+      resources :cars, only: %i[index show]
       resources :booking, only: [:create]
+      post "call_booking", action: :call_booking, controller: "booking"
     end
   end
 
-  resource :admin, except: [:edit, :new, :create] do
+  resource :admin, except: %i[edit new create] do
     member do
       get "cars"
       get "bookings"
@@ -53,7 +57,7 @@ Rails.application.routes.draw do
   # scope "(:locale)", locale: /en|ru/ do
   localized do
     resources :cars, except: [:edit] do
-      resources :images, :only => [:create, :destroy]
+      resources :images, only: %i[create destroy]
 
       # Class auto
       collection do
@@ -65,13 +69,9 @@ Rails.application.routes.draw do
         get "commercial"
       end
 
-      member do
-        delete :remove_attachment
-      end
-      resources :car_reviews, only: [:create, :new, :destroy, :approve] do
-        member do
-          post "/approve" => "car_reviews#approve"
-        end
+      member { delete :remove_attachment }
+      resources :car_reviews, only: %i[create new destroy approve] do
+        member { post "/approve" => "car_reviews#approve" }
       end
     end
 
@@ -80,13 +80,23 @@ Rails.application.routes.draw do
     get "conditions", action: :conditions, controller: "main"
     get "success", action: :success, controller: "bookings"
 
-    get "arenda-avto-aeroport-hrabrovo", action: :aeroport, controller: "deliveries"
-    get "arenda-avto-zelenogradsk", action: :zelenogradsk, controller: "deliveries"
-    get "arenda-avto-svetlogorsk", action: :svetlogorsk, controller: "deliveries"
+    get "arenda-avto-aeroport-hrabrovo",
+        action: :aeroport,
+        controller: "deliveries"
+    get "arenda-avto-zelenogradsk",
+        action: :zelenogradsk,
+        controller: "deliveries"
+    get "arenda-avto-svetlogorsk",
+        action: :svetlogorsk,
+        controller: "deliveries"
     get "arenda-avto-yantarnyi", action: :yantarnyi, controller: "deliveries"
     get "arenda-avto-baltyisk", action: :baltyisk, controller: "deliveries"
-    get "arenda-avto-pionerskyi", action: :pionerskyi, controller: "deliveries"
-    get "arenda-avto-chernyahovsk", action: :chernyahovsk, controller: "deliveries"
+    get "arenda-avto-pionerskyi",
+        action: :pionerskyi,
+        controller: "deliveries"
+    get "arenda-avto-chernyahovsk",
+        action: :chernyahovsk,
+        controller: "deliveries"
 
     get "arenda-avto-s-voditelem", action: :s_voditelem, controller: "main"
     get "car-sharing", action: :car_sharing, controller: "main"
@@ -97,16 +107,14 @@ Rails.application.routes.draw do
     get "transportnyi-autsorsing", action: :outsours, controller: "main"
     get "full-insurance", action: :full_insurance, controller: "main"
 
-    resources :reviews, only: [:create, :index, :destroy, :approve] do
-      member do
-        post "/approve" => "reviews#approve"
-      end
+    resources :reviews, only: %i[create index destroy approve] do
+      member { post "/approve" => "reviews#approve" }
     end
 
     resources :quick_bookings, only: [:create]
-    resource :rating, only: [:create, :update]
+    resource :rating, only: %i[create update]
 
-    resources :bookings, only: [:create, :new, :destroy, :update] do
+    resources :bookings, only: %i[create new destroy update] do
       member do
         post "/accept" => "bookings#accept"
         post "/rejection_few_days" => "bookings#rejection_few_days"
@@ -118,7 +126,7 @@ Rails.application.routes.draw do
     resources :deliveries
 
     resources :prices, only: [:index]
-    resources :contacts, only: [:index, :create]
+    resources :contacts, only: %i[index create]
     resources :terms, only: [:index]
     resources :faqs, only: [:index]
     resources :abouts, only: [:index]

@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-    before_action :authenticate_user!, except: [:show, :index]
+    # before_action :authenticate_user!, except: [:show, :index]
     before_action :is_authorised, only: [:update, :destroy]
     before_action :set_text, only: [:index, :show]
     before_action :set_city, only: [:show]
@@ -29,6 +29,7 @@ class CitiesController < ApplicationController
   
     def destroy
         @city = City.find(params[:id])
+        logger.info @city.name
       if @city.destroy
         redirect_to new_cities_admin_path, notice: "Удалено"
       else
@@ -37,6 +38,7 @@ class CitiesController < ApplicationController
     end
   
     def show
+      @cars = Car.where(active: true, city: @city.name).sample(3)
     end
 
     def activate
@@ -62,12 +64,12 @@ class CitiesController < ApplicationController
       @main_up_text = Text.first.main_up_text
       @city = City.find_by(url_name: params[:city_name])
       @towns = @city.towns
-      @cars = Car.where(active: true, city: @city.name).sample(9)
+      @cars = Car.where(active: true, city: @city.name).limit(9)
     end
     
     private
       def city_params
-        params.require(:city).permit(:name, :url_name, :text, :h1, :title, :description, :phone, :email, :address, :text, :yandex, :google, :work_time, :background)
+        params.require(:city).permit(:name, :name_en, :url_name, :text, :h1, :title, :description, :text_en, :h1_en, :title_en, :description_en, :phone, :email, :address, :address_en, :yandex, :google, :work_time, :background, :rentprog_token)
       end
   
       def set_text

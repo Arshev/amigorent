@@ -3,18 +3,17 @@
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
-        <%= render 'shared/bread'%>
-        <div class="bl_dop">
-            <h1>Delivery / Return outside office prices</h1>
-            <table class="var2">
+        <div class="bread">
+            <a href="/">Main</a> / Delivery
+        </div>
+        <div class="bl_dostavka">
+            <div class="zagol">Delivery / Return outside office prices</div>
+            <table>
                 <thead>
                     <tr>
-                        <td rowspan="2">Delivery / Return Point</td>
-                        <td colspan="2">Price, rub.</td>
-                    </tr>
-                    <tr>
-                        <td><%= @text.dop_table_worktime %></td>
-                        <td><%= @text.dop_table_endtime %></td>
+                        <th>Delivery / Return Point</th>
+                        <th><b><%= @text.dop_table_worktime %></b></th>
+                        <th><b><%= @text.dop_table_endtime %></b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,9 +87,16 @@
                     </tr>
                 </tbody>
             </table>
-            <p>
-                The rental car may be delivered to anywhere in Kaliningrad and  Kaliningrad region. Delivery cost depends on the distance and time of  the day. If you ordered the delivery of the car in advance, then we are ready to deliver the car to you and rent it out at any time of the day. You can find the prices for delivering a car to different cities of the Kaliningrad region in the table above. If you are interested in delivery to another locality - call and we will calculate the cost. Car rental Amigo is the most comfortable  services and conditions for the client.  
-            </p>
+            <p>The rental car may be delivered to anywhere in Kaliningrad and  Kaliningrad region. Delivery cost depends on the distance and time of  the day. If you ordered the delivery of the car in advance, then we are ready to deliver the car to you and rent it out at any time of the day. You can find the prices for delivering a car to different cities of the Kaliningrad region in the table above. If you are interested in delivery to another locality - call and we will calculate the cost. Car rental Amigo is the most comfortable  services and conditions for the client.</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block4 var2">
+    <div class="wrapper">
+        <div class="zagol">Cars</div>
+        <div class="spis_avto active" id="spis1">
+            <%= render 'cars', cached: true %>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>

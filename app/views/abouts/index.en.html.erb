@@ -1,94 +1,84 @@
 <% title @text.abouts_title_en %>
 <% description @text.abouts_description_en %>
-<%= render 'shared/header' %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
-    <div class="wrapper">
-        <%= render 'shared/bread'%>
-        <h1>About us</h1>
-        <div class="bl_about">
-            <div class="text">
-                <%= @text.about_text_en.html_safe %>
-            </div>
-            <h2>Our partners:</h2>
-            <div class="spis_partn">
-                <a>
-                  <%= image_tag "partner1.png", alt: "АО СпецРемЭнерго", title: "АО СпецРемЭнерго" %>
-                </a>
-                <a>
-                  <%= image_tag "partner2.png", alt: "NetByNet", title: "NetByNet" %>
-                </a>
-                <a>
-                  <%= image_tag "partner3.png", alt: "РосАтом", title: "РосАтом" %>
-                </a>
-                <a>
-                  <%= image_tag "partner4.png", alt: "", title: "" %>
-                </a>
-                <a>
-                  <%= image_tag "partner5.png", alt: "Системные решения", title: "Системные решения" %>
-                </a>
-                <a>
-                  <%= image_tag "partner6.png", alt: "ИнМеТех", title: "ИнМеТех" %>
-                </a>
-                <div class="clear"></div>
-            </div>
-            <div class="bl_img">
-                <div class="obol">
-                  <%= image_tag "ofice.jpg", alt: "", title: "" %>
-                </div>
-                <div class="obol">
-                  <%= image_tag "comanda.jpg", alt: "", title: "" %>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <h2>Our employees:</h2>
-            <div class="spis_sotr">
-                <div class="sotr">
-                    <div class="img">
-                      <%= image_tag "bos.png", alt: "", title: "" %>
-                    </div>
-                    <div class="fio">Andrew Vladimirovich</div>
-                    <p> Director</p>
-                </div>
-                <div class="sotr">
-                    <div class="img">
-                      <%= image_tag "zhenya2.png", alt: "", title: "" %>
-                    </div>
-                    <div class="fio">Evgeny Sergeevich</div>
-                    <p>Manager</p>
-                </div>
-                <div class="sotr">
-                    <div class="img">
-                      <%= image_tag "zhenya1.png", alt: "", title: "" %>
-                    </div>
-                    <div class="fio">Evgenia Nikolaevna</div>
-                    <p>Manager</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="spis_sotr">
-                <div class="sotr">
-                    <div class="img">
-                      <%= image_tag "ira.png", alt: "", title: "" %>
-                    </div>
-                    <div class="fio">Irina Vladimirovna</div>
-                    <p>Marketer</p>
-                </div>
-                <div class="sotr">
-                    <div class="img">
-                      <%= image_tag "roma.png", alt: "", title: "" %>
-                    </div>
-                    <div class="fio">Roman Alexandrovich</div>
-                    <p>Technician</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <h1>Legal information:</h1>
-            <div class="text">
-                <p>Legal information:<br />All rights reserved.<br />IP Sorokin A.V.<br />PSRN: 312392602000202<br />TIN: 390103644500<br />checking account: 40802810300000509482<br />BIC: 044525974<br />Phone to contact the director +79082900908</p>
-            </div>
+  <div class="wrapper">
+      <div class="zagol">About us</div>
+      <div class="bl_about">
+          <p><%= @text.about_text_en.html_safe %></p>
+          <div class="zagol">Our partners:</div>
+          <div class="spis_par">
+            <%= image_pack_tag "par_1.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_2.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_3.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_4.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_5.webp", alt: "", title: "" %>
+            <%= image_pack_tag "par_6.webp", alt: "", title: "" %>
             <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
+          </div>
+          <div class="zagol">Сертификаты</div>
+          <div class="spis_ser">
+            <%= image_pack_tag "ser_1.webp", alt: "", title: "" %>
+            <%= image_pack_tag "ser_2.webp", alt: "", title: "" %>
+            <%= image_pack_tag "ser_3.webp", alt: "", title: "" %>
+            <div class="clear"></div>
+          </div>
+          <div class="zagol">Our employees</div>
+          <div class="spis_sot">
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_1.webp')%>);"></div>
+                  <div class="fio">Andrew Vladimirovich</div>
+                  <p>CEO</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_2.webp')%>);"></div>
+                  <div class="fio">Evgeniy Sergeevich</div>
+                  <p>Manager</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_5.webp')%>);"></div>
+                  <div class="fio">Evgeniya Nikolaevna</div>
+                  <p>Manager</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_8.webp')%>);"></div>
+                  <div class="fio">Irina Vladimirovna</div>
+                  <p>Marketer</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_3.webp')%>);"></div>
+                  <div class="fio">Aleksandr Vladimirovich</div>
+                  <p>Technician</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_4.webp')%>);"></div>
+                  <div class="fio">Alexey Mikhailovich</div>
+                  <p>Manager</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_6.webp')%>);"></div>
+                  <div class="fio">Ivan Grigorievich</div>
+                  <p>Manager</p>
+              </div>
+              <div class="sot">
+                  <div class="bl_img" style="background-image: url(<%= image_path('sot_7.webp')%>);"></div>
+                  <div class="fio">Victor Alexandrovich</div>
+                  <p>Technician</p>
+              </div>
+              <div class="clear"></div>
+          </div>
+          <div class="zagol">Legal information:</div>
+          <p>All rights reserved.<br />IP Konkova E.P.<br />PSRN: 320392600030838<br />TIN: 024202870462<br />checking account: 40802810820000012496<br />BIC: 042748634<br />Phone to contact the director +79082900908</p>
+      </div>
+      <div class="clear"></div>
+  </div>
 </div>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

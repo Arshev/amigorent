@@ -1,72 +1,87 @@
-<% @cars.where(active:true).each do |car| %>
-  <% if car.active %>
-    <div class="avto">
-      <%= link_to car_path(car, locale: I18n.locale), class: "bl_img", 'data-turbolinks': false do %>
-          <%= image_tag car.main_image.url(:show), alt: "#{car.car_name}", title: "#{car.car_name}" if car.main_image? %>
+ <%# cars.each do |car| %> 
+  <div class="avto1 <%= car.car_type == 'Хэтчбек' ? 'hatchback' : '' %><%= car.car_type == 'Седан' ? ' sedan' : '' %><%= car.car_type == 'Универсал' ? ' universal' : '' %><%= car.car_type == 'Купе' ? ' cupe' : '' %><%= car.car_type == 'Кроссовер' ? ' crossover' : '' %><%= car.car_type == 'Джип' ? ' jeep' : '' %><%= car.car_type == 'Минивэн' ? ' minivan' : '' %> <%= car.transmission == 'Автомат' ? ' akpp' : '' %><%= car.transmission == 'Механика' ? ' mkpp' : '' %><%= car.transmission == 'Вариатор' ? ' vkpp' : '' %>">
+    <% if car.old_price_1 && car.old_price_1 > 0 %>
+      <% if I18n.locale == :en %>
+        <div class="badge"><span>Sale</span></div>
+      <% else %>
+        <div class="badge"><span>Акция</span></div>
       <% end %>
-      <%= link_to car_path(car, locale: I18n.locale), class: "zg", 'data-turbolinks': false do %>
-        <%= car.car_name %>
+    <% end %>
+    
+      <% if car.main_image? %>
+        <div class="bl_img" style="background-image: url(<%= image_path(car.main_image.url(:show))%>);"></div>
+      <% else %>
+        <div class="bl_img" style="background-image: url(<%= image_path('avto.webp')%>);"></div>
       <% end %>
-      <div class="price">
-        <%= t 'cars.from' %> <b><%= car.price_main %></b> <%= t 'cars.rub_per_day' %>
-      </div>
-      <%= link_to car_url(car), class: "more", 'data-turbolinks': false do %>
-        <%= t 'cars.more' %>
+      <% if I18n.locale == :en %>
+        <%= link_to car_en_path(car, request.query_parameters), class: "zg" do %>
+          <%= car.car_name %>
+        <% end %>
+        <div class="hara">
+          <div class="hr">
+              <span>Capacity</span>
+              <%= car.engine_capacity %> l
+          </div>
+          <div class="hr">
+              <span>Transmission</span>
+              Automatic
+          </div>
+          <div class="hr">
+              <span>Air</span>
+              Included 
+          </div>
+          <div class="hr">
+              <span>Year</span>
+              <%= car.year %>
+          </div>
+        </div>
+        <div class="price">
+            Price:
+            <span>from <b>1 300 ₽/day</b></span>
+            <div class="clear"></div>
+        </div>
+        <%= link_to car_en_path(car, request.query_parameters), class: "more" do %>
+          More
+        <% end %>
+      <% else %>
+        <%= link_to car_ru_path(car, request.query_parameters), class: "zg" do %>
+          <%= car.car_name %>
+        <% end %>
+        <div class="hara">
+          <div class="hr">
+              <span>объем</span>
+              <%= car.engine_capacity %> л
+          </div>
+          <div class="hr">
+              <span>КПП</span>
+              <% if car.transmission == 'Механика'%>
+                Механика
+              <% else %>
+                Автомат
+              <% end %>
+          </div>
+          <div class="hr">
+              <span>Кондиционер</span>
+              <% if car.is_air %>
+                Есть
+              <% else %>
+                Нет
+              <% end %>
+          </div>
+          <div class="hr">
+              <span>Год</span>
+              <%= car.year %>
+          </div>
+        </div>
+        <div class="price">
+            Стоимость:
+            <span>от <b><%= number_to_currency(car.price_main, {delimiter: " ", precision: 0, unit: ''}) %> ₽/сутки</b></span>
+            <div class="clear"></div>
+        </div>
+        <%= link_to car_ru_path(car, request.query_parameters), class: "more" do %>
+          Подробнее
+        <% end %>
       <% end %>
-      <div class="hara">
-          <p>
-            <% if car.transmission == 'Механика'%>
-              <%= image_tag "transmission.png", style: "width: 20px;", alt: "#{t 'cars.transmission'}", title: "#{t 'cars.transmission'}" %>
-              <%= t 'cars.manual' %>
-            <% else %>
-              <%= image_tag "transmission.png", style: "width: 20px;", alt: "#{t 'cars.transmission'}", title: "#{t 'cars.transmission'}" %>
-              <%= t 'cars.auto' %>
-            <% end %>
-          </p>
-          <p>
-            <%= image_tag "fuel.png", style: "width: 20px;", alt: "#{t 'cars.fuel'}", title: "#{t 'cars.fuel'}" %>
-            <% if I18n.locale == :en && car.fuel == "Бензин" %>
-              Gasoline
-            <% elsif I18n.locale == :en && car.fuel == "Дизель" %>
-              Diesel
-            <% else %>
-              <%= car.fuel %>
-            <% end %>
-          </p>
-          <p>
-            <%= image_tag "year.png", style: "width: 20px;", alt: "#{t 'cars.year_full'}", title: "#{t 'cars.year_full'}" %>
-            <%= car.year %> <%= t 'cars.year' %>
-          </p>
-          <p>
-            <%= image_tag "car_type.png", style: "width: 20px;", alt: "#{t 'cars.car_type'}", title: "#{t 'cars.car_type'}" %>
-            
-            <% if I18n.locale == :en && car.car_type == "Седан" %>
-              Sedan
-            <% elsif I18n.locale == :en && car.car_type == "Хэтчбек" %>
-              Hatchback
-            <% elsif I18n.locale == :en && car.car_type == "Универсал" %>
-              Touring
-            <% elsif I18n.locale == :en && car.car_type == "Купе" %>
-              Coupe
-            <% elsif I18n.locale == :en && car.car_type == "Кроссовер" %>
-              Crossover
-            <% elsif I18n.locale == :en && car.car_type == "Минивэн" %>
-              Minivan
-            <% else %>
-              <%= car.car_type %>
-            <% end %>
-          </p>
-          <p>
-            <%= image_tag "capacity.png", style: "width: 20px;", alt: "#{t 'cars.engine_capacity'}", title: "#{t 'cars.engine_capacity'}" %>
-            <%= car.engine_capacity %> <%= t 'cars.litr' %>
-          </p>
-          <p>
-            <% if car.is_air %>
-              <%= image_tag "snow.png", style: "width: 20px;", alt: "#{t 'cars.air'}", title: "#{t 'cars.air'}" %>
-              <%= t 'cars.is_air' %>
-            <% end %>
-          </p>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+      
+  </div>
+<%# end %>

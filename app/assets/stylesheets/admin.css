@@ -20,8 +20,6 @@ a {
   color: #FF5A5F;
 }
 
-/* NAVBAR */
-
 .navbar-default {
   background-color: #FFFFFF;
 }
@@ -31,8 +29,6 @@ a {
   font-size: 2em;
   font-weight: 400;
 }
-
-/* BUTTONS */
 
 .btn-block {
   display: block;
@@ -99,8 +95,6 @@ a {
   background-color: #2d467b;
 }
 
-/* PANELS */
-
 .panel-default .panel-heading {
   color: #ffffff;
   background-color: #00A699;
@@ -130,7 +124,6 @@ a {
   line-height: 25px;
 }
 
-/* AVATARS */
 
 .avatar-small {
   width: 28px;
@@ -148,7 +141,6 @@ a {
   width: 100%;
 }
 
- /* FORMS */
 .form-group {
   margin-bottom: 25px;
 }
@@ -175,8 +167,8 @@ a {
   border-radius: 2px;
   padding: 10px;
   appearance: none;
-  -moz-appearance:none; /*Firefox*/
-  -webkit-appearance: none; /*Safari & Chrome*/
+  -moz-appearance:none;
+  -webkit-appearance: none;
 }
 
 .select:before {
@@ -198,8 +190,8 @@ a {
   border: 1px solid #00A699;
   border-radius: 2px;
   appearance: none;
-  -moz-appearance:none; /*Firefox*/
-  -webkit-appearance: none; /*Safari & Chrome*/
+  -moz-appearance:none;
+  -webkit-appearance: none;
 }
 
 .form-group input[type="checkbox"]:checked::before {
@@ -211,7 +203,6 @@ a {
   color: #00A699;
 }
 
- /* SIDEBAR */
 .sidebar-list {
   padding-left: 0;
   list-style: none;
@@ -233,7 +224,6 @@ a {
   text-decoration: none;
 }
 
- /* PHOTO UPLOAD */
 .btn-file {
   position: relative;
   overflow: hidden;
@@ -263,7 +253,6 @@ a {
   width: 100%;
 }
 
- /* ROOM SHOW */
 .amenities li {
   margin-bottom: 10px;
   font-size: 16px;
@@ -276,7 +265,6 @@ a {
   font-size: 14px;
 }
 
- /* RESERVATIONS */
 .reservation-table td {
   width: 100%;
   border: none;
@@ -303,7 +291,6 @@ a {
   padding-top: 10px;
 }
 
- /* SEARCH */
 #main {
   height: 100%;
   overflow: hidden;
@@ -330,7 +317,6 @@ a {
   color: #00A699;
 }
 
- /* HOME PAGE */
 .discovery-card {
   background-size: cover;
   background-position: center;

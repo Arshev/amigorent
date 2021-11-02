@@ -1,51 +1,47 @@
-<% title @text.reviews_title_en %>
-<% description @text.reviews_description_en %>
-<%= render 'shared/header', cached: true %>
+<% title @text.reviews_title_en + " - Page #{params[:page]}" %>
+<% description @text.reviews_description_en + " - Page #{params[:page]}" %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
 <div class="content">
     <div class="wrapper">
-        <%= render 'shared/bread'%>
-        <div class="bl_otziv" itemscope itemtype="http://schema.org/Product">
-            <div class="col_l">
-                <meta itemprop="name" content="Car rental Amigo">
-                <h1>Our customer reviews</h1>
-                <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
-                    Total reviews: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, Average rating: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
-                </div>
-                <%= render "review", cached: true %>
+        <div class="bl_otzyvy" itemscope itemtype="http://schema.org/Product">
+            <div class="zagol">Feedback from our clients</div>
+            <meta itemprop="name" content="Прокат автомобилей Амиго">
+            <div class="reviews_podzag" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" style="margin-bottom: 30px;">
+                Total Reviews: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, average rating: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
             </div>
-            <div class="col_r">
-                <div class="zg">Give feedback</div>
-                <div class="podzg">Fill out the form below</div>
-                <%= form_for Review.new do |f| %>
+            <%= render "review", cached: true %>
+            <div class="col2">
+                <div class="zg">Leave a review</div>
+                <%= form_for @review do |f| %>
                     <%= f.text_field :name, placeholder: "Name *", required: true %>
                     <%= f.text_field :email, placeholder: "Email *", required: true %>
-                    <%= f.text_area :text, placeholder: "Text review", required: true %>
+                    <%= f.text_area :text, placeholder: "Text", required: true %>
                     <%= f.hidden_field :star, id:"star_counter", value:"5" %>
-                    <div id="rateYo"></div>
+                    
                     <%# recaptcha_v3(action: 'create') %>
-                    <%= recaptcha_tags %>
-                    <%= f.submit "Post a review" %>
+                    <%= f.invisible_captcha :subtitle %>
+                    <div class="ocen">
+                        Rating
+                        <div class="spis_zv" id="rateYo"></div>
+                    </div>
+                    <%= button_tag("Send", type: "submit") %>
+                    <div class="clear"></div>
                 <% end %>
             </div>
             <div class="clear"></div>
             <div class="pagin">
                 <%= will_paginate @reviews %>
             </div>
-            <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>
 </div>
-<script>
-    $(function () {
-    
-    $("#rateYo").rateYo({
-        rating: 5,
-        fullStar: true,
-        onChange: function (rating, rateYoInstance) {
-            document.getElementById('star_counter').value = rating
-        }
-    })
-});
-</script>
-<%= render 'shared/footer', cached: true %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

@@ -44,8 +44,8 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
-                  <h4>Быстрая заявка</h4>
-                  <%= f.cktext_area :main_quick_booking_text, style: "min-width: 800px;", rows: "3" %>
+                  <h4>Заголовок Вопрос 1</h4>
+                  <%= f.cktext_area :main_question_title_1, style: "min-width: 800px;", rows: "1" %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
@@ -55,8 +55,52 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
-                  <h4>Наша миссия</h4>
-                  <%= f.cktext_area :main_mission_text, style: "min-width: 800px;", rows: "7" %>
+                  <h4>Текст Вопрос 1</h4>
+                  <%= f.cktext_area :main_question_1, style: "min-width: 800px;", rows: "3" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Заголовок Вопрос 2</h4>
+                  <%= f.cktext_area :main_question_title_2, style: "min-width: 800px;", rows: "1" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Текст Вопрос 1</h4>
+                  <%= f.cktext_area :main_question_2, style: "min-width: 800px;", rows: "3" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Заголовок Вопрос 3</h4>
+                  <%= f.cktext_area :main_question_title_3, style: "min-width: 800px;", rows: "1" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>Текст Вопрос 3</h4>
+                  <%= f.cktext_area :main_question_3, style: "min-width: 800px;", rows: "3" %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>

@@ -1,57 +1,60 @@
 <% title @text.baltyisk_title %>
 <% description @text.baltyisk_description %>
 <%= render 'shared/header', cached: true %>
-  <div class="bl_topp" style="background:url(<%= asset_path("bg_zelenogradsk.jpg")%>) no-repeat center top transparent;">
+<div class="block_price">
     <div class="wrapper">
-      <h1><%= @text.baltyisk_h1 %></h1>
-      <%= render 'advantages' %>
+        <span></span>
+        <div class="text1">C нами ты всегда у руля!</div>
+        <div class="text2"><b>Аренда автомобилей</b> в Калининграде</div>
+        <div class="text3">Балтийск</div>
+        <%= link_to prices_path(locale: I18n.locale), class: "ceny" do %>
+            Цены на аренду
+        <% end %>
+        <div class="clear"></div>
     </div>
-  </div>
-  <div class="content">
-      <div class="wrapper">
-          <div class="bread">
-              <a href="/">Главная /</a> Балтийск
-          </div>
-          <div class="bl_dop">
-              <h2>Цены на доставку в Балтийск</h2>
-              <table class="var2">
-                  <thead>
-                      <tr>
-                          <td rowspan="2">Пункт доставки/возврата</td>
-                          <td colspan="2">Цена, руб.</td>
-                      </tr>
-                      <tr>
-                          <td>09:00 - 19:00</td>
-                          <td>19:00 - 09:00</td>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>Балтийск</td>
-                          <td><%= @text.baltyisk_price %></td>
-                          <td><%= @text.baltyisk_price_unwork %></td>
-                      </tr>
-                  </tbody>
-              </table>
-              <div class="clear"></div>
-          </div>
-          <div class="bl_full_text">
-              <%= @text.baltyisk_text.html_safe %>
-              <div class="clear"></div>
-          </div>
-          <br />
-          <div class="block4">
-              <div class="wrapper">
-                  <div class="zag"><%= @text.baltyisk_avto %></div>
-                  <div class="spis_avto">
-                      <%= render "cars"%>
-                      <div class="clear"></div>
-                  </div>
-                  <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
-                  <div class="clear"></div>
-              </div>
-          </div>
-          <div class="clear"></div>
-      </div>
-  </div>
+</div>
+<div class="block2 var2">
+    <div class="wrapper" id="search_cars">
+        <div class="zagol" style="padding-top: 30px;"><h1>Аренда автомобилей в Балтийске</h1></div>
+        <search_cars city="Калининград"></search_cars>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="content for_price">
+    <div class="wrapper">
+        <div class="bl_dostavka">
+            <div class="zagol"><h2>ЦЕНЫ НА ДОСТАВКУ в Балтийск</h2></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Пункт доставки / возврата</th>
+                        <th><b><%= @text.dop_table_worktime %></b></th>
+                        <th><b><%= @text.dop_table_endtime %></b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Балтийск</td>
+                        <td><%= @text.baltyisk_price %></td>
+                        <td><%= @text.baltyisk_price_unwork %></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="kak_nayti">
+                <%= @text.baltyisk_text.html_safe %>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="block4 var2">
+    <div class="wrapper">
+        <div class="zagol"><%= @text.baltyisk_avto %></div>
+        <div class="spis_avto active" id="spis1">
+            <%= render 'cars', cached: true %>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
 <%= render 'shared/footer', cached: true %>

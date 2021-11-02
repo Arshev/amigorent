@@ -2,211 +2,193 @@
 <% description @text.main_description_en %>
 <%= render 'shared/header', cached: true %>
 <div class="block1">
-    <div class="wrapper">
-        <h1 class="text1"><%= @text.main_h1_text_en.html_safe %></h1>
-        <div class="text2">You are always at the helm with us!</div>
-        <div class="text3"><a href="tel:+79217101615">+7 (921) 710-16-15</a></div>
-        <%= link_to "Rental prices", prices_en_path, class: "zakaz" %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block2">
-    <div class="wrapper">
-        <div class="zag">QUICK BOOKING</div>
-        <div class="podzag"><%= @text.main_quick_booking_text_en.html_safe %></div>
-        <div class="perekl">
-            <label>
-                <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
-                <span>Sedan</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_hatch]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_hatch]" id="quick_booking_is_hatch">
-                <span>Hatchback</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_cross]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_cross]" id="quick_booking_is_cross">
-                <span>Crossover</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_minivan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_minivan]" id="quick_booking_is_minivan">
-                <span>Minivan</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_universal]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_universal]" id="quick_booking_is_universal">
-                <span>Wagon</span>
-            </label>
-        </div>
-        <%= form_for @quick_booking do |f| %>
-          <%= f.text_field :name, placeholder: "Your name", class: "inp1 bs" %>
-          <%= f.text_field :phone, placeholder: "Your phone number", class: "inp2" %>
-          <%= f.text_field :email, placeholder: "Your E-mail", class: "inp3" %>
-          <%= f.date_field :start_date, placeholder: "Start date", class: "inp4 bs" %>
-          <%= f.date_field :end_date, placeholder: "End date", class: "inp4" %>
-          <%= f.submit "Send Request" %>
-          <div class="clear"></div>
-        <% end %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block3">
-  <div class="wrapper">
-    <div class="spis_bl">
-      <div class="blck">
-        <%= image_tag "b1.png", alt: "HULL INSURANCE", title: "HULL INSURANCE" %>
-        <div class="zg">HULL INSURANCE</div>
-        <p>All cars are insured by Hull:  minimal responsibility of the client, even in case of incidents due to his fault.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b2.png", alt: "UNLIMITED MILEAGE", title: "UNLIMITED MILEAGE" %>
-        <div class="zg">UNLIMITED MILEAGE</div>
-        <p>The daily mileage limit and the penalty for non-compliance with our conditions are not provided.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b3.png", alt: "IMMEDIATE REFUND", title: "IMMEDIATE REFUND" %>
-        <div class="zg">IMMEDIATE REFUND</div>
-        <p>We return the security deposit immediately after inspection and acceptance of the car.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b4.png", alt: "BEST PRICE GUARANTEE", title: "BEST PRICE GUARANTEE" %>
-        <div class="zg">BEST PRICE GUARANTEE</div>
-        <p>If you find a car cheaper, with similar rental conditions - we will reduce the price for you!</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b5.png", alt: "24/7 SUPPORT", title: "24/7 SUPPORT" %>
-        <div class="zg">24/7 SUPPORT</div>
-        <p>Round-the-clock customer support on all issues related to car rental.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b6.png", alt: "FRIENDLY ATTITUDE", title: "FRIENDLY ATTITUDE" %>
-        <div class="zg">FRIENDLY ATTITUDE</div>
-        <p>We value our customers and do not find fault with minor flaws when taking back a car.</p>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</div>
-<div class="block4">
-    <div class="wrapper">
-        <div class="zag">We shall find a car for everyone!</div>
-        <div class="podzag">We have a wide range of cars.</div>
-        <div class="spis_avto" >
-            <%= render "cars" , cached: true %>
-        </div>
-        <%= link_to "View all cars", cars_path, class: "all" %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block5">
-    <div class="wrapper" itemprop="itemReviewed" content="Прокат автомобилей Амиго" itemscope itemtype="http://schema.org/AggregateRating">
-      <meta itemprop="itemReviewed" itemprop="name" content="Прокат автомобилей Амиго">
-      <meta itemprop="worstRating" content="1">
-        <meta itemprop="bestRating" content="5">
-      <meta itemprop="itemReviewed" content="Прокат автомобилей Амиго"/>
-        <div class="zag">Reviews</div>
-        <div style="margin-bottom: 30px;">
-            Total reviews: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, Average rating: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
-        </div>
-        <meta itemprop="itemReviewed" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Прокат автомобилей Амиго">
-        <div class="spis_otz">
-            <%= render "reviews/reviews_on_main", cached: true %>
+        <div class="wrapper">
+            <span></span>
+            <div class="text1">You are always at the helm with us!</div>
+            <%# <div class="text2"><h1><b>Аренда автомобилей</b> в Калининграде</h1></div> %>
+            <div class="text2"><%= @text.main_h1_text_en.html_safe %></div>
+            <%= link_to prices_path(locale: I18n.locale, city: "Калининград"), class: "price" do %>
+                Rental prices
+            <% end %>
+            <%= image_tag("bmw.webp") %>
             <div class="clear"></div>
         </div>
-        <%= link_to reviews_path, class:"all" do %>
-          View all reviews
-        <% end %>
-        <div class="clear"></div>
     </div>
-</div>
-<div class="block6">
-    <div class="wrapper">
-        <div class="zag">What do we offer?</div>
-        <div class="podzag">Car rental Amigo provides car rental services and rental cars of various classes without a driver <br />and with a driver in Kaliningrad and the region. We deliver the car directly to the client.</div>
-        <div class="main_text"><%= @text.main_text_en.html_safe %></div>
-        <div class="col1">
-            <div class="zg">Our Mission</div>
-            <div class="podp"><%= @text.main_mission_text_en.html_safe %></div>
-            <div class="pre">
-              <%= image_tag "pr1.png", alt: "Customer is our friend", title: "Customer is our friend" %>
-              Customer is our friend!
-            </div>
-            <div class="pre">
-              <%= image_tag "pr2.png", alt: "Справедливость", title: "Справедливость" %>
-              We always try to fairly solve all disputed issues.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr3.png", alt: "fleet in good condition", title: "fleet in good condition" %>
-              We keep the fleet in good condition.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr4.png", alt: "The contract without pitfalls", title: "The contract without pitfalls" %>
-              The contract without pitfalls.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr5.png", alt: "Big discounts on long-term rent", title: "Big discounts on long-term rent" %>
-              Big discounts on long-term rent.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr6.png", alt: "Many years of experience", title: "Many years of experience" %>
-              Many years of experience.
-            </div>
-        </div>
-        <div class="col1">
-            <div class="zg">Our advantages</div>
-            <div class="podp"><%= @text.main_edge_text_en.html_safe %></div>
-            <div class="pere opened">
-                <div class="za">
-                  <%= image_tag "pe1.png", alt: "выгодные условия по КАСКО", title: "выгодные условия по КАСКО" %>
-                  The most favorable conditions for hull insurance
-                  <span></span>
-                </div>
-                <div class="skrito" style="display: block;">
-                  <p>The lease agreement provides for the lowest insurance deductible in Kaliningrad.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe2.png", alt: "24/7 Support", title: "24/7 Support" %>
-                  24/7 Support
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>We are ready to help 24 hours a day in any situation.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe3.png", alt: "Low pledges", title: "Low pledges" %>
-                  Low pledges
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>Low security deposits start at 3,000 rubles.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe4.png", alt: "There is an hourly rate", title: "There is an hourly rate" %>
-                  There is an hourly rate
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>We do not take the cost of rent per day if you are late or rent for an incomplete day. For most cars, the hourly fee is 150 rubles.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe5.png", alt: "Fair fuel policy", title: "Fair fuel policy" %>
-                  Fair fuel policy
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>We give out a car with a full tank, when you return the car with a lack of fuel, payment at the price of refueling without fines.</p>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
+    <div id="search_main">
+        <search city="Калининград" locale="<%= I18n.locale %>"></search>
     </div>
-</div>
+    <div class="block3">
+        <div class="wrapper">
+            <div class="prei">
+                <span>01</span>
+                <div class="zg">HULL <b>INSURANCE</b></div>
+                <p>All cars are insured by Hull:  minimal responsibility of the client, even in case of incidents due to his fault.</p>
+            </div>
+            <div class="prei">
+                <span>02</span>
+                <div class="zg"><b>UNLIMITED</b> MILEAGE</div>
+                <p>The daily mileage limit and the penalty for non-compliance with our conditions are not provided.</p>
+            </div>
+            <div class="prei">
+                <span>03</span>
+                <div class="zg">IMMEDIATE <b>REFUND</b></div>
+                <p>We return the security deposit immediately after inspection and acceptance of the car.</p>
+            </div>
+            <div class="prei">
+                <span>04</span>
+                <div class="zg"><b>24/7</b> SUPPORT</div>
+                <p>We value our customers and do not find fault with minor flaws when taking back a car.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4">
+        <div class="wrapper">
+            <div class="zagol">We shall find a car for everyone!</div>
+            <div class="podzag">We have a wide range of cars.</div>
+            <div class="spis_avto">
+                <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="btn">
+                <%= link_to cars_path do %>
+                    View all cars
+                <% end %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block5">
+        <div class="wrapper">
+            <div class="zagol">Addressing our customers</div>
+            <div class="podzag">A little about us in the words of our CEO</div>
+            <div class="pol1">
+                <p>Dear friends! My name is Andrey, I am the owner of a car rental Amigo. I built this car rental business from scratch and still personally work with requests and reviews from our customers, supervise car maintenance and train employees. This is the secret of our success - the quality of customer service and technology is kept at the highest level. Our car rental is developing and growing, not only in Kaliningrad and the region, but also in other cities of Russia. Clients are glad that while traveling around the country, they have the opportunity to rent a car in a familiar company. Welcome to the circle of good friends - apply for a car at Amigo car rental!</p>
+                <div class="fio">
+                    CEO Amigorent
+                    <span>Sorokin A.V.</span>
+                </div>
+            </div>
+            <%= image_tag("block5_img.webp") %>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block6">
+        <div class="wrapper">
+            <div class="zagol">Reviews</div>
+            <div class="spis_img">
+                <div class="reviews_main">
+                    <%= image_tag("o1.webp") %>
+                    <span class="spis_zv" id="rateYoYa"></span>
+                    <span id="YaRaiting" style="display: none;"><%= rating_yandex %></span>
+                </div>
+                <div class="reviews_main">
+                    <%= image_tag("o2.webp") %>
+                    <span class="spis_zv" id="rateYoGoogle"></span>
+                    <span id="GoogleRaiting" style="display: none;"><%= rating_google %></span>
+                </div>
+            </div>
+            <div class="spis_ot">
+                <%= render partial: 'review', collection: @reviews, as: :review, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="btn">
+                <%= link_to reviews_path do %>
+                    View all reviews
+                <% end %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block7">
+        <div class="wrapper">
+            <div class="zagol">FAQ</div>
+            <div class="zag"><%= @text.main_question_title_1_en.html_safe %></div>
+            <p><%= @text.main_question_1_en.html_safe %></p>
+            <div class="zag"><%= @text.main_question_title_2_en.html_safe %></div>
+            <p><%= @text.main_question_2_en.html_safe %></p>
+            <div class="zag"><%= @text.main_question_title_3_en.html_safe %></div>
+            <p><%= @text.main_question_3_en.html_safe %></p>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block8">
+        <div class="wrapper">
+            <div class="zagol">What do we offer?</div>
+            <div class="podzag">Car rental Amigo provides car rental services and rental cars of various classes without a driver and with a driver in Kaliningrad and the region. We deliver the car directly to the client.</div>
+            <%= image_tag("block8_img.webp") %>
+            <div class="pol2">
+                <%= @text.main_text_en.html_safe %>
+            </div>
+            <div class="clear"></div>
+            <div class="cha1">
+                <div class="zag">Our Mission</div>
+                <p>Building a new generation business based on the principle of: "To the client - with a soul!" Become a world-class car rental, the best in Russia. Amigo's mission is to develop an affordable, convenient and high-quality car rental market. Our name is a symbol that the client is our friend!</p>
+                <div class="spis_mis">
+                    <div class="mis">
+                        <%= image_tag("m1.webp") %>
+                        Customer is our friend! 
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m2.webp") %>
+                        We always try to fairly solve all disputed issues. 
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m3.webp") %>
+                        We keep the fleet<br /> in good condition.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m4.webp") %>
+                        The contract<br /> without pitfalls.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m5.webp") %>
+                        Big discounts <br />on long-term rent.
+                    </div>
+                </div>
+            </div>
+            <div class="cha1">
+                <div class="zag">Our advantages</div>
+                <p>The main difference of Amigo car rental is an honest approach and a friendly attitude to each client. We try to use the most advanced achievements and world experience in car rental in our work, constantly expand the range and improve the quality of the services provided.</p>
+                <div class="spis_prei">
+                    <div class="prei">
+                        <div class="zz opened">
+                            <%= image_tag("m1.webp") %>
+                            The most favorable conditions for hull insurance
+                        </div>
+                        <p style="display: block;">The lease agreement provides for the lowest insurance deductible in Kaliningrad.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m7.webp") %>
+                            24/7 Support
+                        </div>
+                        <p>We are ready to help 24 hours a day in any situation.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m8.webp") %>
+                            Low pledges
+                        </div>
+                        <p>Low security deposits start at 3,000 rubles.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m9.webp") %>
+                            There is an hourly rate 
+                        </div>
+                        <p>We do not take the cost of rent per day if you are late or rent for an incomplete day. For most cars, the hourly fee is 150 rubles.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m10.webp") %>
+                            Fair fuel policy 
+                        </div>
+                        <p>We give out a car with a full tank, when you return the car with a lack of fuel, payment at the price of refueling without fines.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
 <%= render 'shared/footer', cached: true %>

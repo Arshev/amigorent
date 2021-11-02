@@ -2,211 +2,192 @@
 <% description @text.main_description %>
 <%= render 'shared/header', cached: true %>
 <div class="block1">
-    <div class="wrapper">
-        <h1 class="text1"><%= @text.main_h1_text.html_safe %></h1>
-        <div class="text2">С нами ты всегда у руля!</div>
-        <!--<div class="text3"><a href="tel:+79217101615">+7 (921) 710-16-15</a></div>-->
-        <%= link_to "Цены на аренду", prices_path, class: "zakaz" %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block2">
-    <div class="wrapper">
-        <div class="zag">Быстрая заявка</div>
-        <div class="podzag"><%= @text.main_quick_booking_text.html_safe %></div>
-        <div class="perekl">
-            <label>
-                <input name="quick_booking[is_sedan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_sedan]" id="quick_booking_is_sedan">
-                <span>Седан</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_hatch]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_hatch]" id="quick_booking_is_hatch">
-                <span>Хэтчбэк</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_cross]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_cross]" id="quick_booking_is_cross">
-                <span>Кроссовер</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_minivan]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_minivan]" id="quick_booking_is_minivan">
-                <span>Минивэн</span>
-            </label>
-            <label>
-                <input name="quick_booking[is_universal]" type="hidden" value="0"><input type="checkbox" form="new_quick_booking" value="1" name="quick_booking[is_universal]" id="quick_booking_is_universal">
-                <span>Универсал</span>
-            </label>
-        </div>
-        <%= form_for @quick_booking do |f| %>
-          <%= f.text_field :name, placeholder: "Ваше имя", class: "inp1 bs" %>
-          <%= f.text_field :phone, placeholder: "Ваш телефон", class: "inp2" %>
-          <%= f.text_field :email, placeholder: "Ваш E-mail", class: "inp3" %>
-          <%= f.date_field :start_date, placeholder: "Дата начала", class: "inp4 bs" %>
-          <%= f.date_field :end_date, placeholder: "Дата окончания", class: "inp4" %>
-          <%= f.submit "Отправить заявку" %>
-          <div class="clear"></div>
-        <% end %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block3">
-  <div class="wrapper">
-    <div class="spis_bl">
-      <div class="blck">
-        <%= image_tag "b1.png", alt: "Страховка Каско", title: "Страховка Каско" %>
-        <div class="zg">Страховка Каско</div>
-        <p>Все авто застрахованы по КАСКО: минимальная ответственность клиента даже при происшествиях по его вине.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b2.png", alt: "Неограниченный пробег", title: "Неограниченный пробег" %>
-        <div class="zg">Неограниченный пробег</div>
-        <p>Ограничение суточного пробега и штраф за несоблюдение нашими условиями не предусмотрены.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b3.png", alt: "Немедленный возврат залога", title: "Немедленный возврат залога" %>
-        <div class="zg">Немедленный возврат залога</div>
-        <p>Возвращаем залоговую сумму непосредственно после осмотра и приема автомобиля.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b4.png", alt: "Гарантия лучшей цены", title: "Гарантия лучшей цены" %>
-        <div class="zg">Гарантия лучшей цены</div>
-        <p>Если вы найдете машину дешевле, с аналогичными условиями аренды — мы снизим цену для Вас!</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b5.png", alt: "Поддержка 24/7", title: "Поддержка 24/7" %>
-        <div class="zg">Поддержка 24/7</div>
-        <p>Круглосуточная поддержка клиента по всем вопросам, связанным с арендой автомобиля.</p>
-      </div>
-      <div class="blck">
-        <%= image_tag "b6.png", alt: "Дружественное отношение", title: "Дружественное отношение" %>
-        <div class="zg">Дружественное отношение</div>
-        <p>Мы ценим своих клиентов и не придираемся к мелким недостаткам при приеме автомобиля.</p>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</div>
-<div class="block4">
-    <div class="wrapper">
-        <div class="zag">Найдём машину для каждого!</div>
-        <div class="podzag">У нас большой ассортимент автомобилей.</div>
-        <div class="spis_avto" >
-          <%= render "cars", cached: true %>
-        </div>
-        <%= link_to "Посмотреть все автомобили", cars_path, class: "all" %>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="block5">
-    <div class="wrapper" itemprop="itemReviewed" content="Прокат автомобилей Амиго" itemscope itemtype="http://schema.org/AggregateRating">
-      <meta itemprop="itemReviewed" itemprop="name" content="Прокат автомобилей Амиго">
-      <meta itemprop="worstRating" content="1">
-        <meta itemprop="bestRating" content="5">
-      <meta itemprop="itemReviewed" content="Прокат автомобилей Амиго"/>
-        <div class="zag">Отзывы</div>
-        <div style="margin-bottom: 30px;">
-            Всего отзывов: <span itemprop="reviewCount"><%= Review.where(active: true).count %></span>, средний рейтинг: <span itemprop="ratingValue"><%= Review.where(active: true).average(:star).round(2) %></span>
-        </div>
-        <meta itemprop="itemReviewed" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="Прокат автомобилей Амиго">
-        <div class="spis_otz">
-            <%= render "reviews/reviews_on_main", cached: true %>
+        <div class="wrapper">
+            <span></span>
+            <div class="text1">C нами ты всегда у руля!</div>
+            <div class="text2"><h1><b>Аренда автомобилей</b> в Калининграде</h1></div>
+            <%= link_to prices_path(locale: I18n.locale, city: "Калининград"), class: "price" do %>
+                Цены на аренду
+            <% end %>
+            <%= image_tag("bmw.webp") %>
             <div class="clear"></div>
         </div>
-        <%= link_to reviews_path, class:"all" do %>
-          Посмотреть все отзывы
-        <% end %>
-        <div class="clear"></div>
     </div>
-</div>
-<div class="block6">
-    <div class="wrapper">
-        <div class="zag">Что мы предлагаем?</div>
-        <div class="podzag">Автопрокат Амиго предоставляет следующие услуги: <br>аренда авто в Калининграде, каршеринг и прокат авто в Калининграде и аэропорту Храброво.</div>
-        <div class="main_text"><%= @text.main_text.html_safe %></div>
-        <div class="col1">
-            <div class="zg">Наша Миссия</div>
-            <div class="podp"><%= @text.main_mission_text.html_safe %></div>
-            <div class="pre">
-              <%= image_tag "pr1.png", alt: "Клиент наш друг", title: "Клиент наш друг" %>
-              Клиент наш друг!
-            </div>
-            <div class="pre">
-              <%= image_tag "pr2.png", alt: "Справедливость", title: "Справедливость" %>
-              Всегда стараемся справедливо урегулировать все спорные моменты.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr3.png", alt: "парк машин в хорошем состоянии", title: "парк машин в хорошем состоянии" %>
-              Содержим парк машин в хорошем состоянии.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr4.png", alt: "Договор без подводных камней", title: "Договор без подводных камней" %>
-              Договор без подводных камней.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr5.png", alt: "Большие скидки при долгосрочной аренде", title: "Большие скидки при долгосрочной аренде" %>
-              Большие скидки при долгосрочной аренде.
-            </div>
-            <div class="pre">
-              <%= image_tag "pr6.png", alt: "Многолетний опыт работы", title: "Многолетний опыт работы" %>
-              Многолетний опыт работы.
-            </div>
-        </div>
-        <div class="col1">
-            <div class="zg">Наши Преимущества</div>
-            <div class="podp"><%= @text.main_edge_text.html_safe %></div>
-            <div class="pere opened">
-                <div class="za">
-                  <%= image_tag "pe1.png", alt: "выгодные условия по КАСКО", title: "выгодные условия по КАСКО" %>
-                  Самые выгодные условия по КАСКО
-                  <span></span>
-                </div>
-                <div class="skrito" style="display: block;">
-                  <p>Договором аренды предусмотрена самая низкая в Калининграде франшиза по страховке.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe2.png", alt: "Круглосуточная поддержка 24/7", title: "Круглосуточная поддержка 24/7" %>
-                  Круглосуточная поддержка 24/7
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>В любой ситуации, касаемой автомобиля, мы готовы помочь 24 часа в сутки.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe3.png", alt: "Низкие залоги", title: "Низкие залоги" %>
-                  Низкие залоги
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>Низкие залоговые суммы, начинаются от 3000 рублей.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe4.png", alt: "Есть почасовая оплата", title: "Есть почасовая оплата" %>
-                  Есть почасовая оплата
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>Мы не берем стоимость аренды за сутки при опоздании или аренде на неполные сутки. На большинство автомобилей плата за час составляет 150 рублей.</p>
-                </div>
-            </div>
-            <div class="pere">
-                <div class="za">
-                  <%= image_tag "pe5.png", alt: "Справедливая топливная политика", title: "Справедливая топливная политика" %>
-                  Справедливая топливная политика
-                  <span></span>
-                </div>
-                <div class="skrito">
-                    <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
+    <div id="search_main">
+        <search city="Калининград" locale="<%= I18n.locale %>"></search>
     </div>
-</div>
+    <div class="block3">
+        <div class="wrapper">
+            <div class="prei">
+                <span>01</span>
+                <div class="zg">у нас есть страховка <b>каско</b></div>
+                <p>Все наши авто застрахованы по КАСКО минимальная ответственность клиента даже при происшествиях по его вине.</p>
+            </div>
+            <div class="prei">
+                <span>02</span>
+                <div class="zg">Мы <b>не ограничеваем</b> вам пробег</div>
+                <p>Ограничение суточного пробега и штраф за несоблюдение нашими условиями не предусмотрены.</p>
+            </div>
+            <div class="prei">
+                <span>03</span>
+                <div class="zg">НЕМЕДЛЕННЫЙ <b>ВОЗВРАТ ЗАЛОГА</b></div>
+                <p>Возвращаем залоговую сумму непосредственно после осмотра и приема автомобиля.</p>
+            </div>
+            <div class="prei">
+                <span>04</span>
+                <div class="zg">А еще мы очень <b>заботимся 24/7</b></div>
+                <p>Круглосуточная поддержка клиента по всем вопросам, связанным с арендой автомобиля.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block4">
+        <div class="wrapper">
+            <div class="zagol">Найдем машину для каждого</div>
+            <div class="podzag">У нас большой ассортимент автомобилей</div>
+            <div class="spis_avto">
+                <%= render partial: 'cars', collection: @cars, as: :car, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="btn">
+                <%= link_to cars_path do %>
+                    Посмотреть все автомобили
+                <% end %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block5">
+        <div class="wrapper">
+            <div class="zagol">Обращение к нашим клиентам</div>
+            <div class="podzag">Немного о нас словами нашего генерального директора</div>
+            <div class="pol1">
+                <p>Дорогие друзья! Меня зовут Андрей, я владелец автопроката Амиго. Я построил этот бизнес по аренде авто с нуля и до сих пор лично веду работу с обращениями и отзывами наших клиентов, контролирую обслуживание автомобилей и провожу обучение сотрудников. В этом секрет нашего успеха – качество обслуживания клиентов и техники держится на высочайшем уровне. Наш прокат авто развивается и растет, причем не только в Калининграде и области, но и в других городах России. Клиенты рады тому, что путешествуя по стране, у них есть возможность взять автомобиль на прокат в знакомой фирме.  Добро пожаловать в круг добрых друзей – обращайтесь за машиной в автопрокат Амиго!</p>
+                <div class="fio">
+                    Генеральный директор Amigorent
+                    <span>Сорокин А.В.</span>
+                </div>
+            </div>
+            <%= image_tag("block5_img.webp") %>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block6">
+        <div class="wrapper">
+            <div class="zagol">Отзывы</div>
+            <div class="spis_img">
+                <div class="reviews_main">
+                    <%= image_tag("o1.webp") %>
+                    <span class="spis_zv" id="rateYoYa"></span>
+                    <span id="YaRaiting" style="display: none;"><%= rating_yandex %></span>
+                </div>
+                <div class="reviews_main">
+                    <%= image_tag("o2.webp") %>
+                    <span class="spis_zv" id="rateYoGoogle"></span>
+                    <span id="GoogleRaiting" style="display: none;"><%= rating_google %></span>
+                </div>
+            </div>
+            <div class="spis_ot">
+                <%= render partial: 'review', collection: @reviews, as: :review, cached: true %>
+                <div class="clear"></div>
+            </div>
+            <div class="btn">
+                <%= link_to reviews_path do %>
+                    Посмотреть все отзывы
+                <% end %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block7">
+        <div class="wrapper">
+            <div class="zagol">Часто задаваемые вопросы</div>
+            <div class="zag"><%= @text.main_question_title_1.html_safe %></div>
+            <p><%= @text.main_question_1.html_safe %></p>
+            <div class="zag"><%= @text.main_question_title_2.html_safe %></div>
+            <p><%= @text.main_question_2.html_safe %></p>
+            <div class="zag"><%= @text.main_question_title_3.html_safe %></div>
+            <p><%= @text.main_question_3.html_safe %></p>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="block8">
+        <div class="wrapper">
+            <div class="zagol">Что мы предлагаем?</div>
+            <div class="podzag">Автопрокат Амиго предоставляет следующие услуги: <br />аренда авто в Калининграде, каршеринг и прокат авто в Калининграде и аэропорту Храброво.</div>
+            <%= image_tag("block8_img.webp") %>
+            <div class="pol2">
+                <%= @text.main_text.html_safe %>
+            </div>
+            <div class="clear"></div>
+            <div class="cha1">
+                <div class="zag">Наша миссия</div>
+                <p>Построение бизнеса нового поколения, основанного на принципе: «К клиенту — с душой!» <br />Стать прокатом автомобилей мирового уровня, лучшим в России. Миссия компании Амиго — развитие рынка доступной, удобной и качественной аренды автомобилей. Наше название символ того, что клиент - наш друг!</p>
+                <div class="spis_mis">
+                    <div class="mis">
+                        <%= image_tag("m1.webp") %>
+                        Клиент наш друг!
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m2.webp") %>
+                        Всегда стараемся справедливо урегулировать все спорные моменты.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m3.webp") %>
+                        Содержим парк машин<br />в хорошем состоянии.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m4.webp") %>
+                        Договор <br />без подводных камней.
+                    </div>
+                    <div class="mis">
+                        <%= image_tag("m5.webp") %>
+                        Большие скидки <br />при долгосрочной аренде.
+                    </div>
+                </div>
+            </div>
+            <div class="cha1">
+                <div class="zag">Наши приемущества</div>
+                <p>Главное отличие автопроката Амиго – <br />честный подход и дружеское отношение к каждому клиенту. Мы стараемся использовать в нашей работе самые передовые достижения и мировой опыт аренды автомобилей, постоянно расширять спектр и повышать качество оказываемых услуг.</p>
+                <div class="spis_prei">
+                    <div class="prei">
+                        <div class="zz opened">
+                            <%= image_tag("m1.webp") %>
+                            Самые выгодные условия по КАСКО
+                        </div>
+                        <p style="display: block;">Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m7.webp") %>
+                            Круглосуточная поддержка 24/7
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m8.webp") %>
+                            Низкие залоги
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m9.webp") %>
+                            Есть почасовая оплата
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                    <div class="prei">
+                        <div class="zz">
+                            <%= image_tag("m10.webp") %>
+                            Справедливая топливная политика
+                        </div>
+                        <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
 <%= render 'shared/footer', cached: true %>

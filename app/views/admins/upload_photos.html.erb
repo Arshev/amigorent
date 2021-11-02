@@ -21,7 +21,7 @@
                   <%= image_tag @car.main_image.url(:show), class: 'm-t-1', alt: @car.car_name if @car.main_image? %>
                 <% else %>
                   <div class="text-center m-b-3">
-                    <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
+                    <%= image_pack_tag "media/images/no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
                   </div>
                 <% end %>
               </div>
@@ -52,12 +52,12 @@
                                       method: :delete,
                                       remote: true,
                                       data: { confirm: 'Вы уверены?' } do %>
-                    <%= image_tag 'trash.png', class: 'm-t-1' %>
+                    <%= image_pack_tag "media/images/trash.png", class: 'm-t-1' %>
                     <% end %>
                   <% end %>
                 <% else %>
                   <div class="text-center m-b-3">
-                    <%= image_tag "no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
+                    <%= image_pack_tag "media/images/no-photo.png", alt: "", title: "", style: "width: 300px; height: 300px;" %>
                   </div>
                 <% end %>
               </div>

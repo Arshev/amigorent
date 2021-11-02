@@ -3,30 +3,31 @@
 <%= render 'shared/header' %>
 <div class="content">
   <div class="wrapper">
-    <%= render 'shared/bread'%>
-    <div class="bl_zakaz">
-      <%= content_tag :div,
-        id: "app",
-        data: {
-          locale: "ru"
-        }.to_json do %>
-      <% end %>
-      <div id='booking'>
-        <app>
-        </app>
+      <div class="bread">
+          <a href="#">Главная</a> / Заявка на бронирование
       </div>
-      <div class="nizz">
-          <p>Возможность доставки в нерабочее время уточняйте у наших менеджеров.</p>
-          <p>Выдача и прием автомобиля в офисе в нерабочее время с 19-00 до 9-00 составляет 400 руб.</p>
-          <p>Выдача и прием автомобиля по городу в нерабочее время с 19-00 до 9-00 составляет 500 руб.</p>
-          <p>Выдача и прием автомобиля в аэропорту в нерабочее время с 19-00 до 9-00 составляет 700 руб.</p>
+      <div class="zagol"><h1><%= @text.bookings_h1.html_safe %></h1></div>
+      <div class="bl_about">
+          <rentprog-widget 
+            token="24b264ea58a95dc28be76f48bc"
+            show_all_cars='false'
+            places='[{"place":"Офис","price":0},{"place":"Доставка по городу","price":300},{"place":"Аэропорт","price":800}]'
+            chairs='{"daily": false, "price": 300}'
+            boosters='{"daily": true, "price": 100}'
+            agreement='{"text": ", а так же принимаете ", "link_text": "условия аренды", "link": "https://rentprog.ru/public/agreement.html"}'
+          ></rentprog-widget>
+      </div>
+      <div class="block_vopros">
+        <div class="wrapper">
+          <div class="vopros">
+            <div class="otv" style="display: block;">
+              <%= @text.bookings_bottom_text.html_safe %>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
       </div>
       <div class="clear"></div>
-      <div style="margin-top: 1em;">
-        <%= @text.bookings_bottom_text.html_safe %>
-      </div>
-      <div class="clear"></div>
-    </div>
   </div>
 </div>
 <%= render 'shared/footer', cached: true %>

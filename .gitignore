@@ -35,3 +35,10 @@ database.yml
 # My mistake
 /db/migrate/20200505151022_add_to_cars.rb
 /db/*.sql
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

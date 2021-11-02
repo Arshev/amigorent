@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_150138) do
+ActiveRecord::Schema.define(version: 2021_11_01_155149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,14 @@ ActiveRecord::Schema.define(version: 2021_03_15_150138) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "articles", force: :cascade do |t|
@@ -168,6 +175,9 @@ ActiveRecord::Schema.define(version: 2021_03_15_150138) do
     t.text "tth_note", default: "empty"
     t.text "description_en", default: "empty"
     t.string "city", default: "Калининград"
+    t.boolean "fake", default: false
+    t.integer "ids_rentprog", array: true
+    t.integer "booking_limit", default: 2
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
@@ -187,6 +197,13 @@ ActiveRecord::Schema.define(version: 2021_03_15_150138) do
     t.float "yandex", default: 1.0
     t.float "google", default: 1.0
     t.boolean "active", default: false
+    t.string "rentprog_token"
+    t.string "name_en", default: "empty"
+    t.string "title_en", default: "empty"
+    t.string "description_en", default: "empty"
+    t.string "h1_en", default: "empty"
+    t.text "text_en", default: "empty"
+    t.string "address_en", default: "empty"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -203,6 +220,21 @@ ActiveRecord::Schema.define(version: 2021_03_15_150138) do
   create_table "contacts", force: :cascade do |t|
     t.string "email"
     t.text "text"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "deliveries", force: :cascade do |t|
@@ -577,6 +609,27 @@ ActiveRecord::Schema.define(version: 2021_03_15_150138) do
     t.string "cars_commercial_description_en", default: "empty"
     t.string "cars_commercial_h1_en", default: "empty"
     t.text "cars_commercial_text_en", default: "empty"
+    t.string "bookings_h1", default: "empty"
+    t.string "contacts_phones", default: "empty"
+    t.string "bookings_h1_en", default: "empty"
+    t.string "contacts_phones_en", default: "empty"
+    t.string "contacts_email", default: "empty"
+    t.text "main_question_1", default: "empty"
+    t.text "main_question_2", default: "empty"
+    t.text "main_question_3", default: "empty"
+    t.text "main_question_1_en", default: "empty"
+    t.text "main_question_2_en", default: "empty"
+    t.text "main_question_3_en", default: "empty"
+    t.text "main_question_title_1", default: "empty"
+    t.text "main_question_title_2", default: "empty"
+    t.text "main_question_title_3", default: "empty"
+    t.text "main_question_title_1_en", default: "empty"
+    t.text "main_question_title_2_en", default: "empty"
+    t.text "main_question_title_3_en", default: "empty"
+    t.string "top_cars_title", default: "empty"
+    t.string "top_cars_title_en", default: "empty"
+    t.text "top_cars", default: "empty"
+    t.text "top_cars_en", default: "empty"
   end
 
   create_table "towns", force: :cascade do |t|
@@ -625,6 +678,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_150138) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "users"
   add_foreign_key "car_reviews", "cars"
   add_foreign_key "cars", "users"

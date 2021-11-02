@@ -3,43 +3,35 @@
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
-        <%= render 'shared/bread'%>
-        <h1>FAQs</h1>
-        <div class="bl_faq">
-            <div class="fq">
-                <div class="vopr"><span>What is the responsibility of the customer in case of damage to the car?</span></div>
-                <div class="otvet">
-                    <p>If the client is not responsible for the damage caused and has provided duly executed documents from the relevant authorized bodies, then he does not bear any responsibility.</p>
-                    <p>If the client has not submitted documents from the relevant authorized bodies about the damage to the car, then he is fully responsible for the damage caused.</p>
-                    <p>If the client is the culprit of the damage caused and has provided duly executed documents from the relevant authorized bodies, then he is liable within 5,000 rubles for an ordinary car and up to 15,000 rubles for a business class car. With severe damage to the car (three and more body elements) - 10,000 rubles for a regular car and 30,000 rubles for a business class car.</p>
-                </div>
+        <div class="bread">
+            <%= render 'shared/bread'%>
+        </div>
+        <div class="uslovi">
+            <div class="zagol">Questions and answers</div>
+            <div class="obol">
+                <div class="zz">What is the customer's responsibility in the event of damage to the vehicle?</div>
+                <p>If the client is not the culprit for the damage caused and has provided duly executed documents from the relevant authorized bodies, then he does not bear any responsibility.</p>
+                <p>If the client has not provided documents from the relevant authorized bodies about the damage to the car, then he is fully responsible for the damage caused.</p>
+                <p>If the client is the culprit of the damage caused and has provided duly executed documents from the relevant authorized bodies, then he is liable within 5,000 rubles for an ordinary car and within 15,000 rubles for a business class car. In case of severe damage to the car (three or more body elements) - 10,000 rubles for a regular car and 30,000 rubles for a business class car.</p>
             </div>
-            <div class="fq">
-                <div class="vopr"><span>Why is the responsibility of the client provided if the cars are insured under the hull?</span></div>
-                <div class="otvet">
-                    <p>We try to provide the client with the highest possible quality of rental services and a high level of protection, while maintaining the low cost of renting a car. Contracts with insurance companies are concluded with a franchise, that is, there is a minimum amount that is not refundable in the event of an insurance accident caused by the customer. This part of the damage, according to our contract, is compensated by the client. In particular, this is a restrictive measure in order to avoid the client’s negligent attitude towards the rented car.</p>
-                </div>
+            <div class="obol">
+                <div class="zz"><span>Why is the client's liability provided for if the cars are CASCO insured?</span></div>
+                <p>We try to provide the client with the highest possible quality of rental service and a high level of protection, while maintaining a low cost of car rental. Contracts with insurance companies are concluded with a deductible, that is, there is a minimum amount that is not refundable in the event of an insured event due to the fault of the client. This part of the damage, according to our contract, will be reimbursed by the client. Among other things, this is a restrictive measure in order to avoid the client's negligence towards the rented car.</p>
             </div>
-            <div class="fq">
-                <div class="vopr"><span>How can I be sure that the car will not break on the road?</span></div>
-                <div class="otvet">
-                    <p>The car is a complex technical device and breakdowns happen even on new cars. We try to keep the vehicle fleet in good technical condition. All cars undergo regular diagnostics and maintenance. If, nevertheless, a trouble happened on the road, our employees are ready to come to your aid at any time of the day and repair or replace a failed vehicle.</p>
-                </div>
+            <div class="obol">
+                <div class="zz"><span>How can I be sure that the car will not break down on the road?</span></div>
+                <p>The car is a complex technical device and breakdowns happen even on new cars. We try to keep our fleet in good technical condition. All cars are regularly diagnosed and serviced. If, nevertheless, there was a nuisance on the road, our employees are ready at any time of the day to go to your aid and carry out the repair or replacement of the out of order vehicle.</p>
             </div>
-            <div class="fq">
-                <div class="vopr"><span>What to do if a serious malfunction occurs with the car?</span></div>
-                <div class="otvet">
-                    <p>If you have any questions related to the operation of the rented car, you can ask them in the technical support service around the clock and get appropriate advice.</p>
-                    <p>If the malfunction is minor and does not prevent further operation of the car, you can eliminate it on the spot or after reaching the nearest car repair shop. We will compensate you for the costs of troubleshooting that arose not through your fault (coordination with technical support is required). If the malfunction is serious and occurs as a result of normal wear and tear, we go to the place and replace the faulty car. If the malfunction occurs due to the fault of the client or as a result of the operation of a deliberately faulty car, a replacement car is not provided, the client reimburses repair costs.</p>
-                    <p>Example 1. As a result of wear on the pipe of the cooling system, coolant leaked out, which caused the vehicle to overheat. The client noticed a signal of a control lamp and stopped operating the car, called technical support. The customer is provided with a replacement car, the rental costs are borne by the rental company.</p>
-                    <p>Example 2. During use of the machine, the oil pressure warning lamp lights up. The client continued to move. As a result, the engine failed. A replacement car is not provided, the client reimburses the cost of repairing the car.</p>
-                </div>
+            <div class="obol">
+                <div class="zz"><span>What to do if there is a serious problem with the car?</span></div>
+                <p> If you have any questions related to the operation of a rented car, you can ask them to the technical support service around the clock and get appropriate advice. </p>
+                <p> If the malfunction is minor and does not interfere with the further operation of the car, you can fix it on the spot or by driving to the nearest auto repair shop. We will compensate you for the costs of eliminating faults that have arisen through no fault of yours (be sure to agree with technical support). If the malfunction is serious and has arisen as a result of normal wear and tear, we go to the site and replace the faulty car. If the malfunction has arisen through the fault of the client or as a result of the operation of a knowingly faulty car, a replacement car is not provided, the client will reimburse the repair costs. </p>
+                <p> Example 1. As a result of the wear of the cooling system pipe, coolant leaked out, which led to overheating of the car. The client noticed the warning light signal and stopped using the car, called the technical support service. The client is provided with a replacement car, the repair costs are borne by the rental company. </p>
+                <p> Example 2. During the use of the machine, the oil pressure indicator light came on. The client continued moving. As a result, the engine failed. A replacement car is not provided, the client will reimburse the cost of repairing the car. </p>
             </div>
-            <div class="fq">
-                <div class="vopr"><span>How can I make sure that the hull insurance contract is really concluded?</span></div>
-                <div class="otvet">
-                    <p>We do not give the client a hull insurance contract, as this is not necessary, unlike the CTP insurance policy. Therefore, sometimes customers ask such a question. In this regard, you can be calm. The scope of the client’s liability is stipulated by the car rental agreement; we cannot claim anything beyond the agreement. Even if for some reason the hull insurance contract is not timely extended or absent, all the risks associated with this are borne by our organization, the client is protected by the terms of our contract!</p>
-                </div>
+            <div class="obol">
+                <div class="zz"> <span> How can I be sure that the CASCO insurance contract is really concluded? </span> </div>
+                <p> We do not hand out a CASCO insurance contract to the client, as there is no need for this, in contrast to the CTP insurance policy. Therefore, sometimes clients ask this question. In this respect, you can rest assured. The scope of the client's responsibility is stipulated by the car rental agreement, we will not be able to claim anything beyond that specified in the agreement. Even if, for some reason, the CASCO insurance contract is not promptly extended or is absent, all the risks associated with this are borne by our organization, the client is protected by the terms of our contract! </p>
             </div>
         </div>
         <div class="clear"></div>
