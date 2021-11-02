@@ -13,14 +13,14 @@
       <div class="zagol">Contacts</div>
       <% if params[:city] && params[:city] != 'Калининград' %>
         <div class="bl_contact">
-          <p><span class="videl">Уважаемые клиенты! </span><br />Просьба, перед выходом к нам - звоните, при большом количестве заказов бывает, что все сотрудники на выезде</p>
+          <p><span class="videl">Dear Clients! </span><br />Please, call before you come to us, with a large number of orders, it happens that all employees are on the road</p>
           <div class="pol1">
-              <div class="zag">Адрес офиса:</div>
-              <p><%= @city.name %>, <%= @city.address %></p>
-              <div class="zag">Телефон:</div>
+              <div class="zag">Office adress:</div>
+              <p><%= @city.name_en %>, <%= @city.address_en %></p>
+              <div class="zag">Phone:</div>
               <p><a href="tel:88001003973"><span class="videl"><b>8 800 100-39-73</b></span></a></p>
               <div class="zag">
-                  Мы в соц. сетях:
+                  We are in social networks:
               </div>
               <p>
                   <a href="https://instagram.com/amigorent" rel="nofollow" target="_blank">
@@ -35,15 +35,15 @@
                   <a href="https://www.youtube.com/c/amigorent" rel="nofollow" target="_blank">
                     <%= image_tag "s4.webp", style: "wigth:25px;height:25px; border-radius: 5px;", alt: "youtube", title: "youtube" %>
                   </a>
-                  <p>Подпишитесь и получите скидку на аренду авто.</p>
+                  <p>Subscribe and get a discount on car rental.</p>
               </p>
-              <div class="zag">Режим работы</div>
-              <p><span class="videl"><b>С 9:00 до 19:00</b></span> Без выходных;<br />По предварительной договоренности о заказе автомобиля - круглосуточно.</p>
+              <div class="zag">Working hours</div>
+              <p><span class="videl"><b>9:00 до 19:00</b></span> Seven days a week;<br />By prior arrangement about ordering a car - around the clock.</p>
               <div class="zag">
-                  Способы оплаты:
+                  Payment Methods:
               </div>
-              <p>Наличными, банковской картой, безналичным переводом</p>
-              <div class="zag">Наш E-mail:</div>
+              <p>Cash, credit card, wire transfer</p>
+              <div class="zag">Our E-mail:</div>
               <%# <p><a href="#">amigorent@ya.ru</a></p> %>
               <p><%= @text.contacts_phones_en.html_safe %></p>
           </div>
