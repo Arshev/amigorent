@@ -16,7 +16,7 @@
 <div class="block2 var2">
     <div class="wrapper" id="search_cars">
         <div class="zagol"><h1>Cars</h1></div>
-        <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>" locale="<%= I18n.locale %>"></search_cars>
+        <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>" locale="<%= I18n.locale ? I18n.locale : 'ru' %>"></search_cars>
         <div class="clear"></div>
     </div>
 </div>
