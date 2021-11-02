@@ -22,9 +22,9 @@
   <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all" %>
   
   <% if current_page?(root_path) %>
-    <%= javascript_pack_tag 'call_booking', rel: 'preload' %>
+    <%= javascript_pack_tag 'call_booking' %>
     <%= stylesheet_pack_tag 'call_booking', media: "all" %>
-    <%= javascript_pack_tag 'search_main', rel: 'preload' %>
+    <%= javascript_pack_tag 'search_main' %>
     <%= stylesheet_pack_tag 'search_main', media: "all" %>
   <% end %>
   <% if current_page?(new_booking_path) %>
