@@ -17,6 +17,7 @@ Vue.axios.defaults.baseURL =
 Vue.component("loading", Loading);
 Vue.use(VModal)
 Vue.use(Vuelidate)
+Vue.config.productionTip = false
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({

@@ -71,6 +71,7 @@ Vue.use(VueSweetalert2);
 // Vue.use(TurbolinksAdapter)
 Vue.use(VueAxios, axios)
 Vue.component("loading", Loading);
+Vue.config.productionTip = false
 
 // document.addEventListener('turbolinks:load', () => {
 document.addEventListener("DOMContentLoaded", () => {

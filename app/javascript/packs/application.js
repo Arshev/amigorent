@@ -24,6 +24,7 @@ import {} from 'jquery-ujs'
 import 'bootstrap/dist/js/bootstrap';
 import "./jquery.bxslider.min"
 import "application.scss";
+import "counters.js";
 const images = require.context("../images", true);
 import "rateyo";
 
