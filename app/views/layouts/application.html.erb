@@ -6,7 +6,7 @@
 <% end %>
 <head>
 	<meta charset="UTF-8" />
-  
+  <meta name="viewport" content="width=device-width" />
   <%= display_meta_tags %>
   <meta name="yandex-verification" content="57d292ffbe46f129" />
   <noscript><div><img src="https://mc.yandex.ru/watch/48045371" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -41,8 +41,6 @@
   <% if request.path.include?('/cars/') %>
     <%= javascript_pack_tag 'bookings' %>
   <% end %>
-
-  <meta name="viewport" content="width=device-width" />
 <% else %>
   <%= javascript_pack_tag 'application', rel: 'preload' %>
   <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all" %>
