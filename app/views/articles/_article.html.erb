@@ -1,7 +1,7 @@
 <% @articles.each do |article| %>
   <% if I18n.locale == :en %>
     <div class="new1">
-      <div class="bl_img" style="background-image: url(<%= article.image.attached? ? (image_path(article.image.variant(resize_to_fill: [384, 250]).processed.url)) : image_path("no-photo.webp") %>);"></div>
+      <div class="bl_img" style="background-image: url(<%= article.image.attached? ? (Rails.application.routes.url_helpers.rails_representation_url(article.image.variant(resize: "300x300").processed, only_path: true)) : image_path("no-photo.webp") %>);"></div>
       <div class="data"><%= article.updated_at.strftime("%d.%m.%Y") %></div>
       <%= link_to article_en_path(article), class: "zg" do %>
         <%= article.title_en %>
@@ -13,7 +13,7 @@
     </div>
   <% else %>
     <div class="new1">
-      <div class="bl_img" style="background-image: url(<%= article.image.attached? ? (image_path(article.image.variant(resize_to_fill: [384, 250]).processed.url)) : image_path("no-photo.webp") %>);"></div>
+      <div class="bl_img" style="background-image: url(<%= article.image.attached? ? (Rails.application.routes.url_helpers.rails_representation_url(article.image.variant(resize: "300x300").processed, only_path: true)) : image_path("no-photo.webp") %>);"></div>
       <div class="data"><%= article.updated_at.strftime("%d.%m.%Y , %H:%M") %></div>
       <%= link_to article_path(article, city: (params[:city] ? params[:city] : "Калининград")), class: "zg" do %>
         <%= article.title %>
