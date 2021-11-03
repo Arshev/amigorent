@@ -34,7 +34,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [200, 200, gravity = 'Center']
   end
   version :show do
-    process resize_to_fill: [487, 278, gravity = 'Center']
+    process resize_to_fill: [387, 210, gravity = 'Center']
   end
   version :big do
     process resize_to_fill: [800, 600, gravity = 'Center']

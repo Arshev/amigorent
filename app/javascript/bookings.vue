@@ -610,6 +610,7 @@
                     <input
                       v-model="term"
                       type="checkbox"
+                      class="my_checkbox"
                       @input="terms_error = false"
                     />
 

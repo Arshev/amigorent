@@ -11,7 +11,7 @@
             <span></span>
             <div class="text1">News and sales</div>
             <div class="text2"><%= @article.title_en %></div>
-            <p><%= truncate(strip_tags(@article.text_en.to_s), length: 200, separator: ' ') %></p>
+            <p><%# truncate(strip_tags(@article.text_en.to_s), length: 200, separator: ' ') %></p>
             <div class="clear"></div>
         </div>
         <span style="display:none;" itemprop="author">Автопрокат Амиго</span>

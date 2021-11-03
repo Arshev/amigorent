@@ -40,6 +40,7 @@
   <% end %>
   <% if request.path.include?('/cars/') %>
     <%= javascript_pack_tag 'bookings' %>
+    <%= stylesheet_pack_tag 'bookings' %>
   <% end %>
 <% else %>
   <%= javascript_pack_tag 'application', rel: 'preload' %>
