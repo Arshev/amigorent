@@ -29,6 +29,7 @@ class CarsController < ApplicationController
          params[:end_time] && params[:city]
       start_date = params[:start_date] + ' ' + params[:start_time]
       end_date = params[:end_date] + ' ' + params[:end_time]
+      days = (DateTime.parse(end_date) - DateTime.parse(start_date)).to_i
       if params[:city] == 'Калининград'
         token = Rails.application.credentials.kaliningrad_rentprog_token
       else
@@ -61,19 +62,39 @@ class CarsController < ApplicationController
       cars_ids = []
       if get_free_cars_body.length > 0
         all_cars.each do |car|
-          if car.ids_rentprog &&
-               car.ids_rentprog.any? { |i| get_free_cars_body.include? i }
+          if (
+               car.ids_rentprog &&
+                 car.ids_rentprog.any? { |i| get_free_cars_body.include? i }
+             ) && (car.booking_limit && days >= car.booking_limit)
             cars_ids.push(car.id)
           end
         end
       end
       @cars = Car.where(id: cars_ids)
-      @fake_cars = Car.where(active: true, city: params[:city] ? params[:city] : 'Калининград', ids_rentprog: nil).or(Car.where.not(id: cars_ids).where(active: true, city: params[:city] ? params[:city] : 'Калининград'))
+      @fake_cars =
+        Car
+          .where(
+            active: true,
+            city: params[:city] ? params[:city] : 'Калининград',
+            ids_rentprog: nil,
+          )
+          .or(
+            Car
+              .where.not(id: cars_ids)
+              .where(
+                active: true,
+                city: params[:city] ? params[:city] : 'Калининград',
+              ),
+          )
     else
       if params[:city] && params[:city] != 'Калининград'
         @city = City.find_by(name: params[:city])
       end
-      @cars = Car.where(active: true, city: params[:city] ? params[:city] : 'Калининград')
+      @cars =
+        Car.where(
+          active: true,
+          city: params[:city] ? params[:city] : 'Калининград',
+        )
     end
   end
 
@@ -84,7 +105,7 @@ class CarsController < ApplicationController
   def create
     @car = current_user.cars.build(car_params)
     if car_params[:ids_rentprog]
-      @car.ids_rentprog = car_params[:ids_rentprog].gsub(",", "").split(' ')
+      @car.ids_rentprog = car_params[:ids_rentprog].gsub(',', '').split(' ')
     end
     if @car.save
       redirect_to cars_admin_path, notice: 'Сохранено'
@@ -105,8 +126,13 @@ class CarsController < ApplicationController
     if @car.active
       @city = City.find_by(name: @car.city)
       @cars = Car.where(active: true, city: @car.city).sample(3)
-      
-      @rentprog_token = @city ? @city.rentprog_token : Rails.application.credentials.kaliningrad_rentprog_token
+
+      @rentprog_token =
+        if @city
+          @city.rentprog_token
+        else
+          Rails.application.credentials.kaliningrad_rentprog_token
+        end
       # @new_review = CarReview.new
       # if @car.city
       #   @main_up_text = Text.first.main_up_text
@@ -145,7 +171,8 @@ class CarsController < ApplicationController
     new_params = car_params.merge(active: true) if is_ready_car
 
     if new_params[:ids_rentprog]
-      new_params[:ids_rentprog] = new_params[:ids_rentprog].gsub(",", "").split(' ')
+      new_params[:ids_rentprog] =
+        new_params[:ids_rentprog].gsub(',', '').split(' ')
     else
       new_params[:ids_rentprog] = @car.ids_rentprog
     end

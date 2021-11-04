@@ -1559,9 +1559,9 @@ export default {
                   days: this.days,
                   location_start: this.location_start,
                   location_end: this.location_end,
-                  additional_hours: this.hours,
+                  additional_hours: this.additional_hours,
                   rental_cost: this.days * this.price,
-                  hours_cost: this.additional_hours,
+                  hours_cost: this.additional_hours * this.prices[5],
                   price_hour: this.prices[5],
                   delivery: this.location_start_price,
                   delivery_end: this.location_end_price,
@@ -1572,6 +1572,7 @@ export default {
                   navigator: this.navigator,
                   birthday: this.birthday,
                   description: this.description,
+                  booking_limit: this.booking_limit,
                 },
                 {
                   headers: {
