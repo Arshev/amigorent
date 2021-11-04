@@ -1456,7 +1456,10 @@ export default {
           .then((response) => {
             // Получаем свободные ids
             let free_ids = response.data;
-            if (!this.ids_rentprog.every(e => free_ids.includes(e))) {
+            console.log("free_ids", free_ids)
+            console.log("ids_rentprog", this.ids_rentprog)
+            console.log("result", this.ids_rentprog.some(e => free_ids.includes(e)))
+            if (!this.ids_rentprog.some(e => free_ids.includes(e))) {
               this.$swal({
                 type: "warning",
                 title: "Автомобиль занят!",
