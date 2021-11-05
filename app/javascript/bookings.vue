@@ -362,19 +362,21 @@
                   </div>
                   <div class="in1">
                     <select v-if="locale == 'en'" v-model="location_start">
-                      <option value="Офис">Office (free)</option>
+                      <option value="Офис" style="color: black;">Office (free)</option>
                       <option
                         v-for="location in locations_en"
                         :key="location.index"
+                        style="color: black;"
                       >
                         {{ location }}
                       </option>
                     </select>
                     <select v-else v-model="location_start">
-                      <option value="Офис">Офис (бесплатно)</option>
+                      <option value="Офис" style="color: black;">Офис (бесплатно)</option>
                       <option
                         v-for="location in locations"
                         :key="location.index"
+                        style="color: black;"
                       >
                         {{ location }}
                       </option>
@@ -627,13 +629,8 @@
                   <span style="color: tomato" v-if="terms_error">
                     - пожалуйста примите условия</span
                   >
-                  <!-- <label>
-                    <input type="checkbox" value="" name="" />
-                    Я соглашаюсь с уловиями политики
-                    конфиденциальности
-                  </label> -->
                 </div>
-                <button @click="sendBooking()">Арендовать</button>
+                <button @click="sendBooking()">Отправить</button>
                 <div class="clear"></div>
               </div>
             </div>
@@ -719,6 +716,7 @@ export default {
       location_start: "Офис",
       location_end: "Офис",
       showModal: false,
+      free_ids: [],
       configStart: {
         altFormat: "j M Y",
         altInput: true,
@@ -1431,6 +1429,7 @@ export default {
   methods: {
     openDialog() {
       this.$modal.show("my-first-modal");
+      this.checkFree(this.start_date, this.end_date, this.days)
     },
     closeDialog() {
       this.$modal.hide("my-first-modal");
@@ -1456,6 +1455,7 @@ export default {
           .then((response) => {
             // Получаем свободные ids
             let free_ids = response.data;
+            this.free_ids = free_ids
             console.log("free_ids", free_ids)
             console.log("ids_rentprog", this.ids_rentprog)
             console.log("result", this.ids_rentprog.some(e => free_ids.includes(e)))
@@ -1483,6 +1483,7 @@ export default {
       }
     },
     sendBooking() {
+      let self = this
       let has_error = false;
       if (this.name === "" || this.name == null) {
         this.name_error = true;
@@ -1545,6 +1546,16 @@ export default {
             this.phone
           ) {
             this.isLoading = true;
+            // Отсылаю только свободные ids
+            let free_cars_ids = []
+            if (this.ids_rentprog && this.ids_rentprog.length > 0 && this.ids_rentprog.some(e => this.free_ids.includes(e))) {
+              this.ids_rentprog.forEach(id => {
+                if (self.free_ids.includes(id)) {
+                  free_cars_ids.push(id)
+                }
+              });
+            }
+            console.log(free_cars_ids, self.free_ids)
             this.axios
               .post(
                 `/api/v1/amigorent_new_booking`,
@@ -1554,7 +1565,7 @@ export default {
                   middlename: this.middlename,
                   phone: this.phone,
                   email: this.email,
-                  ids_rentprog: this.ids_rentprog,
+                  ids_rentprog: free_cars_ids,
                   car_name: this.car_name,
                   price: this.price,
                   start_date: this.start_date,
