@@ -580,7 +580,7 @@
                 </div>
                 <div class="price" v-if="days_limit_error">
                   Лимит:
-                  <span>{{`Минимум ${booking_limit} суток`}}</span>
+                  <span>{{`Минимум ${free ? booking_limit : '2-e'} суток`}}</span>
                 </div>
                 <div class="price">
                   Доп время ({{ additional_hours }} ч):
@@ -1663,11 +1663,11 @@ export default {
           self.isLoading = false
         }
       }
-      if (this.days_limit_error == `Минимум ${this.booking_limit} суток`) {
+      if (this.days < 2) {
         this.$swal({
           type: "warning",
           title: "Внимание!",
-          text: `Минимальный срок аренды ${this.booking_limit} суток. Вы можете отправить заявку, но решение о возможности бронирования на срок меньше минимального принимает менеджер.`,
+          text: `Минимальный срок аренды 2-е суток. Вы можете отправить заявку, но решение о возможности бронирования на срок меньше минимального принимает менеджер.`,
           showCancelButton: true,
           confirmButtonText: "Отправить",
           cancelButtonText: "Закрыть",
