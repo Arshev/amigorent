@@ -10,7 +10,7 @@
             <%= link_to prices_path(locale: I18n.locale, city: "Калининград"), class: "price" do %>
                 Rental prices
             <% end %>
-            <%= image_tag("bmw.webp") %>
+            <%= image_tag("bmw.webp"), alt: 'Car Rental Kaliningrad', title: 'Car Rental Kaliningrad' %>
             <div class="clear"></div>
         </div>
     </div>
@@ -69,7 +69,7 @@
                     <span>Sorokin A.V.</span>
                 </div>
             </div>
-            <%= image_tag("block5_img.webp") %>
+            <%= image_tag("block5_img.webp"), alt: "Sign", title: "Sign" %>
             <div class="clear"></div>
         </div>
     </div>
@@ -78,12 +78,12 @@
             <div class="zagol">Reviews</div>
             <div class="spis_img">
                 <div class="reviews_main">
-                    <%= image_tag("o1.webp") %>
+                    <%= image_tag("o1.webp"), alt: "Yandex", title: "Yandex" %>
                     <span class="spis_zv" id="rateYoYa"></span>
                     <span id="YaRaiting" style="display: none;"><%= rating_yandex %></span>
                 </div>
                 <div class="reviews_main">
-                    <%= image_tag("o2.webp") %>
+                    <%= image_tag("o2.webp"), alt: "Google", title: "Google" %>
                     <span class="spis_zv" id="rateYoGoogle"></span>
                     <span id="GoogleRaiting" style="display: none;"><%= rating_google %></span>
                 </div>
@@ -116,7 +116,7 @@
         <div class="wrapper">
             <div class="zagol">What do we offer?</div>
             <div class="podzag">Car rental Amigo provides car rental services and rental cars of various classes without a driver and with a driver in Kaliningrad and the region. We deliver the car directly to the client.</div>
-            <%= image_tag("block8_img.webp") %>
+            <%= image_tag("block8_img.webp"), alt: "Car", title: "Car" %>
             <div class="pol2">
                 <%= @text.main_text_en.html_safe %>
             </div>
@@ -126,23 +126,23 @@
                 <p>Building a new generation business based on the principle of: "To the client - with a soul!" Become a world-class car rental, the best in Russia. Amigo's mission is to develop an affordable, convenient and high-quality car rental market. Our name is a symbol that the client is our friend!</p>
                 <div class="spis_mis">
                     <div class="mis">
-                        <%= image_tag("m1.webp") %>
+                        <%= image_tag("m1.webp"), alt: "friend", title: "friend" %>
                         Customer is our friend! 
                     </div>
                     <div class="mis">
-                        <%= image_tag("m2.webp") %>
+                        <%= image_tag("m2.webp"), alt: "Issue", title: "Issue" %>
                         We always try to fairly solve all disputed issues. 
                     </div>
                     <div class="mis">
-                        <%= image_tag("m3.webp") %>
+                        <%= image_tag("m3.webp"), alt: "Condition", title: "Condition" %>
                         We keep the fleet<br /> in good condition.
                     </div>
                     <div class="mis">
-                        <%= image_tag("m4.webp") %>
+                        <%= image_tag("m4.webp"), alt: "Contract", title: "Contract" %>
                         The contract<br /> without pitfalls.
                     </div>
                     <div class="mis">
-                        <%= image_tag("m5.webp") %>
+                        <%= image_tag("m5.webp"), alt: "Discount", title: "Discount" %>
                         Big discounts <br />on long-term rent.
                     </div>
                 </div>
@@ -153,35 +153,35 @@
                 <div class="spis_prei">
                     <div class="prei">
                         <div class="zz opened">
-                            <%= image_tag("m1.webp") %>
+                            <%= image_tag("m1.webp"), alt: "Insurance", title: "Insurance" %>
                             The most favorable conditions for hull insurance
                         </div>
                         <p style="display: block;">The lease agreement provides for the lowest insurance deductible in Kaliningrad.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m7.webp") %>
+                            <%= image_tag("m7.webp"), alt: "Support", title: "Support" %>
                             24/7 Support
                         </div>
                         <p>We are ready to help 24 hours a day in any situation.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m8.webp") %>
+                            <%= image_tag("m8.webp"), alt: "Pledges", title: "Pledges" %>
                             Low pledges
                         </div>
                         <p>Low security deposits start at 3,000 rubles.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m9.webp") %>
+                            <%= image_tag("m9.webp"), alt: "Hour", title: "Hour" %>
                             There is an hourly rate 
                         </div>
                         <p>We do not take the cost of rent per day if you are late or rent for an incomplete day. For most cars, the hourly fee is 150 rubles.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m10.webp") %>
+                            <%= image_tag("m10.webp"), alt: "Fair", title: "Fair" %>
                             Fair fuel policy 
                         </div>
                         <p>We give out a car with a full tank, when you return the car with a lack of fuel, payment at the price of refueling without fines.</p>

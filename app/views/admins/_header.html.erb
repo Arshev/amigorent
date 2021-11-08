@@ -2,8 +2,8 @@
 <div class="wrapper boxed-wrapper">
   <header class="main-header">
     <%= link_to root_path, class: "logo blue-bg", target:"_blank" do %>
-      <span class="logo-mini"><%= image_pack_tag "media/images/logo.png" %></span>
-      <span class="logo-lg"><%= image_pack_tag "media/images/logo.png", style: "width: 150px;" %></span>
+      <span class="logo-mini"><%= image_pack_tag "media/images/logo.png", alt: "Логотип", title: "Логотип" %></span>
+      <span class="logo-lg"><%= image_pack_tag "media/images/logo.png", style: "width: 150px;", alt: "Логотип", title: "Логотип" %></span>
     <% end %>
     <nav class="navbar blue-bg navbar-static-top">
       <div class="navbar-custom-menu">

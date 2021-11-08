@@ -38,15 +38,15 @@
                 <div class="zagol"><%= @car.car_name %></div>
                 <div class="hara">
                     <div class="hr">
-                        <%= image_tag "h1.webp", alt: "", title: "" %>
+                        <%= image_tag "h1.webp", alt: "Пассажирские места", title: "Пассажирские места" %>
                         <%= @car.number_seats %> мест
                     </div>
                     <div class="hr">
-                        <%= image_tag "h2.webp", alt: "", title: "" %>
+                        <%= image_tag "h2.webp", alt: "Год", title: "Год" %>
                         <%= @car.year %> г.
                     </div>
                     <div class="hr">
-                        <%= image_tag "h3.webp", alt: "", title: "" %>
+                        <%= image_tag "h3.webp", alt: "Кондиционер", title: "Кондиционер" %>
                         <% if @car.is_air %>
                             Кондиционер
                         <% else %>
@@ -54,7 +54,7 @@
                         <% end %>
                     </div>
                     <div class="hr">
-                        <%= image_tag "h4.webp", alt: "", title: "" %>
+                        <%= image_tag "h4.webp", alt: "Топливо", title: "Топливо" %>
                         <% if @car.fuel == "Бензин" %>
                             Бензин
                         <% elsif @car.fuel == "Дизель" %>
@@ -64,11 +64,11 @@
                         <% end %>
                     </div>
                     <div class="hr">
-                        <%= image_tag "h5.webp", alt: "", title: "" %>
+                        <%= image_tag "h5.webp", alt: "Тип кузова", title: "Тип кузова" %>
                         <%= @car.car_type %>
                     </div>
                     <div class="hr">
-                        <%= image_tag "h6.webp", alt: "", title: "" %>
+                        <%= image_tag "h6.webp", alt: "Коробка передач", title: "Коробка передач" %>
                         <% if @car.transmission == 'Механика'%>
                             Механика
                         <% else %>
@@ -76,7 +76,7 @@
                         <% end %>
                     </div>
                     <div class="hr">
-                        <%= image_tag "h7.webp", alt: "", title: "" %>
+                        <%= image_tag "h7.webp", alt: "Электропакет", title: "Электропакет" %>
                         <% if @car.is_electropackage %>
                             Электропакет
                         <% else %>
@@ -84,7 +84,7 @@
                         <% end %>
                     </div>
                     <div class="hr">
-                        <%= image_tag "h8.webp", alt: "", title: "" %>
+                        <%= image_tag "h8.webp", alt: "Объем двигателя", title: "Объем двигателя" %>
                         <%= @car.engine_capacity ? @car.engine_capacity : "-" %> л
                     </div>
                     <div class="clear"></div>
