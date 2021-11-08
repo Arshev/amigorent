@@ -9,7 +9,7 @@
               <div class="user-img pull-left">
                 <%= link_to car_path(car) do %>
                   <% if car.main_image? %>
-                    <%= image_tag car.main_image.url(:thumb), class: 'm-t-1', alt: car.car_name if car.main_image?, title: car.car_name if car.main_image? %>
+                    <%= image_tag car.main_image.url(:thumb), class: 'm-t-1', alt: (car.car_name if car.main_image?), title: (car.car_name if car.main_image?) %>
                   <% else %>
                     <%= image_pack_tag "media/images/no-photo.png", alt: "", title: "", style: "width: 100px; height: 100px;" %>
                   <% end %>
@@ -38,7 +38,7 @@
                   <% end %>
                 <% end %>
                 <%= link_to car_path(car), remote: true, method: :delete, data: {confirm: "Уверены?"} do %>
-                  <%= image_pack_tag "media/images/trash.png", class: 'm-t-1', alt: "Иконка корзины", alt: "Иконка корзины" %>
+                  <%= image_pack_tag "media/images/trash.png", class: 'm-t-1', alt: "Иконка корзины", title: "Иконка корзины" %>
                 <% end %>
               </div>
             </div>
