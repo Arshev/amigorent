@@ -2,43 +2,49 @@
 <div class="content">
   <div class="wrapper">
         <%= render 'shared/bread'%>
-    <div class="success_page" style="text-align:center;">
-        <h1 style="text-align:center;">You have successfully applied for a car booking</h1>
-        <p style="text-align:center;">
-          <%= image_tag "galka.png", style: "width:100px;", alt: "Галочка", title: "Галочка" %>
-        </p>
-        <p>We will contact you shortly, if this does not happen call us, please!</p>
-        <p>Send us a photo of your ID (or passport) and a driver’s license to make the process of drawing up a rental agreement faster </p>
-        <p>To the mail: <a href="mailto:amigorent@ya.ru">amigorent@ya.ru</a></p>
-        <p>Messengers:
-          <a href="https://wa.me/79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
-            <%= image_tag "whatsapp.png", style: "width:30px;", alt: "whatsapp", title: "whatsapp" %>
-          </a>
-          <a href="https://viber.click/79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
-            <%= image_tag "viber.png", style: "width:30px;", alt: "viber", title: "viber" %>
-          </a>
-          <a href="https://t.me/amigorent_ru" style="text-decoration: none;" rel="nofollow" target="_blank">
-            <%= image_tag "telegram.png", style: "width:30px;", alt: "telegram", title: "telegram" %>
-          </a>
-        </p>
-        <h2>
-            To keep abreast of current news, promotions and special offers, subscribe to us on social networks:
-        </h2>
-        <div class="social">
-            <a href="https://instagram.com/amigorent" style="text-decoration: none;" rel="nofollow" target="_blank">
-              <%= image_tag "s1.png", alt: "instagram", title: "instagram" %>
-            </a>
-            <a href="https://vk.com/amigorent" style="text-decoration: none;" target="_blank" rel="nofollow" >
-              <%= image_tag "s2.png", alt: "vk", title: "vk"  %>
-            </a>
-            <a href="https://www.facebook.com/amigorent" style="text-decoration: none;" target="_blank" rel="nofollow" >
-              <%= image_tag "s3.png", alt: "facebook", title: "facebook"  %>
-            </a>
-            <a href="https://www.youtube.com/c/amigorent" style="text-decoration: none;" rel="nofollow" target="_blank">
-              <%= image_tag "s4.png", style: "wigth:25px;height:25px;", alt: "youtube", title: "youtube" %>
-            </a>
+    <div class="success_page" style="text-align:center; margin-top:30px;">
+        <div class="block_vopros">
+          <div class="vopros">
+            <div class="zagol" style="margin: 0;"><h1 style="text-align:center; font-size: 29px; letter-spacing: 3px;">You have successfully applied for a car reservation</h1></div>
+            <p style="text-align:center;">
+              <%= image_pack_tag "galka.webp", style: "width:200px;", alt: "Галочка", title: "Галочка" %>
+            </p>
+            <div class="zagol" style="font-size: 29px; margin: 0; letter-spacing: 3px;">We'll get back to you shortly, if not, give us a call!<span></span></div>
+            <div class="otv" style="display: block;">Please note that the application is not a reservation! After processing the application, the answer will come to your email or WhatsApp. (don't forget to check your junk mail)
+            </div>
+            <div class="otv" style="display: block; padding-top: 0;">
+              <p>Messengers:
+                <a href="https://wa.me/79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
+                  <%= image_pack_tag "whatsapp.webp", style: "width:30px;", alt: "whatsapp", title: "whatsapp" %>
+                </a>
+                <a href="https://viber.click/79217101615" style="text-decoration: none;" rel="nofollow" target="_blank">
+                  <%= image_pack_tag "viber.webp", style: "width:30px;", alt: "viber", title: "viber" %>
+                </a>
+                <a href="https://t.me/amigorent_ru" style="text-decoration: none;" rel="nofollow" target="_blank">
+                  <%= image_pack_tag "telegram.webp", style: "width:30px;", alt: "telegram", title: "telegram" %>
+                </a>
+              </p>
+              <h2>
+                  To keep up to date with the latest news, promotions and special offers, subscribe to us in social networks:
+              </h2>
+              <div class="social">
+                  <a href="https://instagram.com/amigorent" style="text-decoration: none;" rel="nofollow" target="_blank">
+                    <%= image_pack_tag "s1.webp", alt: "instagram", title: "instagram" %>
+                  </a>
+                  <a href="https://vk.com/amigorent" style="text-decoration: none;" target="_blank" rel="nofollow" >
+                    <%= image_pack_tag "s2.webp", alt: "vk", title: "vk"  %>
+                  </a>
+                  <a href="https://www.facebook.com/amigorent" style="text-decoration: none;" target="_blank" rel="nofollow" >
+                    <%= image_pack_tag "s3.webp", alt: "facebook", title: "facebook"  %>
+                  </a>
+                  <a href="https://www.youtube.com/c/amigorent" style="text-decoration: none;" rel="nofollow" target="_blank">
+                    <%= image_pack_tag "s4.webp", style: "wigth:25px;height:25px;", alt: "youtube", title: "youtube" %>
+                  </a>
+              </div>
+              <%= @text.success_en.html_safe %>
+            </div>
+          </div>
         </div>
-        <%= @text.success_en.html_safe %>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>

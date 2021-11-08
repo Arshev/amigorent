@@ -574,13 +574,13 @@
                 </label>
                 <div class="pod">Расчёт:</div>
                 <hr style="margin: 15px 0px" />
-                <div class="price" v-if="days != `Минимум ${booking_limit} суток`">
+                <div class="price">
                   Аренда ({{ days }} суток):
                   <span>{{ price * days }} ₽</span>
                 </div>
-                <div class="price" v-else>
-                  Аренда:
-                  <span>Минимум {{booking_limit}} суток</span>
+                <div class="price" v-if="days_limit_error">
+                  Лимит:
+                  <span>{{`Минимум ${booking_limit} суток`}}</span>
                 </div>
                 <div class="price">
                   Доп время ({{ additional_hours }} ч):
@@ -609,14 +609,14 @@
               <div class="obol2">
                 <div class="ch1">
                   <label>
-                    <input
+                    <!-- <input
                       v-model="term"
                       type="checkbox"
                       class="my_checkbox"
                       @input="terms_error = false"
-                    />
+                    /> -->
 
-                    Подтверждаю, что ознакомился с
+                    Нажимая кнопку "Отправить" я подтверждаю, что ознакомился с
                     <a href="/terms" target="_blank">условиями аренды</a> и даю
                     согласие на обработку персональных данных, согласно
                     <a
@@ -626,9 +626,9 @@
                       >152-ФЗ</a
                     >
                   </label>
-                  <span style="color: tomato" v-if="terms_error">
+                  <!-- <span style="color: tomato" v-if="terms_error">
                     - пожалуйста примите условия</span
-                  >
+                  > -->
                 </div>
                 <button @click="sendBooking()">Отправить</button>
                 <div class="clear"></div>
@@ -702,6 +702,7 @@ export default {
     return {
       price: 0,
       days: 0,
+      days_limit_error: null,
       total: 0,
       additional_hours: 0,
       hours: 0,
@@ -806,13 +807,16 @@ export default {
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
       
       if (!isNaN(diff)) {
-        if (diff >= 2) {
+        if (diff >= 1) {
           this.days = diff;
         }
         if (diff < this.booking_limit) {
-          this.days = `Минимум ${this.booking_limit} суток`;
+          this.days = diff
+          this.days_limit_error = `Минимум ${this.booking_limit} суток`;
+        } else {
+          this.days_limit_error = null;
         }
-        if (diff >= 2 && diff <= 3) {
+        if (diff >= 1 && diff <= 3) {
           if (
             this.additional_hours > 0 &&
             this.additional_hours * this.prices[5] >= this.price
@@ -968,13 +972,16 @@ export default {
       
       //let diff =  Math.floor(( Date.parse(this.end_date) - Date.parse(this.start_date) ) / 86400000)
       if (!isNaN(diff)) {
-        if (diff >= 2) {
+        if (diff >= 1) {
           this.days = diff;
         }
         if (diff < this.booking_limit) {
-          this.days = `Минимум ${this.booking_limit} суток`;
+          this.days = diff
+          this.days_limit_error = `Минимум ${this.booking_limit} суток`;
+        } else {
+          this.days_limit_error = null;
         }
-        if (diff >= 2 && diff <= 3) {
+        if (diff >= 1 && diff <= 3) {
           if (
             this.additional_hours > 0 &&
             this.additional_hours * this.prices[5] >= this.price
@@ -1513,124 +1520,144 @@ export default {
         this.end_date_error = true;
         has_error = true;
       }
-      if (this.term === false) {
-        this.terms_error = true;
-        has_error = true;
-      }
-      if (this.days == `Минимум ${this.booking_limit} суток`) {
-        this.days_error = true;
-        has_error = true;
-        this.$swal({
-          type: "warning",
-          title: "Ошибка!",
-          text: `Минимальный срок аренды ${this.booking_limit} суток`,
-        });
-      }
-      if (!has_error) {
-        if (
-          !this.name_error &&
-          !this.middlename_error &&
-          !this.lastname_error &&
-          !this.email_error &&
-          !this.phone_error &&
-          !this.start_date_error &&
-          !this.end_date_error &&
-          !this.terms_error &&
-          !this.days_error
-        ) {
+      // if (this.term === false) {
+      //   this.terms_error = true;
+      //   has_error = true;
+      // }
+
+      function send() {
+        self.isLoading = true
+        if (!has_error) {
           if (
-            this.start_date &&
-            this.end_date &&
-            this.name &&
-            this.lastname &&
-            this.phone
+            !self.name_error &&
+            !self.middlename_error &&
+            !self.lastname_error &&
+            !self.email_error &&
+            !self.phone_error &&
+            !self.start_date_error &&
+            !self.end_date_error &&
+            !self.terms_error
           ) {
-            this.isLoading = true;
-            // Отсылаю только свободные ids
-            let free_cars_ids = []
-            if (this.ids_rentprog && this.ids_rentprog.length > 0 && this.ids_rentprog.some(e => this.free_ids.includes(e))) {
-              this.ids_rentprog.forEach(id => {
-                if (self.free_ids.includes(id)) {
-                  free_cars_ids.push(id)
-                }
+            if (
+              self.start_date &&
+              self.end_date &&
+              self.name &&
+              self.lastname &&
+              self.phone
+            ) {
+              // Отсылаю только свободные ids
+              let free_cars_ids = []
+              if (self.ids_rentprog && self.ids_rentprog.length > 0 && self.ids_rentprog.some(e => self.free_ids.includes(e))) {
+                self.ids_rentprog.forEach(id => {
+                  if (self.free_ids.includes(id)) {
+                    free_cars_ids.push(id)
+                  }
+                });
+              }
+              console.log(free_cars_ids, self.free_ids)
+              self.axios
+                .post(
+                  `/api/v1/amigorent_new_booking`,
+                  {
+                    name: self.name,
+                    lastname: self.lastname,
+                    middlename: self.middlename,
+                    phone: self.phone,
+                    email: self.email,
+                    ids_rentprog: free_cars_ids,
+                    car_name: self.car_name,
+                    price: self.price,
+                    start_date: self.start_date,
+                    end_date: self.end_date,
+                    days: self.days,
+                    location_start: self.location_start,
+                    location_end: self.location_end,
+                    additional_hours: self.additional_hours,
+                    rental_cost: self.days * self.price,
+                    hours_cost: self.additional_hours * self.prices[5],
+                    price_hour: self.prices[5],
+                    delivery: self.location_start_price,
+                    delivery_end: self.location_end_price,
+                    equipment: self.baby_chair_price + self.navigator_price,
+                    total: self.total,
+                    deposit: self.prices[6],
+                    chair: self.baby_chair,
+                    navigator: self.navigator,
+                    birthday: self.birthday,
+                    description: self.description,
+                    booking_limit: self.booking_limit,
+                  },
+                  {
+                    headers: {
+                      Authorization: `Bearer ${self.rentprog_token}`,
+                    },
+                  }
+                )
+                .then(() => {
+                  // self.closeDialog();
+                  // self.$swal({
+                  //   type: "success",
+                  //   title: "Заявка отправлена!",
+                  //   text: `Обращаем ваше внимание, что оформление заявки не является бронированием! 
+                  //     По результатам обработки заявки, ответ придет на вашу электронную почту или WhatsApp. 
+                  //     (не забудьте проверить нежелательную почту)`,
+                  // });
+                  // self.isLoading = false
+                  window.location.replace(
+                    self.locale == 'en' ? `/en/success` : `/success`
+                  );
+                })
+                .catch((error) => {
+                  self.$swal({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    type: "error",
+                    title: "Ошибка при отправке!",
+                    text: error,
+                  });
+                })
+                .finally((self.isLoading = false));
+            } else {
+              self.isLoading = false
+              self.$swal({
+                type: "warning",
+                title: "Ошибка при отправке!",
+                text: "Пожалуйста заполните обязательные поля",
               });
             }
-            console.log(free_cars_ids, self.free_ids)
-            this.axios
-              .post(
-                `/api/v1/amigorent_new_booking`,
-                {
-                  name: this.name,
-                  lastname: this.lastname,
-                  middlename: this.middlename,
-                  phone: this.phone,
-                  email: this.email,
-                  ids_rentprog: free_cars_ids,
-                  car_name: this.car_name,
-                  price: this.price,
-                  start_date: this.start_date,
-                  end_date: this.end_date,
-                  days: this.days,
-                  location_start: this.location_start,
-                  location_end: this.location_end,
-                  additional_hours: this.additional_hours,
-                  rental_cost: this.days * this.price,
-                  hours_cost: this.additional_hours * this.prices[5],
-                  price_hour: this.prices[5],
-                  delivery: this.location_start_price,
-                  delivery_end: this.location_end_price,
-                  equipment: this.baby_chair_price + this.navigator_price,
-                  total: this.total,
-                  deposit: this.prices[6],
-                  chair: this.baby_chair,
-                  navigator: this.navigator,
-                  birthday: this.birthday,
-                  description: this.description,
-                  booking_limit: this.booking_limit,
-                },
-                {
-                  headers: {
-                    Authorization: `Bearer ${this.rentprog_token}`,
-                  },
-                }
-              )
-              .then(() => {
-                this.closeDialog();
-                this.$swal({
-                  type: "success",
-                  title: "Заявка отправлена!",
-                  text: `Обращаем ваше внимание, что оформление заявки не является бронированием! 
-                    По результатам обработки заявки, ответ придет на вашу электронную почту или WhatsApp. 
-                    (не забудьте проверить нежелательную почту)`,
-                });
-              })
-              .catch((error) => {
-                this.$swal({
-                  toast: true,
-                  position: "top-end",
-                  showConfirmButton: false,
-                  timer: 3000,
-                  type: "error",
-                  title: "Ошибка при отправке!",
-                  text: error,
-                });
-              })
-              .finally((this.isLoading = false));
           } else {
-            this.$swal({
+            self.isLoading = false
+            self.$swal({
               type: "warning",
               title: "Ошибка при отправке!",
-              text: "Пожалуйста заполните обязательные поля",
+              text: "Пожалуйста исправьте ошибки",
             });
           }
         } else {
-          this.$swal({
-            type: "warning",
-            title: "Ошибка при отправке!",
-            text: "Пожалуйста исправьте ошибки",
-          });
+          self.isLoading = false
         }
       }
+      if (this.days_limit_error == `Минимум ${this.booking_limit} суток`) {
+        this.$swal({
+          type: "warning",
+          title: "Внимание!",
+          text: `Минимальный срок аренды ${this.booking_limit} суток. Вы можете отправить заявку, но решение о возможности бронирования на срок меньше минимального принимает менеджер.`,
+          showCancelButton: true,
+          confirmButtonText: "Отправить",
+          cancelButtonText: "Закрыть",
+          showCloseButton: true
+        })
+        .then(result => {
+          if (result.value) {
+            send()
+          }
+        });
+      } else {
+        send()
+      }
+      
     },
   },
   computed: {

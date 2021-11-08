@@ -11,7 +11,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 
 Vue.use(VueSweetalert2);
 // Vue.use(TurbolinksAdapter)
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
 
 // document.addEventListener('turbolinks:load', () => {
 document.addEventListener("DOMContentLoaded", () => {

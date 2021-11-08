@@ -20,6 +20,7 @@
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application', rel: 'preload' %>
   <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all" %>
+  <%= javascript_pack_tag 'counters' %>
   
   <% if current_page?(root_path) %>
     <%= javascript_pack_tag 'call_booking' %>

@@ -17,7 +17,7 @@ Vue.use(VueSweetalert2);
 // Vue.use(TurbolinksAdapter)
 Vue.use(VueAxios, axios)
 Vue.component("loading", Loading);
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({
