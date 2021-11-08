@@ -9,7 +9,7 @@
             <%= link_to prices_path(locale: I18n.locale, city: "Калининград"), class: "price" do %>
                 Цены на аренду
             <% end %>
-            <%= image_tag("bmw.webp"), alt: "Аренда авто в Калининграде", title: "Аренда авто в Калининграде" %>
+            <%= image_tag("bmw.webp", alt: "Аренда авто в Калининграде", title: "Аренда авто в Калининграде") %>
             <div class="clear"></div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                     <span>Сорокин А.В.</span>
                 </div>
             </div>
-            <%= image_tag("block5_img.webp"), alt: "Подпись", title: "Подпись" %>
+            <%= image_tag("block5_img.webp", alt: "Подпись", title: "Подпись") %>
             <div class="clear"></div>
         </div>
     </div>
@@ -77,12 +77,12 @@
             <div class="zagol">Отзывы</div>
             <div class="spis_img">
                 <div class="reviews_main">
-                    <%= image_tag("o1.webp"), alt: "Яндекс", title: "Яндекс" %>
+                    <%= image_tag("o1.webp", alt: "Яндекс", title: "Яндекс") %>
                     <span class="spis_zv" id="rateYoYa"></span>
                     <span id="YaRaiting" style="display: none;"><%= rating_yandex %></span>
                 </div>
                 <div class="reviews_main">
-                    <%= image_tag("o2.webp"), alt: "Гугл", title: "Гугл" %>
+                    <%= image_tag("o2.webp", alt: "Гугл", title: "Гугл") %>
                     <span class="spis_zv" id="rateYoGoogle"></span>
                     <span id="GoogleRaiting" style="display: none;"><%= rating_google %></span>
                 </div>
@@ -115,7 +115,7 @@
         <div class="wrapper">
             <div class="zagol">Что мы предлагаем?</div>
             <div class="podzag">Автопрокат Амиго предоставляет следующие услуги: <br />аренда авто в Калининграде, каршеринг и прокат авто в Калининграде и аэропорту Храброво.</div>
-            <%= image_tag("block8_img.webp"), alt: "Услуги", title: "Услуги" %>
+            <%= image_tag("block8_img.webp", alt: "Услуги", title: "Услуги") %>
             <div class="pol2">
                 <%= @text.main_text.html_safe %>
             </div>
@@ -125,23 +125,23 @@
                 <p>Построение бизнеса нового поколения, основанного на принципе: «К клиенту — с душой!» <br />Стать прокатом автомобилей мирового уровня, лучшим в России. Миссия компании Амиго — развитие рынка доступной, удобной и качественной аренды автомобилей. Наше название символ того, что клиент - наш друг!</p>
                 <div class="spis_mis">
                     <div class="mis">
-                        <%= image_tag("m1.webp"), alt: "Друг", title: "Друг" %>
+                        <%= image_tag("m1.webp", alt: "Друг", title: "Друг") %>
                         Клиент наш друг!
                     </div>
                     <div class="mis">
-                        <%= image_tag("m2.webp"), alt: "Справедливость", title: "Справедливость" %>
+                        <%= image_tag("m2.webp", alt: "Справедливость", title: "Справедливость") %>
                         Всегда стараемся справедливо урегулировать все спорные моменты.
                     </div>
                     <div class="mis">
-                        <%= image_tag("m3.webp"), alt: "Хорошее сосотяние", title: "Хорошее сосотяние" %>
+                        <%= image_tag("m3.webp", alt: "Хорошее сосотяние", title: "Хорошее сосотяние") %>
                         Содержим парк машин<br />в хорошем состоянии.
                     </div>
                     <div class="mis">
-                        <%= image_tag("m4.webp"), alt: "Договор", title: "Договор" %>
+                        <%= image_tag("m4.webp", alt: "Договор", title: "Договор") %>
                         Договор <br />без подводных камней.
                     </div>
                     <div class="mis">
-                        <%= image_tag("m5.webp"), alt: "Скидки", title: "Скидки" %>
+                        <%= image_tag("m5.webp", alt: "Скидки", title: "Скидки") %>
                         Большие скидки <br />при долгосрочной аренде.
                     </div>
                 </div>
@@ -152,35 +152,35 @@
                 <div class="spis_prei">
                     <div class="prei">
                         <div class="zz opened">
-                            <%= image_tag("m1.webp"), alt: "КАСКО", title: "КАСКО" %>
+                            <%= image_tag("m1.webp", alt: "КАСКО", title: "КАСКО") %>
                             Самые выгодные условия по КАСКО
                         </div>
                         <p style="display: block;">Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m7.webp"), alt: "Поддержка", title: "Поддержка" %>
+                            <%= image_tag("m7.webp", alt: "Поддержка", title: "Поддержка") %>
                             Круглосуточная поддержка 24/7
                         </div>
                         <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m8.webp"), alt: "Низкие залоги", title: "Низкие залоги" %>
+                            <%= image_tag("m8.webp", alt: "Низкие залоги", title: "Низкие залоги") %>
                             Низкие залоги
                         </div>
                         <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m9.webp"), alt: "Оплата", title: "Оплата" %>
+                            <%= image_tag("m9.webp", alt: "Оплата", title: "Оплата") %>
                             Есть почасовая оплата
                         </div>
                         <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
                     </div>
                     <div class="prei">
                         <div class="zz">
-                            <%= image_tag("m10.webp"), alt: "Топливо", title: "Топливо" %>
+                            <%= image_tag("m10.webp", alt: "Топливо", title: "Топливо") %>
                             Справедливая топливная политика
                         </div>
                         <p>Выдаем автомобиль с полным баком, при недостаче топлива, оплата по цене заправок без штрафов.</p>
