@@ -718,6 +718,7 @@ export default {
       location_end: "Офис",
       showModal: false,
       free_ids: [],
+      free: false,
       configStart: {
         altFormat: "j M Y",
         altInput: true,
@@ -779,12 +780,14 @@ export default {
       this.link_params.start_date &&
       this.link_params.start_time &&
       this.link_params.end_date &&
-      this.link_params.end_time
+      this.link_params.end_time &&
+      this.link_params.free
     ) {
       this.start_date_no_time = this.link_params.start_date;
       this.end_date_no_time = this.link_params.end_date;
       this.start_time = this.link_params.start_time;
       this.end_time = this.link_params.end_time;
+      this.free = this.link_params.free == "true" ? true : false
     }
   },
   watch: {
@@ -810,12 +813,23 @@ export default {
         if (diff >= 1) {
           this.days = diff;
         }
-        if (diff < this.booking_limit) {
-          this.days = diff
-          this.days_limit_error = `Минимум ${this.booking_limit} суток`;
+        // Если машина свободная
+        if (this.free) {
+          if (diff < this.booking_limit) {
+            this.days = diff
+            this.days_limit_error = `Минимум ${this.booking_limit} суток`;
+          } else {
+            this.days_limit_error = null;
+          }
         } else {
-          this.days_limit_error = null;
+          if (diff < 2) {
+            this.days = diff
+            this.days_limit_error = `Минимум 2-е суток`;
+          } else {
+            this.days_limit_error = null;
+          }
         }
+        
         if (diff >= 1 && diff <= 3) {
           if (
             this.additional_hours > 0 &&
@@ -975,11 +989,21 @@ export default {
         if (diff >= 1) {
           this.days = diff;
         }
-        if (diff < this.booking_limit) {
-          this.days = diff
-          this.days_limit_error = `Минимум ${this.booking_limit} суток`;
+        // Если машина свободная
+        if (this.free) {
+          if (diff < this.booking_limit) {
+            this.days = diff
+            this.days_limit_error = `Минимум ${this.booking_limit} суток`;
+          } else {
+            this.days_limit_error = null;
+          }
         } else {
-          this.days_limit_error = null;
+          if (diff < 2) {
+            this.days = diff
+            this.days_limit_error = `Минимум 2-е суток`;
+          } else {
+            this.days_limit_error = null;
+          }
         }
         if (diff >= 1 && diff <= 3) {
           if (
@@ -1442,7 +1466,7 @@ export default {
       this.$modal.hide("my-first-modal");
     },
     checkFree(start_date, end_date, days) {
-      if (start_date && end_date && days > 0 && this.ids_rentprog && this.ids_rentprog.length > 0) {
+      if (start_date && end_date && days > 0 && this.free && this.ids_rentprog && this.ids_rentprog.length > 0) {
         this.isLoading = true;
         let self = this
         this.axios
