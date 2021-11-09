@@ -10,5 +10,7 @@ Disallow: /en/success
 Disallow: /public/system/
 Disallow: /bookings/new?car_id=*
 Disallow: /en/bookings/new?car_id=*
+Disallow: /cars/*?
+Disallow: /en/cars/*?
 Sitemap: https://amigorent.ru/sitemap.xml
 Host: https://amigorent.ru
