@@ -12,7 +12,7 @@ class AdminsController < ApplicationController
                   text_pages
                   translations
                 ]
-  before_action :set_car, only: %i[edit_car upload_photos]
+  before_action :set_car, only: %i[edit_car upload_photos copy_car]
   before_action :set_booking, only: [:edit_booking]
   before_action :set_delivery, only: [:edit_delivery]
   before_action :set_article, only: [:edit_article]
@@ -68,6 +68,16 @@ class AdminsController < ApplicationController
   def edit_car
     @cities = City.all.map { |city| [city.name, city.name] }
     @cities = @cities.push(%w[Калининград Калининград])
+  end
+  def copy_car
+    new_car = @car.dup
+    new_car.active = false
+    if new_car.save
+      flash[:notice] = "Сохранено"
+      redirect_to cars_admin_path
+    else
+      flash[:alert] = "Что то не так!"
+    end
   end
   def upload_photos; end
   def deliveries

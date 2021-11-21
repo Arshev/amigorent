@@ -50,6 +50,8 @@
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Sales System
     <% elsif current_page?(controller: 'main', action: 'payment')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Payment Methods
+    <% elsif current_page?(controller: 'main', action: 'partners')%>
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Partners Program
     <% elsif current_page?(controller: 'main', action: 'outsours')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Transport Outsourcing
     <% elsif current_page?(controller: 'main', action: 'full_insurance')%>
@@ -114,6 +116,8 @@
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Система скидок
     <% elsif current_page?(controller: 'main', action: 'payment')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Методы оплаты
+    <% elsif current_page?(controller: 'main', action: 'partners')%>
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Партнёрская программа
     <% elsif current_page?(controller: 'main', action: 'outsours')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Транспортный аутсорсинг
     <% elsif current_page?(controller: 'main', action: 'full_insurance')%>

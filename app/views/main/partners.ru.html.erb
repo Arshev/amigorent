@@ -1,0 +1,24 @@
+<% title @text.partners_title %>
+<% description @text.partners_description %>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/header', cached: true %>
+<% end %>
+<div class="content">
+  <div class="wrapper">
+      <div class="bread">
+          <%= render 'shared/bread'%>
+      </div>
+      <div class="textt">
+          <div class="zagol"><%= @text.partners_h1 %></div>
+          <%= @text.partners_text.html_safe %>
+      </div>
+      <div class="clear"></div>
+  </div>
+</div>
+<% if params[:city] && params[:city] != 'Калининград' %>
+    <%= render 'shared/city_footer', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
+<% else %>
+    <%= render 'shared/footer', cached: true %>
+<% end %>

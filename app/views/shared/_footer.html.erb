@@ -263,6 +263,29 @@
                     </li>
                     <li>
                         <% if I18n.locale == :en %>
+                            <% if current_page?(partners_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.partners' %>
+                                </a>
+                            <% else %>
+                                <%= link_to partners_path(locale: I18n.locale) do %>
+                                    <%= t 'footer.partners' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(partners_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.partners' %>
+                                </a>
+                            <% else %>
+                                <%= link_to partners_path do %>
+                                    <%= t 'footer.partners' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
                             <% if current_page?(terms_path) %>
                             <a href="" onclick="return false">
                                 Terms

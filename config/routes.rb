@@ -37,6 +37,7 @@ Rails
       get "edit_delivery"
       get "upload_photos"
       get "edit_car"
+      get "copy_car"
       get "text_main"
       get "text_other"
       get "text_metatags"
@@ -104,6 +105,7 @@ Rails
     get "corporativnym-clientam", action: :corporate, controller: "main"
     get "sales-system", action: :sales, controller: "main"
     get "payment-methods", action: :payment, controller: "main"
+    get "partners", action: :partners, controller: "main"
     get "transportnyi-autsorsing", action: :outsours, controller: "main"
     get "full-insurance", action: :full_insurance, controller: "main"
 

@@ -40,6 +40,11 @@ class MainController < ApplicationController
       @city = City.find_by(name: params[:city])
     end
   end
+  def partners
+    if params[:city]
+      @city = City.find_by(name: params[:city])
+    end
+  end
   def outsours
     if params[:city]
       @city = City.find_by(name: params[:city])

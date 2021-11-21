@@ -28,6 +28,7 @@ en:
     avto_s_vod: "Car with a driver"
     faqs: "Questions"
     casko: "Insurance"
+    partners: "Partners Program"
   
   footer:
     office: "Main office"
@@ -53,6 +54,7 @@ en:
     faqs: "Questions"
     reviews: "Reviews"
     driver: "Rent a car with a driver"
+    partners: "Partners Program"
   
   cars:
     from: "from"
