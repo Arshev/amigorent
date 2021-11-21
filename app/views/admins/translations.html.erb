@@ -354,6 +354,36 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
+                  <h4>H1 на странице Заказать</h4>
+                  <%= f.text_field :bookings_h1_en, style: "min-width: 800px;" %>
+                </div>
+                <div class="click2edit m-b-3">
+                <h4>Текст внизу на странице Заказать</h4>
+                  <%= f.text_area :bookings_bottom_text_en, style: "min-width: 800px;" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
+                  <h4>H1 на странице автомобилей</h4>
+                  <%= f.text_field :top_cars_title_en, style: "min-width: 800px;" %>
+                </div>
+                <div class="click2edit m-b-3">
+                <h4>Текст на странице автомобилей</h4>
+                  <%= f.text_area :top_cars_en, style: "min-width: 800px;" %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
                   <h4>Метатеги на странице Заказать</h4>
                   <%= f.text_field :bookings_title_en, style: "min-width: 800px;" %>
                 </div>
@@ -515,17 +545,6 @@
                 <div class="click2edit m-b-3">
                   <h4>Текст О нас</h4>
                   <%= f.cktext_area :about_text_en, ckeditor: { language: 'ru'} %>
-                </div>
-                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card m-t-3">
-              <div class="card-body">
-                <div class="click2edit m-b-3">
-                  <h4>Текст внизу страницы заявки</h4>
-                  <%= f.cktext_area :bookings_bottom_text_en, ckeditor: { language: 'ru'} %>
                 </div>
                 <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
               </div>
