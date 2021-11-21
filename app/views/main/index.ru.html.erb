@@ -102,11 +102,11 @@
     <div class="block7">
         <div class="wrapper">
             <div class="zagol">Часто задаваемые вопросы</div>
-            <div class="zag"><%= @text.main_question_title_1.html_safe %></div>
+            <div class="zag"><h2><%= @text.main_question_title_1.html_safe %></h2></div>
             <p><%= @text.main_question_1.html_safe %></p>
-            <div class="zag"><%= @text.main_question_title_2.html_safe %></div>
+            <div class="zag"><h2><%= @text.main_question_title_2.html_safe %></h2></div>
             <p><%= @text.main_question_2.html_safe %></p>
-            <div class="zag"><%= @text.main_question_title_3.html_safe %></div>
+            <div class="zag"><h2><%= @text.main_question_title_3.html_safe %></h2></div>
             <p><%= @text.main_question_3.html_safe %></p>
             <div class="clear"></div>
         </div>
@@ -114,7 +114,7 @@
     <div class="block8">
         <div class="wrapper">
             <div class="zagol">Что мы предлагаем?</div>
-            <div class="podzag">Автопрокат Амиго предоставляет следующие услуги: <br />аренда авто в Калининграде, каршеринг и прокат авто в Калининграде и аэропорту Храброво.</div>
+            <div class="podzag"><h3>Автопрокат Амиго предоставляет следующие услуги: <br />аренда авто в Калининграде, каршеринг и прокат авто в Калининграде и аэропорту Храброво.</h3></div>
             <%= image_tag("block8_img.webp", alt: "Услуги", title: "Услуги") %>
             <div class="pol2">
                 <%= @text.main_text.html_safe %>
