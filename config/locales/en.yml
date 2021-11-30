@@ -12,6 +12,7 @@ en:
     booking: "Booking"
     reviews: "Reviews"
     terms: "Conditions"
+    conditions: "Conditions"
     cites_html: "Cities <span>&#9660;</span>"
     aeroport: "Khrabrovo airport"
     zelenogradsk: "Zelenogradsk"
@@ -29,6 +30,7 @@ en:
     faqs: "Questions"
     casko: "Insurance"
     partners: "Partners Program"
+    franchise: "Franchise"
   
   footer:
     office: "Main office"

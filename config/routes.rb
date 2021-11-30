@@ -106,6 +106,7 @@ Rails
     get "sales-system", action: :sales, controller: "main"
     get "payment-methods", action: :payment, controller: "main"
     get "partners", action: :partners, controller: "main"
+    get "franchise", action: :franchise, controller: "main"
     get "transportnyi-autsorsing", action: :outsours, controller: "main"
     get "full-insurance", action: :full_insurance, controller: "main"
 

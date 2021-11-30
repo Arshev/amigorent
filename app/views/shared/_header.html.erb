@@ -327,6 +327,29 @@
             </li>
             <li>
               <% if I18n.locale == :en %>
+                  <% if current_page?(franchise_path) %>
+                      <a href="" onclick="return false">
+                          <%= t 'header.franchise' %>
+                      </a>
+                  <% else %>
+                      <%= link_to franchise_path(locale: I18n.locale) do %>
+                          <%= t 'header.franchise' %>
+                      <% end %>
+                  <% end%>
+                  <% else %>
+                  <% if current_page?(franchise_path) %>
+                      <a href="" onclick="return false">
+                          <%= t 'header.franchise' %>
+                      </a>
+                  <% else %>
+                      <%= link_to franchise_path do %>
+                          <%= t 'header.franchise' %>
+                      <% end %>
+                  <% end %>
+              <% end %>
+          </li>
+            <li>
+              <% if I18n.locale == :en %>
                   <% if current_page?(partners_path) %>
                       <a href="" onclick="return false">
                           <%= t 'header.partners' %>
@@ -1007,6 +1030,29 @@
                           <%= t 'header.abouts' %>
                         <% end %>
                       <% end %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <% if I18n.locale == :en %>
+                        <% if current_page?(franchise_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'header.franchise' %>
+                            </a>
+                        <% else %>
+                            <%= link_to franchise_path(locale: I18n.locale) do %>
+                                <%= t 'header.franchise' %>
+                            <% end %>
+                        <% end%>
+                        <% else %>
+                        <% if current_page?(franchise_path) %>
+                            <a href="" onclick="return false">
+                                <%= t 'header.franchise' %>
+                            </a>
+                        <% else %>
+                            <%= link_to franchise_path do %>
+                                <%= t 'header.franchise' %>
+                            <% end %>
+                        <% end %>
                     <% end %>
                   </li>
                   <li>

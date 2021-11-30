@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_101848) do
+ActiveRecord::Schema.define(version: 2021_11_30_120434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -638,6 +638,14 @@ ActiveRecord::Schema.define(version: 2021_11_21_101848) do
     t.string "partners_title_en", default: "empty"
     t.string "partners_description_en", default: "empty"
     t.string "partners_h1_en", default: "empty"
+    t.text "franchise_text", default: "empty"
+    t.string "franchise_title", default: "empty"
+    t.string "franchise_description", default: "empty"
+    t.string "franchise_h1", default: "empty"
+    t.text "franchise_text_en", default: "empty"
+    t.string "franchise_title_en", default: "empty"
+    t.string "franchise_description_en", default: "empty"
+    t.string "franchise_h1_en", default: "empty"
   end
 
   create_table "towns", force: :cascade do |t|

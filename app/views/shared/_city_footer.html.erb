@@ -210,6 +210,29 @@
                     </li>
                     <li>
                         <% if I18n.locale == :en %>
+                            <% if current_page?(franchise_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.franchise' %>
+                                </a>
+                            <% else %>
+                                <%= link_to franchise_path(locale: I18n.locale, city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.franchise' %>
+                                <% end %>
+                            <% end%>
+                            <% else %>
+                            <% if current_page?(franchise_path) %>
+                                <a href="" onclick="return false">
+                                    <%= t 'footer.franchise' %>
+                                </a>
+                            <% else %>
+                                <%= link_to franchise_path(city: (params[:city] ? params[:city] : @city.name)) do %>
+                                    <%= t 'footer.franchise' %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if I18n.locale == :en %>
                             <% if current_page?(partners_path) %>
                                 <a href="" onclick="return false">
                                     <%= t 'footer.partners' %>

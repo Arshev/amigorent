@@ -150,6 +150,25 @@
           <div class="col-12">
             <div class="card m-t-3">
               <div class="card-body">
+                <h4 class="text-black">Франшиза</h4>
+                <h3>Заголовок</h3>
+                <%= f.text_field :franchise_title, class: "form-control" %>
+                <h3>H1</h3>
+                <%= f.text_field :franchise_h1, class: "form-control" %>
+                <h3>Description</h3>
+                <%= f.text_field :franchise_description, class: "form-control" %>
+                <h3>Текст</h3>
+                <%= f.cktext_area :franchise_text, class: "form-control" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card m-t-3">
+              <div class="card-body">
                 <h4 class="text-black">Транспортный аутсорсинг</h4>
                 <h3>Заголовок</h3>
                 <%= f.text_field :outsours_title, class: "form-control" %>
