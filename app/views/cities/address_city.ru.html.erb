@@ -18,15 +18,6 @@
         <div class="clear"></div>
     </div>
 </div>
-<div class="content" style="padding: 50px 0 11px;">
-    <div class="wrapper">
-        <div class="bl_dostavka">
-            <div class="zagol"><h1><%= @city.h1 %></h1></div>
-            <p><%= @city.text %></p>
-        </div>
-        <div class="clear"></div>
-    </div>
-    </div>
 <div class="block4 var2">
     <div class="wrapper">
         <div class="zagol">
@@ -39,6 +30,15 @@
         <% end %>
         
             <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="content" style="padding: 50px 0 11px;">
+    <div class="wrapper">
+        <div class="bl_dostavka">
+            <div class="zagol"><h1><%= @city.h1 %></h1></div>
+            <p><%= @city.text.html_safe %></p>
         </div>
         <div class="clear"></div>
     </div>
