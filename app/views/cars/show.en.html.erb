@@ -1,9 +1,9 @@
 <% if @car.city != 'Калининград' || (params[:city] && params[:city] != 'Калининград') %>
-    <% title @text.car_title + " " + @car.car_name + " in #{transliterate(@car.city).capitalize} | Amigo" %>
-    <% description @text.car_description + " " + "#{@car.car_name} in #{transliterate(@car.city).capitalize}. Car hire #{@car.car_name} in car rental Amigo in #{transliterate(@car.city).capitalize}. Book on site." %>
+    <% title @text.car_title_en + " " + @car.car_name + " in #{transliterate(@car.city).capitalize} | Amigo" %>
+    <% description @text.car_description_en + " " + "#{@car.car_name} in #{transliterate(@car.city).capitalize}. Car hire #{@car.car_name} in car rental Amigo in #{transliterate(@car.city).capitalize}. Book on site." %>
 <% else %>
-    <% title @text.car_title + " " + @car.car_name + " in Kaliningrad | Amigo" %>
-    <% description @text.car_description + " " + "#{@car.car_name} in Kaliningrad. Car hire #{@car.car_name} in car rental Amigo in Kaliningrad. Book on site." %>
+    <% title @text.car_title_en + " " + @car.car_name + " in Kaliningrad | Amigo" %>
+    <% description @text.car_description_en + " " + "#{@car.car_name} in Kaliningrad. Car hire #{@car.car_name} in car rental Amigo in Kaliningrad. Book on site." %>
 <% end %>
 <% if @car.city != 'Калининград' || (params[:city] && params[:city] != 'Калининград') %>
     <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
