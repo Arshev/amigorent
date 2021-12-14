@@ -1,3 +1,10 @@
+<% if (params[:city] && params[:city] != 'Калининград') %>
+  <% title "Cars for rent in car rental Amigo #{transliterate(@city.name).capitalize}" %>
+  <% description "Cars for rent in car rental Amigo #{transliterate(@city.name).capitalize}." %>
+<% else %>
+    <% title @text.cars_title %>
+    <% description @text.cars_description %>
+<% end %>
 <% title @text.cars_title_en %>
 <% description @text.cars_description_en %>
 <% if params[:city] && params[:city] != 'Калининград' %>

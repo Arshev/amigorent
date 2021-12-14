@@ -1,5 +1,10 @@
-<% title @text.cars_title %>
-<% description @text.cars_description %>
+<% if (params[:city] && params[:city] != 'Калининград') %>
+  <% title "Автомобили в аренду в автопрокате Амиго #{@city.name}" %>
+  <% description "Парк автомобилей в аренду в #{@city.name}. Посуточная аренда, и на долгий срок." %>
+<% else %>
+    <% title @text.cars_title %>
+    <% description @text.cars_description %>
+<% end %>
 <% if params[:city] && params[:city] != 'Калининград' %>
     <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
 <% else %>
