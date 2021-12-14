@@ -1,5 +1,10 @@
-<% title @text.contacts_title %>
-<% description @text.contacts_description %>
+<% if (params[:city] && params[:city] != 'Калининград') %>
+    <% title "Контакты автопроката Амиго в городе #{@city.name} | Автопрокат Амиго" %>
+    <% description "Контакты автопроката Амиго в городе #{@city.name}. Адрес проката автомобилей Амиго в городе #{@city.name}." %>
+<% else %>
+    <% title @text.contacts_title %>
+    <% description @text.contacts_description %>
+<% end %>
 <% if params[:city] && params[:city] != 'Калининград' %>
     <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
 <% else %>

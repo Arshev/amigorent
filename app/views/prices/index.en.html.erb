@@ -1,5 +1,10 @@
-<% title @text.prices_title_en %>
-<% description @text.prices_description_en %>
+<% if @city.name != 'Калининград' || (params[:city] && params[:city] != 'Калининград') %>
+  <% title "Car rental prices in #{@city.name} | Amigo Car Rentals" %>
+  <% description "Car rental prices in #{@city.name}. Daily rent, and for a long time." %>
+<% else %>
+  <% title @text.prices_title_en %>
+  <% description @text.prices_description_en %>
+<% end %>
 <% if params[:city] && params[:city] != 'Калининград' %>
     <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
 <% else %>

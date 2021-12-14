@@ -1,5 +1,10 @@
-<% title @text.contacts_title_en %>
-<% description @text.contacts_description_en %>
+<% if (params[:city] && params[:city] != 'Калининград') %>
+  <% title "Contacts in #{transliterate(@city.name).capitalize} | Car Hire Amigo" %>
+  <% description "Contacts in #{transliterate(@city.name).capitalize}. Amigo car rental address in #{transliterate(@city.name).capitalize}." %>
+<% else %>
+  <% title @text.contacts_title_en %>
+  <% description @text.contacts_description_en %>
+<% end %>
 <% if params[:city] && params[:city] != 'Калининград' %>
     <%= render 'shared/city_header', city_name: @city.name, city_address: @city.address, city_phone: @city.phone, city_work_time: @city.work_time, cached: true %>
 <% else %>

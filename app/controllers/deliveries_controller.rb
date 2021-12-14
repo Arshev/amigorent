@@ -104,7 +104,7 @@ class DeliveriesController < ApplicationController
   def set_city
     @main_up_text = Text.first.main_up_text
     @text = Text.first
-    @cars = Car.where(active: true).sample(9)
+    @cars = Car.where(active: true, city: 'Калининград').sample(9)
   end
 
   def set_delivery
