@@ -1,5 +1,10 @@
-<% title @text.cars_minivans_title %>
-<% description @text.cars_minivans_description %>
+<% if (params[:city] && params[:city] != 'Калининград') %>
+  <% title "Минивэны в аренду в автопрокате Амиго #{@city.name}" %>
+  <% description "Минивэны в аренду в #{@city.name}. Посуточная аренда, и на долгий срок." %>
+<% else %>
+    <% title @text.cars_minivans_title %>
+    <% description @text.cars_minivans_description %>
+<% end %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">

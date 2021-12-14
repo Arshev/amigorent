@@ -1,5 +1,10 @@
-<% title @text.cars_crossovers_title %>
-<% description @text.cars_crossovers_description %>
+<% if (params[:city] && params[:city] != 'Калининград') %>
+  <% title "Кроссоверы в аренду в автопрокате Амиго #{@city.name}" %>
+  <% description "Кроссоверы в аренду в #{@city.name}. Посуточная аренда, и на долгий срок." %>
+<% else %>
+    <% title @text.cars_crossovers_title %>
+    <% description @text.cars_crossovers_description %>
+<% end %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
