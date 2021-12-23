@@ -1,4 +1,4 @@
-<% if @city.name != 'Калининград' || (params[:city] && params[:city] != 'Калининград') %>
+<% if params[:city] && params[:city] != 'Калининград' %>
   <% title "Car rental prices in #{@city.name} | Amigo Car Rentals" %>
   <% description "Car rental prices in #{@city.name}. Daily rent, and for a long time." %>
 <% else %>
