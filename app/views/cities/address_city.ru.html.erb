@@ -26,7 +26,7 @@
         <div class="spis_avto active" id="spis1">
         
         <% if @cars.size > 0 %>
-            <%= render partial: 'cars/cars', collection: @cars, as: :car, cached: true %>
+            <%= render partial: 'cars/cars', collection: @cars, as: :car %>
         <% end %>
         
             <div class="clear"></div>
