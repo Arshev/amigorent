@@ -19,7 +19,7 @@
             <div class="pl1">
                 
                 <% if @car.main_image? %>
-                    <div class="bl_img_full" style="background-image: url(<%= image_path(@car.main_image.url) %>);"></div>
+                    <div class="bl_img_full" style="background-image: url(<%= image_path(@car.main_image.url(:show)) %>);"></div>
                 <% else %>
                     <div class="bl_img_full" style="background-image: url(<%= image_path('avto.webp') %>);"></div>
                 <% end %>
