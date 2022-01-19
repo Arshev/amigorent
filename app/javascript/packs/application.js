@@ -127,9 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
     slideWidth: 800,
     //infiniteLoop: false
   });
-  setInterval(function () {
-    //$(".block2 .pere .bx-next").click();
-  }, 10000);
+  // setInterval(function () {
+  //   //$(".block2 .pere .bx-next").click();
+  // }, 10000);
 
   $(".content .cartochka .pl1 li a").click(function () {
     $(".content .cartochka .pl1 .bl_img_full").css(
