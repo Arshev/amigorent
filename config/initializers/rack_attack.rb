@@ -61,6 +61,16 @@ class Rack::Attack
     end
   end
 
+  # Throttle any POST requests by IP address
+  #
+  # Key: "rack::attack:#{Time.now.to_i/:period}:pink/posts/ip:#{req.ip}"
+  Rack::Attack.throttle("pink/posts/ip", limit: 1, period: 2.seconds) do |req|
+    if req.post?
+      Rails.logger.error("Rack::Attack 4 Too many POSTS from IP: #{req.ip}")
+      req.ip
+    end
+  end
+
   # Throttle POST requests to /login by email param
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:logins/email:#{normalized_email}"
