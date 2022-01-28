@@ -77,6 +77,7 @@ class Rack::Attack
     # `filter` returns truthy value if request fails, or if it's from a previously banned IP
     # so the request is blocked
     Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 3, findtime: 10.minutes, bantime: 30.minutes) do
+      Rails.logger.error("Rack::Attack 5 Too many POSTS from IP: #{req.ip}")
       # The count for the IP is incremented if the return value is truthy
       CGI.unescape(req.query_string) =~ %r{/etc/passwd} ||
         req.path.include?("/etc/passwd") ||
