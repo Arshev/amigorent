@@ -21,11 +21,25 @@ class Rack::Attack
   # counted by rack-attack and this throttle may be activated too
   # quickly. If so, enable the condition to exclude them from tracking.
 
+  # Always allow requests from localhost
+  # (blocklist & throttles are skipped)
+  Rack::Attack.safelist("allow from localhost") do |req|
+    # Requests are allowed if the return value is truthy
+    "127.0.0.1" == req.ip || "::1" == req.ip
+  end
+
+  # Always allow requests from localhost
+  # (blocklist & throttles are skipped)
+  Rack::Attack.safelist("allow from rentprog") do |req|
+    # Requests are allowed if the return value is truthy
+    "95.213.199.52" == req.ip
+  end
+
   # Throttle all requests by IP (60rpm)
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
-  throttle("req/ip", limit: 20, period: 1.minutes) do |req|
-    Rails.logger.error("Rack::Attack 1 Too many POSTS from IP: #{req.ip}")
+  throttle("req/ip", limit: 50, period: 1.minutes) do |req|
+    Rails.logger.error("Rack::Attack 1 Too many requests from IP: #{req.ip}")
     req.ip # unless req.path.start_with?('/assets')
   end
 
@@ -54,8 +68,8 @@ class Rack::Attack
     # `filter` returns false value if request is to your login page (but still
     # increments the count) so request below the limit are not blocked until
     # they hit the limit.  At that point, filter will return true and block.
-    Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 10, findtime: 1.minute, bantime: 1.hour) do
-      Rails.logger.error("Rack::Attack 3 Too many POSTS from IP: #{req.ip}")
+    Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 50, findtime: 1.minute, bantime: 1.hour) do
+      Rails.logger.error("Rack::Attack 3 Too many GETS from IP: #{req.ip}")
       # The count for the IP is incremented if the return value is truthy.
       req.path == "/" and req.get?
     end
