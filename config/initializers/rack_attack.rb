@@ -9,7 +9,7 @@ class Rack::Attack
   # safelisting). It must implement .increment and .write like
   # ActiveSupport::Cache::Store
 
-  Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
+  cache.store = ActiveSupport::Cache::MemoryStore.new
 
   ### Throttle Spammy Clients ###
 
@@ -23,14 +23,14 @@ class Rack::Attack
 
   # Always allow requests from localhost
   # (blocklist & throttles are skipped)
-  Rack::Attack.safelist("allow from localhost") do |req|
+  safelist("allow from localhost") do |req|
     # Requests are allowed if the return value is truthy
     "127.0.0.1" == req.ip || "::1" == req.ip
   end
 
   # Always allow requests from localhost
   # (blocklist & throttles are skipped)
-  Rack::Attack.safelist("allow from rentprog") do |req|
+  safelist("allow from rentprog") do |req|
     # Requests are allowed if the return value is truthy
     "95.213.199.52" == req.ip
   end
@@ -64,7 +64,7 @@ class Rack::Attack
 
   # Lockout IP addresses that are hammering your login page.
   # After 20 requests in 1 minute, block all requests from that IP for 1 hour.
-  Rack::Attack.blocklist("allow2ban login scrapers") do |req|
+  blocklist("allow2ban login scrapers") do |req|
     # `filter` returns false value if request is to your login page (but still
     # increments the count) so request below the limit are not blocked until
     # they hit the limit.  At that point, filter will return true and block.
@@ -78,7 +78,7 @@ class Rack::Attack
   # Throttle any POST requests by IP address
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:pink/posts/ip:#{req.ip}"
-  Rack::Attack.throttle("pink/posts/ip", limit: 1, period: 2.seconds) do |req|
+  throttle("pink/posts/ip", limit: 1, period: 2.seconds) do |req|
     if req.post?
       Rails.logger.error("Rack::Attack 4 Too many POSTS from IP: #{req.ip}")
       req.ip
@@ -87,7 +87,7 @@ class Rack::Attack
 
   # Block suspicious requests for '/etc/password' or wordpress specific paths.
   # After 3 blocked requests in 10 minutes, block all requests from that IP for 5 minutes.
-  Rack::Attack.blocklist("fail2ban pentesters") do |req|
+  blocklist("fail2ban pentesters") do |req|
     # `filter` returns truthy value if request fails, or if it's from a previously banned IP
     # so the request is blocked
     Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 3, findtime: 10.minutes, bantime: 30.minutes) do
