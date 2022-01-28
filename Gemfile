@@ -96,3 +96,5 @@ gem "ed25519", "~> 1.2"
 gem "bcrypt_pbkdf", "~> 1.0"
 
 gem "jquery-rails", "~> 4.4"
+
+gem "rack-attack", "~> 6.5"
