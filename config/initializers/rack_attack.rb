@@ -9,7 +9,7 @@ class Rack::Attack
   # safelisting). It must implement .increment and .write like
   # ActiveSupport::Cache::Store
 
-  # Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
+  Rack::Attack.cache.store = ActiveSupport::Cache::MemoryStore.new
 
   ### Throttle Spammy Clients ###
 
@@ -25,6 +25,7 @@ class Rack::Attack
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
   throttle("req/ip", limit: 20, period: 1.minutes) do |req|
+    Rails.logger.error("Rack::Attack 1 Too many POSTS from IP: #{req.ip}")
     req.ip # unless req.path.start_with?('/assets')
   end
 
@@ -42,7 +43,21 @@ class Rack::Attack
   # Key: "rack::attack:#{Time.now.to_i/:period}:logins/ip:#{req.ip}"
   throttle("logins/ip", limit: 5, period: 20.seconds) do |req|
     if req.path == "/login" && req.post?
+      Rails.logger.error("Rack::Attack 2 Too many POSTS from IP: #{req.ip}")
       req.ip
+    end
+  end
+
+  # Lockout IP addresses that are hammering your login page.
+  # After 20 requests in 1 minute, block all requests from that IP for 1 hour.
+  Rack::Attack.blocklist("allow2ban login scrapers") do |req|
+    # `filter` returns false value if request is to your login page (but still
+    # increments the count) so request below the limit are not blocked until
+    # they hit the limit.  At that point, filter will return true and block.
+    Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 10, findtime: 1.minute, bantime: 1.hour) do
+      Rails.logger.error("Rack::Attack 3 Too many POSTS from IP: #{req.ip}")
+      # The count for the IP is incremented if the return value is truthy.
+      req.path == "/" and req.get?
     end
   end
 
