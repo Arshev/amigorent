@@ -582,9 +582,9 @@
                   Лимит:
                   <span>{{`Минимум ${free ? booking_limit : '2-e'} суток`}}</span>
                 </div>
-                <div class="price">
-                  Доп время ({{ hours }} ч):
-                  <span>{{ hours * prices[5] }} ₽</span>
+                <div class="price" v-if="hours > 0">
+                  Доп время ({{ additional_hours }} ч):
+                  <span>{{ additional_hours * prices[5] }} ₽</span>
                 </div>
                 <div class="price">
                   Доп оборудование:
