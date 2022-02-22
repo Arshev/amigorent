@@ -836,6 +836,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
+            this.hours = 0
             this.price = this.prices[0];
             this.total =
               this.days * this.price +
@@ -861,6 +862,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
+            this.hours = 0
             this.price = this.prices[1];
             this.total =
               this.days * this.price +
@@ -886,6 +888,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
+            this.hours = 0
             this.price = this.prices[2];
             this.total =
               this.days * this.price +
@@ -911,6 +914,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
+            this.hours = 0
             this.price = this.prices[3];
             this.total =
               this.days * this.price +
@@ -936,6 +940,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
+            this.hours = 0
             this.price = this.prices[4];
             this.total =
               this.days * this.price +
@@ -1598,7 +1603,7 @@ export default {
                     location_end: self.location_end,
                     additional_hours: self.additional_hours,
                     rental_cost: self.days * self.price,
-                    hours_cost: self.additional_hours * self.prices[5],
+                    hours_cost: self.hours > 0 ? (self.additional_hours * self.prices[5]) : 0,
                     price_hour: self.prices[5],
                     delivery: self.location_start_price,
                     delivery_end: self.location_end_price,
