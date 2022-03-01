@@ -32,7 +32,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 
 gem "devise", ">= 4.7.1"
 gem "devise-i18n", ">= 1.9.1"
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.12"
 gem "mainsms_api", "~> 0.0.9"
 gem "mailgun-ruby", "~> 1.2.0"
 gem "sucker_punch", "~> 2.1.2"
