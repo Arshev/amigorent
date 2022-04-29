@@ -9,7 +9,7 @@
         webvisor:true
 });
 
-window.replainSettings = { id: 'baa34fb0-306a-469e-912c-061f9c1f8df2' };
-(function(u){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;
-var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
-})('https://widget.replain.cc/dist/client.js');
+// window.replainSettings = { id: 'baa34fb0-306a-469e-912c-061f9c1f8df2' };
+// (function(u){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;
+// var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+// })('https://widget.replain.cc/dist/client.js');
