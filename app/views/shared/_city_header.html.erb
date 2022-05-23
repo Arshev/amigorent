@@ -78,29 +78,6 @@
               <% end %>
             </li>
             <li>
-              <% if I18n.locale == :en %>
-                <% if current_page?(terms_path) %>
-                  <a href="" onclick="return false">
-                    Terms
-                  </a>
-                  <% else %>
-                    <%= link_to terms_path(locale: I18n.locale) do %>
-                      Terms
-                    <% end %>
-                  <% end %>
-                <% else %>
-                <% if current_page?(terms_path) %>
-                  <a href="" onclick="return false">
-                    Условия
-                  </a>
-                  <% else %>
-                    <%= link_to terms_path do %>
-                      Условия
-                    <% end %>
-                <% end %>
-              <% end %>
-            </li>
-            <li>
             <li>
               <% if I18n.locale == :en %>
                 <% if current_page?(articles_path) %>
