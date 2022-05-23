@@ -1,6 +1,11 @@
 class MainController < ApplicationController
   before_action :set_text
   def index
+    # if request.subdomain == "ekaterinburg"
+    #   redirect_to "/russia/ekaterinburg"
+    # elsif request.subdomain == "sochi"
+    #   redirect_to "/russia/sochi"
+    # end
     # @quick_booking = QuickBooking.new
     @reviews = Review.where(active: :true).limit(3)
 

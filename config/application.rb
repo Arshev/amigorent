@@ -15,6 +15,11 @@ module Amigorent
     config.time_zone = 'Kaliningrad'
 
     config.active_job.queue_adapter = :delayed_job
+    config.hosts << "lvh.me"
+    config.hosts << "ekaterinburg.lvh.me"
+    config.hosts << "sochi.lvh.me"
+    config.hosts << "ekaterinburg.amigorent.ru"
+    config.hosts << "sochi.amigorent.ru"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

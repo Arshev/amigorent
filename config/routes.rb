@@ -13,7 +13,12 @@ Rails
   ENV["PGHERO_USERNAME"] = "erosanin"
   ENV["PGHERO_PASSWORD"] = "UUsn9dcz!"
 
-  root "main#index"
+  get '/' => 'cities#address_city', :constraints => { :subdomain => /.+/ }
+  root to: "main#index"
+  
+  # constraints subdomain: "ekaterinburg" do
+  #   get "main#index" => "cities#address_city"
+  # end
 
   namespace :api do
     namespace :v1 do

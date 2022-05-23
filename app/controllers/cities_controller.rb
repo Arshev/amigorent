@@ -62,7 +62,11 @@ class CitiesController < ApplicationController
     def address_city
       @cities = City.where(active: true)
       @main_up_text = Text.first.main_up_text
-      @city = City.find_by(url_name: params[:city_name])
+      if ["ekaterinburg"].include?(request.subdomain)
+        @city = City.find_by(url_name: request.subdomain)
+      else
+        @city = City.find_by(url_name: params[:city_name])
+      end
       @towns = @city.towns
       @cars = Car.where(active: true, city: @city.name).limit(9)
     end
@@ -78,6 +82,11 @@ class CitiesController < ApplicationController
       end
   
       def set_city
+        if request.subdomain
+          logger.info request.subdomain
+        else
+          logger.info request.subdomain
+        end
         @main_up_text = Text.first.main_up_text
         @city = City.find(params[:id])
         @towns = @city.towns

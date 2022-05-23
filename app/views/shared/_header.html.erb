@@ -1083,13 +1083,17 @@
             </div>
         </div>
         <div class="gorod">
-            <% if I18n.locale == :en %>
+          <% if I18n.locale == :en %>
             <span>Kaliningrad</span>
             <a href="#">Select City</a>
             <div class="vipad">
                 <a href="/" >Kaliningrad</a>
               <% cities_list.each do |city| %>
-                <a href="/russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                <% if city.url_name != 'ekaterinburg' %>
+                  <a href="<%= root_url %>russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                <% elsif city.url_name == 'ekaterinburg' %>
+                  <a href="https://ekaterinburg.<%= root_url %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                <% end %>
               <% end %>
             </div>
           <% else %>
@@ -1098,7 +1102,11 @@
             <div class="vipad">
                 <a href="/" >Калининград</a>
               <% cities_list.each do |city| %>
-                <a href="/russia/<%= city.url_name %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                <% if city.url_name != 'ekaterinburg' %>
+                  <a href="<%= root_url %>russia/<%= city.url_name %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                <% elsif city.url_name == 'ekaterinburg' %>
+                  <a href="http://ekaterinburg.<%= root_url.gsub("https://", "").gsub("http://", "") %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                <% end %>
               <% end %>
             </div>
           <% end %>
