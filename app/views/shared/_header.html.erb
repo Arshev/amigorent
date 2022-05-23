@@ -23,7 +23,7 @@
               <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
           </a>
         <% else %>
-          <%= link_to root_path(locale: :en), id: "logo" do %>
+          <%= link_to '/?locale=en', id: "logo" do %>
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           <% end %>
         <% end %>
@@ -1087,12 +1087,12 @@
             <span>Kaliningrad</span>
             <a href="#">Select City</a>
             <div class="vipad">
-                <a href="/" >Kaliningrad</a>
+                <a href="/?locale=en" >Kaliningrad</a>
               <% cities_list.each do |city| %>
                 <% if city.url_name != 'ekaterinburg' %>
                   <a href="<%= root_url %>russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
                 <% elsif city.url_name == 'ekaterinburg' %>
-                  <a href="https://ekaterinburg.<%= root_url %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                  <a href="https://ekaterinburg.amigorent.ru?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
                 <% end %>
               <% end %>
             </div>
@@ -1105,7 +1105,7 @@
                 <% if city.url_name != 'ekaterinburg' %>
                   <a href="<%= root_url %>russia/<%= city.url_name %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
                 <% elsif city.url_name == 'ekaterinburg' %>
-                  <a href="http://ekaterinburg.<%= root_url.gsub("https://", "").gsub("http://", "") %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                  <a href="https://ekaterinburg.amigorent.ru?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
                 <% end %>
               <% end %>
             </div>

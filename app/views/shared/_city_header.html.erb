@@ -511,7 +511,7 @@
             <span><%= @city ? @city.name_en : 'Kaliningrad' %></span>
             <a href="#">Select City</a>
             <div class="vipad">
-                <a href="<%= root_url.gsub("ekaterinburg.", "") %>" >Kaliningrad</a>
+                <a href="<%= root_url.gsub("ekaterinburg.", "") + '?locale=en' %>" >Kaliningrad</a>
               <% cities_list.each do |city| %>
                 <% if city.url_name != 'ekaterinburg' %>
                   <a href="<%= root_url.gsub("ekaterinburg.", "") %>russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
