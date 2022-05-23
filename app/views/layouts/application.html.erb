@@ -21,7 +21,7 @@
   <%= javascript_pack_tag 'application', rel: 'preload' %>
   <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all" %>
   
-  <% if !request.subdomain != 'ekaterinburg' %>
+  <% if request.subdomain != 'ekaterinburg' %>
     <%= javascript_pack_tag 'counters' %>
   <% end %>
   
