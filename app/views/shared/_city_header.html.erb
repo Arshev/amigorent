@@ -9,7 +9,7 @@
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           </a>
         <% else %>
-          <a href="<%= root_url.gsub("https://", "").gsub("http://", "") %>?locale=en" id="logo">
+          <a href="/?locale=en" id="logo">
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           </a>
         <% end %>
