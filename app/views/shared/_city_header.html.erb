@@ -19,7 +19,7 @@
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           </a>
         <% else %>
-          <a href="<%= root_url.gsub("https://", "").gsub("http://", "") %>?locale=ru" id="logo">
+          <a href="/?locale=ru" id="logo">
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           </a>
         <% end %>
@@ -508,7 +508,7 @@
         
         <div class="gorod">
           <% if I18n.locale == :en %>
-            <span>Kaliningrad</span>
+            <span><%= @city ? @city.name_en : 'Kaliningrad' %></span>
             <a href="#">Select City</a>
             <div class="vipad">
                 <a href="<%= root_url.gsub("ekaterinburg.", "") %>" >Kaliningrad</a>
