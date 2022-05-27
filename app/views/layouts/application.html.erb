@@ -59,7 +59,7 @@
 <% end %>
 <%= favicon_link_tag 'favicon.ico' %>
 </head>
-<body class="<%= current_page?(root_path) && request.subdomain != "ekaterinburg" ? "home" : "" %>">
+<body class="<%= current_page?(root_path) && (request.subdomain != "ekaterinburg" && request.subdomain != "sochi" ? "home" : "") %>">
     <%= yield %>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154920051-1"></script>

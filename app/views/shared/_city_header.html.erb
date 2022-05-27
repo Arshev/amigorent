@@ -4,7 +4,7 @@
     <meta itemprop="description" content="✔️ Честный прокат автомобилей в Калининграде. Дружественное отношение к клиенту, низкие цены на аренду авто, от 700₽, страховка КАСКО. Обращайтесь!">
     <div class="wrapper">
       <% if I18n.locale == :en %>
-        <% if @city.url_name != 'ekaterinburg' %>
+        <% if @city.url_name != 'ekaterinburg' && @city.url_name != 'sochi' %>
           <a href="/russia/<%= @city.url_name %>?locale=en" id="logo">
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           </a>
@@ -14,7 +14,7 @@
           </a>
         <% end %>
       <% else %>
-        <% if @city.url_name != 'ekaterinburg' %>
+        <% if @city.url_name != 'ekaterinburg' && @city.url_name != 'sochi' %>
           <a href="/russia/<%= @city.url_name %>?locale=ru" id="logo">
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           </a>
@@ -511,12 +511,14 @@
             <span><%= @city ? @city.name_en : 'Kaliningrad' %></span>
             <a href="#">Select City</a>
             <div class="vipad">
-                <a href="<%= root_url.gsub("ekaterinburg.", "") + '?locale=en' %>" >Kaliningrad</a>
+                <a href="<%= root_url.gsub("ekaterinburg.", "").gsub("sochi.", "") + '?locale=en' %>" >Kaliningrad</a>
               <% cities_list.each do |city| %>
-                <% if city.url_name != 'ekaterinburg' %>
-                  <a href="<%= root_url.gsub("ekaterinburg.", "") %>russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                <% if city.url_name != 'ekaterinburg' && city.url_name != 'sochi' %>
+                  <a href="<%= root_url.gsub("ekaterinburg.", "").gsub("sochi.", "") %>russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
                 <% elsif city.url_name == 'ekaterinburg' %>
                   <a href="https://ekaterinburg.amigorent.ru?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                <% elsif city.url_name == 'sochi' %>
+                  <a href="https://sochi.amigorent.ru?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
                 <% end %>
               <% end %>
             </div>
@@ -524,12 +526,14 @@
             <span><%= @city ? @city.name : 'Калининград' %></span>
             <a href="#">Выбрать город</a>
             <div class="vipad">
-                <a href="<%= root_url.gsub("ekaterinburg.", "") %>" >Калининград</a>
+                <a href="<%= root_url.gsub("ekaterinburg.", "").gsub("sochi.", "") %>" >Калининград</a>
               <% cities_list.each do |city| %>
-                <% if city.url_name != 'ekaterinburg' %>
-                  <a href="<%= root_url.gsub("ekaterinburg.", "") %>russia/<%= city.url_name %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                <% if city.url_name != 'ekaterinburg' && city.url_name != 'sochi' %>
+                  <a href="<%= root_url.gsub("ekaterinburg.", "").gsub("sochi.", "") %>russia/<%= city.url_name %>?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
                 <% elsif city.url_name == 'ekaterinburg' %>
                   <a href="https://ekaterinburg.amigorent.ru?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
+                <% elsif city.url_name == 'sochi' %>
+                  <a href="https://sochi.amigorent.ru?locale=ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name %></a>
                 <% end %>
               <% end %>
             </div>
