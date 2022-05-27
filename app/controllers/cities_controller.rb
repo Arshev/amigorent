@@ -62,7 +62,7 @@ class CitiesController < ApplicationController
     def address_city
       @cities = City.where(active: true)
       @main_up_text = Text.first.main_up_text
-      if ["ekaterinburg"].include?(request.subdomain)
+      if ["ekaterinburg", "sochi"].include?(request.subdomain)
         @city = City.find_by(url_name: request.subdomain)
       else
         @city = City.find_by(url_name: params[:city_name])
