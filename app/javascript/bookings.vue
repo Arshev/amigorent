@@ -216,11 +216,16 @@
                     >
                   </div>
                   <div class="in2">
-                    <input
+                    <flat-pickr
+                      v-model="birthday"
+                      placeholder="Birthday"
+                      :config="configBirthday"
+                    ></flat-pickr>
+                    <!-- <input
                       v-model="birthday"
                       type="date"
                       placeholder="Birthday"
-                    />
+                    /> -->
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -529,11 +534,16 @@
                     >
                   </div>
                   <div class="in2">
-                    <input
+                    <flat-pickr
+                      v-model="birthday"
+                      placeholder="Дата рождения"
+                      :config="configBirthday"
+                    ></flat-pickr>
+                    <!-- <input
                       v-model="birthday"
                       onfocus="(this.type='date')"
                       placeholder="Дата рождения"
-                    />
+                    /> -->
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -724,6 +734,12 @@ export default {
         altInput: true,
         dateFormat: "d-m-Y",
         minDate: "today",
+      },
+      configBirthday: {
+        altFormat: "j M Y",
+        altInput: true,
+        dateFormat: "Y-m-d",
+        maxDate: "today",
       },
       configTime: {
         enableTime: true,
@@ -1461,6 +1477,9 @@ export default {
           this.location_end_price;
       }
     },
+    birthday() {
+      console.log(this.birthday);
+    }
   },
   methods: {
     openDialog() {
