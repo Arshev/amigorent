@@ -216,7 +216,14 @@
                     >
                   </div>
                   <div class="in2">
+                    <input
+                      v-if="!showBirthday"
+                      v-model="birthday"
+                      @click="showBirthday = true"
+                      placeholder="Birthday"
+                    />
                     <flat-pickr
+                      v-if="showBirthday"
                       v-model="birthday"
                       placeholder="Birthday"
                       :config="configBirthday"
@@ -534,16 +541,18 @@
                     >
                   </div>
                   <div class="in2">
+                    <input
+                      v-if="!showBirthday"
+                      v-model="birthday"
+                      @click="showBirthday = true"
+                      placeholder="Дата рождения"
+                    />
                     <flat-pickr
+                      v-if="showBirthday"
                       v-model="birthday"
                       placeholder="Дата рождения"
                       :config="configBirthday"
                     ></flat-pickr>
-                    <!-- <input
-                      v-model="birthday"
-                      onfocus="(this.type='date')"
-                      placeholder="Дата рождения"
-                    /> -->
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -741,6 +750,7 @@ export default {
         dateFormat: "Y-m-d",
         maxDate: "today",
       },
+      showBirthday: false,
       configTime: {
         enableTime: true,
         noCalendar: true,
