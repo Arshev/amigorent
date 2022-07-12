@@ -531,7 +531,7 @@
                   <div class="in2">
                     <input
                       v-model="birthday"
-                      type="date"
+                      onfocus="(this.type='date')"
                       placeholder="Дата рождения"
                     />
                   </div>
