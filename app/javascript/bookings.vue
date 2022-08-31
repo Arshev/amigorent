@@ -6,7 +6,9 @@
       color="#1976d2"
     ></loading>
     <div class="bookings">
-      <a class="arend" v-if="locale && locale == 'en'" @click="openDialog()">Book Now</a>
+      <a class="arend" v-if="locale && locale == 'en'" @click="openDialog()"
+        >Book Now</a
+      >
       <a class="arend" v-else @click="openDialog()">Забронировать</a>
 
       <modal
@@ -34,7 +36,10 @@
                       v-model="start_date_no_time"
                       placeholder="Start Date"
                       :config="configStart"
-                      @input="checkFree(start_date, end_date, days), start_date_error = false"
+                      @input="
+                        checkFree(start_date, end_date, days),
+                          (start_date_error = false)
+                      "
                       class="inp1"
                     ></flat-pickr>
                     <span style="color: tomato" v-if="start_date_error">
@@ -78,7 +83,10 @@
                       v-model="end_date_no_time"
                       placeholder="End date"
                       :config="configEnd"
-                      @input="checkFree(start_date, end_date, days), end_date_error = false"
+                      @input="
+                        checkFree(start_date, end_date, days),
+                          (end_date_error = false)
+                      "
                       class="inp1"
                     ></flat-pickr>
                     <span style="color: tomato" v-if="end_date_error">
@@ -244,18 +252,19 @@
                       placeholder="Note and other wishes"
                     />
                   </div>
-                  The possibility of delivery outside working hours, check with our
-                  managers. Delivery and acceptance of a car at the office during non-working hours
-                  time from 19-00 to 9-00 is 400 rubles. Issuance and acceptance
-                  car in the city outside of working hours from 19-00 to 9-00
-                  is 500 rubles. Delivery and collection of a car at the airport in
-                  non-working hours from 19-00 to 9-00 is 700 rubles.
+                  The possibility of delivery outside working hours, check with
+                  our managers. Delivery and acceptance of a car at the office
+                  during non-working hours time from 19-00 to 9-00 is 400
+                  rubles. Issuance and acceptance car in the city outside of
+                  working hours from 19-00 to 9-00 is 500 rubles. Delivery and
+                  collection of a car at the airport in non-working hours from
+                  19-00 to 9-00 is 700 rubles.
 
                   <div class="clear"></div>
                 </div>
               </div>
               <div class="pol2">
-                <div class="zag">{{car_name}}</div>
+                <div class="zag">{{ car_name }}</div>
                 <div
                   class="bl_img"
                   :style="`background-image: url(${image_link})`"
@@ -273,13 +282,16 @@
                 </label>
                 <div class="pod">Payment:</div>
                 <hr style="margin: 15px 0px" />
-                <div class="price" v-if="days != `Минимум ${booking_limit} суток`">
+                <div
+                  class="price"
+                  v-if="days != `Минимум ${booking_limit} суток`"
+                >
                   Rental cost ({{ days }} суток):
                   <span>{{ price * days }} ₽</span>
                 </div>
                 <div class="price" v-else>
                   Rental cost:
-                  <span>Min {{booking_limit}} days</span>
+                  <span>Min {{ booking_limit }} days</span>
                 </div>
                 <div class="price">
                   Add. Hours ({{ additional_hours }} ч):
@@ -316,7 +328,7 @@
 
                     I confirm that I have read
                     <a href="/terms" target="_blank">lease terms</a> and give
-                     consent to the processing of personal data, according to
+                    consent to the processing of personal data, according to
                     <a
                       href="https://base.garant.ru/12148567/"
                       target="_blank"
@@ -357,7 +369,10 @@
                       v-model="start_date_no_time"
                       placeholder="Дата начала"
                       :config="configStart"
-                      @input="checkFree(start_date, end_date, days), start_date_error = false"
+                      @input="
+                        checkFree(start_date, end_date, days),
+                          (start_date_error = false)
+                      "
                       class="inp1"
                     ></flat-pickr>
                     <span style="color: tomato" v-if="start_date_error">
@@ -374,21 +389,25 @@
                   </div>
                   <div class="in1">
                     <select v-if="locale == 'en'" v-model="location_start">
-                      <option value="Офис" style="color: black;">Office (free)</option>
+                      <option value="Офис" style="color: black">
+                        Office (free)
+                      </option>
                       <option
                         v-for="location in locations_en"
                         :key="location.index"
-                        style="color: black;"
+                        style="color: black"
                       >
                         {{ location }}
                       </option>
                     </select>
                     <select v-else v-model="location_start">
-                      <option value="Офис" style="color: black;">Офис (бесплатно)</option>
+                      <option value="Офис" style="color: black">
+                        Офис (бесплатно)
+                      </option>
                       <option
                         v-for="location in locations"
                         :key="location.index"
-                        style="color: black;"
+                        style="color: black"
                       >
                         {{ location }}
                       </option>
@@ -403,7 +422,10 @@
                       v-model="end_date_no_time"
                       placeholder="Дата возврата"
                       :config="configEnd"
-                      @input="checkFree(start_date, end_date, days), end_date_error = false"
+                      @input="
+                        checkFree(start_date, end_date, days),
+                          (end_date_error = false)
+                      "
                       class="inp1"
                     ></flat-pickr>
                     <span style="color: tomato" v-if="end_date_error">
@@ -575,7 +597,7 @@
                 </div>
               </div>
               <div class="pol2">
-                <div class="zag">{{car_name}}</div>
+                <div class="zag">{{ car_name }}</div>
                 <div
                   class="bl_img"
                   :style="`background-image: url(${image_link})`"
@@ -599,7 +621,9 @@
                 </div>
                 <div class="price" v-if="days_limit_error">
                   Лимит:
-                  <span>{{`Минимум ${free ? booking_limit : '2-e'} суток`}}</span>
+                  <span>{{
+                    `Минимум ${free ? booking_limit : "2-e"} суток`
+                  }}</span>
                 </div>
                 <div class="price" v-if="hours > 0">
                   Доп время ({{ additional_hours }} ч):
@@ -813,7 +837,7 @@ export default {
       this.end_date_no_time = this.link_params.end_date;
       this.start_time = this.link_params.start_time;
       this.end_time = this.link_params.end_time;
-      this.free = this.link_params.free == "true" ? true : false
+      this.free = this.link_params.free == "true" ? true : false;
     }
   },
   watch: {
@@ -834,7 +858,7 @@ export default {
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
-      
+
       if (!isNaN(diff)) {
         if (diff >= 1) {
           this.days = diff;
@@ -842,27 +866,27 @@ export default {
         // Если машина свободная
         if (this.free) {
           if (diff < this.booking_limit) {
-            this.days = diff
+            this.days = diff;
             this.days_limit_error = `Минимум ${this.booking_limit} суток`;
           } else {
             this.days_limit_error = null;
           }
         } else {
           if (diff < 2) {
-            this.days = diff
+            this.days = diff;
             this.days_limit_error = `Минимум 2-е суток`;
           } else {
             this.days_limit_error = null;
           }
         }
-        
+
         if (diff >= 1 && diff <= 3) {
           if (
             this.additional_hours > 0 &&
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.hours = 0
+            this.hours = 0;
             this.price = this.prices[0];
             this.total =
               this.days * this.price +
@@ -888,7 +912,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.hours = 0
+            this.hours = 0;
             this.price = this.prices[1];
             this.total =
               this.days * this.price +
@@ -914,7 +938,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.hours = 0
+            this.hours = 0;
             this.price = this.prices[2];
             this.total =
               this.days * this.price +
@@ -940,7 +964,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.hours = 0
+            this.hours = 0;
             this.price = this.prices[3];
             this.total =
               this.days * this.price +
@@ -966,7 +990,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.hours = 0
+            this.hours = 0;
             this.price = this.prices[4];
             this.total =
               this.days * this.price +
@@ -1014,7 +1038,7 @@ export default {
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
-      
+
       //let diff =  Math.floor(( Date.parse(this.end_date) - Date.parse(this.start_date) ) / 86400000)
       if (!isNaN(diff)) {
         if (diff >= 1) {
@@ -1023,14 +1047,14 @@ export default {
         // Если машина свободная
         if (this.free) {
           if (diff < this.booking_limit) {
-            this.days = diff
+            this.days = diff;
             this.days_limit_error = `Минимум ${this.booking_limit} суток`;
           } else {
             this.days_limit_error = null;
           }
         } else {
           if (diff < 2) {
-            this.days = diff
+            this.days = diff;
             this.days_limit_error = `Минимум 2-е суток`;
           } else {
             this.days_limit_error = null;
@@ -1285,7 +1309,7 @@ export default {
           break;
         case "Калининград" || "Another address in Kaliningrad":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 200;
+            this.location_start_price = 300;
           } else {
             this.location_start_price = 500;
           }
@@ -1419,7 +1443,7 @@ export default {
           break;
         case "Калининград" || "Another address in Kaliningrad":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 200;
+            this.location_end_price = 300;
           } else {
             this.location_end_price = 500;
           }
@@ -1489,20 +1513,27 @@ export default {
     },
     birthday() {
       console.log(this.birthday);
-    }
+    },
   },
   methods: {
     openDialog() {
       this.$modal.show("my-first-modal");
-      this.checkFree(this.start_date, this.end_date, this.days)
+      this.checkFree(this.start_date, this.end_date, this.days);
     },
     closeDialog() {
       this.$modal.hide("my-first-modal");
     },
     checkFree(start_date, end_date, days) {
-      if (start_date && end_date && days > 0 && this.free && this.ids_rentprog && this.ids_rentprog.length > 0) {
+      if (
+        start_date &&
+        end_date &&
+        days > 0 &&
+        this.free &&
+        this.ids_rentprog &&
+        this.ids_rentprog.length > 0
+      ) {
         this.isLoading = true;
-        let self = this
+        let self = this;
         this.axios
           .post(
             `/api/v1/free_cars`,
@@ -1520,11 +1551,14 @@ export default {
           .then((response) => {
             // Получаем свободные ids
             let free_ids = response.data;
-            this.free_ids = free_ids
-            console.log("free_ids", free_ids)
-            console.log("ids_rentprog", this.ids_rentprog)
-            console.log("result", this.ids_rentprog.some(e => free_ids.includes(e)))
-            if (!this.ids_rentprog.some(e => free_ids.includes(e))) {
+            this.free_ids = free_ids;
+            console.log("free_ids", free_ids);
+            console.log("ids_rentprog", this.ids_rentprog);
+            console.log(
+              "result",
+              this.ids_rentprog.some((e) => free_ids.includes(e))
+            );
+            if (!this.ids_rentprog.some((e) => free_ids.includes(e))) {
               this.$swal({
                 type: "warning",
                 title: "Автомобиль занят!",
@@ -1533,7 +1567,7 @@ export default {
             }
           })
           .catch((error) => {
-            this.isLoading = false
+            this.isLoading = false;
             this.$swal({
               toast: true,
               position: "top-end",
@@ -1548,7 +1582,7 @@ export default {
       }
     },
     sendBooking() {
-      let self = this
+      let self = this;
       let has_error = false;
       if (this.name === "" || this.name == null) {
         this.name_error = true;
@@ -1584,7 +1618,7 @@ export default {
       // }
 
       function send() {
-        self.isLoading = true
+        self.isLoading = true;
         if (!has_error) {
           if (
             !self.name_error &&
@@ -1604,15 +1638,19 @@ export default {
               self.phone
             ) {
               // Отсылаю только свободные ids
-              let free_cars_ids = []
-              if (self.ids_rentprog && self.ids_rentprog.length > 0 && self.ids_rentprog.some(e => self.free_ids.includes(e))) {
-                self.ids_rentprog.forEach(id => {
+              let free_cars_ids = [];
+              if (
+                self.ids_rentprog &&
+                self.ids_rentprog.length > 0 &&
+                self.ids_rentprog.some((e) => self.free_ids.includes(e))
+              ) {
+                self.ids_rentprog.forEach((id) => {
                   if (self.free_ids.includes(id)) {
-                    free_cars_ids.push(id)
+                    free_cars_ids.push(id);
                   }
                 });
               }
-              console.log(free_cars_ids, self.free_ids)
+              console.log(free_cars_ids, self.free_ids);
               self.axios
                 .post(
                   `/api/v1/amigorent_new_booking`,
@@ -1632,7 +1670,10 @@ export default {
                     location_end: self.location_end,
                     additional_hours: self.additional_hours,
                     rental_cost: self.days * self.price,
-                    hours_cost: self.hours > 0 ? (self.additional_hours * self.prices[5]) : 0,
+                    hours_cost:
+                      self.hours > 0
+                        ? self.additional_hours * self.prices[5]
+                        : 0,
                     price_hour: self.prices[5],
                     delivery: self.location_start_price,
                     delivery_end: self.location_end_price,
@@ -1656,13 +1697,13 @@ export default {
                   // self.$swal({
                   //   type: "success",
                   //   title: "Заявка отправлена!",
-                  //   text: `Обращаем ваше внимание, что оформление заявки не является бронированием! 
-                  //     По результатам обработки заявки, ответ придет на вашу электронную почту или WhatsApp. 
+                  //   text: `Обращаем ваше внимание, что оформление заявки не является бронированием!
+                  //     По результатам обработки заявки, ответ придет на вашу электронную почту или WhatsApp.
                   //     (не забудьте проверить нежелательную почту)`,
                   // });
                   // self.isLoading = false
                   window.location.replace(
-                    self.locale == 'en' ? `/en/success` : `/success`
+                    self.locale == "en" ? `/en/success` : `/success`
                   );
                 })
                 .catch((error) => {
@@ -1678,7 +1719,7 @@ export default {
                 })
                 .finally((self.isLoading = false));
             } else {
-              self.isLoading = false
+              self.isLoading = false;
               self.$swal({
                 type: "warning",
                 title: "Ошибка при отправке!",
@@ -1686,7 +1727,7 @@ export default {
               });
             }
           } else {
-            self.isLoading = false
+            self.isLoading = false;
             self.$swal({
               type: "warning",
               title: "Ошибка при отправке!",
@@ -1694,7 +1735,7 @@ export default {
             });
           }
         } else {
-          self.isLoading = false
+          self.isLoading = false;
         }
       }
       if (this.days < 2) {
@@ -1705,17 +1746,15 @@ export default {
           showCancelButton: true,
           confirmButtonText: "Отправить",
           cancelButtonText: "Закрыть",
-          showCloseButton: true
-        })
-        .then(result => {
+          showCloseButton: true,
+        }).then((result) => {
           if (result.value) {
-            send()
+            send();
           }
         });
       } else {
-        send()
+        send();
       }
-      
     },
   },
   computed: {
