@@ -542,7 +542,7 @@
                       placeholder="Phone"
                       v-bind:class="{ 'error-input': phone_error }"
                       @maska="phone = $event.target.dataset.maskRawValue"
-                      v-maska="['+# (###) ##-##-###', '+# (###) ###-##-####']"
+                      v-maska="['+# (###) #######', '+# (###) #########']"
                       @input="phone_error = false"
                     />
                     <span style="color: tomato" v-if="phone_error">
@@ -1808,7 +1808,6 @@ export default {
                   }
                 });
               }
-              console.log(free_cars_ids, self.free_ids);
               self.axios
                 .post(
                   `/api/v1/amigorent_new_booking`,
@@ -1816,6 +1815,17 @@ export default {
                     name: self.name,
                     lastname: self.lastname,
                     middlename: self.middlename,
+                    fio:
+                      self.name &&
+                      self.name.length > 0 &&
+                      self.middlename &&
+                      self.middlename.length > 0 &&
+                      self.lastname &&
+                      self.lastname.length > 0
+                        ? `${self.name[0].toUpperCase()}. ${self.middlename[0].toUpperCase()} ${
+                            self.lastname
+                          }`
+                        : null,
                     phone: self.phone,
                     email: self.email,
                     ids_rentprog: free_cars_ids,
