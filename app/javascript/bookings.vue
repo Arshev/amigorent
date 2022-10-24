@@ -527,22 +527,22 @@
                     >
                   </div>
                   <div class="in2">
-                    <the-mask
+                    <input
                       v-if="locale == 'ru'"
+                      @maska="phone = $event.target.dataset.maskRawValue"
                       type="tel"
-                      v-model="phone"
                       placeholder="Телефон(79111234567)"
                       v-bind:class="{ 'error-input': phone_error }"
-                      :mask="['###########']"
+                      v-maska="['+# (###) ##-##-###', '+# (###) ###-##-####']"
                       @input="phone_error = false"
                     />
-                    <the-mask
+                    <input
                       v-else
                       type="tel"
-                      v-model="phone"
                       placeholder="Phone"
                       v-bind:class="{ 'error-input': phone_error }"
-                      :mask="['###########', '############']"
+                      @maska="phone = $event.target.dataset.maskRawValue"
+                      v-maska="['+# (###) ##-##-###', '+# (###) ###-##-####']"
                       @input="phone_error = false"
                     />
                     <span style="color: tomato" v-if="phone_error">
@@ -564,17 +564,22 @@
                   </div>
                   <div class="in2">
                     <input
+                      v-model="birthday"
+                      v-maska="'##.##.####'"
+                      placeholder="Дата рождения"
+                    />
+                    <!-- <input
                       v-if="!showBirthday"
                       v-model="birthday"
                       @click="showBirthday = true"
                       placeholder="Дата рождения"
-                    />
-                    <flat-pickr
+                    /> -->
+                    <!-- <flat-pickr
                       v-if="showBirthday"
                       v-model="birthday"
                       placeholder="Дата рождения"
                       :config="configBirthday"
-                    ></flat-pickr>
+                    ></flat-pickr> -->
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -744,6 +749,7 @@ export default {
   data: function () {
     return {
       price: 0,
+      rentprog_price: 0,
       days: 0,
       days_limit_error: null,
       total: 0,
@@ -838,6 +844,16 @@ export default {
       this.start_time = this.link_params.start_time;
       this.end_time = this.link_params.end_time;
       this.free = this.link_params.free == "true" ? true : false;
+      if (
+        this.ids_rentprog &&
+        this.ids_rentprog.length > 0 &&
+        this.start_date &&
+        this.end_date &&
+        this.start_date_no_time &&
+        this.end_date_no_time
+      ) {
+        this.getCarData(this.ids_rentprog[0]);
+      }
     }
   },
   watch: {
@@ -858,7 +874,17 @@ export default {
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
-
+      // Если есть id с рентпрога, то считаем по нему и делаем запрос на цену
+      if (
+        this.ids_rentprog &&
+        this.ids_rentprog.length > 0 &&
+        this.start_date &&
+        this.end_date &&
+        this.start_date_no_time &&
+        this.end_date_no_time
+      ) {
+        this.getCarData(this.ids_rentprog[0]);
+      }
       if (!isNaN(diff)) {
         if (diff >= 1) {
           this.days = diff;
@@ -887,7 +913,11 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
-            this.price = this.prices[0];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[0];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -896,7 +926,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[0];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[0];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -913,7 +947,11 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
-            this.price = this.prices[1];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[1];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -922,7 +960,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[1];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[1];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -939,7 +981,11 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
-            this.price = this.prices[2];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[2];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -948,7 +994,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[2];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[2];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -965,7 +1015,11 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
-            this.price = this.prices[3];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[3];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -974,7 +1028,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[3];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[3];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -991,7 +1049,11 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
-            this.price = this.prices[4];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[4];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -1000,7 +1062,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[4];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[4];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -1038,8 +1104,18 @@ export default {
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
+      // Если есть id с рентпрога, то считаем по нему и делаем запрос на цену
+      if (
+        this.ids_rentprog &&
+        this.ids_rentprog.length > 0 &&
+        this.start_date &&
+        this.end_date &&
+        this.start_date_no_time &&
+        this.end_date_no_time
+      ) {
+        this.getCarData(this.ids_rentprog[0]);
+      }
 
-      //let diff =  Math.floor(( Date.parse(this.end_date) - Date.parse(this.start_date) ) / 86400000)
       if (!isNaN(diff)) {
         if (diff >= 1) {
           this.days = diff;
@@ -1066,7 +1142,11 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.price = this.prices[0];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[0];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -1075,7 +1155,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[0];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[0];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -1091,7 +1175,11 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.price = this.prices[1];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[1];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -1100,7 +1188,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[1];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[1];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -1116,7 +1208,11 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.price = this.prices[2];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[2];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -1125,7 +1221,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[2];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[2];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -1141,7 +1241,11 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.price = this.prices[3];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[3];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -1150,7 +1254,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[3];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[3];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -1166,7 +1274,11 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
-            this.price = this.prices[4];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[4];
+            }
             this.total =
               this.days * this.price +
               this.baby_chair_price +
@@ -1175,7 +1287,11 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
-            this.price = this.prices[4];
+            if (this.rentprog_price && this.rentprog_price > 0) {
+              this.price = this.rentprog_price;
+            } else {
+              this.price = this.prices[4];
+            }
             this.total =
               this.days * this.price +
               this.additional_hours * this.prices[5] +
@@ -1186,18 +1302,6 @@ export default {
           }
         }
       }
-      // this.location_start = "Офис";
-      // this.location_end = "Офис";
-      // if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-      //   this.location_start_price = 0;
-      // } else {
-      //   this.location_start_price = 400;
-      // }
-      // if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-      //   this.location_end_price = 0;
-      // } else {
-      //   this.location_end_price = 400;
-      // }
       this.errors = [];
     },
     location_start() {
@@ -1514,10 +1618,25 @@ export default {
     birthday() {
       console.log(this.birthday);
     },
+    price() {
+      console.log(this.price);
+    },
   },
   methods: {
     openDialog() {
-      this.$modal.show("my-first-modal");
+      if (
+        this.ids_rentprog &&
+        this.ids_rentprog.length > 0 &&
+        this.start_date &&
+        this.end_date &&
+        this.start_date_no_time &&
+        this.end_date_no_time
+      ) {
+        this.getCarData(this.ids_rentprog[0]);
+        this.$modal.show("my-first-modal");
+      } else {
+        this.$modal.show("my-first-modal");
+      }
       this.checkFree(this.start_date, this.end_date, this.days);
     },
     closeDialog() {
@@ -1552,12 +1671,6 @@ export default {
             // Получаем свободные ids
             let free_ids = response.data;
             this.free_ids = free_ids;
-            console.log("free_ids", free_ids);
-            console.log("ids_rentprog", this.ids_rentprog);
-            console.log(
-              "result",
-              this.ids_rentprog.some((e) => free_ids.includes(e))
-            );
             if (!this.ids_rentprog.some((e) => free_ids.includes(e))) {
               this.$swal({
                 type: "warning",
@@ -1580,6 +1693,51 @@ export default {
           })
           .finally((this.isLoading = false));
       }
+    },
+    getCarData(id) {
+      this.isLoading = true;
+      this.axios
+        .get(
+          `/api/v1/amigorent_car_data/${id}?start_date=${this.start_date}&end_date=${this.end_date}`,
+          {
+            headers: {
+              Authorization: `Bearer ${this.rentprog_token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          this.rentprog_price = response.data.selected_price;
+          if (this.rentprog_price && this.rentprog_price > 0) {
+            this.price = this.rentprog_price;
+            this.total =
+              this.days * this.price +
+              this.baby_chair_price +
+              this.navigator_price +
+              this.location_start_price +
+              this.location_end_price;
+            document.getElementById(
+              "price"
+            ).innerHTML = `<b><span>${this.rentprog_price}</span> ₽/сутки</b>`;
+            document.getElementById("price").style =
+              "text-align: center; margin-top: 30px;";
+            document.getElementById("price_title").style = `display: none`;
+            document.getElementById("price_table").style = `display: none`;
+          }
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          this.$swal({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            type: "error",
+            title: "Ошибка при проверке занятости авто!",
+            text: error,
+          });
+        })
+        .finally((this.isLoading = false));
     },
     sendBooking() {
       let self = this;

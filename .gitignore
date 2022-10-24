@@ -42,3 +42,5 @@ database.yml
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+app/javascript/bookings.vue
+amigorent_*.sql

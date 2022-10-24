@@ -94,9 +94,9 @@
                     </div>
                     <div class="clear"></div>
                 </div>
-                <div class="price">от <b><span><%= number_to_currency(@car.price_main, {delimiter: " ", precision: 0, unit: ''}) %></span> ₽/сутки</b></div>
-                <div class="podzg">Стоимость аренды, посуточно</div>
-                <div class="spis_stoi">
+                <div class="price" id="price">от <b><span><%= number_to_currency(@car.price_main, {delimiter: " ", precision: 0, unit: ''}) %></span> ₽/сутки</b></div>
+                <div class="podzg" id="price_title">Стоимость аренды, посуточно</div>
+                <div class="spis_stoi" id="price_table">
                     <div class="st">
                         <span>до 3</span>
                         <div style="<%= @car.old_price_1 ? "color: red;" : "" %>">

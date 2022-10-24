@@ -6,17 +6,19 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import Loading from 'vue-loading-overlay';
 import VModal from 'vue-js-modal'
 import Vuelidate from 'vuelidate'
+import Maska from 'maska'
 
 
 Vue.use(VueSweetalert2);
 Vue.use(VueAxios, axios)
 Vue.axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
+    ? "http://localhost:3001"
     : "https://api.rentprog.ru";
 Vue.component("loading", Loading);
 Vue.use(VModal)
 Vue.use(Vuelidate)
+Vue.use(Maska)
 Vue.config.productionTip = false
 
 document.addEventListener("DOMContentLoaded", () => {
