@@ -1850,7 +1850,9 @@ export default {
                     deposit: self.prices[6],
                     chair: self.baby_chair,
                     navigator: self.navigator,
-                    birthday: self.birthday,
+                    birthday: self.birthday
+                      ? moment(self.birthday, "DD.MM.YYYY").format("YYYY-MM-DD")
+                      : null,
                     description: self.description,
                     booking_limit: self.booking_limit,
                   },
