@@ -23,5 +23,12 @@ Disallow: /en/cars/*?free=*
 Disallow: /articles/*?*
 Disallow: /en/articles/*?*
 Disallow: *?etext*
+Disallow: *?utm_source*
+Disallow: *?utm_medium*
+Disallow: *?utm_campaign*
+Disallow: *?utm_term*
+Disallow: *?utm_content*
+Disallow: *?utm_name*
+Disallow: *?yandex-source*
 Sitemap: https://amigorent.ru/sitemap.xml
 Host: https://amigorent.ru
