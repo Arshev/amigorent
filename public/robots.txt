@@ -30,5 +30,6 @@ Disallow: *?utm_term*
 Disallow: *?utm_content*
 Disallow: *?utm_name*
 Disallow: *?yandex-source*
+Disallow: *?yadclid*
 Sitemap: https://amigorent.ru/sitemap.xml
 Host: https://amigorent.ru
