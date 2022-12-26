@@ -22,5 +22,6 @@ Disallow: /cars/*?free=*
 Disallow: /en/cars/*?free=*
 Disallow: /articles/*?*
 Disallow: /en/articles/*?*
+Disallow: *?etext*
 Sitemap: https://amigorent.ru/sitemap.xml
 Host: https://amigorent.ru
