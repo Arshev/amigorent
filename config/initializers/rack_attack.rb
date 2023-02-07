@@ -1,5 +1,7 @@
 class Rack::Attack
 
+  Rack::Attack.enabled = Rails.env.production?
+
   ### Configure Cache ###
 
   # If you don't want to use Rails.cache (Rack::Attack's default), then
@@ -114,6 +116,11 @@ class Rack::Attack
       # protect against rate limit bypasses. Return the normalized email if present, nil otherwise.
       req.params["email"].to_s.downcase.gsub(/\s+/, "").presence
     end
+  end
+
+  ActiveSupport::Notifications.subscribe("rack.attack") do |_name, _start, _finish, _request_id, payload|
+    req = payload[:request]
+    Rails.logger.error("Rack::Attack #{payload[:event]} #{req.ip} #{req.request_method} #{req.fullpath}")
   end
 
   ### Custom Throttle Response ###
