@@ -912,6 +912,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
+            this.additional_hours = 0;
             this.hours = 0;
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
@@ -946,6 +947,7 @@ export default {
             this.additional_hours * this.prices[5] >= this.price
           ) {
             this.days = diff + 1;
+            this.additional_hours = 0;
             this.hours = 0;
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
@@ -981,6 +983,7 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
+            this.additional_hours = 0;
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
             } else {
@@ -1015,6 +1018,7 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
+            this.additional_hours = 0;
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
             } else {
@@ -1049,6 +1053,7 @@ export default {
           ) {
             this.days = diff + 1;
             this.hours = 0;
+            this.additional_hours = 0;
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
             } else {
@@ -1706,16 +1711,28 @@ export default {
           }
         )
         .then((response) => {
-          console.log(response.data);
           this.rentprog_price = response.data.selected_price;
+          // Расчет стоимости доп часов
+          let calc_hours_cost = 0;
+          if (
+            this.additional_hours > 0 &&
+            this.additional_hours < response.data.hours_limit
+          ) {
+            calc_hours_cost = this.additional_hours * response.data.price_hour;
+          } else if (this.additional_hours >= response.data.hours_limit) {
+            this.days = this.days + 1;
+            this.additional_hours = 0;
+          }
+          console.log(this.additional_hours, response.data.hours_limit);
           if (this.rentprog_price && this.rentprog_price > 0) {
             this.price = this.rentprog_price;
-            this.total =
-              this.days * this.price +
-              this.baby_chair_price +
-              this.navigator_price +
-              this.location_start_price +
-              this.location_end_price;
+            // this.total =
+            //   this.days * this.price +
+            //   calc_hours_cost +
+            //   this.baby_chair_price +
+            //   this.navigator_price +
+            //   this.location_start_price +
+            //   this.location_end_price;
             document.getElementById(
               "price"
             ).innerHTML = `<b><span>${this.rentprog_price}</span> ₽/сутки</b>`;
@@ -1906,6 +1923,14 @@ export default {
           }
         } else {
           self.isLoading = false;
+          self.$swal({
+            type: "error",
+            title: "Ошибка!",
+            text: "Пожалуйста заполните все поля",
+            position: "center",
+            showConfirmButton: true,
+            confirmButtonText: "Ок",
+          });
         }
       }
       if (this.days < 2) {
