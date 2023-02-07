@@ -38,7 +38,8 @@ class Rack::Attack
   # Throttle all requests by IP (60rpm)
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
-  throttle("req/ip", limit: 50, period: 1.minutes) do |req|
+  # throttle("req/ip", limit: 50, period: 1.minutes) do |req|
+  throttle("req/ip", limit: 300, period: 5.minutes) do |req|
     Rails.logger.error("Rack::Attack 1 Too many requests from IP: #{req.ip}")
     req.ip # unless req.path.start_with?('/assets')
   end
@@ -78,7 +79,7 @@ class Rack::Attack
   # Throttle any POST requests by IP address
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:pink/posts/ip:#{req.ip}"
-  throttle("pink/posts/ip", limit: 1, period: 2.seconds) do |req|
+  throttle("pink/posts/ip", limit: 5, period: 2.seconds) do |req|
     if req.post?
       Rails.logger.error("Rack::Attack 4 Too many POSTS from IP: #{req.ip}")
       req.ip
