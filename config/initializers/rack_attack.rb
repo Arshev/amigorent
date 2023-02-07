@@ -38,9 +38,8 @@ class Rack::Attack
   # Throttle all requests by IP (60rpm)
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
-  # throttle("req/ip", limit: 50, period: 1.minutes) do |req|
-  throttle("req/ip", limit: 300, period: 5.minutes) do |req|
-    Rails.logger.error("Rack::Attack 1 Too many requests from IP: #{req.ip}")
+  throttle("req/ip", limit: 50, period: 1.minutes) do |req|
+    # Rails.logger.error("Rack::Attack 1 Too many requests from IP: #{req.ip}")
     req.ip # unless req.path.start_with?('/assets')
   end
 
@@ -58,7 +57,7 @@ class Rack::Attack
   # Key: "rack::attack:#{Time.now.to_i/:period}:logins/ip:#{req.ip}"
   throttle("logins/ip", limit: 5, period: 20.seconds) do |req|
     if req.path == "/login" && req.post?
-      Rails.logger.error("Rack::Attack 2 Too many POSTS from IP: #{req.ip}")
+      # Rails.logger.error("Rack::Attack 2 Too many POSTS from IP: #{req.ip}")
       req.ip
     end
   end
@@ -69,7 +68,7 @@ class Rack::Attack
     # `filter` returns false value if request is to your login page (but still
     # increments the count) so request below the limit are not blocked until
     # they hit the limit.  At that point, filter will return true and block.
-    Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 200, findtime: 1.minute, bantime: 1.hour) do
+    Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 50, findtime: 1.minute, bantime: 1.hour) do
       Rails.logger.error("Rack::Attack 3 Too many GETS from IP: #{req.ip}")
       # The count for the IP is incremented if the return value is truthy.
       req.path == "/" and req.get?
@@ -79,9 +78,9 @@ class Rack::Attack
   # Throttle any POST requests by IP address
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:pink/posts/ip:#{req.ip}"
-  throttle("pink/posts/ip", limit: 5, period: 2.seconds) do |req|
+  throttle("pink/posts/ip", limit: 1, period: 2.seconds) do |req|
     if req.post?
-      Rails.logger.error("Rack::Attack 4 Too many POSTS from IP: #{req.ip}")
+      # Rails.logger.error("Rack::Attack 4 Too many POSTS from IP: #{req.ip}")
       req.ip
     end
   end
@@ -92,7 +91,7 @@ class Rack::Attack
     # `filter` returns truthy value if request fails, or if it's from a previously banned IP
     # so the request is blocked
     Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 3, findtime: 10.minutes, bantime: 30.minutes) do
-      Rails.logger.error("Rack::Attack 5 Too many POSTS from IP: #{req.ip}")
+      # Rails.logger.error("Rack::Attack 5 Too many POSTS from IP: #{req.ip}")
       # The count for the IP is incremented if the return value is truthy
       CGI.unescape(req.query_string) =~ %r{/etc/passwd} ||
         req.path.include?("/etc/passwd") ||
