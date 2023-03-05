@@ -1726,13 +1726,13 @@ export default {
           console.log(this.additional_hours, response.data.hours_limit);
           if (this.rentprog_price && this.rentprog_price > 0) {
             this.price = this.rentprog_price;
-            // this.total =
-            //   this.days * this.price +
-            //   calc_hours_cost +
-            //   this.baby_chair_price +
-            //   this.navigator_price +
-            //   this.location_start_price +
-            //   this.location_end_price;
+            this.total =
+              this.days * this.price +
+              calc_hours_cost +
+              this.baby_chair_price +
+              this.navigator_price +
+              this.location_start_price +
+              this.location_end_price;
             document.getElementById(
               "price"
             ).innerHTML = `<b><span>${this.rentprog_price}</span> ₽/сутки</b>`;
