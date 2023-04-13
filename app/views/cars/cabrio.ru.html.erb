@@ -1,9 +1,9 @@
 <% if (params[:city] && params[:city] != 'Калининград') %>
-  <% title "Кроссоверы в аренду в автопрокате Амиго #{@city.name}" %>
-  <% description "Кроссоверы в аренду в #{@city.name}. Посуточная аренда, и на долгий срок." %>
+  <% title "Кабриолеты в аренду в автопрокате Амиго #{@city.name}" %>
+  <% description "Кабриолеты в аренду в #{@city.name}. Посуточная аренда, и на долгий срок." %>
 <% else %>
-    <% title @text.cars_crossovers_title %>
-    <% description @text.cars_crossovers_description %>
+    <% title @text.cars_cabrio_title %>
+    <% description @text.cars_cabrio_description %>
 <% end %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
@@ -16,7 +16,7 @@
 </div>
 <div class="block2 var2">
     <div class="wrapper" id="search_cars">
-        <div class="zagol"><h1><%= @text.cars_crossovers_h1 %></h1></div>
+        <div class="zagol"><h1><%= @text.cars_cabrio_h1 %></h1></div>
         <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>" locale="<%= I18n.locale ? I18n.locale : 'ru' %>"></search_cars>
         <div class="clear"></div>
     </div>
@@ -83,7 +83,7 @@
 <div class="block_vopros">
     <div class="wrapper">
         <div class="vopros">
-            <div class="otv" style="display: block;"><%= @text.cars_crossovers_text.html_safe %></div>
+            <div class="otv" style="display: block;"><%= @text.cars_cabrio_text.html_safe %></div>
         </div>
         <div class="clear"></div>
     </div>

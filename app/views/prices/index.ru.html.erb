@@ -43,13 +43,13 @@
                           <% end %>
                         </div>
                         <%= link_to car_path(car) do %>
-                        
+
                         <% if car.main_image? %>
                           <%= image_tag car.main_image.url(:prices), alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
                         <% else %>
                           <%= image_tag "avto.webp", alt: "#{car.car_name}", title: "#{car.car_name}", class: "full" %>
                         <% end %>
-                        
+
                         <% end %>
                         <div class="hara">
                           <% if car.car_type == "Хэтчбек" %>
@@ -74,6 +74,12 @@
                             <div class="hr">
                               <span>Кузов</span>
                               Минивэн
+                            </div>
+                          <% end %>
+                          <% if car.car_type == "Кабриолет" %>
+                            <div class="hr">
+                              <span>Кузов</span>
+                              Кабриолет
                             </div>
                           <% end %>
                           <% if car.car_type == "Кроссовер" %>
@@ -113,31 +119,31 @@
                         </div>
                       </td>
                       <td>
-                        <%= car.price_1 %> ₽ 
+                        <%= car.price_1 %> ₽
                         <% if car.old_price_1 %>
                           <div class="old"><%= car.old_price_1 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_2 %> ₽ 
+                        <%= car.price_2 %> ₽
                         <% if car.old_price_2 %>
                           <div class="old"><%= car.old_price_2 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_3 %> ₽ 
+                        <%= car.price_3 %> ₽
                         <% if car.old_price_3 %>
                           <div class="old"><%= car.old_price_3 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_4 %> ₽ 
+                        <%= car.price_4 %> ₽
                         <% if car.old_price_4 %>
                           <div class="old"><%= car.old_price_4 %> ₽ </div>
                         <% end %>
                       </td>
                       <td>
-                        <%= car.price_5 %> ₽ 
+                        <%= car.price_5 %> ₽
                         <% if car.old_price_5 %>
                           <div class="old"><%= car.old_price_5 %> ₽ </div>
                         <% end %>
@@ -153,14 +159,14 @@
                   <% end %>
                 </tbody>
             </table>
-            
+
             <% unless params[:city] && params[:city] != 'Калининград' %>
-              <p class="tex">Цены на доставку вне офиса смотрите в разделе 
+              <p class="tex">Цены на доставку вне офиса смотрите в разделе
               <%= link_to deliveries_path(locale: I18n.locale) do %>
                 "Доставка"
               <% end %></p>
             <% end %>
-            
+
             <div class="zagol">ЦЕНЫ НА ДОПОЛНИТЕЛЬНОЕ ОБОРУДОВАНИЕ</div>
             <table>
                 <thead>

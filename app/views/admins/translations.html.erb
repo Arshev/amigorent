@@ -244,6 +244,24 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
+                  <h4>Кабриолеты Класс</h4>
+                  <p>Title</p>
+                  <%= f.text_field :cars_cabrio_title_en, placeholder: "Авто", class: "form-control" %>
+                  <p>Description</p>
+                  <%= f.text_field :cars_cabrio_description_en, placeholder: "Авто", class: "form-control" %>
+                  <p>H1</p>
+                  <%= f.text_field :cars_cabrio_h1_en, placeholder: "Авто", class: "form-control" %>
+                  <p>Текст</p>
+                  <%= f.cktext_area :cars_cabrio_text_en, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
                   <h4>Кроссоверы Класс</h4>
                   <p>Title</p>
                   <%= f.text_field :cars_crossovers_title_en, placeholder: "Авто", class: "form-control" %>

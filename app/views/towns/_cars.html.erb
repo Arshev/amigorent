@@ -1,4 +1,4 @@
- <% @cars.each do |car| %> 
+ <% @cars.each do |car| %>
   <div class="gorod">
     <% if I18n.locale == :en %>
       <%= link_to car_en_path(car), class: "bl_img", 'data-turbolinks': false do %>
@@ -49,7 +49,7 @@
         </p>
         <p>
           <%= image_tag "car_type.png", style: "width: 20px;", alt: "#{t 'cars.car_type'}", title: "#{t 'cars.car_type'}" %>
-          
+
           <% if I18n.locale == :en && car.car_type == "Седан" %>
             Sedan
           <% elsif I18n.locale == :en && car.car_type == "Хэтчбек" %>
@@ -62,6 +62,8 @@
             Crossover
           <% elsif I18n.locale == :en && car.car_type == "Минивэн" %>
             Minivan
+          <% elsif I18n.locale == :en && car.car_type == "Кабриолет" %>
+            Cabrio
           <% else %>
             <%= car.car_type %>
           <% end %>

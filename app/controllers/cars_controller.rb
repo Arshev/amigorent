@@ -7,6 +7,7 @@ class CarsController < ApplicationController
                   economy
                   middle
                   minivans
+                  cabrio
                   crossovers
                   business
                   commercial
@@ -18,6 +19,7 @@ class CarsController < ApplicationController
                   economy
                   middle
                   minivans
+                  cabrio
                   crossovers
                   business
                   commercial
@@ -151,6 +153,9 @@ class CarsController < ApplicationController
   end
   def minivans
     @cars = Car.where(active: true, car_class: 'Минивэны', city: 'Калининград')
+  end
+  def cabrio
+    @cars = Car.where(active: true, car_class: 'Кабриолеты', city: 'Калининград')
   end
   def crossovers
     @cars =

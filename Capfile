@@ -17,6 +17,6 @@ require 'capistrano/delayed_job'
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.0.4'
+set :rbenv_ruby, '3.2.1'
 
 # cap stage deploy BRANCH=New

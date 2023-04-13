@@ -1,4 +1,4 @@
-<% if I18n.locale == :en %>  
+<% if I18n.locale == :en %>
   <div class="bread">
     <% if current_page?(controller: 'cars', action: 'index')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Main /</a> Cars
@@ -74,6 +74,8 @@
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Автомобили Среднего класса
     <% elsif current_page?(controller: 'cars', action: 'minivans')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Минивэны
+    <% elsif current_page?(controller: 'cars', action: 'cabrio')%>
+      <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Кабриолеты
     <% elsif current_page?(controller: 'cars', action: 'crossovers')%>
       <a href="<%= params[:city] && params[:city] != 'Калининград' ? "/russia/#{@city.url_name}" : '/' %>">Главная /</a> Кроссоверы
     <% elsif current_page?(controller: 'cars', action: 'business')%>

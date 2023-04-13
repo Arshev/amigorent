@@ -1,5 +1,5 @@
- <%# cars.each do |car| %> 
-  <div class="avto1 <%= car.car_type == 'Хэтчбек' ? 'hatchback' : '' %><%= car.car_type == 'Седан' ? ' sedan' : '' %><%= car.car_type == 'Универсал' ? ' universal' : '' %><%= car.car_type == 'Купе' ? ' cupe' : '' %><%= car.car_type == 'Кроссовер' ? ' crossover' : '' %><%= car.car_type == 'Джип' ? ' jeep' : '' %><%= car.car_type == 'Минивэн' ? ' minivan' : '' %> <%= car.transmission == 'Автомат' ? ' akpp' : '' %><%= car.transmission == 'Механика' ? ' mkpp' : '' %><%= car.transmission == 'Вариатор' ? ' vkpp' : '' %>">
+ <%# cars.each do |car| %>
+  <div class="avto1 <%= car.car_type == 'Хэтчбек' ? 'hatchback' : '' %><%= car.car_type == 'Седан' ? ' sedan' : '' %><%= car.car_type == 'Универсал' ? ' universal' : '' %><%= car.car_type == 'Купе' ? ' cupe' : '' %><%= car.car_type == 'Кроссовер' ? ' crossover' : '' %><%= car.car_type == 'Джип' ? ' jeep' : '' %><%= car.car_type == 'Минивэн' ? ' minivan' : '' %><%= car.car_type == 'Кабриолет' ? ' cabrio' : '' %>  <%= car.transmission == 'Автомат' ? ' akpp' : '' %><%= car.transmission == 'Механика' ? ' mkpp' : '' %><%= car.transmission == 'Вариатор' ? ' vkpp' : '' %>">
     <% if car.old_price_1 && car.old_price_1 > 0 %>
       <% if I18n.locale == :en %>
         <div class="badge"><span>Sale</span></div>
@@ -7,7 +7,7 @@
         <div class="badge"><span>Акция</span></div>
       <% end %>
     <% end %>
-    
+
       <% if car.main_image? %>
         <div class="bl_img" style="background-image: url(<%= image_path(car.main_image.url(:show))%>);"></div>
       <% else %>
@@ -90,6 +90,6 @@
           Подробнее
         <% end %>
       <% end %>
-      
+
   </div>
 <%# end %>

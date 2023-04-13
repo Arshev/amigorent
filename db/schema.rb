@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_120434) do
+ActiveRecord::Schema.define(version: 2023_04_13_123247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -260,6 +260,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_120434) do
     t.boolean "is_universal"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_cabrio"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -646,6 +647,14 @@ ActiveRecord::Schema.define(version: 2021_11_30_120434) do
     t.string "franchise_title_en", default: "empty"
     t.string "franchise_description_en", default: "empty"
     t.string "franchise_h1_en", default: "empty"
+    t.string "cars_cabrio_title", default: "empty"
+    t.string "cars_cabrio_description", default: "empty"
+    t.string "cars_cabrio_h1", default: "empty"
+    t.text "cars_cabrio_text", default: "empty"
+    t.string "cars_cabrio_title_en", default: "empty"
+    t.string "cars_cabrio_description_en", default: "empty"
+    t.string "cars_cabrio_h1_en", default: "empty"
+    t.text "cars_cabrio_text_en", default: "empty"
   end
 
   create_table "towns", force: :cascade do |t|

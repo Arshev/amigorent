@@ -15,7 +15,7 @@ Rails
 
   get '/' => 'cities#address_city', :constraints => { :subdomain => /.+/ }
   root to: "main#index"
-  
+
   # constraints subdomain: "ekaterinburg" do
   #   get "main#index" => "cities#address_city"
   # end
@@ -70,6 +70,7 @@ Rails
         get "economy"
         get "middle"
         get "minivans"
+        get "cabrio"
         get "crossovers"
         get "business"
         get "commercial"

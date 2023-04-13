@@ -1,10 +1,5 @@
-<% if (params[:city] && params[:city] != 'Калининград') %>
-  <% title "Кроссоверы в аренду в автопрокате Амиго #{@city.name}" %>
-  <% description "Кроссоверы в аренду в #{@city.name}. Посуточная аренда, и на долгий срок." %>
-<% else %>
-    <% title @text.cars_crossovers_title %>
-    <% description @text.cars_crossovers_description %>
-<% end %>
+<% title @text.cars_cabrio_title_en %>
+<% description @text.cars_cabrio_description_en %>
 <%= render 'shared/header', cached: true %>
 <div class="content">
     <div class="wrapper">
@@ -16,7 +11,7 @@
 </div>
 <div class="block2 var2">
     <div class="wrapper" id="search_cars">
-        <div class="zagol"><h1><%= @text.cars_crossovers_h1 %></h1></div>
+        <div class="zagol"><h1><%= @text.cars_cabrio_h1_en %></h1></div>
         <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>" locale="<%= I18n.locale ? I18n.locale : 'ru' %>"></search_cars>
         <div class="clear"></div>
     </div>
@@ -25,27 +20,27 @@
     <div class="content for_spis">
         <div class="wrapper">
             <div class="text1">
-                <div class="zagol"><%= @text.top_cars_title.html_safe %></div>
+                <div class="zagol"><%= @text.top_cars_title_en.html_safe %></div>
                 <p><%= @text.top_cars.html_safe %></p>
             </div>
             <div class="filter">
                 <select id="car_type">
-                    <option selected value="0">Тип автомобиля</option>
-                    <option value="1">Седан</option>
-                    <option value="2">Хетчбек</option>
-                    <option value="3">Универсал</option>
-                    <option value="4">Купе</option>
-                    <option value="5">Кроссовер</option>
-                    <option value="6">Джип</option>
-                    <option value="7">Минивэн</option>
-                    <option value="9">Кабриолет</option>
-                    <option value="8">Все автомобили</option>
+                    <option selected value="0">Car type</option>
+                    <option value="1">Sedan</option>
+                    <option value="2">Hatchback</option>
+                    <option value="3">Universal</option>
+                    <option value="4">Cupe</option>
+                    <option value="5">Crossover</option>
+                    <option value="6">Jeep</option>
+                    <option value="7">Minivan</option>
+                    <option value="8">Cabrio</option>
+                    <option value="8">All cars</option>
                 </select>
                 <select id="car_kpp">
-                    <option selected value="0">КПП</option>
-                    <option value="1">Автоматическая КПП</option>
-                    <option value="2">Механическая КПП</option>
-                    <option value="4">Все автомобили</option>
+                    <option selected value="0">Transmission</option>
+                    <option value="1">Automatic Transmission</option>
+                    <option value="2">Manual Transmission</option>
+                    <option value="4">All cars</option>
                 </select>
                 <div class="vid_spis" id="flash_cars_vid">
                     <a href="#" class="vid1 active"></a>
@@ -83,7 +78,7 @@
 <div class="block_vopros">
     <div class="wrapper">
         <div class="vopros">
-            <div class="otv" style="display: block;"><%= @text.cars_crossovers_text.html_safe %></div>
+            <div class="otv" style="display: block;"><%= @text.cars_cabrio_text_en.html_safe %></div>
         </div>
         <div class="clear"></div>
     </div>

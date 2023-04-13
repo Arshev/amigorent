@@ -20,7 +20,7 @@ console.log("Hello World from Webpacker");
 // import 'sweetalert2/dist/sweetalert2.min.css';
 require("trix")
 require("@rails/actiontext")
-import {} from 'jquery-ujs'
+import { } from 'jquery-ujs'
 import 'bootstrap/dist/js/bootstrap';
 import "./jquery.bxslider.min"
 import "application.scss";
@@ -175,8 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
   var jeep2 = $('div#flash_cars div#spis2 div.jeep').clone(true);
   var minivan = $('div#flash_cars div#spis1 div.minivan').clone(true);
   var minivan2 = $('div#flash_cars div#spis2 div.minivan').clone(true);
+  var cabrio = $('div#flash_cars div#spis1 div.cabrio').clone(true);
+  var cabrio2 = $('div#flash_cars div#spis2 div.cabrio').clone(true);
 
-  $("#car_type").on("change", function() {
+  $("#car_type").on("change", function () {
     $("#car_kpp option[value='0']").prop('selected', true);
     var sel = $(this).val()
     if (sel == 1) {
@@ -214,6 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
       $('div#flash_cars div#spis2 div.avto1').remove();
       minivan.prependTo("div#flash_cars div#spis1.spis_avto");
       minivan2.prependTo("div#flash_cars div#spis2.spis_avto");
+    } else if (sel == 9) {
+      $('div#flash_cars div#spis1 div.avto1').remove();
+      $('div#flash_cars div#spis2 div.avto1').remove();
+      cabrio.prependTo("div#flash_cars div#spis1.spis_avto");
+      cabrio2.prependTo("div#flash_cars div#spis2.spis_avto");
     } else {
       $('div#flash_cars div#spis1 div.avto1').remove();
       $('div#flash_cars div#spis2 div.avto1').remove();
@@ -232,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var vkpp = $('div#flash_cars div#spis1 div.vkpp').clone(true);
   var vkpp2 = $('div#flash_cars div#spis2 div.vkpp').clone(true);
 
-  $("#car_kpp").on("change", function() {
+  $("#car_kpp").on("change", function () {
     $("#car_type option[value='0']").prop('selected', true);
     var sel = $(this).val()
     if (sel == 1) {
@@ -275,8 +282,10 @@ document.addEventListener("DOMContentLoaded", () => {
   var not_flash_jeep2 = $('div#not_flash_cars div#spis2 div.jeep').clone(true);
   var not_flash_minivan = $('div#not_flash_cars div#spis1 div.minivan').clone(true);
   var not_flash_minivan2 = $('div#not_flash_cars div#spis2 div.minivan').clone(true);
+  var not_flash_cabrio = $('div#not_flash_cars div#spis1 div.cabrio').clone(true);
+  var not_flash_cabrio2 = $('div#not_flash_cars div#spis2 div.cabrio').clone(true);
 
-  $("#not_flash_car_type").on("change", function() {
+  $("#not_flash_car_type").on("change", function () {
     $("#not_flash_car_kpp option[value='0']").prop('selected', true);
     var sel = $(this).val()
     if (sel == 1) {
@@ -314,6 +323,11 @@ document.addEventListener("DOMContentLoaded", () => {
       $('div#not_flash_cars div#spis2 div.avto1').remove();
       not_flash_minivan.prependTo("div#not_flash_cars div#spis1.spis_avto");
       not_flash_minivan2.prependTo("div#not_flash_cars div#spis2.spis_avto");
+    } else if (sel == 9) {
+      $('div#not_flash_cars div#spis1 div.avto1').remove();
+      $('div#not_flash_cars div#spis2 div.avto1').remove();
+      not_flash_cabrio.prependTo("div#not_flash_cars div#spis1.spis_avto");
+      not_flash_cabrio2.prependTo("div#not_flash_cars div#spis2.spis_avto");
     } else {
       $('div#not_flash_cars div#spis1 div.avto1').remove();
       $('div#not_flash_cars div#spis2 div.avto1').remove();
@@ -332,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var not_flash_vkpp = $('div#not_flash_cars div#spis1 div.vkpp').clone(true);
   var not_flash_vkpp2 = $('div#not_flash_cars div#spis2 div.vkpp').clone(true);
 
-  $("#not_flash_car_kpp").on("change", function() {
+  $("#not_flash_car_kpp").on("change", function () {
     $("#not_flash_car_type option[value='0']").prop('selected', true);
     var sel = $(this).val()
     if (sel == 1) {
@@ -360,24 +374,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $(function () {
     $("#rateYo").rateYo({
-        rating: 5,
-        fullStar: true,
-        onChange: function (rating, rateYoInstance) {
-            document.getElementById('star_counter').value = rating
-        }
+      rating: 5,
+      fullStar: true,
+      onChange: function (rating, rateYoInstance) {
+        document.getElementById('star_counter').value = rating
+      }
     })
     $(function () {
       let yaRating = $("#YaRaiting").text()
       let googleRating = $("#GoogleRaiting").text()
       $("#rateYoYa").rateYo({
-          rating: yaRating,
-          readOnly: true,
-          ratedFill: "#ef7f1a"
+        rating: yaRating,
+        readOnly: true,
+        ratedFill: "#ef7f1a"
       });
       $("#rateYoGoogle").rateYo({
-          rating: googleRating,
-          readOnly: true,
-          ratedFill: "#ef7f1a"
+        rating: googleRating,
+        readOnly: true,
+        ratedFill: "#ef7f1a"
       });
     });
   })

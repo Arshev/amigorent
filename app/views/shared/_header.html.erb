@@ -142,6 +142,29 @@
                     </li>
                     <li>
                       <% if I18n.locale == :en %>
+                        <% if current_page?(cabrio_cars_path) %>
+                          <a href="" onclick="return false">
+                            Cabrio
+                          </a>
+                        <% else %>
+                          <%= link_to cabrio_cars_path(locale: I18n.locale) do %>
+                            Cabrio
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(cabrio_cars_path) %>
+                          <a href="" onclick="return false">
+                            Кабриолеты
+                          </a>
+                        <% else %>
+                          <%= link_to cabrio_cars_path do %>
+                            Кабриолеты
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
                         <% if current_page?(crossovers_cars_path) %>
                           <a href="" onclick="return false">
                             Сrossovers
@@ -485,6 +508,29 @@
                         <% else %>
                           <%= link_to minivans_cars_path do %>
                             Минивэны
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <% if I18n.locale == :en %>
+                        <% if current_page?(cabrio_cars_path) %>
+                          <a href="" onclick="return false">
+                            Cabrio
+                          </a>
+                        <% else %>
+                          <%= link_to cabrio_cars_path(locale: I18n.locale) do %>
+                            Cabrio
+                          <% end %>
+                        <% end%>
+                      <% else %>
+                        <% if current_page?(cabrio_cars_path) %>
+                          <a href="" onclick="return false">
+                            Кабриолеты
+                          </a>
+                        <% else %>
+                          <%= link_to cabrio_cars_path do %>
+                            Кабриолеты
                           <% end %>
                         <% end %>
                       <% end %>
@@ -1123,7 +1169,7 @@
               <span class="">EN</span>
             <% end %>
           <% end %>
-          / 
+          /
           <%= link_to root_path do %>
             <% if I18n.locale == :ru %>
               <span class="active">RU</span>

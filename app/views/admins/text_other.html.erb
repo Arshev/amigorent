@@ -98,6 +98,20 @@
             <div class="card m-t-3">
               <div class="card-body">
                 <div class="click2edit m-b-3">
+                  <h4>Кабриолеты Класс</h4>
+                  <p>H1</p>
+                  <%= f.text_field :cars_cabrio_h1, placeholder: "Авто", class: "form-control" %>
+                  <p>Текст</p>
+                  <%= f.cktext_area :cars_cabrio_text, ckeditor: { language: 'ru'} %>
+                </div>
+                <%= f.submit "Сохранить", class: "btn btn-outline-success" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card m-t-3">
+              <div class="card-body">
+                <div class="click2edit m-b-3">
                   <h4>Кроссоверы Класс</h4>
                   <p>H1</p>
                   <%= f.text_field :cars_crossovers_h1, placeholder: "Авто", class: "form-control" %>
