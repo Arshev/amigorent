@@ -401,6 +401,14 @@ class TextsController < ApplicationController
         :main_question_1_en,
         :main_question_2_en,
         :main_question_3_en,
+        :cars_cabrio_title,
+        :cars_cabrio_description,
+        :cars_cabrio_h1,
+        :cars_cabrio_text,
+        :cars_cabrio_title_en,
+        :cars_cabrio_description_en,
+        :cars_cabrio_h1_en,
+        :cars_cabrio_text_en,
       )
   end
 end

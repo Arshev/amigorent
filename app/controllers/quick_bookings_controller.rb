@@ -21,6 +21,6 @@ class QuickBookingsController < ApplicationController
   private
 
     def quick_booking_params
-      params.require(:quick_booking).permit(:start_date, :end_date, :name, :phone, :email, :is_sedan, :is_hatch, :is_cross, :is_minivan, :is_universal)
+      params.require(:quick_booking).permit(:start_date, :end_date, :name, :phone, :email, :is_sedan, :is_hatch, :is_cross, :is_minivan, :is_universal, :is_cabrio)
     end
 end
