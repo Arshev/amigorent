@@ -73,21 +73,22 @@ class CarsController < ApplicationController
         end
       end
       @cars = Car.where(id: cars_ids)
-      @fake_cars =
-        Car
-          .where(
-            active: true,
-            city: params[:city] ? params[:city] : 'Калининград',
-            ids_rentprog: nil,
-          )
-          .or(
-            Car
-              .where.not(id: cars_ids)
-              .where(
-                active: true,
-                city: params[:city] ? params[:city] : 'Калининград',
-              ),
-          )
+      @fake_cars = []
+      # @fake_cars =
+      #   Car
+      #     .where(
+      #       active: true,
+      #       city: params[:city] ? params[:city] : 'Калининград',
+      #       ids_rentprog: nil,
+      #     )
+      #     .or(
+      #       Car
+      #         .where.not(id: cars_ids)
+      #         .where(
+      #           active: true,
+      #           city: params[:city] ? params[:city] : 'Калининград',
+      #         ),
+      #     )
     else
       if params[:city] && params[:city] != 'Калининград'
         @city = City.find_by(name: params[:city])
