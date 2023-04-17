@@ -20,12 +20,12 @@
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application', rel: 'preload' %>
   <%= stylesheet_pack_tag 'application', rel: "stylesheet", media: "all" %>
-  
+
   <% if request.subdomain != 'ekaterinburg' %>
     <%= javascript_pack_tag 'counters' %>
   <% end %>
-  
-  
+
+
   <% if current_page?(root_path) %>
     <%= javascript_pack_tag 'call_booking' %>
     <%= stylesheet_pack_tag 'call_booking', media: "all" %>
@@ -39,7 +39,7 @@
     <%= javascript_pack_tag 'search_main', rel: 'preload' %>
     <%= stylesheet_pack_tag 'search_main', media: "all" %>
   <% end %>
-  <% if request.path.include?('arenda-avto') || current_page?(cars_ru_path) || current_page?(cars_en_path) || current_page?(economy_cars_ru_path) || current_page?(economy_cars_en_path) || current_page?(middle_cars_ru_path) || current_page?(middle_cars_en_path) || current_page?(minivans_cars_ru_path) || current_page?(minivans_cars_en_path) || current_page?(crossovers_cars_ru_path) || current_page?(crossovers_cars_en_path) || current_page?(business_cars_ru_path) || current_page?(business_cars_en_path) || current_page?(commercial_cars_ru_path) || current_page?(commercial_cars_en_path)%>
+  <% if request.path.include?('arenda-avto') || current_page?(cars_ru_path) || current_page?(cars_en_path) || current_page?(economy_cars_ru_path) || current_page?(economy_cars_en_path) || current_page?(middle_cars_ru_path) || current_page?(middle_cars_en_path) || current_page?(minivans_cars_ru_path) || current_page?(minivans_cars_en_path) || current_page?(cabrio_cars_ru_path) || current_page?(cabrio_cars_en_path) || current_page?(crossovers_cars_ru_path) || current_page?(crossovers_cars_en_path) || current_page?(business_cars_ru_path) || current_page?(business_cars_en_path) || current_page?(commercial_cars_ru_path) || current_page?(commercial_cars_en_path)%>
     <%= javascript_pack_tag 'search_cars' %>
     <%= stylesheet_pack_tag 'search_cars', media: "all" %>
   <% end %>
