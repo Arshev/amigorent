@@ -1316,7 +1316,7 @@ export default {
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
             this.location_start_price = 0;
           } else {
-            this.location_start_price = 400;
+            this.location_start_price = 500;
           }
           if (
             this.additional_hours > 0 &&
@@ -1340,9 +1340,9 @@ export default {
           break;
         case "Аэропорт" || "Airport":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 400;
+            this.location_start_price = 500;
           } else {
-            this.location_start_price = 700;
+            this.location_start_price = 1000;
           }
           if (
             this.additional_hours > 0 &&
@@ -1366,9 +1366,9 @@ export default {
           break;
         case "Зеленоградск" || "Zelenogradsk":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 800;
+            this.location_start_price = 1000;
           } else {
-            this.location_start_price = 1300;
+            this.location_start_price = 1500;
           }
           if (
             this.additional_hours > 0 &&
@@ -1392,9 +1392,9 @@ export default {
           break;
         case "Светлогорск" || "Svetlogorsk":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 1000;
-          } else {
             this.location_start_price = 1500;
+          } else {
+            this.location_start_price = 2000;
           }
           if (
             this.additional_hours > 0 &&
@@ -1450,7 +1450,7 @@ export default {
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
             this.location_end_price = 0;
           } else {
-            this.location_end_price = 400;
+            this.location_end_price = 500;
           }
           if (
             this.additional_hours > 0 &&
@@ -1474,9 +1474,9 @@ export default {
           break;
         case "Аэропорт" || "Airport":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 400;
+            this.location_end_price = 500;
           } else {
-            this.location_end_price = 700;
+            this.location_end_price = 1000;
           }
           if (
             this.additional_hours > 0 &&
@@ -1500,9 +1500,9 @@ export default {
           break;
         case "Зеленоградск" || "Zelenogradsk":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 800;
+            this.location_end_price = 1000;
           } else {
-            this.location_end_price = 1300;
+            this.location_end_price = 1500;
           }
           if (
             this.additional_hours > 0 &&
@@ -1526,9 +1526,9 @@ export default {
           break;
         case "Светлогорск" || "Svetlogorsk":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 1000;
-          } else {
             this.location_end_price = 1500;
+          } else {
+            this.location_end_price = 2000;
           }
           if (
             this.additional_hours > 0 &&
