@@ -14,7 +14,7 @@ Vue.use(VueAxios, axios)
 Vue.axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3001"
-    : "https://api.rentprog.ru";
+    : "https://stayhub.ru";
 Vue.component("loading", Loading);
 Vue.use(VModal)
 Vue.use(Vuelidate)

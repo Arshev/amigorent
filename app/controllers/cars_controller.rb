@@ -40,8 +40,13 @@ class CarsController < ApplicationController
       end
 
       # Ищем в системе свободные
-      get_free_cars_url =
-        "https://api.rentprog.ru/api/v1/get_free_cars?start_date=#{start_date}&end_date=#{end_date}"
+      if Rails.env.production?
+        get_free_cars_url =
+          "https://stayhub.ru/api/v1/get_free_cars?start_date=#{start_date}&end_date=#{end_date}"
+      else
+        get_free_cars_url =
+          "http://localhost:3001/api/v1/get_free_cars?start_date=#{start_date}&end_date=#{end_date}"
+      end
       get_free_cars_resp =
         Faraday.get(get_free_cars_url) do |req|
           req.headers['Accept'] = 'application/json'

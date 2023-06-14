@@ -9,9 +9,25 @@
     <% end %>
 
       <% if car.main_image? %>
-        <div class="bl_img" style="background-image: url(<%= image_path(car.main_image.url(:show))%>);"></div>
+        <% if I18n.locale == :en %>
+          <%= link_to car_en_path(car, start_date: params[:start_date], start_time: params[:start_time], end_date: params[:end_date], end_time: params[:end_time], city: params[:city], free: true) do %>
+            <div class="bl_img" style="background-image: url(<%= image_path(car.main_image.url(:show))%>);"></div>
+          <% end %>
+        <% else %>
+          <%= link_to car_ru_path(car, start_date: params[:start_date], start_time: params[:start_time], end_date: params[:end_date], end_time: params[:end_time], city: params[:city], free: true) do %>
+            <div class="bl_img" style="background-image: url(<%= image_path(car.main_image.url(:show))%>);"></div>
+          <% end %>
+        <% end %>
       <% else %>
-        <div class="bl_img" style="background-image: url(<%= image_path('avto.webp')%>);"></div>
+        <% if I18n.locale == :en %>
+          <%= link_to car_en_path(car, start_date: params[:start_date], start_time: params[:start_time], end_date: params[:end_date], end_time: params[:end_time], city: params[:city], free: true) do %>
+            <div class="bl_img" style="background-image: url(<%= image_path('avto.webp')%>);"></div>
+          <% end %>
+        <% else %>
+          <%= link_to car_ru_path(car, start_date: params[:start_date], start_time: params[:start_time], end_date: params[:end_date], end_time: params[:end_time], city: params[:city], free: true) do %>
+            <div class="bl_img" style="background-image: url(<%= image_path('avto.webp')%>);"></div>
+          <% end %>
+        <% end %>
       <% end %>
       <% if I18n.locale == :en %>
         <%= link_to car_en_path(car, start_date: params[:start_date], start_time: params[:start_time], end_date: params[:end_date], end_time: params[:end_time], city: params[:city], free: true), class: "zg" do %>

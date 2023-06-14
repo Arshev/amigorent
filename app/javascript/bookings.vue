@@ -621,7 +621,7 @@
                 <div class="pod">Расчёт:</div>
                 <hr style="margin: 15px 0px" />
                 <div class="price">
-                  Аренда ({{ days }} суток):
+                  Аренда ({{ days }} суток): {{ price }} ₽
                   <span>{{ price * days }} ₽</span>
                 </div>
                 <div class="price" v-if="days_limit_error">
@@ -754,6 +754,7 @@ export default {
       days_limit_error: null,
       total: 0,
       additional_hours: 0,
+      hours_limit: 0,
       hours: 0,
       baby_chair: false,
       navigator: false,
@@ -852,7 +853,7 @@ export default {
         this.start_date_no_time &&
         this.end_date_no_time
       ) {
-        this.getCarData(this.ids_rentprog[0]);
+        this.getCarData(this.ids_rentprog[0], false);
       }
     }
   },
@@ -861,16 +862,18 @@ export default {
       let start_date = moment(this.start_date, "DD-MM-YYYY H:mm");
       let end_date = moment(this.end_date, "DD-MM-YYYY H:mm");
       let hours = moment.duration(end_date.diff(start_date)).asHours();
+      console.log("hours", hours);
 
       let start_date_days = moment(this.start_date, "DD-MM-YYYY");
       let end_date_days = moment(this.end_date, "DD-MM-YYYY");
       this.additional_hours = 0;
+      let additionalHours = 0;
       if (
         hours >
         moment.duration(end_date_days.diff(start_date_days)).asDays() * 24
       ) {
         this.hours = hours;
-        let additionalHours = hours % 24;
+        additionalHours = hours % 24;
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
@@ -883,7 +886,7 @@ export default {
         this.start_date_no_time &&
         this.end_date_no_time
       ) {
-        this.getCarData(this.ids_rentprog[0]);
+        this.getCarData(this.ids_rentprog[0], true);
       }
       if (!isNaN(diff)) {
         if (diff >= 1) {
@@ -908,10 +911,12 @@ export default {
 
         if (diff >= 1 && diff <= 3) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
+            console.log("this.days 1", this.days);
             this.additional_hours = 0;
             this.hours = 0;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -927,6 +932,7 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
+            console.log("this.days 2", this.days);
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
             } else {
@@ -943,8 +949,9 @@ export default {
         }
         if (diff > 3 && diff <= 7) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             this.additional_hours = 0;
@@ -978,8 +985,9 @@ export default {
         }
         if (diff > 7 && diff <= 14) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             this.hours = 0;
@@ -1013,8 +1021,9 @@ export default {
         }
         if (diff > 14 && diff <= 30) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             this.hours = 0;
@@ -1048,8 +1057,9 @@ export default {
         }
         if (diff > 30) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             this.hours = 0;
@@ -1100,12 +1110,13 @@ export default {
       let start_date_days = moment(this.start_date, "DD-MM-YYYY");
       let end_date_days = moment(this.end_date, "DD-MM-YYYY");
       this.additional_hours = 0;
+      let additionalHours = 0;
       if (
         hours >
         moment.duration(end_date_days.diff(start_date_days)).asDays() * 24
       ) {
         this.hours = hours;
-        let additionalHours = hours % 24;
+        additionalHours = hours % 24;
         this.additional_hours = Math.trunc(additionalHours);
       }
       let diff = moment.duration(end_date_days.diff(start_date_days)).asDays();
@@ -1118,7 +1129,7 @@ export default {
         this.start_date_no_time &&
         this.end_date_no_time
       ) {
-        this.getCarData(this.ids_rentprog[0]);
+        this.getCarData(this.ids_rentprog[0], true);
       }
 
       if (!isNaN(diff)) {
@@ -1143,10 +1154,12 @@ export default {
         }
         if (diff >= 1 && diff <= 3) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
+            console.log("this.days 1", this.days);
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
             } else {
@@ -1160,6 +1173,7 @@ export default {
               this.location_end_price;
           } else {
             this.days = diff;
+            console.log("this.days 2", this.days);
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
             } else {
@@ -1172,12 +1186,15 @@ export default {
               this.navigator_price +
               this.location_start_price +
               this.location_end_price;
+
+            console.log("this.total", this.total);
           }
         }
         if (diff > 3 && diff <= 7) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1209,8 +1226,9 @@ export default {
         }
         if (diff > 7 && diff <= 14) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1242,8 +1260,9 @@ export default {
         }
         if (diff > 14 && diff <= 30) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1275,8 +1294,9 @@ export default {
         }
         if (diff > 30) {
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1623,8 +1643,8 @@ export default {
     birthday() {
       console.log(this.birthday);
     },
-    price() {
-      console.log(this.price);
+    days() {
+      console.log(this.days);
     },
   },
   methods: {
@@ -1637,7 +1657,7 @@ export default {
         this.start_date_no_time &&
         this.end_date_no_time
       ) {
-        this.getCarData(this.ids_rentprog[0]);
+        this.getCarData(this.ids_rentprog[0], false);
         this.$modal.show("my-first-modal");
       } else {
         this.$modal.show("my-first-modal");
@@ -1699,7 +1719,7 @@ export default {
           .finally((this.isLoading = false));
       }
     },
-    getCarData(id) {
+    getCarData(id, from_calendar) {
       this.isLoading = true;
       this.axios
         .get(
@@ -1711,19 +1731,53 @@ export default {
           }
         )
         .then((response) => {
+          console.log(response.data);
           this.rentprog_price = response.data.selected_price;
+          this.hours_limit = response.data.hours_limit;
           // Расчет стоимости доп часов
           let calc_hours_cost = 0;
+          let start_date = moment(this.start_date, "DD-MM-YYYY H:mm");
+          let end_date = moment(this.end_date, "DD-MM-YYYY H:mm");
+
+          let hours = moment.duration(end_date.diff(start_date)).asHours();
+
+          let start_date_days = moment(this.start_date, "DD-MM-YYYY");
+          let end_date_days = moment(this.end_date, "DD-MM-YYYY");
+          let diff = moment
+            .duration(end_date_days.diff(start_date_days))
+            .asDays();
+          this.additional_hours = 0;
+          let additionalHours = 0;
           if (
-            this.additional_hours > 0 &&
-            this.additional_hours < response.data.hours_limit
+            hours >
+            moment.duration(end_date_days.diff(start_date_days)).asDays() * 24
           ) {
-            calc_hours_cost = this.additional_hours * response.data.price_hour;
-          } else if (this.additional_hours >= response.data.hours_limit) {
-            this.days = this.days + 1;
-            this.additional_hours = 0;
+            this.hours = hours;
+            additionalHours = hours % 24;
+            this.additional_hours = Math.trunc(additionalHours);
           }
-          console.log(this.additional_hours, response.data.hours_limit);
+          if (
+            additionalHours > 0 &&
+            (additionalHours * this.prices[5] >= this.price ||
+              additionalHours >= this.hours_limit)
+          ) {
+            // if (!from_calendar) {
+            this.days = diff + 1;
+            // }
+            this.additional_hours = 0;
+          } else if (this.additional_hours > 0) {
+            calc_hours_cost = this.additional_hours * response.data.price_hour;
+          }
+          // if (
+          //   this.additional_hours > 0 &&
+          //   this.additional_hours < this.hours_limit
+          // ) {
+          //   calc_hours_cost = this.additional_hours * response.data.price_hour;
+          // } else if (this.additional_hours >= this.hours_limit) {
+          //   this.days = this.days + 1;
+          //   this.additional_hours = 0;
+          // }
+          // console.log(this.additional_hours, this.hours_limit);
           if (this.rentprog_price && this.rentprog_price > 0) {
             this.price = this.rentprog_price;
             this.total =
