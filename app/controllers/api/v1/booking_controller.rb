@@ -31,7 +31,7 @@ class Api::V1::BookingController < ApiController
           phone == checked_phone ? true : false
         end
 
-        url_get = 'https://stayhub.ru/api/v1/get_clients'
+        url_get = 'https://rentprog.pro/api/v1/get_clients'
         resp_get = Faraday.get(url_get)
         clients = JSON.parse resp_get.body.force_encoding('UTF-8') #строка надо преобразовать в массив
         finded_client =
@@ -42,7 +42,7 @@ class Api::V1::BookingController < ApiController
           end
         if !finded_client
           # # Create client
-          # url = 'https://stayhub.ru/api/v1/create_client'
+          # url = 'https://rentprog.pro/api/v1/create_client'
           # resp = Faraday.post(url) do |req|
           #     req.body = { clients: {name: "#{@booking.firstname.capitalize}", lastname: "#{@booking.lastname.capitalize}", middlename: "#{@booking.middlename.capitalize}", phone: "#{@booking.phone}", email: "#{@booking.email}" } }.to_json
           #     req.headers['Content-Type'] = 'application/json'
@@ -50,7 +50,7 @@ class Api::V1::BookingController < ApiController
           # logger.info "Faraday " + " resp:" + resp.body.to_s
 
           #create client and booking
-          url_create_client = 'https://stayhub.ru/api/v1/create_client'
+          url_create_client = 'https://rentprog.pro/api/v1/create_client'
           resp_create_client =
             Faraday.post(url_create_client) do |req|
               req.body = {
@@ -66,7 +66,7 @@ class Api::V1::BookingController < ApiController
             end
           resp_create_client_resp =
             JSON.parse resp_create_client.body.force_encoding('UTF-8')
-          url_create_booking = 'https://stayhub.ru/api/v1/create_booking'
+          url_create_booking = 'https://rentprog.pro/api/v1/create_booking'
           resp_create_booking =
             Faraday.post(url_create_booking) do |req|
               req.body = {
@@ -99,7 +99,7 @@ class Api::V1::BookingController < ApiController
           logger.info "Faraday create client #{resp_create_client_resp['id']} and booking #{resp_create_booking['id']}"
         else
           # Create booking
-          url = 'https://stayhub.ru/api/v1/create_booking'
+          url = 'https://rentprog.pro/api/v1/create_booking'
           resp =
             Faraday.post(url) do |req|
               req.body = {
