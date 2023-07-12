@@ -45,7 +45,7 @@ class CarsController < ApplicationController
           "https://rentprog.pro/api/v1/get_free_cars?start_date=#{start_date}&end_date=#{end_date}"
       else
         get_free_cars_url =
-          "http://localhost:3001/api/v1/get_free_cars?start_date=#{start_date}&end_date=#{end_date}"
+          "http://localhost:3000/api/v1/get_free_cars?start_date=#{start_date}&end_date=#{end_date}"
       end
       get_free_cars_resp =
         Faraday.get(get_free_cars_url) do |req|
