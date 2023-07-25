@@ -1703,6 +1703,27 @@ export default {
                 text: "К сожалению на эти даты автомобиль занят, попробуйте выбрать другие или свяжитесь с нами",
               });
             }
+            if (window["ym"]) {
+              console.log("search_cars_metrika", 48045371);
+              window["ym"](
+                48045371,
+                "reachGoal",
+                "search_cars",
+                {
+                  start_date: this.start_date,
+                  end_date: this.end_date,
+                  car_id: this.set_car.id,
+                },
+                () => {
+                  console.log("search_cars_metrika success");
+                },
+                (err) => {
+                  console.log("search_cars_metrika error", err);
+                }
+              );
+            } else {
+              console.log("search_cars_metrika not found");
+            }
           })
           .catch((error) => {
             this.isLoading = false;
@@ -1934,6 +1955,27 @@ export default {
                   }
                 )
                 .then(() => {
+                  if (window["ym"]) {
+                    console.log("send_booking_metrika", 48045371);
+                    window["ym"](
+                      48045371,
+                      "reachGoal",
+                      "send_booking",
+                      {
+                        start_date: this.start_date,
+                        end_date: this.end_date,
+                        car_id: this.set_car.id,
+                      },
+                      () => {
+                        console.log("send_booking_metrika success");
+                      },
+                      (err) => {
+                        console.log("send_booking_metrika error", err);
+                      }
+                    );
+                  } else {
+                    console.log("send_booking_metrika not found");
+                  }
                   // self.closeDialog();
                   // self.$swal({
                   //   type: "success",

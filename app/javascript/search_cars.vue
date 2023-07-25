@@ -206,11 +206,11 @@ export default {
     }
   },
   watch: {
-    start_date () {
+    start_date() {
       if (this.start_date) {
-        this.configEnd.minDate = moment(this.start_date, "DD-MM-YYYY").toDate()
+        this.configEnd.minDate = moment(this.start_date, "DD-MM-YYYY").toDate();
       }
-    }
+    },
   },
   methods: {
     goToCars() {
@@ -225,7 +225,28 @@ export default {
             moment(this.end_date, "DD-MM-YYYY")
           )
         ) {
-          if (this.locale && this.locale == 'en') {
+          if (window["ym"]) {
+            console.log("search_cars_from_cars_metrika", 48045371);
+            window["ym"](
+              48045371,
+              "reachGoal",
+              "search_cars_from_cars",
+              {
+                start_date: this.start_date,
+                end_date: this.end_date,
+                car_id: this.set_car.id,
+              },
+              () => {
+                console.log("search_cars_from_cars_metrika success");
+              },
+              (err) => {
+                console.log("search_cars_from_cars_metrika error", err);
+              }
+            );
+          } else {
+            console.log("search_cars_from_cars_metrika not found");
+          }
+          if (this.locale && this.locale == "en") {
             window.location.replace(
               `/en/cars?start_date=${this.start_date}&start_time=${this.start_time}&end_date=${this.end_date}&end_time=${this.end_time}&city=${this.city}`
             );
@@ -250,14 +271,10 @@ export default {
       }
     },
     goToAllCars() {
-      if (this.locale && this.locale == 'en') {
-        window.location.replace(
-          `/en/cars?city=${this.city}`
-        );
+      if (this.locale && this.locale == "en") {
+        window.location.replace(`/en/cars?city=${this.city}`);
       } else {
-        window.location.replace(
-          `/cars?city=${this.city}`
-        );
+        window.location.replace(`/cars?city=${this.city}`);
       }
     },
   },
