@@ -33,7 +33,7 @@
               <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
           </a>
         <% else %>
-          <%= link_to root_path, id: "logo" do %>
+          <%= link_to root_path, id: "logo", onclick: "ym(48045371,'reachGoal','send_booking'); return true;" do %>
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           <% end %>
         <% end %>
