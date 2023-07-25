@@ -1712,7 +1712,6 @@ export default {
                 {
                   start_date: this.start_date,
                   end_date: this.end_date,
-                  car_id: this.set_car.id,
                 },
                 () => {
                   console.log("search_cars_metrika success");
@@ -1964,7 +1963,6 @@ export default {
                       {
                         start_date: this.start_date,
                         end_date: this.end_date,
-                        car_id: this.set_car.id,
                       },
                       () => {
                         console.log("send_booking_metrika success");
