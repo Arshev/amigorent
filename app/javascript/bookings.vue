@@ -1961,8 +1961,8 @@ export default {
                       "reachGoal",
                       "send_booking",
                       {
-                        start_date: this.start_date,
-                        end_date: this.end_date,
+                        start_date: self.start_date,
+                        end_date: self.end_date,
                       },
                       () => {
                         console.log("send_booking_metrika success");
