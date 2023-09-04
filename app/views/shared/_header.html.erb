@@ -23,7 +23,7 @@
               <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}")%>
           </a>
         <% else %>
-          <%= link_to '/?locale=en', id: "logo" do %>
+          <%= link_to '/', id: "logo" do %>
             <%= image_tag("logo.webp", alt: "#{t 'header.logo_meta'}", title: "#{t 'header.logo_meta'}") %>
           <% end %>
         <% end %>
@@ -1133,14 +1133,14 @@
             <span>Kaliningrad</span>
             <a href="#">Select City</a>
             <div class="vipad">
-                <a href="/?locale=en" >Kaliningrad</a>
+                <a href="/" >Kaliningrad</a>
               <% cities_list.each do |city| %>
                 <% if city.url_name != 'ekaterinburg' && city.url_name != 'sochi' %>
-                  <a href="<%= root_url %>russia/<%= city.url_name %>?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                  <a href="<%= root_url %>russia/<%= city.url_name %>" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
                 <% elsif city.url_name == 'ekaterinburg' %>
-                  <a href="https://ekaterinburg.amigorent.ru?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                  <a href="https://ekaterinburg.amigorent.ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
                 <% elsif city.url_name == 'sochi' %>
-                  <a href="https://sochi.amigorent.ru?locale=en" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
+                  <a href="https://sochi.amigorent.ru" class="<%= request.path.include?(city.url_name) ? 'active' : '' %>"><%= city.name_en %></a>
                 <% end %>
               <% end %>
             </div>
@@ -1161,23 +1161,7 @@
             </div>
           <% end %>
         </div>
-        <div class="lang">
-          <%= link_to root_path(locale: :en) do %>
-            <% if I18n.locale == :en %>
-              <span class="active">EN</span>
-            <% else %>
-              <span class="">EN</span>
-            <% end %>
-          <% end %>
-          /
-          <%= link_to root_path do %>
-            <% if I18n.locale == :ru %>
-              <span class="active">RU</span>
-            <% else %>
-              <span class="">RU</span>
-            <% end %>
-          <% end %>
-        </div>
+
         <div class="clear"></div>
     </div>
 </div>

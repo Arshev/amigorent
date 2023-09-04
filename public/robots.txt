@@ -5,7 +5,7 @@ Disallow: /users/
 Disallow: /admin/
 Disallow: /en/reviews
 Disallow: /conditions
-Disallow: /en/conditions
+Disallow: /en/*
 Disallow: /success
 Disallow: /en/success
 Disallow: /public/system/
