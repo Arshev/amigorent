@@ -913,7 +913,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             console.log("this.days 1", this.days);
@@ -951,7 +951,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             this.additional_hours = 0;
@@ -987,7 +987,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             this.hours = 0;
@@ -1023,7 +1023,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             this.hours = 0;
@@ -1059,7 +1059,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             this.hours = 0;
@@ -1156,7 +1156,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             console.log("this.days 1", this.days);
@@ -1194,7 +1194,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1228,7 +1228,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1262,7 +1262,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1296,7 +1296,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             this.days = diff + 1;
             if (this.rentprog_price && this.rentprog_price > 0) {
@@ -1779,7 +1779,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours > this.hours_limit)
           ) {
             // if (!from_calendar) {
             this.days = diff + 1;
@@ -1793,7 +1793,7 @@ export default {
           //   this.additional_hours < this.hours_limit
           // ) {
           //   calc_hours_cost = this.additional_hours * response.data.price_hour;
-          // } else if (this.additional_hours >= this.hours_limit) {
+          // } else if (this.additional_hours > this.hours_limit) {
           //   this.days = this.days + 1;
           //   this.additional_hours = 0;
           // }
