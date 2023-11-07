@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<yml_catalog date="2023-11-07 12:10">
+  <shop>
+    <name>АмигоРент</name>
+    <company>ИП Сорокин А.В</company>
+    <url>amigorent.ru</url>
+    <email>amigorent@ya.ru</email>
+    <currencies>
+      <currency id="RUR" rate="1" />
+    </currencies>
+    <categories>
+      <category id="1">Автомобили</category>
+    </categories>
+    <!--Добавили sets по сравнению с обычным YML-->
+    <sets><!--Каждый set обязан содержать хотя бы url-->
+      <set id="s1">
+        <name>Эконом-класс</name>
+        <url>https://amigorent.ru/cars/economy</url>
+      </set>
+      <set id="s2">
+        <name>Средний класс</name>
+        <url>https://amigorent.ru/cars/middle</url>
+      </set>
+      <set id="s3">
+        <name>Минивэны</name>
+        <url>https://amigorent.ru/cars/minivans</url>
+      </set>
+      <set id="s4">
+        <name>Кабриолеты</name>
+        <url>https://amigorent.ru/cars/cabrio</url>
+      </set>
+      <set id="s5">
+        <name>Кроссоверы</name>
+        <url>https://amigorent.ru/cars/crossovers</url>
+      </set>
+      <set id="s6">
+        <name>Бизнес-класс</name>
+        <url>https://amigorent.ru/cars/business</url>
+      </set>
+      <set id="s7">
+        <name>Коммерческие авто</name>
+        <url>https://amigorent.ru/cars/commercial</url>
+      </set>
+    </sets>
+    <offers>
+      <offer id="o1103043456782543u2e9b7948"><!--А это уже конкретное предложение - экземпляр автомобиля-->
+        <name>Chevrolet Spark</name>
+        <vendor>Chevrolet</vendor>
+        <url>https://amigorent.ru/cars/4</url>
+        <price from="true">1000</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <set-ids>s1</set-ids>
+        <picture>https://amigorent.ru/yml/econom-1.jpg</picture>
+        <description>Chevrolet Spark в Калининграде</description>
+        <param name="Конверсия">5.01711</param>
+      </offer>
+      <offer id="o110304259898943u2e9b7948"><!--А это уже конкретное предложение - экземпляр автомобиля-->
+        <name>Nissan Almera</name>
+        <vendor>Nissan</vendor>
+        <url>https://amigorent.ru/cars/214</url>
+        <price from="true">1500</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <set-ids>s2</set-ids>
+        <picture>https://amigorent.ru/yml/middle-1.jpg</picture>
+        <description>Nissan Almera в Калининграде</description>
+        <param name="Конверсия">5.01711</param>
+      </offer>
+      <offer id="o110304251233543u2e9b7948"><!--А это уже конкретное предложение - экземпляр автомобиля-->
+        <name>Citroen C4 Picasso</name>
+        <vendor>Citroen</vendor>
+        <url>https://amigorent.ru/cars/130</url>
+        <price from="true">3900</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <set-ids>s3</set-ids>
+        <picture>https://amigorent.ru/yml/minivan-1.jpg</picture>
+        <description>Citroen C4 Picasso в Калининграде</description>
+        <param name="Конверсия">5.01711</param>
+      </offer>
+      <offer id="o1103042543u22323e9b7948"><!--А это уже конкретное предложение - экземпляр автомобиля-->
+        <name>MINI Cooper Cabrio</name>
+        <vendor>MINI</vendor>
+        <url>https://amigorent.ru/cars/212</url>
+        <price from="true">4000</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <set-ids>s1</set-ids>
+        <picture>https://amigorent.ru/yml/cabrio-1.jpg</picture>
+        <description>MINI Cooper Cabrio в Калининграде</description>
+        <param name="Конверсия">5.01711</param>
+      </offer>
+      <offer id="o1103042543u2e9b67677948"><!--А это уже конкретное предложение - экземпляр автомобиля-->
+        <name>Hyundai Creta</name>
+        <vendor>Hyundai</vendor>
+        <url>https://amigorent.ru/cars/21</url>
+        <price from="true">3400</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <set-ids>s5</set-ids>
+        <picture>https://amigorent.ru/yml/crossover-1.jpg</picture>
+        <description>Hyundai Creta в Калининграде</description>
+        <param name="Конверсия">5.01711</param>
+      </offer>
+      <offer id="o110304254354545u2e9b7948"><!--А это уже конкретное предложение - экземпляр автомобиля-->
+        <name>Mercedes-Benz CLA-Class</name>
+        <vendor>Mercedes-Benz</vendor>
+        <url>https://amigorent.ru/cars/219</url>
+        <price from="true">3500</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <set-ids>s6</set-ids>
+        <picture>https://amigorent.ru/yml/business-1.jpg</picture>
+        <description>Mercedes-Benz CLA-Class в Калининграде</description>
+        <param name="Конверсия">5.01711</param>
+      </offer>
+      <offer id="o1103042543u34422e9b7948"><!--А это уже конкретное предложение - экземпляр автомобиля-->
+        <name>Peugeot Partner</name>
+        <vendor>Peugeot</vendor>
+        <url>https://amigorent.ru/cars/25</url>
+        <price from="true">1500</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <set-ids>s7</set-ids>
+        <picture>https://amigorent.ru/yml/comercial-1.jpg</picture>
+        <description>Peugeot Partner в Калининграде</description>
+        <param name="Конверсия">5.01711</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>
