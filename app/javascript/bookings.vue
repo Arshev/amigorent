@@ -754,7 +754,7 @@ export default {
       days_limit_error: null,
       total: 0,
       additional_hours: 0,
-      hours_limit: 0,
+      hours_limit: 6,
       hours: 0,
       baby_chair: false,
       navigator: false,
@@ -1158,8 +1158,15 @@ export default {
             (additionalHours * this.prices[5] >= this.price ||
               additionalHours > this.hours_limit)
           ) {
+            console.log(
+              "additionalHours > this.hours_limit",
+              additionalHours,
+              this.hours_limit
+            );
+            console.log("this.hours_limit", this.hours_limit);
+            console.log("this.days 1", this.days, diff);
             this.days = diff + 1;
-            console.log("this.days 1", this.days);
+            console.log("this.days 3", this.days, diff);
             if (this.rentprog_price && this.rentprog_price > 0) {
               this.price = this.rentprog_price;
             } else {
@@ -1754,18 +1761,42 @@ export default {
           console.log(response.data);
           this.rentprog_price = response.data.selected_price;
           this.hours_limit = response.data.hours_limit;
+          console.log("this.hours_limit", this.hours_limit);
           // Расчет стоимости доп часов
           let calc_hours_cost = 0;
           let start_date = moment(this.start_date, "DD-MM-YYYY H:mm");
           let end_date = moment(this.end_date, "DD-MM-YYYY H:mm");
 
           let hours = moment.duration(end_date.diff(start_date)).asHours();
+          // проверяем на количество доп минут и если больше 30 то добавляем час
+          let minutes =
+            moment.duration(end_date.diff(start_date)).asMinutes() % 60;
+          if (minutes > 30) {
+            hours += 1;
+          }
 
-          let start_date_days = moment(this.start_date, "DD-MM-YYYY");
-          let end_date_days = moment(this.end_date, "DD-MM-YYYY");
-          let diff = moment
-            .duration(end_date_days.diff(start_date_days))
-            .asDays();
+          let start_date_days = moment.utc(
+            moment.utc(this.start_date, "DD-MM-YYYY H:mm").format("DD-MM-YYYY"),
+            "DD-MM-YYYY"
+          );
+          let end_date_days = moment.utc(
+            moment.utc(this.end_date, "DD-MM-YYYY H:mm").format("DD-MM-YYYY"),
+            "DD-MM-YYYY"
+          );
+          //let diff = moment
+          //  .duration(end_date_days.diff(start_date_days))
+          //  .asDays();
+          let diff = Math.round(
+            moment
+              .duration(
+                moment(this.end_date, "DD-MM-YYYY H:mm").diff(
+                  moment(this.start_date, "DD-MM-YYYY H:mm")
+                )
+              )
+              .asMinutes() /
+              60 /
+              24
+          );
           this.additional_hours = 0;
           let additionalHours = 0;
           if (
@@ -1776,6 +1807,7 @@ export default {
             additionalHours = hours % 24;
             this.additional_hours = Math.trunc(additionalHours);
           }
+          console.log("diff 1", diff, this.days);
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
@@ -1788,6 +1820,7 @@ export default {
           } else if (this.additional_hours > 0) {
             calc_hours_cost = this.additional_hours * response.data.price_hour;
           }
+          console.log("diff 2", diff, this.days);
           // if (
           //   this.additional_hours > 0 &&
           //   this.additional_hours < this.hours_limit
