@@ -155,7 +155,7 @@ Rails
     end
   end
 
-  get "/russia", to: "main#index"
-  get "/russia/:city_name", to: "cities#address_city"
-  get "/russia/:city_name/:town_name", to: "towns#address_town"
+  get "/russia", to: redirect('/', status: 301)
+  get "/russia/:city_name", to: redirect('/', status: 301)
+  get "/russia/:city_name/:town_name", to: redirect('/', status: 301)
 end
