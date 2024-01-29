@@ -1,24 +1,11 @@
 <template>
   <div id="bookings">
-    <loading
-      :active.sync="isLoading"
-      :is-full-page="true"
-      color="#1976d2"
-    ></loading>
+    <loading :active.sync="isLoading" :is-full-page="true" color="#1976d2"></loading>
     <div class="bookings">
-      <a class="arend" v-if="locale && locale == 'en'" @click="openDialog()"
-        >Book Now</a
-      >
+      <a class="arend" v-if="locale && locale == 'en'" @click="openDialog()">Book Now</a>
       <a class="arend" v-else @click="openDialog()">Забронировать</a>
 
-      <modal
-        name="my-first-modal"
-        :scrollable="false"
-        :adaptive="true"
-        :width="1466"
-        height="auto"
-        :reset="true"
-      >
+      <modal name="my-first-modal" :scrollable="false" :adaptive="true" :width="1466" height="auto" :reset="true">
         <div class="content" v-if="locale && locale == 'en'">
           <div class="wrapper">
             <div style="text-align: right">
@@ -32,44 +19,27 @@
                 <div class="zag">Start Date</div>
                 <div class="obo">
                   <div class="in1">
-                    <flat-pickr
-                      v-model="start_date_no_time"
-                      placeholder="Start Date"
-                      :config="configStart"
-                      @input="
-                        checkFree(start_date, end_date, days),
-                          (start_date_error = false)
-                      "
-                      class="inp1"
-                    ></flat-pickr>
+                    <flat-pickr v-model="start_date_no_time" placeholder="Start Date" :config="configStart" @input="
+                      checkFree(start_date, end_date, days),
+                      (start_date_error = false)
+                      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="start_date_error">
-                      - fill in the date and time</span
-                    >
+                      - fill in the date and time</span>
                   </div>
                   <div class="in1">
-                    <flat-pickr
-                      v-model="start_time"
-                      :config="configTime"
-                      @input="checkFree(start_date, end_date, days)"
-                      class="inp2"
-                    ></flat-pickr>
+                    <flat-pickr v-model="start_time" :config="configTime" @input="checkFree(start_date, end_date, days)"
+                      class="inp2"></flat-pickr>
                   </div>
                   <div class="in1">
                     <select v-if="locale == 'en'" v-model="location_start">
                       <option value="Офис">Office (free)</option>
-                      <option
-                        v-for="location in locations_en"
-                        :key="location.index"
-                      >
+                      <option v-for="location in locations_en" :key="location.index">
                         {{ location }}
                       </option>
                     </select>
                     <select v-else v-model="location_start">
                       <option value="Офис">Офис (бесплатно)</option>
-                      <option
-                        v-for="location in locations"
-                        :key="location.index"
-                      >
+                      <option v-for="location in locations" :key="location.index">
                         {{ location }}
                       </option>
                     </select>
@@ -79,44 +49,27 @@
                 <div class="zag">End date</div>
                 <div class="obo">
                   <div class="in1">
-                    <flat-pickr
-                      v-model="end_date_no_time"
-                      placeholder="End date"
-                      :config="configEnd"
-                      @input="
-                        checkFree(start_date, end_date, days),
-                          (end_date_error = false)
-                      "
-                      class="inp1"
-                    ></flat-pickr>
+                    <flat-pickr v-model="end_date_no_time" placeholder="End date" :config="configEnd" @input="
+                      checkFree(start_date, end_date, days),
+                      (end_date_error = false)
+                      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="end_date_error">
-                      - fill in the date and time</span
-                    >
+                      - fill in the date and time</span>
                   </div>
                   <div class="in1">
-                    <flat-pickr
-                      v-model="end_time"
-                      :config="configTime"
-                      class="inp2"
-                      @input="checkFree(start_date, end_date, days)"
-                    ></flat-pickr>
+                    <flat-pickr v-model="end_time" :config="configTime" class="inp2"
+                      @input="checkFree(start_date, end_date, days)"></flat-pickr>
                   </div>
                   <div class="in1">
                     <select v-if="locale == 'en'" v-model="location_end">
                       <option value="Офис">Office (free)</option>
-                      <option
-                        v-for="location in locations_en"
-                        :key="location.index"
-                      >
+                      <option v-for="location in locations_en" :key="location.index">
                         {{ location }}
                       </option>
                     </select>
                     <select v-else v-model="location_end">
                       <option value="Офис">Офис (бесплатно)</option>
-                      <option
-                        v-for="location in locations"
-                        :key="location.index"
-                      >
+                      <option v-for="location in locations" :key="location.index">
                         {{ location }}
                       </option>
                     </select>
@@ -126,116 +79,61 @@
                 <div class="zag">Personal data</div>
                 <div class="obo">
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.lastname.$model"
-                      type="text"
-                      @input="lastname_error = false"
-                      :placeholder="
-                        locale == 'en' ? 'Input last name' : 'Last Name'
-                      "
-                      name=""
-                      :class="{ 'error-input': lastname_error }"
-                    />
+                    <input v-model.trim.lazy="$v.lastname.$model" type="text" @input="lastname_error = false"
+                      :placeholder="locale == 'en' ? 'Input last name' : 'Last Name'
+                        " name="" :class="{ 'error-input': lastname_error }" />
                     <span style="color: tomato" v-if="!$v.lastname.minLength">
                       - should contain max
-                      {{ $v.lastname.$params.minLength.min }} letters</span
-                    >
+                      {{ $v.lastname.$params.minLength.min }} letters</span>
                     <span style="color: tomato" v-if="!$v.lastname.maxLength">
                       - should contain at least
-                      {{ $v.lastname.$params.maxLength.max }} letters</span
-                    >
+                      {{ $v.lastname.$params.maxLength.max }} letters</span>
                     <span style="color: tomato" v-if="lastname_error">
-                      - fill in the last name</span
-                    >
+                      - fill in the last name</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.name.$model"
-                      type="text"
-                      @input="name_error = false"
-                      placeholder="First Name"
-                      name=""
-                    />
+                    <input v-model.trim.lazy="$v.name.$model" type="text" @input="name_error = false"
+                      placeholder="First Name" name="" />
                     <span style="color: tomato" v-if="!$v.name.minLength">
                       - should contain max
-                      {{ $v.name.$params.minLength.min }} буквы</span
-                    >
+                      {{ $v.name.$params.minLength.min }} буквы</span>
                     <span style="color: tomato" v-if="!$v.name.maxLength">
                       - should contain at least
-                      {{ $v.name.$params.maxLength.max }} букв</span
-                    >
+                      {{ $v.name.$params.maxLength.max }} букв</span>
                     <span style="color: tomato" v-if="name_error">
-                      - fill in the name</span
-                    >
+                      - fill in the name</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.middlename.$model"
-                      type="text"
-                      placeholder="Отчество"
-                      @input="middlename_error = false"
-                    />
+                    <input v-model.trim.lazy="$v.middlename.$model" type="text" placeholder="Отчество"
+                      @input="middlename_error = false" />
                     <span style="color: tomato" v-if="!$v.middlename.minLength">
                       - should contain at least
-                      {{ $v.middlename.$params.minLength.min }} буквы</span
-                    >
+                      {{ $v.middlename.$params.minLength.min }} буквы</span>
                     <span style="color: tomato" v-if="!$v.middlename.maxLength">
                       - should contain at least
-                      {{ $v.middlename.$params.maxLength.max }} букв</span
-                    >
+                      {{ $v.middlename.$params.maxLength.max }} букв</span>
                     <span style="color: tomato" v-if="middlename_error">
-                      - fill in the middlename</span
-                    >
+                      - fill in the middlename</span>
                   </div>
                   <div class="in2">
-                    <the-mask
-                      v-if="locale == 'ru'"
-                      type="tel"
-                      v-model="phone"
-                      placeholder="Телефон(79111234567)"
-                      v-bind:class="{ 'error-input': phone_error }"
-                      :mask="['###########']"
-                      @input="phone_error = false"
-                    />
-                    <the-mask
-                      v-else
-                      type="tel"
-                      v-model="phone"
-                      placeholder="Phone"
-                      v-bind:class="{ 'error-input': phone_error }"
-                      :mask="['###########', '############']"
-                      @input="phone_error = false"
-                    />
+                    <the-mask v-if="locale == 'ru'" type="tel" v-model="phone" placeholder="Телефон(79111234567)"
+                      v-bind:class="{ 'error-input': phone_error }" :mask="['###########']"
+                      @input="phone_error = false" />
+                    <the-mask v-else type="tel" v-model="phone" placeholder="Phone"
+                      v-bind:class="{ 'error-input': phone_error }" :mask="['###########', '############']"
+                      @input="phone_error = false" />
                     <span style="color: tomato" v-if="phone_error">
-                      - wrong phone</span
-                    >
+                      - wrong phone</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.email.$model"
-                      placeholder="E-mail"
-                      @input="email_error = false"
-                    />
-                    <span
-                      style="color: tomato"
-                      v-if="!$v.email.email || email_error"
-                    >
-                      - wrong Email</span
-                    >
+                    <input v-model.trim.lazy="$v.email.$model" placeholder="E-mail" @input="email_error = false" />
+                    <span style="color: tomato" v-if="!$v.email.email || email_error">
+                      - wrong Email</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-if="!showBirthday"
-                      v-model="birthday"
-                      @click="showBirthday = true"
-                      placeholder="Birthday"
-                    />
-                    <flat-pickr
-                      v-if="showBirthday"
-                      v-model="birthday"
-                      placeholder="Birthday"
-                      :config="configBirthday"
-                    ></flat-pickr>
+                    <input v-if="!showBirthday" v-model="birthday" @click="showBirthday = true" placeholder="Birthday" />
+                    <flat-pickr v-if="showBirthday" v-model="birthday" placeholder="Birthday"
+                      :config="configBirthday"></flat-pickr>
                     <!-- <input
                       v-model="birthday"
                       type="date"
@@ -247,10 +145,7 @@
                 <div class="zag">Additional Information</div>
                 <div class="obo">
                   <div class="in24" style="padding-bottom: 10px">
-                    <input
-                      v-model="description"
-                      placeholder="Note and other wishes"
-                    />
+                    <input v-model="description" placeholder="Note and other wishes" />
                   </div>
                   The possibility of delivery outside working hours, check with
                   our managers. Delivery and acceptance of a car at the office
@@ -265,10 +160,7 @@
               </div>
               <div class="pol2">
                 <div class="zag">{{ car_name }}</div>
-                <div
-                  class="bl_img"
-                  :style="`background-image: url(${image_link})`"
-                ></div>
+                <div class="bl_img" :style="`background-image: url(${image_link})`"></div>
                 <div class="pod">Equipment:</div>
                 <label>
                   <input v-model="baby_chair" type="checkbox" name="" />
@@ -282,10 +174,7 @@
                 </label>
                 <div class="pod">Payment:</div>
                 <hr style="margin: 15px 0px" />
-                <div
-                  class="price"
-                  v-if="days != `Минимум ${booking_limit} суток`"
-                >
+                <div class="price" v-if="days != `Минимум ${booking_limit} суток`">
                   Rental cost ({{ days }} суток):
                   <span>{{ price * days }} ₽</span>
                 </div>
@@ -311,34 +200,22 @@
                 <hr style="margin: 15px 0px" />
                 <div class="price total">
                   Total:
-                  <span v-if="total > 0"
-                    >{{ total }} + {{ prices[6] }} <small>deposit</small></span
-                  >
+                  <span v-if="total > 0">{{ total }} + {{ prices[6] }} <small>deposit</small></span>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="obol2">
                 <div class="ch1">
                   <label>
-                    <input
-                      v-model="term"
-                      type="checkbox"
-                      @input="terms_error = false"
-                    />
+                    <input v-model="term" type="checkbox" @input="terms_error = false" />
 
                     I confirm that I have read
                     <a href="/terms" target="_blank">lease terms</a> and give
                     consent to the processing of personal data, according to
-                    <a
-                      href="https://base.garant.ru/12148567/"
-                      target="_blank"
-                      rel="nofollow"
-                      >152-ФЗ</a
-                    >
+                    <a href="https://base.garant.ru/12148567/" target="_blank" rel="nofollow">152-ФЗ</a>
                   </label>
                   <span style="color: tomato" v-if="terms_error">
-                    - please accept the terms</span
-                  >
+                    - please accept the terms</span>
                   <!-- <label>
                     <input type="checkbox" value="" name="" />
                     Я соглашаюсь с уловиями политики
@@ -365,38 +242,23 @@
                 <div class="zag">Начало аренды</div>
                 <div class="obo">
                   <div class="in1">
-                    <flat-pickr
-                      v-model="start_date_no_time"
-                      placeholder="Дата начала"
-                      :config="configStart"
-                      @input="
-                        checkFree(start_date, end_date, days),
-                          (start_date_error = false)
-                      "
-                      class="inp1"
-                    ></flat-pickr>
+                    <flat-pickr v-model="start_date_no_time" placeholder="Дата начала" :config="configStart" @input="
+                      checkFree(start_date, end_date, days),
+                      (start_date_error = false)
+                      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="start_date_error">
-                      - заполните дату и время</span
-                    >
+                      - заполните дату и время</span>
                   </div>
                   <div class="in1">
-                    <flat-pickr
-                      v-model="start_time"
-                      :config="configTime"
-                      @input="checkFree(start_date, end_date, days)"
-                      class="inp2"
-                    ></flat-pickr>
+                    <flat-pickr v-model="start_time" :config="configTime" @input="checkFree(start_date, end_date, days)"
+                      class="inp2"></flat-pickr>
                   </div>
                   <div class="in1">
                     <select v-if="locale == 'en'" v-model="location_start">
                       <option value="Офис" style="color: black">
                         Office (free)
                       </option>
-                      <option
-                        v-for="location in locations_en"
-                        :key="location.index"
-                        style="color: black"
-                      >
+                      <option v-for="location in locations_en" :key="location.index" style="color: black">
                         {{ location }}
                       </option>
                     </select>
@@ -404,11 +266,7 @@
                       <option value="Офис" style="color: black">
                         Офис (бесплатно)
                       </option>
-                      <option
-                        v-for="location in locations"
-                        :key="location.index"
-                        style="color: black"
-                      >
+                      <option v-for="location in locations" :key="location.index" style="color: black">
                         {{ location }}
                       </option>
                     </select>
@@ -418,44 +276,27 @@
                 <div class="zag">Окончание аренды</div>
                 <div class="obo">
                   <div class="in1">
-                    <flat-pickr
-                      v-model="end_date_no_time"
-                      placeholder="Дата возврата"
-                      :config="configEnd"
-                      @input="
-                        checkFree(start_date, end_date, days),
-                          (end_date_error = false)
-                      "
-                      class="inp1"
-                    ></flat-pickr>
+                    <flat-pickr v-model="end_date_no_time" placeholder="Дата возврата" :config="configEnd" @input="
+                      checkFree(start_date, end_date, days),
+                      (end_date_error = false)
+                      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="end_date_error">
-                      - заполните дату и время</span
-                    >
+                      - заполните дату и время</span>
                   </div>
                   <div class="in1">
-                    <flat-pickr
-                      v-model="end_time"
-                      :config="configTime"
-                      class="inp2"
-                      @input="checkFree(start_date, end_date, days)"
-                    ></flat-pickr>
+                    <flat-pickr v-model="end_time" :config="configTime" class="inp2"
+                      @input="checkFree(start_date, end_date, days)"></flat-pickr>
                   </div>
                   <div class="in1">
                     <select v-if="locale == 'en'" v-model="location_end">
                       <option value="Офис">Office (free)</option>
-                      <option
-                        v-for="location in locations_en"
-                        :key="location.index"
-                      >
+                      <option v-for="location in locations_en" :key="location.index">
                         {{ location }}
                       </option>
                     </select>
                     <select v-else v-model="location_end">
                       <option value="Офис">Офис (бесплатно)</option>
-                      <option
-                        v-for="location in locations"
-                        :key="location.index"
-                      >
+                      <option v-for="location in locations" :key="location.index">
                         {{ location }}
                       </option>
                     </select>
@@ -465,109 +306,59 @@
                 <div class="zag">Личные данные</div>
                 <div class="obo">
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.lastname.$model"
-                      type="text"
-                      @input="lastname_error = false"
-                      :placeholder="
-                        locale == 'en' ? 'Input lastname' : 'Ваша фамилия'
-                      "
-                      name=""
-                      :class="{ 'error-input': lastname_error }"
-                    />
+                    <input v-model.trim.lazy="$v.lastname.$model" type="text" @input="lastname_error = false"
+                      :placeholder="locale == 'en' ? 'Input lastname' : 'Ваша фамилия'
+                        " name="" :class="{ 'error-input': lastname_error }" />
                     <span style="color: tomato" v-if="!$v.lastname.minLength">
                       - должна содержать минимум
-                      {{ $v.lastname.$params.minLength.min }} буквы</span
-                    >
+                      {{ $v.lastname.$params.minLength.min }} буквы</span>
                     <span style="color: tomato" v-if="!$v.lastname.maxLength">
                       - должна содержать максимум
-                      {{ $v.lastname.$params.maxLength.max }} буквы</span
-                    >
+                      {{ $v.lastname.$params.maxLength.max }} буквы</span>
                     <span style="color: tomato" v-if="lastname_error">
-                      - заполните фамилию</span
-                    >
+                      - заполните фамилию</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.name.$model"
-                      type="text"
-                      @input="name_error = false"
-                      placeholder="Ваше имя"
-                      name=""
-                    />
+                    <input v-model.trim.lazy="$v.name.$model" type="text" @input="name_error = false"
+                      placeholder="Ваше имя" name="" />
                     <span style="color: tomato" v-if="!$v.name.minLength">
                       - должно содержать минимум
-                      {{ $v.name.$params.minLength.min }} буквы</span
-                    >
+                      {{ $v.name.$params.minLength.min }} буквы</span>
                     <span style="color: tomato" v-if="!$v.name.maxLength">
                       - должно содержать максимум
-                      {{ $v.name.$params.maxLength.max }} букв</span
-                    >
+                      {{ $v.name.$params.maxLength.max }} букв</span>
                     <span style="color: tomato" v-if="name_error">
-                      - заполните имя</span
-                    >
+                      - заполните имя</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.middlename.$model"
-                      type="text"
-                      placeholder="Отчество"
-                      @input="middlename_error = false"
-                    />
+                    <input v-model.trim.lazy="$v.middlename.$model" type="text" placeholder="Отчество"
+                      @input="middlename_error = false" />
                     <span style="color: tomato" v-if="!$v.middlename.minLength">
                       - должно содержать минимум
-                      {{ $v.middlename.$params.minLength.min }} буквы</span
-                    >
+                      {{ $v.middlename.$params.minLength.min }} буквы</span>
                     <span style="color: tomato" v-if="!$v.middlename.maxLength">
                       - должно содержать максимум
-                      {{ $v.middlename.$params.maxLength.max }} букв</span
-                    >
+                      {{ $v.middlename.$params.maxLength.max }} букв</span>
                     <span style="color: tomato" v-if="middlename_error">
-                      - заполните отчетсво</span
-                    >
+                      - заполните отчетсво</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-if="locale == 'ru'"
+                    <input v-if="locale == 'ru'" @maska="phone = $event.target.dataset.maskRawValue" type="tel"
+                      placeholder="Телефон(79111234567)" v-bind:class="{ 'error-input': phone_error }"
+                      v-maska="['+# (###) ##-##-###', '+# (###) ###-##-####']" @input="phone_error = false" />
+                    <input v-else type="tel" placeholder="Phone" v-bind:class="{ 'error-input': phone_error }"
                       @maska="phone = $event.target.dataset.maskRawValue"
-                      type="tel"
-                      placeholder="Телефон(79111234567)"
-                      v-bind:class="{ 'error-input': phone_error }"
-                      v-maska="['+# (###) ##-##-###', '+# (###) ###-##-####']"
-                      @input="phone_error = false"
-                    />
-                    <input
-                      v-else
-                      type="tel"
-                      placeholder="Phone"
-                      v-bind:class="{ 'error-input': phone_error }"
-                      @maska="phone = $event.target.dataset.maskRawValue"
-                      v-maska="['+# (###) #######', '+# (###) #########']"
-                      @input="phone_error = false"
-                    />
+                      v-maska="['+# (###) #######', '+# (###) #########']" @input="phone_error = false" />
                     <span style="color: tomato" v-if="phone_error">
-                      - неправильный телефон</span
-                    >
+                      - неправильный телефон</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-model.trim.lazy="$v.email.$model"
-                      placeholder="E-mail"
-                      @input="email_error = false"
-                    />
-                    <span
-                      style="color: tomato"
-                      v-if="!$v.email.email || email_error"
-                    >
-                      - неправильный Email</span
-                    >
+                    <input v-model.trim.lazy="$v.email.$model" placeholder="E-mail" @input="email_error = false" />
+                    <span style="color: tomato" v-if="!$v.email.email || email_error">
+                      - неправильный Email</span>
                   </div>
                   <div class="in2">
-                    <input
-                      v-model="birthday"
-                      v-maska="'##.##.####'"
-                      placeholder="Дата рождения"
-                    />
+                    <input v-model="birthday" v-maska="'##.##.####'" placeholder="Дата рождения" />
                     <!-- <input
                       v-if="!showBirthday"
                       v-model="birthday"
@@ -586,10 +377,7 @@
                 <div class="zag">Дополнительная информация</div>
                 <div class="obo">
                   <div class="in24" style="padding-bottom: 10px">
-                    <input
-                      v-model="description"
-                      placeholder="Примечание и другие пожелания"
-                    />
+                    <input v-model="description" placeholder="Примечание и другие пожелания" />
                   </div>
                   Возможность доставки в нерабочее время уточняйте у наших
                   менеджеров. Выдача и прием автомобиля в офисе в нерабочее
@@ -603,10 +391,7 @@
               </div>
               <div class="pol2">
                 <div class="zag">{{ car_name }}</div>
-                <div
-                  class="bl_img"
-                  :style="`background-image: url(${image_link})`"
-                ></div>
+                <div class="bl_img" :style="`background-image: url(${image_link})`"></div>
                 <div class="pod">Оборудование:</div>
                 <label>
                   <input v-model="baby_chair" type="checkbox" name="" />
@@ -648,9 +433,7 @@
                 <hr style="margin: 15px 0px" />
                 <div class="price total">
                   Итого:
-                  <span v-if="total > 0"
-                    >{{ total }} + {{ prices[6] }} <small>залог</small></span
-                  >
+                  <span v-if="total > 0">{{ total }} + {{ prices[6] }} <small>залог</small></span>
                 </div>
               </div>
               <div class="clear"></div>
@@ -667,12 +450,7 @@
                     Нажимая кнопку "Отправить" я подтверждаю, что ознакомился с
                     <a href="/terms" target="_blank">условиями аренды</a> и даю
                     согласие на обработку персональных данных, согласно
-                    <a
-                      href="https://base.garant.ru/12148567/"
-                      target="_blank"
-                      rel="nofollow"
-                      >152-ФЗ</a
-                    >
+                    <a href="https://base.garant.ru/12148567/" target="_blank" rel="nofollow">152-ФЗ</a>
                   </label>
                   <!-- <span style="color: tomato" v-if="terms_error">
                     - пожалуйста примите условия</span
@@ -1501,9 +1279,9 @@ export default {
           break;
         case "Аэропорт" || "Airport":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 500;
+            this.location_end_price = 800;
           } else {
-            this.location_end_price = 1000;
+            this.location_end_price = 1500;
           }
           if (
             this.additional_hours > 0 &&
@@ -1527,9 +1305,9 @@ export default {
           break;
         case "Зеленоградск" || "Zelenogradsk":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 1000;
+            this.location_end_price = 1200;
           } else {
-            this.location_end_price = 1500;
+            this.location_end_price = 1700;
           }
           if (
             this.additional_hours > 0 &&
@@ -1579,9 +1357,9 @@ export default {
           break;
         case "Калининград" || "Another address in Kaliningrad":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 300;
+            this.location_end_price = 400;
           } else {
-            this.location_end_price = 500;
+            this.location_end_price = 800;
           }
           if (
             this.additional_hours > 0 &&
@@ -1794,8 +1572,8 @@ export default {
                 )
               )
               .asMinutes() /
-              60 /
-              24
+            60 /
+            24
           );
           this.additional_hours = 0;
           let additionalHours = 0;
@@ -1941,14 +1719,13 @@ export default {
                     middlename: self.middlename,
                     fio:
                       self.name &&
-                      self.name.length > 0 &&
-                      self.middlename &&
-                      self.middlename.length > 0 &&
-                      self.lastname &&
-                      self.lastname.length > 0
-                        ? `${self.name[0].toUpperCase()}. ${self.middlename[0].toUpperCase()} ${
-                            self.lastname
-                          }`
+                        self.name.length > 0 &&
+                        self.middlename &&
+                        self.middlename.length > 0 &&
+                        self.lastname &&
+                        self.lastname.length > 0
+                        ? `${self.name[0].toUpperCase()}. ${self.middlename[0].toUpperCase()} ${self.lastname
+                        }`
                         : null,
                     phone: self.phone,
                     email: self.email,
@@ -2124,11 +1901,13 @@ export default {
 .bookings .content {
   padding: 20px 0px;
 }
+
 .modal-close-button {
   display: inline-block;
   padding: 5px;
   background-color: #ef7f1a;
 }
+
 .error-input {
   background-color: #fce4e4;
   border: 1px solid #cc0033;
