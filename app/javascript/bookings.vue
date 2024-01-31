@@ -381,10 +381,10 @@
                   </div>
                   Возможность доставки в нерабочее время уточняйте у наших
                   менеджеров. Выдача и прием автомобиля в офисе в нерабочее
-                  время с 19-00 до 9-00 составляет 500 руб. Выдача и прием
+                  время с 19-00 до 9-00 составляет 600 руб. Выдача и прием
                   автомобиля по городу в нерабочее время с 19-00 до 9-00
-                  составляет 600 руб. Выдача и прием автомобиля в аэропорту в
-                  нерабочее время с 19-00 до 9-00 составляет 1000 руб.
+                  составляет 800 руб. Выдача и прием автомобиля в аэропорту в
+                  нерабочее время с 19-00 до 9-00 составляет 1500 руб.
 
                   <div class="clear"></div>
                 </div>
@@ -1145,9 +1145,9 @@ export default {
           break;
         case "Аэропорт" || "Airport":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 500;
+            this.location_start_price = 800;
           } else {
-            this.location_start_price = 1000;
+            this.location_start_price = 1500;
           }
           if (
             this.additional_hours > 0 &&
@@ -1171,9 +1171,9 @@ export default {
           break;
         case "Зеленоградск" || "Zelenogradsk":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 1000;
+            this.location_start_price = 1200;
           } else {
-            this.location_start_price = 1500;
+            this.location_start_price = 1700;
           }
           if (
             this.additional_hours > 0 &&
@@ -1223,9 +1223,9 @@ export default {
           break;
         case "Калининград" || "Another address in Kaliningrad":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 300;
+            this.location_start_price = 400;
           } else {
-            this.location_start_price = 500;
+            this.location_start_price = 800;
           }
           if (
             this.additional_hours > 0 &&
