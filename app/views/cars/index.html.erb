@@ -20,7 +20,8 @@
 </div>
 <div class="block2 var2">
     <div class="wrapper" id="search_cars">
-        <div class="zagol"><h1>Автомобили</h1></div>
+        <div class="zagol"><%= @text.top_cars_title.html_safe %></div>
+        <p><%= @text.top_cars.html_safe %></p>
         <search_cars city="<%= params[:city] ? params[:city] : 'Калининград' %>" locale="<%= I18n.locale ? I18n.locale : 'ru' %>"></search_cars>
         <div class="clear"></div>
     </div>
@@ -37,8 +38,7 @@
                 </div>
             <% else %>
                 <div class="text1">
-                    <div class="zagol"><%= @text.top_cars_title.html_safe %></div>
-                    <p><%= @text.top_cars.html_safe %></p>
+                    <div class="zagol"><h1>Автомобили</h1></div>
                 </div>
             <% end %>
             <div class="filter">
