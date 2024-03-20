@@ -20,9 +20,9 @@
                 <div class="obo">
                   <div class="in1">
                     <flat-pickr v-model="start_date_no_time" placeholder="Start Date" :config="configStart" @input="
-                      checkFree(start_date, end_date, days),
-                      (start_date_error = false)
-                      " class="inp1"></flat-pickr>
+      checkFree(start_date, end_date, days),
+      (start_date_error = false)
+      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="start_date_error">
                       - fill in the date and time</span>
                   </div>
@@ -50,9 +50,9 @@
                 <div class="obo">
                   <div class="in1">
                     <flat-pickr v-model="end_date_no_time" placeholder="End date" :config="configEnd" @input="
-                      checkFree(start_date, end_date, days),
-                      (end_date_error = false)
-                      " class="inp1"></flat-pickr>
+      checkFree(start_date, end_date, days),
+      (end_date_error = false)
+      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="end_date_error">
                       - fill in the date and time</span>
                   </div>
@@ -81,7 +81,7 @@
                   <div class="in2">
                     <input v-model.trim.lazy="$v.lastname.$model" type="text" @input="lastname_error = false"
                       :placeholder="locale == 'en' ? 'Input last name' : 'Last Name'
-                        " name="" :class="{ 'error-input': lastname_error }" />
+      " name="" :class="{ 'error-input': lastname_error }" />
                     <span style="color: tomato" v-if="!$v.lastname.minLength">
                       - should contain max
                       {{ $v.lastname.$params.minLength.min }} letters</span>
@@ -131,7 +131,8 @@
                       - wrong Email</span>
                   </div>
                   <div class="in2">
-                    <input v-if="!showBirthday" v-model="birthday" @click="showBirthday = true" placeholder="Birthday" />
+                    <input v-if="!showBirthday" v-model="birthday" @click="showBirthday = true"
+                      placeholder="Birthday" />
                     <flat-pickr v-if="showBirthday" v-model="birthday" placeholder="Birthday"
                       :config="configBirthday"></flat-pickr>
                     <!-- <input
@@ -243,9 +244,9 @@
                 <div class="obo">
                   <div class="in1">
                     <flat-pickr v-model="start_date_no_time" placeholder="Дата начала" :config="configStart" @input="
-                      checkFree(start_date, end_date, days),
-                      (start_date_error = false)
-                      " class="inp1"></flat-pickr>
+      checkFree(start_date, end_date, days),
+      (start_date_error = false)
+      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="start_date_error">
                       - заполните дату и время</span>
                   </div>
@@ -277,9 +278,9 @@
                 <div class="obo">
                   <div class="in1">
                     <flat-pickr v-model="end_date_no_time" placeholder="Дата возврата" :config="configEnd" @input="
-                      checkFree(start_date, end_date, days),
-                      (end_date_error = false)
-                      " class="inp1"></flat-pickr>
+      checkFree(start_date, end_date, days),
+      (end_date_error = false)
+      " class="inp1"></flat-pickr>
                     <span style="color: tomato" v-if="end_date_error">
                       - заполните дату и время</span>
                   </div>
@@ -308,7 +309,7 @@
                   <div class="in2">
                     <input v-model.trim.lazy="$v.lastname.$model" type="text" @input="lastname_error = false"
                       :placeholder="locale == 'en' ? 'Input lastname' : 'Ваша фамилия'
-                        " name="" :class="{ 'error-input': lastname_error }" />
+      " name="" :class="{ 'error-input': lastname_error }" />
                     <span style="color: tomato" v-if="!$v.lastname.minLength">
                       - должна содержать минимум
                       {{ $v.lastname.$params.minLength.min }} буквы</span>
@@ -412,8 +413,8 @@
                 <div class="price" v-if="days_limit_error">
                   Лимит:
                   <span>{{
-                    `Минимум ${free ? booking_limit : "2-e"} суток`
-                  }}</span>
+      `Минимум ${free ? booking_limit : "2-e"} суток`
+    }}</span>
                 </div>
                 <div class="price" v-if="hours > 0">
                   Доп время ({{ additional_hours }} ч):
@@ -1589,7 +1590,7 @@ export default {
           if (
             additionalHours > 0 &&
             (additionalHours * this.prices[5] >= this.price ||
-              additionalHours >= this.hours_limit)
+              additionalHours >= this.hours_limit) && additionalHours <= 11
           ) {
             // if (!from_calendar) {
             this.days = diff + 1;
@@ -1597,6 +1598,10 @@ export default {
             this.additional_hours = 0;
           } else if (this.additional_hours > 0) {
             calc_hours_cost = this.additional_hours * response.data.price_hour;
+          }
+          // Если больше 11 часов, то сбрасываем доп часы, а день добавляем ранее
+          if (additionalHours > 11) {
+            this.additional_hours = 0;
           }
           console.log("diff 2", diff, this.days);
           // if (
