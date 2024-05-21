@@ -1602,6 +1602,7 @@ export default {
           // Если больше 11 часов, то сбрасываем доп часы, а день добавляем ранее
           if (additionalHours > 11) {
             this.additional_hours = 0;
+            calc_hours_cost = 0;
           }
           console.log("diff 2", diff, this.days);
           // if (
