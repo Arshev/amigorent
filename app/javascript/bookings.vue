@@ -1146,9 +1146,9 @@ export default {
           break;
         case "Аэропорт" || "Airport":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 800;
+            this.location_start_price = 1200;
           } else {
-            this.location_start_price = 1500;
+            this.location_start_price = 1800;
           }
           if (
             this.additional_hours > 0 &&
@@ -1171,32 +1171,6 @@ export default {
           }
           break;
         case "Зеленоградск" || "Zelenogradsk":
-          if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 1200;
-          } else {
-            this.location_start_price = 1700;
-          }
-          if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
-          ) {
-            this.total =
-              this.days * this.price +
-              this.baby_chair_price +
-              this.navigator_price +
-              this.location_start_price +
-              this.location_end_price;
-          } else {
-            this.total =
-              this.days * this.price +
-              this.additional_hours * this.prices[5] +
-              this.baby_chair_price +
-              this.navigator_price +
-              this.location_start_price +
-              this.location_end_price;
-          }
-          break;
-        case "Светлогорск" || "Svetlogorsk":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
             this.location_start_price = 1500;
           } else {
@@ -1222,9 +1196,35 @@ export default {
               this.location_end_price;
           }
           break;
+        case "Светлогорск" || "Svetlogorsk":
+          if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.location_start_price = 2000;
+          } else {
+            this.location_start_price = 2500;
+          }
+          if (
+            this.additional_hours > 0 &&
+            this.additional_hours * this.prices[5] >= this.price
+          ) {
+            this.total =
+              this.days * this.price +
+              this.baby_chair_price +
+              this.navigator_price +
+              this.location_start_price +
+              this.location_end_price;
+          } else {
+            this.total =
+              this.days * this.price +
+              this.additional_hours * this.prices[5] +
+              this.baby_chair_price +
+              this.navigator_price +
+              this.location_start_price +
+              this.location_end_price;
+          }
+          break;
         case "Калининград" || "Another address in Kaliningrad":
           if (moment(this.start_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_start_price = 400;
+            this.location_start_price = 600;
           } else {
             this.location_start_price = 800;
           }
@@ -1280,9 +1280,9 @@ export default {
           break;
         case "Аэропорт" || "Airport":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 800;
+            this.location_end_price = 1200;
           } else {
-            this.location_end_price = 1500;
+            this.location_end_price = 1800;
           }
           if (
             this.additional_hours > 0 &&
@@ -1305,32 +1305,6 @@ export default {
           }
           break;
         case "Зеленоградск" || "Zelenogradsk":
-          if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 1200;
-          } else {
-            this.location_end_price = 1700;
-          }
-          if (
-            this.additional_hours > 0 &&
-            this.additional_hours * this.prices[5] >= this.price
-          ) {
-            this.total =
-              this.days * this.price +
-              this.baby_chair_price +
-              this.navigator_price +
-              this.location_start_price +
-              this.location_end_price;
-          } else {
-            this.total =
-              this.days * this.price +
-              this.additional_hours * this.prices[5] +
-              this.baby_chair_price +
-              this.navigator_price +
-              this.location_start_price +
-              this.location_end_price;
-          }
-          break;
-        case "Светлогорск" || "Svetlogorsk":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
             this.location_end_price = 1500;
           } else {
@@ -1356,9 +1330,35 @@ export default {
               this.location_end_price;
           }
           break;
+        case "Светлогорск" || "Svetlogorsk":
+          if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
+            this.location_end_price = 2000;
+          } else {
+            this.location_end_price = 2500;
+          }
+          if (
+            this.additional_hours > 0 &&
+            this.additional_hours * this.prices[5] >= this.price
+          ) {
+            this.total =
+              this.days * this.price +
+              this.baby_chair_price +
+              this.navigator_price +
+              this.location_start_price +
+              this.location_end_price;
+          } else {
+            this.total =
+              this.days * this.price +
+              this.additional_hours * this.prices[5] +
+              this.baby_chair_price +
+              this.navigator_price +
+              this.location_start_price +
+              this.location_end_price;
+          }
+          break;
         case "Калининград" || "Another address in Kaliningrad":
           if (moment(this.end_date, "DD-MM-YYYY H:mm").isWorkingTime()) {
-            this.location_end_price = 400;
+            this.location_end_price = 600;
           } else {
             this.location_end_price = 800;
           }
