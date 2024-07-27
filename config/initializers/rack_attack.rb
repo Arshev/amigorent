@@ -32,14 +32,18 @@ class Rack::Attack
   # (blocklist & throttles are skipped)
   safelist("allow from rentprog") do |req|
     # Requests are allowed if the return value is truthy
-    "95.213.199.52" == req.ip || "188.251.70.120" == req.ip
+    "95.213.199.52" == req.ip
   end
 
   # Throttle all requests by IP (60rpm)
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
-  throttle("req/ip", limit: 30, period: 1.minutes) do |req|
-    Rails.logger.error("Rack::Attack 1 Too many requests from IP: #{req.ip}")
+  # throttle("req/ip", limit: 30, period: 1.minutes) do |req|
+  #   Rails.logger.error("Rack::Attack 1 Too many requests from IP: #{req.ip}")
+  #   req.ip # unless req.path.start_with?('/assets')
+  # end
+  throttle("req/ip", limit: 10, period: 15.seconds) do |req|
+    Rails.logger.error("Rack::Attack 1 limit: 10, period: 15.seconds Too many requests from IP: #{req.ip}")
     req.ip # unless req.path.start_with?('/assets')
   end
 
@@ -64,16 +68,17 @@ class Rack::Attack
 
   # Lockout IP addresses that are hammering your login page.
   # After 20 requests in 1 minute, block all requests from that IP for 1 hour.
-  blocklist("Fail2Ban login scrapers") do |req|
-    # `filter` returns false value if request is to your login page (but still
-    # increments the count) so request below the limit are not blocked until
-    # they hit the limit.  At that point, filter will return true and block.
-    Rack::Attack::Fail2Ban.filter("ddos-#{req.ip}", maxretry: 3, findtime: 10.seconds, bantime: 30.minutes) do
-      Rails.logger.error("Rack::Attack 3 Too many GETS from IP: #{req.ip} #{req.user_agent}")
-      # The count for the IP is incremented if the return value is truthy.
-      req.path == "/" and req.get?
-    end
-  end
+  # blocklist("Fail2Ban login scrapers") do |req|
+  #    # так нельзя банить, так как это приведет к бану всех пользователей, только с ограничением на конкретный адрес
+  #   # `filter` returns false value if request is to your login page (but still
+  #   # increments the count) so request below the limit are not blocked until
+  #   # they hit the limit.  At that point, filter will return true and block.
+  #   Rack::Attack::Fail2Ban.filter("ddos-#{req.ip}", maxretry: 3, findtime: 10.seconds, bantime: 30.minutes) do
+  #     Rails.logger.error("Rack::Attack 3 Too many GETS from IP: #{req.ip} #{req.user_agent}")
+  #     # The count for the IP is incremented if the return value is truthy.
+  #     req.path == "/" and req.get?
+  #   end
+  # end
 
   # blocklist('block all from mozilla firefox Gecko/20100101') do |req|
   #   # block all requests from mozila firefox
