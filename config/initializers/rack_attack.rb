@@ -35,6 +35,16 @@ class Rack::Attack
     "95.213.199.52" == req.ip
   end
 
+  blocklist('block all from mozilla firefox Gecko/20100101') do |req|
+    # block all requests from mozila firefox
+    Rack::Attack::Fail2Ban.filter("ddos-#{req.ip}", maxretry: 2, findtime: 1.seconds, bantime: 60.minutes) do
+      Rails.logger.error("Rack::Attack::Fail2Ban block all from mozilla firefox Gecko/20100101: #{req.ip} #{req.user_agent}")
+      # The count for the IP is incremented if the return value is truthy.
+      req.path == "/" and req.get? && req.user_agent.include?('Gecko/20100101')
+    end
+
+  end
+
   # Throttle all requests by IP (60rpm)
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
@@ -68,7 +78,7 @@ class Rack::Attack
     # `filter` returns false value if request is to your login page (but still
     # increments the count) so request below the limit are not blocked until
     # they hit the limit.  At that point, filter will return true and block.
-    Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 10, findtime: 1.minute, bantime: 1.hour) do
+    Rack::Attack::Fail2Ban.filter(req.ip, maxretry: 15, findtime: 1.minute, bantime: 1.hour) do
       Rails.logger.error("Rack::Attack 3 Too many GETS from IP: #{req.ip}")
       # The count for the IP is incremented if the return value is truthy.
       req.path == "/" and req.get?
