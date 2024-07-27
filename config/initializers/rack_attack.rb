@@ -68,8 +68,8 @@ class Rack::Attack
     # `filter` returns false value if request is to your login page (but still
     # increments the count) so request below the limit are not blocked until
     # they hit the limit.  At that point, filter will return true and block.
-    Rack::Attack::Fail2Ban.filter("ddos-#{req.ip}", maxretry: 15, findtime: 1.minute, bantime: 10.minutes) do
-      Rails.logger.error("Rack::Attack 3 Too many GETS from IP: #{req.ip}")
+    Rack::Attack::Fail2Ban.filter("ddos-#{req.ip}", maxretry: 3, findtime: 10.seconds, bantime: 30.minutes) do
+      Rails.logger.error("Rack::Attack 3 Too many GETS from IP: #{req.ip} #{req.user_agent}")
       # The count for the IP is incremented if the return value is truthy.
       req.path == "/" and req.get?
     end
