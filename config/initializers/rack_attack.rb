@@ -32,7 +32,7 @@ class Rack::Attack
   # (blocklist & throttles are skipped)
   safelist("allow from rentprog") do |req|
     # Requests are allowed if the return value is truthy
-    "95.213.199.52" == req.ip
+    "95.213.199.52" == req.ip || "188.251.70.120" == req.ip
   end
 
   # Throttle all requests by IP (60rpm)
