@@ -42,7 +42,7 @@ class Rack::Attack
   #   Rails.logger.error("Rack::Attack 1 Too many requests from IP: #{req.ip}")
   #   req.ip # unless req.path.start_with?('/assets')
   # end
-  throttle("req/ip", limit: 10, period: 15.seconds) do |req|
+  throttle("req/ip", limit: 15, period: 15.seconds) do |req|
     Rails.logger.error("Rack::Attack 1 limit: 10, period: 15.seconds Too many requests from IP: #{req.ip}")
     req.ip # unless req.path.start_with?('/assets')
   end
@@ -80,20 +80,19 @@ class Rack::Attack
   #   end
   # end
 
-  # blocklist('block all from mozilla firefox Gecko/20100101') do |req|
-  #   # block all requests from mozila firefox
-  #   Rack::Attack::Fail2Ban.filter("ddos-#{req.ip}", maxretry: 2, findtime: 1.seconds, bantime: 60.minutes) do
-  #     Rails.logger.error("Rack::Attack::Fail2Ban block all from mozilla firefox Gecko/20100101: #{req.ip} #{req.user_agent}")
-  #     # The count for the IP is incremented if the return value is truthy.
-  #     req.path == "/" and req.user_agent.include?('Firefox')
-  #   end
-
-  # end
+  blocklist('block all post if more 5 in minute') do |req|
+    # block all requests from mozila firefox
+    Rack::Attack::Fail2Ban.filter("ddos-#{req.ip}", maxretry: 15, findtime: 1.minutes, bantime: 15.minutes) do
+      Rails.logger.error("Rack::Attack::Fail2Ban block all post if more 5 in minute: #{req.ip} #{req.user_agent}")
+      # The count for the IP is incremented if the return value is truthy.
+      req.path == "/" and req.post?
+    end
+  end
 
   # Throttle any POST requests by IP address
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:pink/posts/ip:#{req.ip}"
-  throttle("pink/posts/ip", limit: 5, period: 5.seconds) do |req|
+  throttle("pink/posts/ip", limit: 10, period: 5.seconds) do |req|
     if req.post?
       Rails.logger.error("Rack::Attack 4 Too many POSTS from IP: #{req.ip}")
       req.ip
@@ -105,7 +104,7 @@ class Rack::Attack
   blocklist("fail2ban pentesters") do |req|
     # `filter` returns truthy value if request fails, or if it's from a previously banned IP
     # so the request is blocked
-    Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 10, findtime: 10.minutes, bantime: 30.minutes) do
+    Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 30, findtime: 10.minutes, bantime: 30.minutes) do
       Rails.logger.error("Rack::Attack 5 Too many POSTS from IP: #{req.ip}")
       # The count for the IP is incremented if the return value is truthy
       CGI.unescape(req.query_string) =~ %r{/etc/passwd} ||
