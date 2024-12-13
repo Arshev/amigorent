@@ -5,7 +5,7 @@
   },
   "private": true,
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@popperjs/core": "^2.10.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.1.4-1",
